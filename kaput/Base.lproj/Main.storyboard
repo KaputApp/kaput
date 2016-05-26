@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,32 +17,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-Pn-lzf">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-Pn-lzf">
                                 <rect key="frame" x="330" y="326" width="70" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="SJp-za-faF"/>
                                 </constraints>
                                 <state key="normal" title="SIGN UP"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-8o-mMF">
-                                <rect key="frame" x="129" y="326" width="49" height="30"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YwE-EG-FJ8">
+                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-8o-mMF">
+                                <rect key="frame" x="150" y="209" width="49" height="30"/>
                                 <state key="normal" title="LOG IN"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UBC-8o-mMF" secondAttribute="bottom" constant="244" id="D9V-aj-U6u"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YwE-EG-FJ8" secondAttribute="bottom" id="PPn-SS-s0l"/>
                             <constraint firstItem="ZZf-Pn-lzf" firstAttribute="leading" secondItem="UBC-8o-mMF" secondAttribute="trailing" constant="152" id="PiH-Ee-4FQ"/>
                             <constraint firstAttribute="trailing" secondItem="ZZf-Pn-lzf" secondAttribute="trailing" constant="200" id="XWN-rG-3fv"/>
                             <constraint firstItem="UBC-8o-mMF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="129" id="diD-xE-d6o"/>
+                            <constraint firstItem="UBC-8o-mMF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oI2-KG-zqA"/>
                             <constraint firstItem="ZZf-Pn-lzf" firstAttribute="baseline" secondItem="UBC-8o-mMF" secondAttribute="baseline" id="oqs-MI-uKH"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZZf-Pn-lzf" secondAttribute="bottom" constant="244" id="rBB-pK-qI2"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="325"/>
+            <point key="canvasLocation" x="245" y="287"/>
         </scene>
     </scenes>
 </document>
