@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:WelcomScreen.xib">
+   </FileRef>
+   <FileRef
       location = "group:kaput.xcodeproj">
    </FileRef>
    <FileRef
