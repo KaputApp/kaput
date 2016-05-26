@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         
         //Shows the level battery on the welcom screen
         UIDevice.currentDevice().batteryMonitoringEnabled = true
-        var batteryLevel = Int((abs(UIDevice.currentDevice().batteryLevel) * 100))
+        let batteryLevel = Int((abs(UIDevice.currentDevice().batteryLevel) * 100))
         labelBattery.text = String(batteryLevel) + "%"
         
 
