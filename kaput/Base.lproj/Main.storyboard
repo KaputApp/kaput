@@ -24,19 +24,23 @@
                                     <segue destination="5KF-Fe-tG4" kind="show" id="wur-as-ehA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGp-1d-HjY">
-                                <rect key="frame" x="297" y="233" width="24" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGp-1d-HjY">
+                                <rect key="frame" x="198" y="177" width="123" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="Yc1-We-GP5"/>
+                                    <constraint firstAttribute="width" constant="123" id="kM0-ki-vJB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phrase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-zd-6Pe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Phrase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-zd-6Pe">
                                 <rect key="frame" x="266" y="262" width="101" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-p9-4WT">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-p9-4WT">
                                 <rect key="frame" x="160" y="12" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.86274509799999999" green="0.0" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -53,7 +57,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BGp-1d-HjY" firstAttribute="top" secondItem="BYS-p9-4WT" secondAttribute="bottom" constant="37" id="23z-QQ-Pqs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UBC-8o-mMF" secondAttribute="bottom" constant="244" id="D9V-aj-U6u"/>
+                            <constraint firstItem="CNe-zd-6Pe" firstAttribute="top" secondItem="BGp-1d-HjY" secondAttribute="bottom" constant="8" symbolic="YES" id="Fh2-d0-dlw"/>
+                            <constraint firstItem="BGp-1d-HjY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="198" id="MJ8-GB-lW2"/>
+                            <constraint firstItem="BGp-1d-HjY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="177" id="OBs-Di-jWN"/>
                             <constraint firstItem="ZZf-Pn-lzf" firstAttribute="leading" secondItem="UBC-8o-mMF" secondAttribute="trailing" constant="152" id="PiH-Ee-4FQ"/>
                             <constraint firstAttribute="trailing" secondItem="ZZf-Pn-lzf" secondAttribute="trailing" constant="200" id="XWN-rG-3fv"/>
                             <constraint firstItem="UBC-8o-mMF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="129" id="diD-xE-d6o"/>
@@ -61,6 +69,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZZf-Pn-lzf" secondAttribute="bottom" constant="244" id="rBB-pK-qI2"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelBattery" destination="BGp-1d-HjY" id="hFI-01-dCX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

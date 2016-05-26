@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
 
+
+    @IBOutlet weak var labelBattery: UILabel!
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        //Shows the level battery on the welcom screen
+        UIDevice.currentDevice().batteryMonitoringEnabled = true
+        var batteryLevel = Int((abs(UIDevice.currentDevice().batteryLevel) * 100))
+        labelBattery.text = String(batteryLevel) + "%"
+        
+
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
