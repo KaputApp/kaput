@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     
 //declarations of outlets
     
+@IBOutlet var buttonLogIn: UIButton!
+@IBOutlet var buttonSignUp: UIButton!
 @IBOutlet var chargingBarView: UIView!
 @IBOutlet var chargingBarHeight: NSLayoutConstraint!
 @IBOutlet weak var labelBattery: UILabel!
@@ -31,6 +33,8 @@ class ViewController: UIViewController {
         let batteryLevel = abs(UIDevice.currentDevice().batteryLevel);
         
         labelBattery.text = String(Int(batteryLevel*100)) + "%"
+        
+        
         
         
         
@@ -51,6 +55,23 @@ class ViewController: UIViewController {
             chargingBarView.backgroundColor = KaputStyle.fullGreen
         }
        
+        
+        buttonLogIn.layer.borderWidth = 5;
+        buttonLogIn.layer.borderColor = UIColor.whiteColor().CGColor;
+        buttonLogIn.layer.shadowColor = KaputStyle.shadowColor.CGColor;
+        buttonLogIn.layer.shadowOffset = CGSizeMake(10, 10);
+        buttonLogIn.layer.shadowRadius = 0
+        buttonLogIn.layer.shadowOpacity = 1;
+        
+        buttonSignUp.layer.borderWidth = 5;
+        buttonSignUp.layer.borderColor = UIColor.whiteColor().CGColor;
+        buttonSignUp.layer.shadowColor = KaputStyle.shadowColor.CGColor;
+        buttonSignUp.layer.shadowOffset = CGSizeMake(10, 10);
+        buttonSignUp.layer.shadowRadius = 0
+        buttonSignUp.layer.shadowOpacity = 1;
+        buttonSignUp.backgroundColor = KaputStyle.chargingBlue;
+
+
         
 
         // Do any additional setup after loading the view, typically from a nib.
