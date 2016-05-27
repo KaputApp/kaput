@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         UIDevice.currentDevice().batteryMonitoringEnabled = true
         let batteryLevel = abs(UIDevice.currentDevice().batteryLevel);
         
-        labelBattery.text = String(batteryLevel*100) + "%"
+        labelBattery.text = String(Int(batteryLevel*100)) + "%"
         
         
         
