@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
 //declarations of outlets
     
+@IBOutlet var buttonFacebook: UIButton!
 @IBOutlet var buttonLogIn: UIButton!
 @IBOutlet var buttonSignUp: UIButton!
 @IBOutlet var chargingBarView: UIView!
@@ -47,7 +48,6 @@ class ViewController: UIViewController {
 
         // setting the color of the bar
         
-        // @illan : a refactorer : creer un fichier ou les methodes globales sont affichées )        
         if batteryLevel < 0.80 {
             chargingBarView.backgroundColor = KaputStyle.lowRed
         }

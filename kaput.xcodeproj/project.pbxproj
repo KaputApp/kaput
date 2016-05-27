@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F72D5431CF8A7C400EA43AF /* KaputStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D5421CF8A7C400EA43AF /* KaputStyleFactory.swift */; };
 		3F7A12251CF888AD00AAD538 /* Futura_condensed_bold_oblique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */; };
 		3F7A12271CF88CB800AAD538 /* logoKaput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A12261CF88CB800AAD538 /* logoKaput.swift */; };
 		3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1633A1CF8515200862C77 /* KaputStyle.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		1EB6E4B62519942A659B756B /* Pods-kaput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig"; sourceTree = "<group>"; };
+		3F72D5421CF8A7C400EA43AF /* KaputStyleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaputStyleFactory.swift; sourceTree = "<group>"; };
 		3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Futura_condensed_bold_oblique.ttf; sourceTree = "<group>"; };
 		3F7A12261CF88CB800AAD538 /* logoKaput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logoKaput.swift; sourceTree = "<group>"; };
 		3FD1633A1CF8515200862C77 /* KaputStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaputStyle.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				89139D981CF762D000DF4941 /* Assets.xcassets */,
 				89139D9A1CF762D000DF4941 /* LaunchScreen.storyboard */,
 				89139D9D1CF762D000DF4941 /* Info.plist */,
+				3F72D5421CF8A7C400EA43AF /* KaputStyleFactory.swift */,
 				3FD1633A1CF8515200862C77 /* KaputStyle.swift */,
 				3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */,
 			);
@@ -245,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F72D5431CF8A7C400EA43AF /* KaputStyleFactory.swift in Sources */,
 				3F7A12271CF88CB800AAD538 /* logoKaput.swift in Sources */,
 				89139D941CF762D000DF4941 /* ViewController.swift in Sources */,
 				3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */,
