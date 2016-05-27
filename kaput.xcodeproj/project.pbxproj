@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1633A1CF8515200862C77 /* KaputStyle.swift */; };
 		69F8C8E621578B7FCA0CAC4E /* libPods-kaput.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0D374E01A48B253D3E9FEA /* libPods-kaput.a */; };
 		89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D911CF762D000DF4941 /* AppDelegate.swift */; };
 		89139D941CF762D000DF4941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D931CF762D000DF4941 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		1EB6E4B62519942A659B756B /* Pods-kaput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig"; sourceTree = "<group>"; };
+		3FD1633A1CF8515200862C77 /* KaputStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaputStyle.swift; sourceTree = "<group>"; };
 		5100D028905F27236E71C3CF /* Pods-kaput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig"; sourceTree = "<group>"; };
 		89139D8E1CF762D000DF4941 /* kaput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaput.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89139D911CF762D000DF4941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3FD1633C1CF852F600862C77 /* Drawings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Drawings;
+			sourceTree = "<group>";
+		};
 		89139D851CF762CF00DF4941 = {
 			isa = PBXGroup;
 			children = (
@@ -84,12 +93,14 @@
 			isa = PBXGroup;
 			children = (
 				89139DB11CF7860900DF4941 /* StoryBoard */,
+				3FD1633C1CF852F600862C77 /* Drawings */,
 				89139DA51CF7633800DF4941 /* GoogleService-Info.plist */,
 				89139D911CF762D000DF4941 /* AppDelegate.swift */,
 				89139D931CF762D000DF4941 /* ViewController.swift */,
 				89139D981CF762D000DF4941 /* Assets.xcassets */,
 				89139D9A1CF762D000DF4941 /* LaunchScreen.storyboard */,
 				89139D9D1CF762D000DF4941 /* Info.plist */,
+				3FD1633A1CF8515200862C77 /* KaputStyle.swift */,
 			);
 			path = kaput;
 			sourceTree = "<group>";
@@ -137,6 +148,7 @@
 				TargetAttributes = {
 					89139D8D1CF762D000DF4941 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 6TSFD975LR;
 					};
 				};
 			};
@@ -227,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89139D941CF762D000DF4941 /* ViewController.swift in Sources */,
+				3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */,
 				89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,10 +354,13 @@
 			baseConfigurationReference = 1EB6E4B62519942A659B756B /* Pods-kaput.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = kaput/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaput.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -353,10 +369,13 @@
 			baseConfigurationReference = 5100D028905F27236E71C3CF /* Pods-kaput.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = kaput/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaput.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

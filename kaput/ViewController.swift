@@ -8,20 +8,51 @@
 
 import UIKit
 import Firebase
+@IBDesignable
+
 
 class ViewController: UIViewController {
+    
+    
+//declarations of outlets
+    
+@IBOutlet var chargingBarView: UIView!
+@IBOutlet var chargingBarHeight: NSLayoutConstraint!
+@IBOutlet weak var labelBattery: UILabel!
 
 
-    @IBOutlet weak var labelBattery: UILabel!
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    
+    {
         
         //Shows the level battery on the welcom screen
+        // a refactorer, le niveau de batterie devrait etre une variable globale.
         UIDevice.currentDevice().batteryMonitoringEnabled = true
-        let batteryLevel = Int((abs(UIDevice.currentDevice().batteryLevel) * 100))
-        labelBattery.text = String(batteryLevel) + "%"
+        let batteryLevel = abs(UIDevice.currentDevice().batteryLevel);
+        
+        labelBattery.text = String(batteryLevel*100) + "%"
+        
+        
+        
+        // setting the height of the bar with a constraint.
+        
+        let batteryLevelHeight = CGFloat(UIDevice.currentDevice().batteryLevel)*UIScreen.mainScreen().bounds.height
+        print("f", batteryLevelHeight)
+        chargingBarHeight.constant=batteryLevelHeight
+        chargingBarView.needsUpdateConstraints()
+
+        // setting the color of the bar
+        
+        // @illan : a refactorer : creer un fichier ou les methodes globales sont affichées )        
+        if batteryLevel < 0.80 {
+            chargingBarView.backgroundColor = KaputStyle.lowRed
+        }
+        else {
+            chargingBarView.backgroundColor = KaputStyle.fullGreen
+        }
+       
         
 
-        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

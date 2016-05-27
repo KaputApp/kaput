@@ -10,37 +10,27 @@
             <objects>
                 <viewController title="WelcomeScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="kaput" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="gTv-Dn-egg"/>
+                        <viewControllerLayoutGuide type="bottom" id="4TL-dd-GyK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-8o-mMF">
-                                <rect key="frame" x="129" y="398" width="49" height="30"/>
-                                <state key="normal" title="LOG IN"/>
-                                <connections>
-                                    <segue destination="5KF-Fe-tG4" kind="show" id="wur-as-ehA"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGp-1d-HjY">
-                                <rect key="frame" x="198" y="177" width="123" height="77"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RER-DK-mAD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="77" id="Yc1-We-GP5"/>
-                                    <constraint firstAttribute="width" constant="123" id="kM0-ki-vJB"/>
+                                    <constraint firstAttribute="height" constant="268" id="8PA-0v-lrR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Phrase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-zd-6Pe">
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phrase" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-zd-6Pe">
                                 <rect key="frame" x="266" y="262" width="101" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-p9-4WT">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-p9-4WT">
                                 <rect key="frame" x="160" y="12" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.86274509799999999" green="0.0" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -48,49 +38,51 @@
                                 <rect key="frame" x="204" y="355" width="192" height="30"/>
                                 <state key="normal" title="Log in with facebook"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-Pn-lzf">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-Pn-lzf">
                                 <rect key="frame" x="336" y="393" width="70" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="SJp-za-faF"/>
-                                </constraints>
                                 <state key="normal" title="SIGN UP"/>
                                 <connections>
-                                    <segue destination="B0k-56-6Dj" kind="show" id="dKe-cJ-4Mw"/>
+                                    <segue destination="B0k-56-6Dj" kind="presentation" id="dKe-cJ-4Mw"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RER-DK-mAD">
-                                <rect key="frame" x="156" y="458" width="240" height="128"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-8o-mMF">
+                                <rect key="frame" x="124" y="378" width="49" height="30"/>
+                                <state key="normal" title="LOG IN"/>
+                                <connections>
+                                    <segue destination="5KF-Fe-tG4" kind="presentation" id="wur-as-ehA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGp-1d-HjY">
+                                <rect key="frame" x="199" y="177" width="123" height="77"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BGp-1d-HjY" firstAttribute="top" secondItem="BYS-p9-4WT" secondAttribute="bottom" constant="37" id="23z-QQ-Pqs"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UBC-8o-mMF" secondAttribute="bottom" constant="244" id="D9V-aj-U6u"/>
-                            <constraint firstItem="CNe-zd-6Pe" firstAttribute="top" secondItem="BGp-1d-HjY" secondAttribute="bottom" constant="8" symbolic="YES" id="Fh2-d0-dlw"/>
-                            <constraint firstItem="BGp-1d-HjY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="198" id="MJ8-GB-lW2"/>
-                            <constraint firstItem="BGp-1d-HjY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="177" id="OBs-Di-jWN"/>
-                            <constraint firstItem="ZZf-Pn-lzf" firstAttribute="leading" secondItem="UBC-8o-mMF" secondAttribute="trailing" constant="152" id="PiH-Ee-4FQ"/>
-                            <constraint firstAttribute="trailing" secondItem="ZZf-Pn-lzf" secondAttribute="trailing" constant="200" id="XWN-rG-3fv"/>
-                            <constraint firstItem="UBC-8o-mMF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="129" id="diD-xE-d6o"/>
-                            <constraint firstItem="ZZf-Pn-lzf" firstAttribute="baseline" secondItem="UBC-8o-mMF" secondAttribute="baseline" id="oqs-MI-uKH"/>
+                            <constraint firstItem="4TL-dd-GyK" firstAttribute="top" secondItem="RER-DK-mAD" secondAttribute="bottom" id="7cK-3b-BW7"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="chargingBarHeight" destination="8PA-0v-lrR" id="GUP-SK-nDr"/>
+                        <outlet property="chargingBarView" destination="RER-DK-mAD" id="Rnj-6O-K5y"/>
                         <outlet property="labelBattery" destination="BGp-1d-HjY" id="hFI-01-dCX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="269" y="337"/>
+            <point key="canvasLocation" x="265" y="360"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="a61-hX-UUL">
             <objects>
                 <viewController id="B0k-56-6Dj" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Eye-KF-76i"/>
-                        <viewControllerLayoutGuide type="bottom" id="D4g-KR-WF4"/>
+                        <viewControllerLayoutGuide type="top" id="dOo-m1-qft"/>
+                        <viewControllerLayoutGuide type="bottom" id="RzM-ft-zOi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nWU-fe-Eaf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -125,7 +117,7 @@
                                 <rect key="frame" x="26" y="20" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="dXJ-5V-Gal"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="dXJ-5V-Gal"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -134,15 +126,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbQ-q0-wXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="991" y="637"/>
+            <point key="canvasLocation" x="991" y="636.99999999999989"/>
         </scene>
         <!--LogInScreeen-->
         <scene sceneID="iMd-db-0Hq">
             <objects>
                 <viewController title="LogInScreeen" id="5KF-Fe-tG4" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Jzz-vP-9To"/>
-                        <viewControllerLayoutGuide type="bottom" id="4Q1-hC-how"/>
+                        <viewControllerLayoutGuide type="top" id="DGw-Fx-8TE"/>
+                        <viewControllerLayoutGuide type="bottom" id="DBg-Nq-Ocw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1Fi-iy-vsU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -176,7 +168,7 @@
                                 <rect key="frame" x="53" y="20" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="pL8-C6-nNV"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="pL8-C6-nNV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -189,6 +181,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dXJ-5V-Gal"/>
+        <segue reference="pL8-C6-nNV"/>
     </inferredMetricsTieBreakers>
 </document>
