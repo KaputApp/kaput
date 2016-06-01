@@ -41,7 +41,7 @@ class SignUpViewController: UIViewController {
         let username  = usernameField.text! as NSString
         let email = emailField.text
         let password = passwordField.text
-       
+        
         FIRAuth.auth()?.createUserWithEmail(email!, password: password!) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -51,11 +51,12 @@ class SignUpViewController: UIViewController {
             
            let user = FIRAuth.auth()?.currentUser
            let uid = user?.uid
-            
 
-            FIRDatabase.database().reference().child("users").child(uid!).setValue(["username": username])
+            let userPath = FIRDatabase.database().reference().child("users").child(uid!)
+        
+            userPath.setValue(["username": username])
             
-            ref.child("users").child(uid!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            userPath.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
                 // Get user value
                 let username2 = snapshot.value!["username"] as! String
                 print(username2)
@@ -65,18 +66,12 @@ class SignUpViewController: UIViewController {
             }
 
             
-            
-        }
-    }
-    
-    
-    
-    
-    
+        
+}
       override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        usernameField.becomeFirstResponder()
+        view.backgroundColor = Colors.init().bgColor
     }
 
     override func didReceiveMemoryWarning() {
