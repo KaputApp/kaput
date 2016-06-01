@@ -63,6 +63,15 @@ class ViewController: UIViewController {
         buttonLogIn.layer.shadowRadius = 0
         buttonLogIn.layer.shadowOpacity = 1;
         
+        
+        
+        buttonFacebook.layer.borderWidth = 5;
+        buttonFacebook.layer.borderColor = UIColor.whiteColor().CGColor;
+        buttonFacebook.layer.shadowColor = KaputStyle.shadowColor.CGColor;
+        buttonFacebook.layer.shadowOffset = CGSizeMake(10, 10);
+        buttonFacebook.layer.shadowRadius = 0
+        buttonFacebook.layer.shadowOpacity = 1;
+        
         buttonSignUp.layer.borderWidth = 5;
         buttonSignUp.layer.borderColor = UIColor.whiteColor().CGColor;
         buttonSignUp.layer.shadowColor = KaputStyle.shadowColor.CGColor;
