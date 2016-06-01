@@ -10,6 +10,16 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var usernameField: kaputField!
+    
+    @IBOutlet weak var passwordField: kaputField!
+    
+    @IBOutlet weak var emailField: kaputField!
+    
+    @IBAction func signUpButton(sender: AnyObject) {
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
