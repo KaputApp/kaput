@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '96D9BA4E28E108CAEA48D0EB'
+               BlueprintIdentifier = 'EF6DEC07148FFD33E427A718'
                BlueprintName = 'Pods-kaput'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_kaput.framework'>

@@ -43,8 +43,8 @@ class SignUpViewController: UIViewController {
                 print(error.localizedDescription)
                 return
             }
-            ref.child("users").child(user!.uid).setValue(["username": username])
-
+            FIRDatabase.database().reference().childByAppendingPath("users").childByAppendingPath("toto").setValue(["isOnline":false,"username":username])
+            
 }
     }
     
