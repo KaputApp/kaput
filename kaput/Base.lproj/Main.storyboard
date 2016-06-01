@@ -41,7 +41,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RER-DK-mAD">
-                                <rect key="frame" x="0.0" y="591" width="600" height="10"/>
+                                <rect key="frame" x="0.0" y="600" width="600" height="10"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="268" id="8PA-0v-lrR"/>
