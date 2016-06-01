@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         //Shows the level battery on the welcom screen
         labelBattery.text = String(batteryLevel) + "%"
         
-        buttonFacebook.backgroundColor = 
+       // buttonFacebook.backgroundColor =
         
         
         
