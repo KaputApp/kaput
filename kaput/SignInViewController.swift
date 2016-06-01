@@ -14,7 +14,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        usernameField.becomeFirstResponder()
+    usernameField.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }

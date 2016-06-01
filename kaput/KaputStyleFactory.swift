@@ -8,7 +8,18 @@
 
 import UIKit
 
+class batLevel{
+    var levelBat:Int
+    init() {
+        UIDevice.currentDevice().batteryMonitoringEnabled = true
+        self.levelBat = Int(abs(UIDevice.currentDevice().batteryLevel))*100;
+    }
+}
+
+var batteryLevel = batLevel.init().levelBat
+
 public class KaputStyleFactory: NSObject {
+    
     
 public var primaryColor: UIColor!
 public var secondaryColor: UIColor!
@@ -29,13 +40,7 @@ public class func setColors(bat: Float) {
         
     }
     
-    
 
-    public class func styleButton(button: UIButton){
-
-        
-    }
-    
 
     
 

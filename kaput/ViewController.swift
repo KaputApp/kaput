@@ -29,11 +29,7 @@ class ViewController: UIViewController {
     {
         
         //Shows the level battery on the welcom screen
-        // a refactorer, le niveau de batterie devrait etre une variable globale.
-        UIDevice.currentDevice().batteryMonitoringEnabled = true
-        let batteryLevel = abs(UIDevice.currentDevice().batteryLevel);
-        
-        labelBattery.text = String(Int(batteryLevel*100)) + "%"
+        labelBattery.text = String(batteryLevel) + "%"
         
         
         
@@ -48,7 +44,7 @@ class ViewController: UIViewController {
 
         // setting the color of the bar
         
-        if batteryLevel < 0.80 {
+        if batteryLevel < 80 {
             chargingBarView.backgroundColor = KaputStyle.lowRed
         }
         else {
