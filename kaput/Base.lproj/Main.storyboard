@@ -220,17 +220,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kd0-sP-YCe" customClass="kaputField" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="116" width="572" height="30"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="go"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVD-XQ-lo0" customClass="kaputField" customModule="kaput" customModuleProvider="target">
                                 <rect key="frame" x="20" y="166" width="572" height="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -252,24 +241,41 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzI-e6-fL4">
-                                <rect key="frame" x="13" y="16" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="pL8-C6-nNV"/>
-                                </connections>
-                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kd0-sP-YCe" customClass="kaputField" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="116" width="572" height="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="go"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="We6-Q5-TRT" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="16" width="34" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzI-e6-fL4">
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="pL8-C6-nNV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.21568627450980393" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="400-uj-QFD" firstAttribute="leading" secondItem="1Fi-iy-vsU" secondAttribute="leadingMargin" id="0Xq-BN-YgU"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kd0-sP-YCe" secondAttribute="leading" id="5Ir-u3-YDD"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="We6-Q5-TRT" secondAttribute="leading" id="6gy-sV-gBF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Z3J-qu-0tH" secondAttribute="trailing" id="7kp-4x-nqN"/>
-                            <constraint firstItem="KSf-6C-Hzl" firstAttribute="top" secondItem="DGw-Fx-8TE" secondAttribute="bottom" constant="16" id="Bcl-q7-eFG"/>
                             <constraint firstItem="KSf-6C-Hzl" firstAttribute="centerX" secondItem="1Fi-iy-vsU" secondAttribute="centerX" id="CmG-hP-rir"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hVD-XQ-lo0" secondAttribute="trailing" id="IRi-d8-Nfh"/>
+                            <constraint firstItem="We6-Q5-TRT" firstAttribute="top" secondItem="DGw-Fx-8TE" secondAttribute="bottom" constant="20" id="QhM-tD-3IG"/>
+                            <constraint firstItem="KSf-6C-Hzl" firstAttribute="top" secondItem="DGw-Fx-8TE" secondAttribute="bottom" constant="16" id="UJg-ot-Xlx"/>
                             <constraint firstItem="hVD-XQ-lo0" firstAttribute="top" secondItem="kd0-sP-YCe" secondAttribute="bottom" constant="20" id="VUf-nW-f2U"/>
-                            <constraint firstItem="YzI-e6-fL4" firstAttribute="leading" secondItem="1Fi-iy-vsU" secondAttribute="leadingMargin" constant="-7" id="ZCw-lF-cwc"/>
                             <constraint firstItem="r6e-3Y-oZV" firstAttribute="top" secondItem="400-uj-QFD" secondAttribute="bottom" constant="10" id="Zc0-tR-2gR"/>
                             <constraint firstAttribute="leadingMargin" secondItem="hVD-XQ-lo0" secondAttribute="leading" id="a24-sT-3qY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="400-uj-QFD" secondAttribute="trailing" id="bML-hJ-qIo"/>
@@ -279,7 +285,6 @@
                             <constraint firstItem="kd0-sP-YCe" firstAttribute="top" secondItem="KSf-6C-Hzl" secondAttribute="bottom" constant="20" id="hn1-lc-EsE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kd0-sP-YCe" secondAttribute="trailing" id="jhE-kl-bHo"/>
                             <constraint firstItem="Z3J-qu-0tH" firstAttribute="centerX" secondItem="1Fi-iy-vsU" secondAttribute="centerX" id="ocv-2f-aoq"/>
-                            <constraint firstItem="YzI-e6-fL4" firstAttribute="top" secondItem="DGw-Fx-8TE" secondAttribute="bottom" constant="16" id="rvL-uR-8fC"/>
                             <constraint firstItem="Z3J-qu-0tH" firstAttribute="top" secondItem="r6e-3Y-oZV" secondAttribute="bottom" constant="5" id="zej-3P-p5t"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -298,6 +303,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pL8-C6-nNV"/>
+        <segue reference="dXJ-5V-Gal"/>
     </inferredMetricsTieBreakers>
 </document>

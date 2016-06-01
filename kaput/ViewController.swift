@@ -32,9 +32,6 @@ class ViewController: UIViewController {
         labelBattery.text = String(batteryLevel) + "%"
         
         
-        
-        
-        
         // setting the height of the bar with a constraint.
         
         let batteryLevelHeight = CGFloat(UIDevice.currentDevice().batteryLevel)*UIScreen.mainScreen().bounds.height

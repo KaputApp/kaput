@@ -16,6 +16,7 @@
 		3FEDBC9E1CFEDB9C00A6C6C1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBC9D1CFEDB9C00A6C6C1 /* SignInViewController.swift */; };
 		3FEDBCA01CFEDFB700A6C6C1 /* kaputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBC9F1CFEDFB700A6C6C1 /* kaputButton.swift */; };
 		3FEDBCA21CFEE24000A6C6C1 /* kaputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA11CFEE24000A6C6C1 /* kaputField.swift */; };
+		3FEDBCA61CFEFF0700A6C6C1 /* backButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */; };
 		69F8C8E621578B7FCA0CAC4E /* libPods-kaput.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0D374E01A48B253D3E9FEA /* libPods-kaput.a */; };
 		89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D911CF762D000DF4941 /* AppDelegate.swift */; };
 		89139D941CF762D000DF4941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D931CF762D000DF4941 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 		3FEDBC9D1CFEDB9C00A6C6C1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3FEDBC9F1CFEDFB700A6C6C1 /* kaputButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaputButton.swift; sourceTree = "<group>"; };
 		3FEDBCA11CFEE24000A6C6C1 /* kaputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaputField.swift; sourceTree = "<group>"; };
+		3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backButtonView.swift; sourceTree = "<group>"; };
 		5100D028905F27236E71C3CF /* Pods-kaput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig"; sourceTree = "<group>"; };
 		89139D8E1CF762D000DF4941 /* kaput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaput.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89139D911CF762D000DF4941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				3F7A12261CF88CB800AAD538 /* logoKaput.swift */,
+				3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */,
 				3FEDBC9F1CFEDFB700A6C6C1 /* kaputButton.swift */,
 				3FEDBCA11CFEE24000A6C6C1 /* kaputField.swift */,
 			);
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FEDBC9E1CFEDB9C00A6C6C1 /* SignInViewController.swift in Sources */,
+				3FEDBCA61CFEFF0700A6C6C1 /* backButtonView.swift in Sources */,
 				3F72D5431CF8A7C400EA43AF /* KaputStyleFactory.swift in Sources */,
 				3FEDBC9C1CFEDB5600A6C6C1 /* SignUpViewController.swift in Sources */,
 				3F7A12271CF88CB800AAD538 /* logoKaput.swift in Sources */,
