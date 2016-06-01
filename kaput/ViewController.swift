@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+
 @IBDesignable
 
 
@@ -27,29 +28,32 @@ class ViewController: UIViewController {
     override func viewDidLoad()
     
     {
+        // setting the height of the bar with a constraint.
+        
+        batLevel.init()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.batteryLevelDidChange(_:)), name:UIDeviceBatteryStateDidChangeNotification, object: nil)
+
+        
+        chargingBarView.backgroundColor = Colors.init().bgColor
+        let batteryLevelHeight = CGFloat(UIDevice.currentDevice().batteryLevel)*UIScreen.mainScreen().bounds.height
+        print("f", batteryLevelHeight)
+       
+        
+        chargingBarHeight.constant=batteryLevelHeight
+        
+        UIView.animateWithDuration(2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+        
+        self.chargingBarView.needsUpdateConstraints()
+        self.chargingBarView.layoutIfNeeded()
+        }, completion: nil)
+
+        
         
         //Shows the level battery on the welcom screen
         labelBattery.text = String(batteryLevel) + "%"
         
         
-        // setting the height of the bar with a constraint.
-        
-        let batteryLevelHeight = CGFloat(UIDevice.currentDevice().batteryLevel)*UIScreen.mainScreen().bounds.height
-        print("f", batteryLevelHeight)
-        chargingBarHeight.constant=batteryLevelHeight
-        chargingBarView.needsUpdateConstraints()
-
-        // setting the color of the bar
-        
-        if batteryLevel < 80 {
-            chargingBarView.backgroundColor = KaputStyle.lowRed
-        }
-        else {
-            chargingBarView.backgroundColor = KaputStyle.fullGreen
-        }
-               buttonSignUp.backgroundColor = KaputStyle.chargingBlue;
-
-
         
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -60,6 +64,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func batteryStateDidChange(notification: NSNotification){
+        Colors.init()
+    }
+
+    func batteryLevelDidChange(notification: NSNotification){
+        batLevel.init()
+        Colors.init()
+    }
 
 }
 
