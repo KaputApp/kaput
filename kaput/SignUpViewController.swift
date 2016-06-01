@@ -38,7 +38,7 @@ class SignUpViewController: UIViewController {
         var ref:FIRDatabaseReference!
        
         ref = FIRDatabase.database().reference()
-        let username = usernameField.text
+        let username  = usernameField.text! as NSString
         let email = emailField.text
         let password = passwordField.text
        
@@ -49,13 +49,28 @@ class SignUpViewController: UIViewController {
             }
             
            let user = FIRAuth.auth()?.currentUser
-            user?.profileChangeRequest().displayName = username
+           let uid = user?.uid
             
-            print(user)
-             FIRDatabase.database().reference().child("users").child("authData").setValue(["username": "tata"])
 
-}
+            FIRDatabase.database().reference().child("users").child(uid!).setValue(["username": username])
+            
+            ref.child("users").child(uid!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                // Get user value
+                let username2 = snapshot.value!["username"] as! String
+                print(username2)
+                // ...
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+
+            
+            
+        }
     }
+    
+    
+    
+    
     
       override func viewDidLoad() {
         super.viewDidLoad()
