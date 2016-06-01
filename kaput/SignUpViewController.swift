@@ -11,6 +11,18 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 
+class User: NSObject {
+    var username: String
+    
+    init(username: String) {
+        self.username = username
+    }
+    
+    convenience override init() {
+        self.init(username:  "")
+    }
+}
+
 
 class SignUpViewController: UIViewController {
 
@@ -21,7 +33,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: kaputField!
     
     @IBAction func signUpButton(sender: AnyObject) {
-        let username = usernameField.text
+        var ref:FIRDatabaseReference!
+        ref = FIRDatabase.database().reference()
+        let username = usernameField
         let email = emailField.text
         let password = passwordField.text
         FIRAuth.auth()?.createUserWithEmail(email!, password: password!) { (user, error) in
@@ -29,6 +43,7 @@ class SignUpViewController: UIViewController {
                 print(error.localizedDescription)
                 return
             }
+            ref.child("users").child(user!.uid).setValue(["username": username])
 
 }
     }
