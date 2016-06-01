@@ -46,6 +46,7 @@ class SignUpViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
                 return
+            } 
             }
             
            let user = FIRAuth.auth()?.currentUser
