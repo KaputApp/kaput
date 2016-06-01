@@ -46,6 +46,7 @@ class SignUpViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
                 return
+            } 
             }
             
            let user = FIRAuth.auth()?.currentUser
@@ -53,9 +54,8 @@ class SignUpViewController: UIViewController {
             
             print(user)
              FIRDatabase.database().reference().child("users").child("authData").setValue(["username": "tata"])
-
-}
     }
+    
     
       override func viewDidLoad() {
         super.viewDidLoad()

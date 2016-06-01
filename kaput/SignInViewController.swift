@@ -11,6 +11,9 @@ import UIKit
 class SignInViewController: UIViewController {
 
     @IBOutlet var usernameField: kaputField!
+    @IBAction func logInButton(sender: AnyObject) {
+            self.performSegueWithIdentifier("showUserList", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

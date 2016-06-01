@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -73,7 +73,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="B0k-56-6Dj" kind="presentation" id="dKe-cJ-4Mw"/>
+                                    <segue destination="B0k-56-6Dj" kind="custom" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="Mvb-bi-n7V"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-8o-mMF" customClass="kaputButton" customModule="kaput" customModuleProvider="target">
@@ -86,7 +86,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5KF-Fe-tG4" kind="presentation" id="wur-as-ehA"/>
+                                    <segue destination="5KF-Fe-tG4" kind="custom" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="jLU-MM-jKH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfO-EZ-jaf" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
@@ -209,7 +209,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hht-gN-6Mk">
                                         <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="TFR-Z3-JDF"/>
+                                            <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="TFR-Z3-JDF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -246,6 +246,7 @@
                         <outlet property="emailField" destination="M0h-wU-27D" id="APE-Xl-gxk"/>
                         <outlet property="passwordField" destination="WzC-FS-vcj" id="iYi-eX-bYd"/>
                         <outlet property="usernameField" destination="7Hx-9D-gc8" id="OLh-g0-u7L"/>
+                        <segue destination="Bst-E0-Hi1" kind="custom" identifier="showUserList" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="GcP-PJ-Q32"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbQ-q0-wXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -313,9 +314,9 @@
                                 <rect key="frame" x="20" y="16" width="34" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzI-e6-fL4">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="474"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" id="pL8-C6-nNV"/>
+                                            <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="b1B-u4-3Ru"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -330,6 +331,9 @@
                                 <state key="normal" title="HERE WE GO">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="logInButton:" destination="5KF-Fe-tG4" eventType="touchUpInside" id="d0y-51-tsJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.21568627450980393" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
@@ -364,14 +368,63 @@
                     </view>
                     <connections>
                         <outlet property="usernameField" destination="kd0-sP-YCe" id="PSc-v4-ERL"/>
+                        <segue destination="Bst-E0-Hi1" kind="custom" identifier="showUserList" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="Dg9-hk-f1J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zA7-JZ-E5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1031" y="-85"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="wK1-r1-UnH">
+            <objects>
+                <tableViewController id="u1g-CE-lmG" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="t4l-Lx-ggN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oS8-dg-9Jd">
+                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oS8-dg-9Jd" id="niX-ty-57h">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="u1g-CE-lmG" id="pMS-4j-hY5"/>
+                            <outlet property="delegate" destination="u1g-CE-lmG" id="OK3-cP-Vx1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="J9d-za-2Sy"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FZ7-3v-MpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2633" y="137"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b6a-J1-FA3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bst-E0-Hi1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8b0-Xk-5pL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u1g-CE-lmG" kind="relationship" relationship="rootViewController" id="LME-sr-GrX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5cm-wU-veF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1821" y="137"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TFR-Z3-JDF"/>
+        <segue reference="b1B-u4-3Ru"/>
+        <segue reference="GcP-PJ-Q32"/>
     </inferredMetricsTieBreakers>
 </document>

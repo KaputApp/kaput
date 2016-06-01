@@ -12,6 +12,60 @@
 
 import UIKit
 
+// Segue Transition Style
+
+public class SegueFromLeft: UIStoryboardSegue
+{
+    override public func perform() {
+    let toViewController = destinationViewController
+    let fromViewController = sourceViewController
+    
+    let containerView = fromViewController.view.superview
+    let screenBounds = UIScreen.mainScreen().bounds
+    
+    let finalToFrame = screenBounds
+    let finalFromFrame = CGRectOffset(finalToFrame, -screenBounds.size.width, 0)
+    
+    toViewController.view.frame = CGRectOffset(finalToFrame, screenBounds.size.width, 0)
+    containerView?.addSubview(toViewController.view)
+    
+    UIView.animateWithDuration(0.25, animations: {
+    toViewController.view.frame = finalToFrame
+    fromViewController.view.frame = finalFromFrame
+    }, completion: { finished in
+    let fromVC = self.sourceViewController
+    let toVC = self.destinationViewController
+    fromVC.presentViewController(toVC, animated: false, completion: nil)
+    })
+}
+}
+
+public class SegueFromRight: UIStoryboardSegue
+{
+    override public func perform() {
+        let toViewController = destinationViewController
+        let fromViewController = sourceViewController
+        
+        let containerView = fromViewController.view.superview
+        let screenBounds = UIScreen.mainScreen().bounds
+        
+        let finalToFrame = screenBounds
+        let finalFromFrame = CGRectOffset(finalToFrame, screenBounds.size.width, 0)
+        
+        toViewController.view.frame = CGRectOffset(finalToFrame, -screenBounds.size.width, 0)
+        containerView?.addSubview(toViewController.view)
+        
+        UIView.animateWithDuration(0.25, animations: {
+            toViewController.view.frame = finalToFrame
+            fromViewController.view.frame = finalFromFrame
+            }, completion: { finished in
+                let fromVC = self.sourceViewController
+                let toVC = self.destinationViewController
+                fromVC.presentViewController(toVC, animated: false, completion: nil)
+        })
+    }
+}
+
 public class KaputStyle : NSObject {
 
     //// Cache
