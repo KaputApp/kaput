@@ -9,6 +9,11 @@
 import UIKit
 import Firebase
 
+
+var batteryLevel = batLevel.init().levelBat
+var stateBattery = batLevel.init().stateBat
+
+
 class batLevel{
     var levelBat:Int
     var stateBat:UIDeviceBatteryState
@@ -16,12 +21,9 @@ class batLevel{
         UIDevice.currentDevice().batteryMonitoringEnabled = true
         self.levelBat = Int(abs(UIDevice.currentDevice().batteryLevel)*100)
         self.stateBat = UIDevice.currentDevice().batteryState
-
+        
     }
 }
-
-var batteryLevel = batLevel.init().levelBat
-var stateBattery = batLevel.init().stateBat
 
 
 public class Colors {
@@ -32,15 +34,15 @@ public class Colors {
     var bgColor: UIColor!
     
     init() {
+       
         
-        
-        switch stateBattery {
+        switch batLevel.init().stateBat {
     
     case UIDeviceBatteryState.Unknown:
         
-        switch batteryLevel {
+        switch batLevel.init().levelBat {
         case 0...5:
-            self.bgColor = KaputStyle.lowRed
+            self.bgColor = KaputStyle.kaputBlack
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.fullGreen
             
@@ -49,11 +51,11 @@ public class Colors {
             self.primaryColor = KaputStyle.chargingBlue
             self.secondaryColor = KaputStyle.fullGreen
         case 21...40:
-            self.bgColor = KaputStyle.chargingBlue
+            self.bgColor = KaputStyle.bloodyOrange
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.fullGreen
         case 41...80:
-            self.bgColor = KaputStyle.lowRed
+            self.bgColor = KaputStyle.midYellow
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.fullGreen
         case 81...100:
@@ -61,40 +63,38 @@ public class Colors {
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.chargingBlue
         default :
-            self.bgColor = KaputStyle.fullGreen
-            self.primaryColor = KaputStyle.lowRed
-            self.secondaryColor = KaputStyle.chargingBlue
+            self.bgColor = KaputStyle.lowRed
+            self.primaryColor = KaputStyle.chargingBlue
+            self.secondaryColor = KaputStyle.fullGreen
             
         }
 
         case UIDeviceBatteryState.Unplugged:
-            switch batteryLevel {
-            case 0...5:
-                self.bgColor = KaputStyle.lowRed
+            switch batLevel.init().levelBat {
+                case 0...5:
+                self.bgColor = KaputStyle.kaputBlack
                 self.primaryColor = KaputStyle.lowRed
                 self.secondaryColor = KaputStyle.fullGreen
-
-            case 6...20:
+                
+                case 6...20:
                 self.bgColor = KaputStyle.lowRed
                 self.primaryColor = KaputStyle.chargingBlue
                 self.secondaryColor = KaputStyle.fullGreen
-            case 21...40:
-                self.bgColor = KaputStyle.chargingBlue
+                case 21...40:
+                self.bgColor = KaputStyle.bloodyOrange
                 self.primaryColor = KaputStyle.lowRed
                 self.secondaryColor = KaputStyle.fullGreen
-            case 41...80:
-                self.bgColor = KaputStyle.lowRed
+                case 41...80:
+                self.bgColor = KaputStyle.midYellow
                 self.primaryColor = KaputStyle.lowRed
                 self.secondaryColor = KaputStyle.fullGreen
-            case 81...100:
+                case 81...100:
                 self.bgColor = KaputStyle.fullGreen
                 self.primaryColor = KaputStyle.lowRed
                 self.secondaryColor = KaputStyle.chargingBlue
-                
-            default:
-                
+                default :
                 self.bgColor = KaputStyle.lowRed
-                self.primaryColor = KaputStyle.lowRed
+                self.primaryColor = KaputStyle.chargingBlue
                 self.secondaryColor = KaputStyle.fullGreen
 
             }
@@ -121,6 +121,61 @@ public class Colors {
     }
     
 
+
+    
+    // Segue Transition Style
+    
+public class SegueFromLeft: UIStoryboardSegue
+    {
+        override public func perform() {
+            let toViewController = destinationViewController
+            let fromViewController = sourceViewController
+            
+            let containerView = fromViewController.view.superview
+            let screenBounds = UIScreen.mainScreen().bounds
+            
+            let finalToFrame = screenBounds
+            let finalFromFrame = CGRectOffset(finalToFrame, -screenBounds.size.width, 0)
+            
+            toViewController.view.frame = CGRectOffset(finalToFrame, screenBounds.size.width, 0)
+            containerView?.addSubview(toViewController.view)
+            
+            UIView.animateWithDuration(0.25, animations: {
+                toViewController.view.frame = finalToFrame
+                fromViewController.view.frame = finalFromFrame
+                }, completion: { finished in
+                    let fromVC = self.sourceViewController
+                    let toVC = self.destinationViewController
+                    fromVC.presentViewController(toVC, animated: false, completion: nil)
+            })
+        }
+    }
+    
+    public class SegueFromRight: UIStoryboardSegue
+    {
+        override public func perform() {
+            let toViewController = destinationViewController
+            let fromViewController = sourceViewController
+            
+            let containerView = fromViewController.view.superview
+            let screenBounds = UIScreen.mainScreen().bounds
+            
+            let finalToFrame = screenBounds
+            let finalFromFrame = CGRectOffset(finalToFrame, screenBounds.size.width, 0)
+            
+            toViewController.view.frame = CGRectOffset(finalToFrame, -screenBounds.size.width, 0)
+            containerView?.addSubview(toViewController.view)
+            
+            UIView.animateWithDuration(0.25, animations: {
+                toViewController.view.frame = finalToFrame
+                fromViewController.view.frame = finalFromFrame
+                }, completion: { finished in
+                    let fromVC = self.sourceViewController
+                    let toVC = self.destinationViewController
+                    fromVC.presentViewController(toVC, animated: false, completion: nil)
+            })
+        }
+    }
 
     
 

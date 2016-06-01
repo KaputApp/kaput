@@ -12,60 +12,6 @@
 
 import UIKit
 
-// Segue Transition Style
-
-public class SegueFromLeft: UIStoryboardSegue
-{
-    override public func perform() {
-    let toViewController = destinationViewController
-    let fromViewController = sourceViewController
-    
-    let containerView = fromViewController.view.superview
-    let screenBounds = UIScreen.mainScreen().bounds
-    
-    let finalToFrame = screenBounds
-    let finalFromFrame = CGRectOffset(finalToFrame, -screenBounds.size.width, 0)
-    
-    toViewController.view.frame = CGRectOffset(finalToFrame, screenBounds.size.width, 0)
-    containerView?.addSubview(toViewController.view)
-    
-    UIView.animateWithDuration(0.25, animations: {
-    toViewController.view.frame = finalToFrame
-    fromViewController.view.frame = finalFromFrame
-    }, completion: { finished in
-    let fromVC = self.sourceViewController
-    let toVC = self.destinationViewController
-    fromVC.presentViewController(toVC, animated: false, completion: nil)
-    })
-}
-}
-
-public class SegueFromRight: UIStoryboardSegue
-{
-    override public func perform() {
-        let toViewController = destinationViewController
-        let fromViewController = sourceViewController
-        
-        let containerView = fromViewController.view.superview
-        let screenBounds = UIScreen.mainScreen().bounds
-        
-        let finalToFrame = screenBounds
-        let finalFromFrame = CGRectOffset(finalToFrame, screenBounds.size.width, 0)
-        
-        toViewController.view.frame = CGRectOffset(finalToFrame, -screenBounds.size.width, 0)
-        containerView?.addSubview(toViewController.view)
-        
-        UIView.animateWithDuration(0.25, animations: {
-            toViewController.view.frame = finalToFrame
-            fromViewController.view.frame = finalFromFrame
-            }, completion: { finished in
-                let fromVC = self.sourceViewController
-                let toVC = self.destinationViewController
-                fromVC.presentViewController(toVC, animated: false, completion: nil)
-        })
-    }
-}
-
 public class KaputStyle : NSObject {
 
     //// Cache
@@ -73,8 +19,11 @@ public class KaputStyle : NSObject {
     private struct Cache {
         static let lowRed: UIColor = UIColor(red: 0.986, green: 0.101, blue: 0.309, alpha: 1.000)
         static let chargingBlue: UIColor = UIColor(red: 0.165, green: 0.433, blue: 0.984, alpha: 1.000)
+        static let kaputBlack: UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
         static let shadowColor: UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.200)
         static let fullGreen: UIColor = UIColor(red: 0.115, green: 0.881, blue: 0.396, alpha: 1.000)
+        static let bloodyOrange: UIColor = UIColor(red: 1.000, green: 0.384, blue: 0.000, alpha: 1.000)
+        static let midYellow: UIColor = UIColor(red: 1.000, green: 0.769, blue: 0.157, alpha: 1.000)
         static let shadow: NSShadow = NSShadow(color: KaputStyle.shadowColor, offset: CGSize(width: 10.1, height: 10.1), blurRadius: 0)
     }
 
@@ -82,8 +31,11 @@ public class KaputStyle : NSObject {
 
     public class var lowRed: UIColor { return Cache.lowRed }
     public class var chargingBlue: UIColor { return Cache.chargingBlue }
+    public class var kaputBlack: UIColor { return Cache.kaputBlack }
     public class var shadowColor: UIColor { return Cache.shadowColor }
     public class var fullGreen: UIColor { return Cache.fullGreen }
+    public class var bloodyOrange: UIColor { return Cache.bloodyOrange }
+    public class var midYellow: UIColor { return Cache.midYellow }
 
     //// Shadows
 
@@ -97,7 +49,6 @@ public class KaputStyle : NSObject {
 
         //// Color Declarations
         let strokeColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-        let fillColor3 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
         let fillColor4 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
 
         //// Screens
@@ -125,7 +76,7 @@ public class KaputStyle : NSObject {
         pathPath.addLineToPoint(CGPoint(x: 7.01, y: 17.04))
         pathPath.addLineToPoint(CGPoint(x: 10.75, y: 88.35))
         pathPath.closePath()
-        fillColor3.setFill()
+        KaputStyle.kaputBlack.setFill()
         pathPath.fill()
         strokeColor.setStroke()
         pathPath.lineWidth = 7
@@ -276,7 +227,6 @@ public class KaputStyle : NSObject {
         //// Color Declarations
         let strokeColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         let textForeground = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-        let fillColor3 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
         let fillColor4 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
 
         //// Screens
@@ -305,7 +255,7 @@ public class KaputStyle : NSObject {
         CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
 
         let pathPath = UIBezierPath(rect: CGRect(x: -165.4, y: -48.08, width: 330.8, height: 96.15))
-        fillColor3.setFill()
+        KaputStyle.kaputBlack.setFill()
         pathPath.fill()
         strokeColor.setStroke()
         pathPath.lineWidth = 5

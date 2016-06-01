@@ -32,12 +32,12 @@ class ViewController: UIViewController {
         
         batLevel.init()
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.batteryLevelDidChange(_:)), name:UIDeviceBatteryStateDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.batteryLevelDidChange(_:)), name:UIDeviceBatteryLevelDidChangeNotification, object: nil)
+          NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.batteryStateDidChange(_:)), name:UIDeviceBatteryStateDidChangeNotification, object: nil)
 
-        
+        chargingBarView.frame.origin.y = UIScreen.mainScreen().bounds.height
         chargingBarView.backgroundColor = Colors.init().bgColor
         let batteryLevelHeight = CGFloat(UIDevice.currentDevice().batteryLevel)*UIScreen.mainScreen().bounds.height
-        print("f", batteryLevelHeight)
        
         
         chargingBarHeight.constant=batteryLevelHeight
@@ -51,11 +51,11 @@ class ViewController: UIViewController {
         
         
         //Shows the level battery on the welcom screen
-        labelBattery.text = String(batteryLevel) + "%"
+        labelBattery.text = String(batLevel.init().levelBat) + "%"
         
         
         
-
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -65,13 +65,16 @@ class ViewController: UIViewController {
     }
 
     func batteryStateDidChange(notification: NSNotification){
-        Colors.init()
+       // batLevel.init()
+      //  Colors.init()
+      //  viewDidLoad()
     }
 
     func batteryLevelDidChange(notification: NSNotification){
         batLevel.init()
         Colors.init()
+        viewDidLoad()
     }
-
+    
 }
 

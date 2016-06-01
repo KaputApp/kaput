@@ -18,6 +18,8 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
     usernameField.becomeFirstResponder()
+        view.backgroundColor = Colors.init().bgColor
+
 
         // Do any additional setup after loading the view.
     }

@@ -20,6 +20,7 @@
 		3FEDBCA61CFEFF0700A6C6C1 /* backButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */; };
 		3FEDBCA81CFF21FA00A6C6C1 /* kaputPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA71CFF21FA00A6C6C1 /* kaputPrimaryButton.swift */; };
 		3FEDBCAA1CFF253C00A6C6C1 /* kaputSecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA91CFF253C00A6C6C1 /* kaputSecondaryButton.swift */; };
+		3FEDBCAE1CFF5C0900A6C6C1 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */; };
 		89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D911CF762D000DF4941 /* AppDelegate.swift */; };
 		89139D941CF762D000DF4941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D931CF762D000DF4941 /* ViewController.swift */; };
 		89139D971CF762D000DF4941 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89139D951CF762D000DF4941 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backButtonView.swift; sourceTree = "<group>"; };
 		3FEDBCA71CFF21FA00A6C6C1 /* kaputPrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaputPrimaryButton.swift; sourceTree = "<group>"; };
 		3FEDBCA91CFF253C00A6C6C1 /* kaputSecondaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaputSecondaryButton.swift; sourceTree = "<group>"; };
+		3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		5100D028905F27236E71C3CF /* Pods-kaput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig"; sourceTree = "<group>"; };
 		702A27384184509B3D1B303B /* Pods_kaput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89139D8E1CF762D000DF4941 /* kaput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaput.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 				3FEDBC9A1CFEDAF500A6C6C1 /* Views */,
 				89139D911CF762D000DF4941 /* AppDelegate.swift */,
 				89139D981CF762D000DF4941 /* Assets.xcassets */,
+				3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */,
 				89139D9A1CF762D000DF4941 /* LaunchScreen.storyboard */,
 				89139D9D1CF762D000DF4941 /* Info.plist */,
 				3F72D5421CF8A7C400EA43AF /* KaputStyleFactory.swift */,
@@ -189,7 +192,7 @@
 				TargetAttributes = {
 					89139D8D1CF762D000DF4941 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = ZS2K7XBWJW;
+						DevelopmentTeam = 6TSFD975LR;
 					};
 				};
 			};
@@ -216,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FEDBCAE1CFF5C0900A6C6C1 /* AppIcon.appiconset in Resources */,
 				3F7A12251CF888AD00AAD538 /* Futura_condensed_bold_oblique.ttf in Resources */,
 				89139D9C1CF762D000DF4941 /* LaunchScreen.storyboard in Resources */,
 				89139DA61CF7633800DF4941 /* GoogleService-Info.plist in Resources */,

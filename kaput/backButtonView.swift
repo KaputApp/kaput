@@ -18,7 +18,6 @@ class BackButtonView: UIView {
     
     override func drawRect(rect: CGRect) {
         KaputStyle.drawBackArrow()
-        
     }
     
     
