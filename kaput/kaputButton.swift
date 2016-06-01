@@ -19,7 +19,16 @@ class kaputButton: UIButton {
         self.layer.shadowOffset = CGSizeMake(10, 10);
         self.layer.shadowRadius = 0
         self.layer.shadowOpacity = 1;
+    
+        let colorType = self.valueForKey("colorType")
+        if colorType = "primary" {
+            self.layer.background = KaputStyle.chargingBlue;
 
+        }
+        else if "secondary"{
+            
+        else {
+            }
         
         
     }
