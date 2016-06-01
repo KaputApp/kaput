@@ -167,8 +167,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Hx-9D-gc8" customClass="kaputField" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="38" y="106" width="572" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Hx-9D-gc8" customClass="kaputField" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="106" width="572" height="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="go"/>
@@ -178,8 +178,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WzC-FS-vcj" customClass="kaputField" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="38" y="154" width="572" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WzC-FS-vcj" customClass="kaputField" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="22" y="154" width="572" height="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="go"/>
@@ -189,8 +189,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M0h-wU-27D" customClass="kaputField" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="38" y="201" width="572" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M0h-wU-27D" customClass="kaputField" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="22" y="201" width="572" height="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="go"/>
@@ -226,6 +226,16 @@
                         <color key="backgroundColor" red="1" green="0.21568627450980393" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="s96-VA-GjZ" firstAttribute="centerX" secondItem="nWU-fe-Eaf" secondAttribute="centerX" id="6rJ-cf-mL5"/>
+                            <constraint firstItem="M0h-wU-27D" firstAttribute="leading" secondItem="nWU-fe-Eaf" secondAttribute="leadingMargin" id="95M-v3-gcw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Hx-9D-gc8" secondAttribute="trailing" id="9Th-cU-TYR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hQm-v7-EXK" secondAttribute="trailing" id="Fs4-4t-SfO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8uK-Ia-mqN" secondAttribute="trailing" id="HC3-3K-SEX"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="8uK-Ia-mqN" secondAttribute="leading" id="PCK-hK-ugJ"/>
+                            <constraint firstItem="WzC-FS-vcj" firstAttribute="leading" secondItem="nWU-fe-Eaf" secondAttribute="leadingMargin" id="YSY-lX-Z8y"/>
+                            <constraint firstItem="7Hx-9D-gc8" firstAttribute="leading" secondItem="nWU-fe-Eaf" secondAttribute="leadingMargin" id="lLy-0c-50D"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M0h-wU-27D" secondAttribute="trailing" id="to6-ih-h9G"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="hQm-v7-EXK" secondAttribute="leading" id="uHw-Si-1Jn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WzC-FS-vcj" secondAttribute="trailing" id="z1j-ji-5jA"/>
                             <constraint firstItem="s96-VA-GjZ" firstAttribute="top" secondItem="dOo-m1-qft" secondAttribute="bottom" constant="16" id="zuB-Ko-g7a"/>
                         </constraints>
                     </view>
