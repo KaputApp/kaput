@@ -54,31 +54,7 @@ class ViewController: UIViewController {
         else {
             chargingBarView.backgroundColor = KaputStyle.fullGreen
         }
-       
-        
-        buttonLogIn.layer.borderWidth = 5;
-        buttonLogIn.layer.borderColor = UIColor.whiteColor().CGColor;
-        buttonLogIn.layer.shadowColor = KaputStyle.shadowColor.CGColor;
-        buttonLogIn.layer.shadowOffset = CGSizeMake(10, 10);
-        buttonLogIn.layer.shadowRadius = 0
-        buttonLogIn.layer.shadowOpacity = 1;
-        
-        
-        
-        buttonFacebook.layer.borderWidth = 5;
-        buttonFacebook.layer.borderColor = UIColor.whiteColor().CGColor;
-        buttonFacebook.layer.shadowColor = KaputStyle.shadowColor.CGColor;
-        buttonFacebook.layer.shadowOffset = CGSizeMake(10, 10);
-        buttonFacebook.layer.shadowRadius = 0
-        buttonFacebook.layer.shadowOpacity = 1;
-        
-        buttonSignUp.layer.borderWidth = 5;
-        buttonSignUp.layer.borderColor = UIColor.whiteColor().CGColor;
-        buttonSignUp.layer.shadowColor = KaputStyle.shadowColor.CGColor;
-        buttonSignUp.layer.shadowOffset = CGSizeMake(10, 10);
-        buttonSignUp.layer.shadowRadius = 0
-        buttonSignUp.layer.shadowOpacity = 1;
-        buttonSignUp.backgroundColor = KaputStyle.chargingBlue;
+               buttonSignUp.backgroundColor = KaputStyle.chargingBlue;
 
 
         
