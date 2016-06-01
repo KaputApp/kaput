@@ -10,8 +10,11 @@ import UIKit
 
 class SignInViewController: UIViewController {
 
+    @IBOutlet var usernameField: kaputField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameField.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }

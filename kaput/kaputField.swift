@@ -17,7 +17,7 @@ class kaputField: UITextField {
     
     func createBorder(){
         let border = CALayer()
-        let width = CGFloat(3.0)
+        let width = CGFloat(5.0)
         border.borderColor = UIColor.whiteColor().CGColor
         border.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
 
