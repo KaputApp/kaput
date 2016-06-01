@@ -21,19 +21,21 @@ var batteryLevel = batLevel.init().levelBat
 public class KaputStyleFactory: NSObject {
     
     
-public var primaryColor: UIColor!
-public var secondaryColor: UIColor!
-public var thirdColor: UIColor!
+//public var primaryColor: UIColor!
+//public var secondaryColor: UIColor!
+//public var thirdColor: UIColor!
 
     
-public class func setColors(bat: Float) {
+public class func setColors() {
+var primaryColor: UIColor!
+var secondaryColor: UIColor!
+var bgColor: UIColor!
+    
+    if batteryLevel == 100 {
+        bgColor = UIColor.blackColor()
+        primaryColor = KaputStyle.lowRed
+        secondaryColor = KaputStyle.fullGreen
         
-    if bat < 0.80 {
-            
-        //primaryColor = KaputStyle.lowRed
-            
-        }
-        else {
         }
         
         
