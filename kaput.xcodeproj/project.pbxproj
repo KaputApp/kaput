@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A9A1A83163619FA30CDA3BE /* Pods_kaput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702A27384184509B3D1B303B /* Pods_kaput.framework */; };
 		3F72D5431CF8A7C400EA43AF /* KaputStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D5421CF8A7C400EA43AF /* KaputStyleFactory.swift */; };
 		3F72D5451CF8AF1A00EA43AF /* Spring in Resources */ = {isa = PBXBuildFile; fileRef = 3F72D5441CF8AF1A00EA43AF /* Spring */; };
 		3F7A12251CF888AD00AAD538 /* Futura_condensed_bold_oblique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */; };
@@ -17,7 +18,6 @@
 		3FEDBCA01CFEDFB700A6C6C1 /* kaputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBC9F1CFEDFB700A6C6C1 /* kaputButton.swift */; };
 		3FEDBCA21CFEE24000A6C6C1 /* kaputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA11CFEE24000A6C6C1 /* kaputField.swift */; };
 		3FEDBCA61CFEFF0700A6C6C1 /* backButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */; };
-		69F8C8E621578B7FCA0CAC4E /* libPods-kaput.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0D374E01A48B253D3E9FEA /* libPods-kaput.a */; };
 		89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D911CF762D000DF4941 /* AppDelegate.swift */; };
 		89139D941CF762D000DF4941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D931CF762D000DF4941 /* ViewController.swift */; };
 		89139D971CF762D000DF4941 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89139D951CF762D000DF4941 /* Main.storyboard */; };
@@ -40,6 +40,7 @@
 		3FEDBCA11CFEE24000A6C6C1 /* kaputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaputField.swift; sourceTree = "<group>"; };
 		3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backButtonView.swift; sourceTree = "<group>"; };
 		5100D028905F27236E71C3CF /* Pods-kaput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig"; sourceTree = "<group>"; };
+		702A27384184509B3D1B303B /* Pods_kaput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89139D8E1CF762D000DF4941 /* kaput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaput.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89139D911CF762D000DF4941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89139D931CF762D000DF4941 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +50,6 @@
 		89139D9D1CF762D000DF4941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89139DA51CF7633800DF4941 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89139DA71CF7636000DF4941 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		BB0D374E01A48B253D3E9FEA /* libPods-kaput.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kaput.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69F8C8E621578B7FCA0CAC4E /* libPods-kaput.a in Frameworks */,
+				1A9A1A83163619FA30CDA3BE /* Pods_kaput.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +67,7 @@
 		1866139DC5AABD367B436585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BB0D374E01A48B253D3E9FEA /* libPods-kaput.a */,
+				702A27384184509B3D1B303B /* Pods_kaput.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
