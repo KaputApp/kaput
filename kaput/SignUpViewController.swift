@@ -11,6 +11,8 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 
+
+
 class User: NSObject {
     var username: String
     
@@ -34,22 +36,28 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpButton(sender: AnyObject) {
         var ref:FIRDatabaseReference!
+       
         ref = FIRDatabase.database().reference()
-        let username = usernameField
+        let username = usernameField.text
         let email = emailField.text
         let password = passwordField.text
+       
         FIRAuth.auth()?.createUserWithEmail(email!, password: password!) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
             }
-            FIRDatabase.database().reference().childByAppendingPath("users").childByAppendingPath("toto").setValue(["isOnline":false,"username":username])
             
+           let user = FIRAuth.auth()?.currentUser
+            user?.profileChangeRequest().displayName = username
+            
+            print(user)
+             FIRDatabase.database().reference().child("users").child("authData").setValue(["username": "tata"])
+
 }
     }
     
-    
-    override func viewDidLoad() {
+      override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
