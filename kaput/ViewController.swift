@@ -65,9 +65,9 @@ class ViewController: UIViewController {
     }
 
     func batteryStateDidChange(notification: NSNotification){
-        batLevel.init()
-        Colors.init()
-        viewDidLoad()
+       // batLevel.init()
+      //  Colors.init()
+      //  viewDidLoad()
     }
 
     func batteryLevelDidChange(notification: NSNotification){
