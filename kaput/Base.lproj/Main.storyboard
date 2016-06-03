@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -54,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-p9-4WT" customClass="logoKaput" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="209.5" y="17" width="180" height="128"/>
+                                <rect key="frame" x="210" y="17" width="180" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="8%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGp-1d-HjY">
@@ -73,7 +73,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="B0k-56-6Dj" kind="showDetail" id="Mvb-bi-n7V"/>
+                                    <segue destination="B0k-56-6Dj" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="pKd-Qt-TsX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-8o-mMF" customClass="kaputButton" customModule="kaput" customModuleProvider="target">
@@ -86,7 +86,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5KF-Fe-tG4" kind="presentation" modalTransitionStyle="partialCurl" id="jLU-MM-jKH"/>
+                                    <segue destination="5KF-Fe-tG4" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="9wb-l8-uNY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfO-EZ-jaf" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
@@ -164,6 +164,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signUpButton:" destination="B0k-56-6Dj" eventType="touchUpInside" id="cnr-K9-D4d"/>
+                                    <segue destination="Bst-E0-Hi1" kind="custom" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="bhO-tf-zUX"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s96-VA-GjZ">
@@ -211,7 +212,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hht-gN-6Mk">
                                         <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="replace" splitViewControllerTargetIndex="1" id="TFR-Z3-JDF"/>
+                                            <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="CrZ-9U-CV8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -248,7 +249,6 @@
                         <outlet property="emailField" destination="M0h-wU-27D" id="APE-Xl-gxk"/>
                         <outlet property="passwordField" destination="WzC-FS-vcj" id="iYi-eX-bYd"/>
                         <outlet property="usernameField" destination="7Hx-9D-gc8" id="OLh-g0-u7L"/>
-                        <segue destination="Bst-E0-Hi1" kind="custom" identifier="showUserList" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="GcP-PJ-Q32"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbQ-q0-wXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -318,7 +318,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzI-e6-fL4">
                                         <rect key="frame" x="0.0" y="0.0" width="34" height="474"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="modal" id="b1B-u4-3Ru"/>
+                                            <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="1id-Qr-VbS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -335,6 +335,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logInButton:" destination="5KF-Fe-tG4" eventType="touchUpInside" id="d0y-51-tsJ"/>
+                                    <segue destination="Bst-E0-Hi1" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="bYn-R3-ryP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -371,7 +372,6 @@
                     <navigationItem key="navigationItem" id="FTG-QL-W0e"/>
                     <connections>
                         <outlet property="usernameField" destination="kd0-sP-YCe" id="PSc-v4-ERL"/>
-                        <segue destination="Bst-E0-Hi1" kind="custom" identifier="showUserList" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="Dg9-hk-f1J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zA7-JZ-E5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -391,7 +391,7 @@
                                 <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oS8-dg-9Jd" id="niX-ty-57h">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -427,7 +427,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TFR-Z3-JDF"/>
-        <segue reference="GcP-PJ-Q32"/>
+        <segue reference="CrZ-9U-CV8"/>
+        <segue reference="bhO-tf-zUX"/>
     </inferredMetricsTieBreakers>
 </document>
