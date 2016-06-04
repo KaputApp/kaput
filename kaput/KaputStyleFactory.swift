@@ -14,6 +14,7 @@ var batteryLevel = batLevel.init().levelBat
 var stateBattery = batLevel.init().stateBat
 
 
+
 public class SegueFromLeft: UIStoryboardSegue
 {
     override public func perform() {

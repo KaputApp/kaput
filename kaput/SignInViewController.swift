@@ -9,10 +9,31 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
+
+
+
 
 class SignInViewController: UIViewController {
     
+
+
+    
     @IBOutlet weak var emailField: kaputField!
+    @IBAction func resetPassword(sender: AnyObject) {
+        
+            let email = self.emailField.text
+        if email?.characters.count<8 {
+            self.errorAlert("Oops", message: "Please enter vaild email address!")
+        }else{
+            let finalemail = email?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            FIRAuth.auth()?.sendPasswordResetWithEmail(email!, completion: nil)
+            let  alert = UIAlertController(title: "Password resrt!", message: "An email containing information on how to reset your password has been sent to  \(finalemail!)", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
     @IBOutlet weak var passwordField: kaputField!
     
     func errorAlert(title: String, message: String) {
@@ -45,6 +66,7 @@ class SignInViewController: UIViewController {
             self.errorAlert("Oops!", message: "Please type valid password!")
             
         } else{
+
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0,80,80)) as UIActivityIndicatorView
             self.view.addSubview(spinner)
             spinner.startAnimating()
@@ -65,6 +87,9 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
+        
         
     emailField.becomeFirstResponder()
         view.backgroundColor = Colors.init().bgColor

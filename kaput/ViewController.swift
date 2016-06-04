@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad()
     
     {
+        
         // setting the height of the bar with a constraint.
         
         batLevel.init()

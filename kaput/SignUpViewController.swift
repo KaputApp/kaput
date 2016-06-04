@@ -11,6 +11,7 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 
+let ref = FIRDatabase.database().reference()
 
 
 class User: NSObject {
@@ -34,6 +35,8 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var emailField: kaputField!
     
+
+    
     // setup alert
     func errorAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
@@ -51,13 +54,19 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpButton(sender: AnyObject) {
-        let username = self.usernameField.text
+        let username: String? = self.usernameField.text
         let email = self.emailField.text
         let password = self.passwordField.text
+        ref.child("users").setValue(["batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
         //refresh textfiled
         let finalemail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let finalpassword = password!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let finalusername = username?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        
+        
+
+        
+        
         // verify signup information
         if username?.characters.count<5 {
             self.errorAlert("Opps!", message: "username must longer than 5 characters!")
@@ -80,8 +89,9 @@ class SignUpViewController: UIViewController {
                     self.sccuessAlert("Sccuess", message: "User created!")
                     
                     dispatch_async(dispatch_get_main_queue(), {()-> Void in
-                        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Home")
+                        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendList")
                         UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
+                        
                     })
                 }
                 
