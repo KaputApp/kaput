@@ -12,6 +12,7 @@ import Firebase
 import FirebaseDatabase
 
 let ref = FIRDatabase.database().reference()
+let userID = String(FIRAuth.auth()!.currentUser!.uid)
 
 
 class User: NSObject {
@@ -57,7 +58,7 @@ class SignUpViewController: UIViewController {
         let username: String? = self.usernameField.text
         let email = self.emailField.text
         let password = self.passwordField.text
-        ref.child("users").setValue(["userID": String(FIRAuth.auth()!.currentUser?.uid), "batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
+        ref.child("Users").child(userID).setValue(["userID": userID, "batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
         //refresh textfiled
         let finalemail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let finalpassword = password!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
