@@ -23,11 +23,11 @@
 		3FEDBCAE1CFF5C0900A6C6C1 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */; };
 		89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D911CF762D000DF4941 /* AppDelegate.swift */; };
 		89139D941CF762D000DF4941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D931CF762D000DF4941 /* ViewController.swift */; };
-		89139D971CF762D000DF4941 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89139D951CF762D000DF4941 /* Main.storyboard */; };
 		89139D991CF762D000DF4941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89139D981CF762D000DF4941 /* Assets.xcassets */; };
 		89139D9C1CF762D000DF4941 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89139D9A1CF762D000DF4941 /* LaunchScreen.storyboard */; };
 		89139DA61CF7633800DF4941 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89139DA51CF7633800DF4941 /* GoogleService-Info.plist */; };
 		89139DA81CF7636000DF4941 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89139DA71CF7636000DF4941 /* GoogleService-Info.plist */; };
+		8933D5E71D021F05006444E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8933D5E61D021F05006444E5 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,12 +50,12 @@
 		89139D8E1CF762D000DF4941 /* kaput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaput.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89139D911CF762D000DF4941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89139D931CF762D000DF4941 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		89139D961CF762D000DF4941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89139D981CF762D000DF4941 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89139D9B1CF762D000DF4941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89139D9D1CF762D000DF4941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89139DA51CF7633800DF4941 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89139DA71CF7636000DF4941 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8933D5E61D021F05006444E5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +152,7 @@
 		89139DB11CF7860900DF4941 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
-				89139D951CF762D000DF4941 /* Main.storyboard */,
+				8933D5E61D021F05006444E5 /* Main.storyboard */,
 			);
 			name = StoryBoard;
 			sourceTree = "<group>";
@@ -192,7 +192,7 @@
 				TargetAttributes = {
 					89139D8D1CF762D000DF4941 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 6TSFD975LR;
+						DevelopmentTeam = ZS2K7XBWJW;
 					};
 				};
 			};
@@ -222,11 +222,11 @@
 				3FEDBCAE1CFF5C0900A6C6C1 /* AppIcon.appiconset in Resources */,
 				3F7A12251CF888AD00AAD538 /* Futura_condensed_bold_oblique.ttf in Resources */,
 				89139D9C1CF762D000DF4941 /* LaunchScreen.storyboard in Resources */,
+				8933D5E71D021F05006444E5 /* Main.storyboard in Resources */,
 				89139DA61CF7633800DF4941 /* GoogleService-Info.plist in Resources */,
 				3F72D5451CF8AF1A00EA43AF /* Spring in Resources */,
 				89139DA81CF7636000DF4941 /* GoogleService-Info.plist in Resources */,
 				89139D991CF762D000DF4941 /* Assets.xcassets in Resources */,
-				89139D971CF762D000DF4941 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,14 +303,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		89139D951CF762D000DF4941 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				89139D961CF762D000DF4941 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		89139D9A1CF762D000DF4941 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -11,6 +11,7 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 
+let ref = FIRDatabase.database().reference()
 
 
 class User: NSObject {
@@ -34,39 +35,70 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var emailField: kaputField!
     
+
+    
+    // setup alert
+    func errorAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func sccuessAlert(title: String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
     @IBAction func signUpButton(sender: AnyObject) {
-        var ref:FIRDatabaseReference!
-       
-        ref = FIRDatabase.database().reference()
-        let username  = usernameField.text! as NSString
-        let email = emailField.text
-        let password = passwordField.text
+        let username: String? = self.usernameField.text
+        let email = self.emailField.text
+        let password = self.passwordField.text
+        ref.child("users").setValue(["userID": String(FIRAuth.auth()!.currentUser?.uid), "batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
+        //refresh textfiled
+        let finalemail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let finalpassword = password!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let finalusername = username?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         
-        FIRAuth.auth()?.createUserWithEmail(email!, password: password!) { (user, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            } 
+        
+
+        
+        
+        // verify signup information
+        if username?.characters.count<5 {
+            self.errorAlert("Opps!", message: "username must longer than 5 characters!")
+        } else if email?.characters.count<8 {
+            self.errorAlert("Opps!", message: "Please enter vaild email address!")
+        }else if password?.characters.count<8{
+            self.errorAlert("Opps!", message: "Your password must larger than 8 characters!")
+            
+        }
+        else {
+            // set spinner
+            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0,80,80))as UIActivityIndicatorView
+            self.view.addSubview(spinner)
+            spinner.startAnimating()
+            FIRAuth.auth()?.createUserWithEmail(email!, password: password!){(user,error) in
+                spinner.stopAnimating()
+                if let error = error{
+                    self.errorAlert("Opps!", message:"\(error.localizedDescription)")
+                }else{
+                    self.sccuessAlert("Sccuess", message: "User created!")
+                    
+                    dispatch_async(dispatch_get_main_queue(), {()-> Void in
+                        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendList")
+                        UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
+                        
+                    })
+                }
+                
             }
             
-           let user = FIRAuth.auth()?.currentUser
-           let uid = user?.uid
-
-            let userPath = FIRDatabase.database().reference().child("users").child(uid!)
-        
-            userPath.setValue(["username": username])
-            
-            userPath.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-                // Get user value
-                let username2 = snapshot.value!["username"] as! String
-                print(username2)
-                // ...
-            }) { (error) in
-                print(error.localizedDescription)
-            }
-
-            
-        
+        }
+    
 }
       override func viewDidLoad() {
         super.viewDidLoad()
