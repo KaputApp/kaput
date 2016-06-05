@@ -225,7 +225,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signUpButton:" destination="B0k-56-6Dj" eventType="touchUpInside" id="cnr-K9-D4d"/>
-                                    <segue destination="Bst-E0-Hi1" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="cwG-Df-nZA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -391,7 +390,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oS8-dg-9Jd">
-                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oS8-dg-9Jd" id="niX-ty-57h">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>

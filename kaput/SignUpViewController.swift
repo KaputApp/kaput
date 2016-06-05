@@ -12,7 +12,7 @@ import Firebase
 import FirebaseDatabase
 
 let ref = FIRDatabase.database().reference()
-let userID = String(FIRAuth.auth()!.currentUser!.uid)
+var userID = String(FIRAuth.auth()!.currentUser!.uid)
 
 
 class User: NSObject {
@@ -58,7 +58,6 @@ class SignUpViewController: UIViewController {
         let username: String? = self.usernameField.text
         let email = self.emailField.text
         let password = self.passwordField.text
-        ref.child("Users").child(userID).setValue(["userID": userID, "batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
         //refresh textfiled
         let finalemail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let finalpassword = password!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -88,7 +87,7 @@ class SignUpViewController: UIViewController {
                     self.errorAlert("Opps!", message:"\(error.localizedDescription)")
                 }else{
                     self.sccuessAlert("Sccuess", message: "User created!")
-                    
+                    ref.child("Users").child(userID).setValue(["userID": userID, "batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
                     dispatch_async(dispatch_get_main_queue(), {()-> Void in
                         let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendList")
                         UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
