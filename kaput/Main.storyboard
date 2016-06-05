@@ -195,13 +195,10 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BIH-Mb-dAq" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
                                 <rect key="frame" x="26" y="20" width="34" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hht-gN-6Mk">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hht-gN-6Mk">
                                         <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Aq9-1u-UTH"/>
-                                        </constraints>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="push" splitViewControllerTargetIndex="1" id="TFR-Z3-JDF"/>
+                                            <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="CrZ-9U-CV8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -319,9 +316,6 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="dQA-WP-K3k"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="400-uj-QFD" customClass="kaputButton" customModule="kaput" customModuleProvider="target">
                                 <rect key="frame" x="20" y="211" width="560" height="71"/>
@@ -436,7 +430,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b1B-u4-3Ru"/>
-        <segue reference="Dg9-hk-f1J"/>
+        <segue reference="CrZ-9U-CV8"/>
     </inferredMetricsTieBreakers>
 </document>
