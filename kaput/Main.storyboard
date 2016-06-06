@@ -26,6 +26,9 @@
             <string>Futura-CondensedBoldOblique</string>
             <string>Futura-CondensedBoldOblique</string>
             <string>Futura-CondensedBoldOblique</string>
+            <string>Futura-CondensedBoldOblique</string>
+            <string>Futura-CondensedBoldOblique</string>
+            <string>Futura-CondensedBoldOblique</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -420,6 +423,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZ7-3v-MpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1701" y="159"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VHq-JC-MDa">
+            <objects>
+                <viewController id="ydw-Xu-nsu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="451-xc-O2R"/>
+                        <viewControllerLayoutGuide type="bottom" id="ATQ-Tf-dyA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ChL-9v-QY4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gl2-dJ-Wi6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NRT-c2-da4" customClass="addButtonView" customModule="kaput" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="119" width="600" height="91"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="35"/>
+                                    <inset key="contentEdgeInsets" minX="-19" minY="-7" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" textLabel="nEq-eb-xo4" rowHeight="91" style="IBUITableViewCellStyleDefault" id="Ri2-Z6-9PL">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="91"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ri2-Z6-9PL" id="Le3-Uh-vML">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="90.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nEq-eb-xo4">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="90.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="40"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="tintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.50965378120000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDg-lZ-T0C" customClass="numberOfNotifications" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="270" width="92" height="61"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="35"/>
+                                <inset key="contentEdgeInsets" minX="-19" minY="-7" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="2">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ATQ-Tf-dyA" firstAttribute="top" secondItem="gl2-dJ-Wi6" secondAttribute="bottom" id="h5H-mZ-ddh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cPz-5A-Tla" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2447" y="159"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -1,5 +1,5 @@
 //
-//  numberOfNotifications.swift
+//  addButtonView.swift
 //  kaput
 //
 //  Created by Jeremy OUANOUNOU on 06/06/2016.
@@ -10,10 +10,10 @@ import UIKit
 
 @IBDesignable
 
-class numberOfNotifications: UIButton {
-
+class addButtonView: UIButton {
+    
     override func drawRect(rect: CGRect) {
-        KaputStyle.drawNumberOfNotifications()
+        KaputStyle.drawAddButton()
         
     }
     

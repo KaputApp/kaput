@@ -25,6 +25,8 @@ public class KaputStyle : NSObject {
         static let bloodyOrange: UIColor = UIColor(red: 1.000, green: 0.384, blue: 0.000, alpha: 1.000)
         static let midYellow: UIColor = UIColor(red: 1.000, green: 0.769, blue: 0.157, alpha: 1.000)
         static let shadow: NSShadow = NSShadow(color: KaputStyle.shadowColor, offset: CGSize(width: 10.1, height: 10.1), blurRadius: 0)
+        static var imageOfAddButton: UIImage?
+        static var addButtonTargets: [AnyObject]?
     }
 
     //// Colors
@@ -408,7 +410,6 @@ public class KaputStyle : NSObject {
         let fillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         let fillColor2 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
         let fillColor3 = UIColor(red: 1.000, green: 0.216, blue: 0.380, alpha: 1.000)
-        let textForeground2 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
 
         //// Group 8
         CGContextSaveGState(context)
@@ -448,25 +449,12 @@ public class KaputStyle : NSObject {
 
 
         //// Group 2
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
-
-        //// Clip Clip 4
-        let clip4Path = UIBezierPath(rect: CGRect(x: -36.38, y: -22.4, width: 72.75, height: 44.8))
-                var clip4Transformation = CGAffineTransformIdentity
-        clip4Transformation = CGAffineTransformTranslate(clip4Transformation, 37.55, 24.45)
-        clip4Transformation = CGAffineTransformRotate(clip4Transformation, -3 * CGFloat(M_PI) / 180)
-
-        clip4Path.applyTransform(clip4Transformation)
-        clip4Path.addClip()
-
-
         //// Rectangle 3 Drawing
         CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 37.55, 24.45)
+        CGContextTranslateCTM(context, 37.51, 24.17)
         CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
 
-        let rectangle3Path = UIBezierPath(rect: CGRect(x: -36.38, y: -22.4, width: 72.75, height: 44.8))
+        let rectangle3Path = UIBezierPath(rect: CGRect(x: -33.56, y: -18.95, width: 67.12, height: 37.91))
         fillColor2.setFill()
         rectangle3Path.fill()
 
@@ -517,8 +505,6 @@ public class KaputStyle : NSObject {
         CGContextRestoreGState(context)
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
 
 
         //// Group 5
@@ -564,27 +550,6 @@ public class KaputStyle : NSObject {
         CGContextRestoreGState(context)
 
 
-        //// Label Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 5.57, 3.67)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
-
-        let labelRect = CGRect(x: 0, y: 0, width: 60.76, height: 43)
-        let labelTextContent = NSString(string: "3")
-        let labelStyle = NSMutableParagraphStyle()
-        labelStyle.alignment = .Center
-
-        let labelFontAttributes = [NSFontAttributeName: UIFont(name: "Futura-CondensedBoldOblique", size: 33.18)!, NSForegroundColorAttributeName: textForeground2, NSParagraphStyleAttributeName: labelStyle]
-
-        let labelTextHeight: CGFloat = labelTextContent.boundingRectWithSize(CGSize(width: labelRect.width, height: CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: labelFontAttributes, context: nil).size.height
-        CGContextSaveGState(context)
-        CGContextClipToRect(context, labelRect)
-        labelTextContent.drawInRect(CGRect(x: labelRect.minX, y: labelRect.minY + (labelRect.height - labelTextHeight) / 2, width: labelRect.width, height: labelTextHeight), withAttributes: labelFontAttributes)
-        CGContextRestoreGState(context)
-
-        CGContextRestoreGState(context)
-
-
         //// Group 7
         CGContextSaveGState(context)
         CGContextBeginTransparencyLayer(context, nil)
@@ -617,6 +582,121 @@ public class KaputStyle : NSObject {
 
         CGContextEndTransparencyLayer(context)
         CGContextRestoreGState(context)
+    }
+
+    public class func drawAddButton() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Color Declarations
+        let strokeColor2 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+        let fillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+        let shadowTint = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
+        let fillColor5 = UIColor(red: 0.208, green: 0.529, blue: 0.988, alpha: 1.000)
+
+        //// Shadow Declarations
+        let shadow2 = NSShadow(color: shadowTint.colorWithAlphaComponent(0.2 * CGColorGetAlpha(shadowTint.CGColor)), offset: CGSize(width: 250.1, height: 10.1), blurRadius: 0)
+
+        //// Oval Drawing
+        let ovalPath = UIBezierPath(ovalInRect: CGRect(x: -240, y: 0, width: 80, height: 80))
+        CGContextSaveGState(context)
+        CGContextSetShadowWithColor(context, shadow2.shadowOffset, shadow2.shadowBlurRadius, (shadow2.shadowColor as! UIColor).CGColor)
+        fillColor.setFill()
+        ovalPath.fill()
+        CGContextRestoreGState(context)
+
+
+
+        //// Group
+        //// Group 2
+        CGContextSaveGState(context)
+        CGContextBeginTransparencyLayer(context, nil)
+
+        //// Clip Clip
+        let clipPath = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 80, height: 80))
+        clipPath.addClip()
+
+
+        //// Oval 2 Drawing
+        let oval2Path = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 80, height: 80))
+        fillColor5.setFill()
+        oval2Path.fill()
+
+
+        CGContextEndTransparencyLayer(context)
+        CGContextRestoreGState(context)
+
+
+
+
+        //// Group 3
+        CGContextSaveGState(context)
+        CGContextBeginTransparencyLayer(context, nil)
+
+        //// Clip Clip 3
+        let clip3Path = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 80, height: 80))
+        clip3Path.addClip()
+
+
+        //// Oval 4 Drawing
+        let oval4Path = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 80, height: 80))
+        strokeColor2.setStroke()
+        oval4Path.lineWidth = 10
+        oval4Path.stroke()
+
+
+        CGContextEndTransparencyLayer(context)
+        CGContextRestoreGState(context)
+
+
+        //// Bezier 2 Drawing
+        let bezier2Path = UIBezierPath()
+        bezier2Path.moveToPoint(CGPoint(x: 61, y: 36.5))
+        bezier2Path.addLineToPoint(CGPoint(x: 43.5, y: 36.5))
+        bezier2Path.addLineToPoint(CGPoint(x: 43.5, y: 19))
+        bezier2Path.addLineToPoint(CGPoint(x: 36.5, y: 19))
+        bezier2Path.addLineToPoint(CGPoint(x: 36.5, y: 36.5))
+        bezier2Path.addLineToPoint(CGPoint(x: 19, y: 36.5))
+        bezier2Path.addLineToPoint(CGPoint(x: 19, y: 43.5))
+        bezier2Path.addLineToPoint(CGPoint(x: 36.5, y: 43.5))
+        bezier2Path.addLineToPoint(CGPoint(x: 36.5, y: 61))
+        bezier2Path.addLineToPoint(CGPoint(x: 43.5, y: 61))
+        bezier2Path.addLineToPoint(CGPoint(x: 43.5, y: 43.5))
+        bezier2Path.addLineToPoint(CGPoint(x: 61, y: 43.5))
+        bezier2Path.addLineToPoint(CGPoint(x: 61, y: 36.5))
+        bezier2Path.closePath()
+        bezier2Path.usesEvenOddFillRule = true;
+
+        fillColor.setFill()
+        bezier2Path.fill()
+    }
+
+    //// Generated Images
+
+    public class var imageOfAddButton: UIImage {
+        if Cache.imageOfAddButton != nil {
+            return Cache.imageOfAddButton!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 90, height: 90), false, 0)
+            KaputStyle.drawAddButton()
+
+        Cache.imageOfAddButton = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfAddButton!
+    }
+
+    //// Customization Infrastructure
+
+    @IBOutlet var addButtonTargets: [AnyObject]! {
+        get { return Cache.addButtonTargets }
+        set {
+            Cache.addButtonTargets = newValue
+            for target: AnyObject in newValue {
+                target.performSelector(NSSelectorFromString("setImage:"), withObject: KaputStyle.imageOfAddButton)
+            }
+        }
     }
 
 }
