@@ -89,7 +89,8 @@ class SignUpViewController: UIViewController {
                     self.sccuessAlert("Sccuess", message: "User created!")
                     ref.child("Users").child(userID).setValue(["userID": userID, "batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
                     dispatch_async(dispatch_get_main_queue(), {()-> Void in
-                        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendList")
+                        
+                        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendList2")
                         UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
                         
                     })
