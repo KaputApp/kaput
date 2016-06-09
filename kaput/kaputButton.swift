@@ -19,7 +19,18 @@ class kaputButton: UIButton {
         self.layer.shadowOffset = CGSizeMake(10, 10);
         self.layer.shadowRadius = 0
         self.layer.shadowOpacity = 1;
-    
+
+        
+    }
+
+    override func layoutSubviews() {
+       
+    if var titleFrame : CGRect = titleLabel?.frame{
+            titleFrame.size = self.bounds.size
+            titleFrame.origin = CGPointZero
+            self.titleLabel!.frame = titleFrame
+            self.titleLabel!.textAlignment = .Center
+        }
     }
 }
 
