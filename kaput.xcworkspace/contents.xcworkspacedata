@@ -5,7 +5,7 @@
       location = "group:FBData.swift">
    </FileRef>
    <FileRef
-      location = "group:/Users/Jeremy/Documents/kaput/kaput.xcodeproj">
+      location = "group:kaput.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
