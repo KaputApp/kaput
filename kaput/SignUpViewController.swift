@@ -90,7 +90,7 @@ class SignUpViewController: UIViewController {
                     ref.child("Users").child(userID).setValue(["userID": userID, "batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
                     dispatch_async(dispatch_get_main_queue(), {()-> Void in
                         
-                        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendList2")
+                        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("friendListView")
                         UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
                         
                     })
