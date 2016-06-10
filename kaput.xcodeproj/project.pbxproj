@@ -39,6 +39,12 @@
 		3F593F6C1D09A02A0059745D /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F4F1D09A02A0059745D /* TransitionManager.swift */; };
 		3F593F6D1D09A02A0059745D /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F501D09A02A0059745D /* TransitionZoom.swift */; };
 		3F593F6E1D09A02A0059745D /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F511D09A02A0059745D /* UnwindSegue.swift */; };
+		3F593F781D09B4750059745D /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F711D09B4750059745D /* TPKeyboardAvoidingCollectionView.m */; };
+		3F593F791D09B4750059745D /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F731D09B4750059745D /* TPKeyboardAvoidingScrollView.m */; };
+		3F593F7A1D09B4750059745D /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F751D09B4750059745D /* TPKeyboardAvoidingTableView.m */; };
+		3F593F7B1D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F771D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		3F593F7D1D09C7000059745D /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F7C1D09C7000059745D /* FriendListViewController.swift */; };
+		3F593F7F1D09EE420059745D /* BigNotifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F7E1D09EE420059745D /* BigNotifView.swift */; };
 		3F72D5431CF8A7C400EA43AF /* KaputStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D5421CF8A7C400EA43AF /* KaputStyleFactory.swift */; };
 		3F72E31E1D05833300B44336 /* friendListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72E31D1D05833300B44336 /* friendListTableViewController.swift */; };
 		3F72E3201D05CE1B00B44336 /* numberOfNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72E31F1D05CE1B00B44336 /* numberOfNotifications.swift */; };
@@ -96,6 +102,16 @@
 		3F593F4F1D09A02A0059745D /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		3F593F501D09A02A0059745D /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		3F593F511D09A02A0059745D /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
+		3F593F701D09B4750059745D /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		3F593F711D09B4750059745D /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		3F593F721D09B4750059745D /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		3F593F731D09B4750059745D /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		3F593F741D09B4750059745D /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		3F593F751D09B4750059745D /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		3F593F761D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		3F593F771D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		3F593F7C1D09C7000059745D /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		3F593F7E1D09EE420059745D /* BigNotifView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigNotifView.swift; sourceTree = "<group>"; };
 		3F72D5421CF8A7C400EA43AF /* KaputStyleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaputStyleFactory.swift; sourceTree = "<group>"; };
 		3F72E31D1D05833300B44336 /* friendListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendListTableViewController.swift; sourceTree = "<group>"; };
 		3F72E31F1D05CE1B00B44336 /* numberOfNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numberOfNotifications.swift; sourceTree = "<group>"; };
@@ -138,6 +154,7 @@
 		1866139DC5AABD367B436585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F593F6F1D09B4750059745D /* TPKeyboardAvoiding */,
 				3F593F331D09A02A0059745D /* Spring */,
 				702A27384184509B3D1B303B /* Pods_kaput.framework */,
 			);
@@ -190,10 +207,26 @@
 			path = Spring;
 			sourceTree = "<group>";
 		};
+		3F593F6F1D09B4750059745D /* TPKeyboardAvoiding */ = {
+			isa = PBXGroup;
+			children = (
+				3F593F701D09B4750059745D /* TPKeyboardAvoidingCollectionView.h */,
+				3F593F711D09B4750059745D /* TPKeyboardAvoidingCollectionView.m */,
+				3F593F721D09B4750059745D /* TPKeyboardAvoidingScrollView.h */,
+				3F593F731D09B4750059745D /* TPKeyboardAvoidingScrollView.m */,
+				3F593F741D09B4750059745D /* TPKeyboardAvoidingTableView.h */,
+				3F593F751D09B4750059745D /* TPKeyboardAvoidingTableView.m */,
+				3F593F761D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				3F593F771D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			path = TPKeyboardAvoiding;
+			sourceTree = "<group>";
+		};
 		3FD1633C1CF852F600862C77 /* Design Classes */ = {
 			isa = PBXGroup;
 			children = (
 				3F7A12261CF88CB800AAD538 /* logoKaput.swift */,
+				3F593F7E1D09EE420059745D /* BigNotifView.swift */,
 				3F72E31F1D05CE1B00B44336 /* numberOfNotifications.swift */,
 				3F593F0B1D0603A50059745D /* addButtonView.swift */,
 				3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */,
@@ -210,6 +243,7 @@
 			children = (
 				3F593F311D099F780059745D /* NotificationViewController.swift */,
 				89139D931CF762D000DF4941 /* ViewController.swift */,
+				3F593F7C1D09C7000059745D /* FriendListViewController.swift */,
 				3F72E31D1D05833300B44336 /* friendListTableViewController.swift */,
 				3FEDBC9B1CFEDB5600A6C6C1 /* SignUpViewController.swift */,
 				3FEDBC9D1CFEDB9C00A6C6C1 /* SignInViewController.swift */,
@@ -298,7 +332,7 @@
 				TargetAttributes = {
 					89139D8D1CF762D000DF4941 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = ZS2K7XBWJW;
+						DevelopmentTeam = 6TSFD975LR;
 					};
 				};
 			};
@@ -398,6 +432,7 @@
 				3F593F631D09A02A0059745D /* SoundPlayer.swift in Sources */,
 				3F593F5F1D09A02A0059745D /* KeyboardLayoutConstraint.swift in Sources */,
 				3F593F671D09A02A0059745D /* SpringImageView.swift in Sources */,
+				3F593F791D09B4750059745D /* TPKeyboardAvoidingScrollView.m in Sources */,
 				3FEDBC9E1CFEDB9C00A6C6C1 /* SignInViewController.swift in Sources */,
 				3F593F5A1D09A02A0059745D /* DesignableTextField.swift in Sources */,
 				3FEDBCA81CFF21FA00A6C6C1 /* kaputPrimaryButton.swift in Sources */,
@@ -415,13 +450,16 @@
 				3F593F6C1D09A02A0059745D /* TransitionManager.swift in Sources */,
 				3F593F5D1D09A02A0059745D /* ImageLoader.swift in Sources */,
 				3F593F0C1D0603A50059745D /* addButtonView.swift in Sources */,
+				3F593F7F1D09EE420059745D /* BigNotifView.swift in Sources */,
 				3F593F571D09A02A0059745D /* DesignableImageView.swift in Sources */,
 				3F593F541D09A02A0059745D /* AutoTextView.swift in Sources */,
 				89139D941CF762D000DF4941 /* ViewController.swift in Sources */,
+				3F593F781D09B4750059745D /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				3F593F6B1D09A02A0059745D /* SpringView.swift in Sources */,
 				3F593F6D1D09A02A0059745D /* TransitionZoom.swift in Sources */,
 				3FEDBCA21CFEE24000A6C6C1 /* kaputField.swift in Sources */,
 				3F593F321D099F780059745D /* NotificationViewController.swift in Sources */,
+				3F593F7B1D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				3FEDBCA01CFEDFB700A6C6C1 /* kaputButton.swift in Sources */,
 				3F593F601D09A02A0059745D /* LoadingView.swift in Sources */,
 				3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */,
@@ -433,8 +471,10 @@
 				3F593F5B1D09A02A0059745D /* DesignableTextView.swift in Sources */,
 				3F593F641D09A02A0059745D /* Spring.swift in Sources */,
 				3FEDBCAA1CFF253C00A6C6C1 /* kaputSecondaryButton.swift in Sources */,
+				3F593F7D1D09C7000059745D /* FriendListViewController.swift in Sources */,
 				89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */,
 				3F593F5C1D09A02A0059745D /* DesignableView.swift in Sources */,
+				3F593F7A1D09B4750059745D /* TPKeyboardAvoidingTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
