@@ -3,12 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict/>
-	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>58CE61668524E9BF2C572A0B296268B0</key>
+		<key>Pods-kaput.xcscheme</key>
 		<dict>
-			<key>primary</key>
+			<key>isShown</key>
 			<true/>
 		</dict>
 	</dict>
