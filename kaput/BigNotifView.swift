@@ -12,6 +12,7 @@ class BigNotifView: SpringView {
 
     
     override func drawRect(rect: CGRect) {
+        
         KaputStyle.drawBigNotif()
         
     }

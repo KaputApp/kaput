@@ -103,7 +103,6 @@ class SignUpViewController: UIViewController {
 }
       override func viewDidLoad() {
         super.viewDidLoad()
-        usernameField.becomeFirstResponder()
         view.backgroundColor = Colors.init().bgColor
     }
 

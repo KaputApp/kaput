@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable
 
-class numberOfNotifications: UIButton {
+class numberOfNotifications: SpringButton {
 
     override func drawRect(rect: CGRect) {
         KaputStyle.drawNumberOfNotifications()

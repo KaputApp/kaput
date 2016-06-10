@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
+import FirebaseDatabase
+
+
+
+
 
 class FriendListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var friendsTableView: UITableView!
@@ -15,14 +22,19 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
-        
-        // Put the background Color
-        
         friendsTableView.backgroundColor = Colors.init().bgColor
 
-
-        // Do any additional setup after loading the view.
-    }
+        
+        ref.observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            let postDict = snapshot.value as! [String : AnyObject]
+            print(snapshot.value!)
+            
+            })
+        
+        
+        
+        
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,8 +42,9 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    var data = ["JÉRÉMY", "ANDREA", "VINCENT", "NOÉMIE", "ILLAN", "ANTOINE",
-                "CLEMENTINE", "DAVID"]
+    
+    var data = ["ILLAN","ANDREA","JEREMY","DAVID","VINZ","NOEMIE","JEAN"]
+  
     
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

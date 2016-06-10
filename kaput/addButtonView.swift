@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable
 
-class addButtonView: UIButton {
+class addButtonView: SpringButton {
     
     override func drawRect(rect: CGRect) {
         KaputStyle.drawAddButton()

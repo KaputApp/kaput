@@ -15,6 +15,7 @@ import FirebaseDatabase
 @IBDesignable
 
 
+
 class NotificationViewController: UIViewController {
 
     var animator : UIDynamicAnimator!
@@ -101,11 +102,16 @@ class NotificationViewController: UIViewController {
 
     
         func loadDatafromFirebase(){
+            
+           
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             
-            var refHandle = ref.child("Users").child("xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").child(String(notifCounter)).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            
+            var refHandle = ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").child(String(notifCounter)).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
                 let postDict = snapshot.value as! [String : AnyObject]
+                
+                print(postDict)
                 
                 var senderText =  snapshot.value!["sent_by"] as? String
                 var timeText = snapshot.value!["sent_date"] as? String
@@ -113,19 +119,17 @@ class NotificationViewController: UIViewController {
                 
                 self.senderLabel.text = "\(senderText!) IS \(levelBat!)%"
                 self.timeLabel.text = timeText
-                
-
             
                 
             print(self.notifCounter)
-                
-                
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            })
-        }
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            }) { (error) in
+    print(error.localizedDescription)
+    }
 
-        
-   
+
+}
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -145,17 +149,18 @@ class NotificationViewController: UIViewController {
         let scale = CGAffineTransformMakeScale(0, 0.5)
         let translate = CGAffineTransformMakeTranslation(0, -200)
         notifView.transform = CGAffineTransformConcat(scale, translate)
-        
         SpringAnimation.spring(0.5) {
             let scale = CGAffineTransformMakeScale(1, 1)
             let translate = CGAffineTransformMakeTranslation(0, 0)
             self.notifView.transform = CGAffineTransformConcat(scale, translate)
+            
+            
         }
         
         notifView.alpha = 1
-
         
         loadDatafromFirebase()
+
         
         
     }
@@ -168,11 +173,13 @@ class NotificationViewController: UIViewController {
         if notifCounter > 2 {
             notifCounter = 1
         }
+
         
         animator.removeAllBehaviors()
         snapBehavior = UISnapBehavior(item: notifView, snapToPoint: view.center)
         attachmentBehavior.anchorPoint = view.center
         notifView.center = view.center
+
         viewDidAppear(true)
     }
     
