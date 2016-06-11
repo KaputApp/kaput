@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 
 
-class logoKaput: UIView {
+class logoKaput: SpringView {
     
     override func drawRect(rect: CGRect) {
         KaputStyle.drawLogoKaput()

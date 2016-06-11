@@ -8,7 +8,7 @@
 
 import UIKit
 
-class kaputButton: UIButton {
+class kaputButton: SpringButton {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -32,5 +32,10 @@ class kaputButton: UIButton {
             self.titleLabel!.textAlignment = .Center
         }
     }
+    
+    
 }
+
+
+
 

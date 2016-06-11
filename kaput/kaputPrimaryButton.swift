@@ -9,7 +9,7 @@
 import UIKit
 
 
-class kaputPrimaryButton: UIButton {
+class kaputPrimaryButton: SpringButton {
    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -23,4 +23,16 @@ class kaputPrimaryButton: UIButton {
     self.layer.backgroundColor = Colors.init().primaryColor.CGColor
     
     }
+    
+    
+    override func layoutSubviews() {
+        
+        if var titleFrame : CGRect = titleLabel?.frame{
+            titleFrame.size = self.bounds.size
+            titleFrame.origin = CGPointZero
+            self.titleLabel!.frame = titleFrame
+            self.titleLabel!.textAlignment = .Center
+        }
+    }
+    
 }

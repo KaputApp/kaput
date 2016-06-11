@@ -8,7 +8,7 @@
 
 import UIKit
 
-class kaputSecondaryButton: UIButton {
+class kaputSecondaryButton: SpringButton {
    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -22,4 +22,16 @@ class kaputSecondaryButton: UIButton {
         self.layer.backgroundColor = Colors.init().secondaryColor.CGColor
         
     }
+    
+    
+    override func layoutSubviews() {
+        
+        if var titleFrame : CGRect = titleLabel?.frame{
+            titleFrame.size = self.bounds.size
+            titleFrame.origin = CGPointZero
+            self.titleLabel!.frame = titleFrame
+            self.titleLabel!.textAlignment = .Center
+        }
+    }
+    
 }

@@ -14,25 +14,41 @@ import FirebaseDatabase
 
 
 
-
 class FriendListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var friendsTableView: UITableView!
+    @IBOutlet var kaputCounter: numberOfNotifications!
+    var data = []
+    var kaputCount = UInt()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+        ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/friends").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            for child in snapshot.children {
+                
+                let childSnapshot = snapshot.childSnapshotForPath(child.key)
+            }
+            let friendList = snapshot.value! as! NSDictionary
+            self.data =  friendList.allKeys as! [String]
+            self.friendsTableView.reloadData()
+            
+        })
+        
+
+        self.kaputCounter.titleLabel?.text = String(kaputCount)
+      
+        ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            
+            self.kaputCount = snapshot.childrenCount
+            print(snapshot.value!)
+          
+            })
+        self.kaputCounter.titleLabel?.text = String(self.kaputCount)
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
         friendsTableView.backgroundColor = Colors.init().bgColor
-
-        
-        ref.observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-            let postDict = snapshot.value as! [String : AnyObject]
-            print(snapshot.value!)
-            
-            })
-        
-        
-        
         
         }
 
@@ -41,10 +57,6 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    var data = ["ILLAN","ANDREA","JEREMY","DAVID","VINZ","NOEMIE","JEAN"]
-  
     
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -60,7 +72,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)
         
         
-        cell.textLabel?.text = data[indexPath.row]
+        cell.textLabel?.text = data[indexPath.row] as! String
         switch indexPath.row {
         case 1:
             cell.backgroundColor = KaputStyle.lowRed
@@ -68,7 +80,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.backgroundColor = KaputStyle.fullGreen
         case 3:
             cell.backgroundColor = KaputStyle.chargingBlue
-        case 4:
+        case 0:
             cell.backgroundColor = KaputStyle.midYellow
         default:
             cell.backgroundColor = KaputStyle.lowRed
@@ -77,6 +89,35 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
 
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)
+        
+        cell.textLabel!.text = "KAPUT SENT"
+        
+        let inputsOutputs = [
+            "levelBattery" : String( batLevel.init().levelBat),
+            "read" : true,
+            "sent_by" : "JEREM",
+            "sent_date" : "NOW",
+            "sent_to" : "ANDREA"
+        ]
+        
+        
+        ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            
+           self.kaputCount = snapshot.childrenCount
+        })
+        
+        ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").child(String(kaputCount+1)).setValue(inputsOutputs as [NSObject : AnyObject])
+        self.kaputCounter.titleLabel?.text = String(kaputCount)
+
+        
+        
+        
+    }
+    
     
     
     

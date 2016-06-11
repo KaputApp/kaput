@@ -17,12 +17,12 @@ class ViewController: UIViewController {
     
 //declarations of outlets
     
-@IBOutlet var buttonFacebook: UIButton!
-@IBOutlet var buttonLogIn: UIButton!
-@IBOutlet var buttonSignUp: UIButton!
+@IBOutlet var buttonFacebook: SpringButton!
+@IBOutlet var buttonLogIn: SpringButton!
+@IBOutlet var buttonSignUp: SpringButton!
 @IBOutlet var chargingBarView: UIView!
 @IBOutlet var chargingBarHeight: NSLayoutConstraint!
-@IBOutlet weak var labelBattery: UILabel!
+@IBOutlet weak var labelBattery: SpringLabel!
 
 
     override func viewDidLoad()

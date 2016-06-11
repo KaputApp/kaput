@@ -17,4 +17,16 @@ class numberOfNotifications: SpringButton {
         
     }
     
+    
+    override func layoutSubviews() {
+        
+        if var titleFrame : CGRect = titleLabel?.frame{
+            titleFrame.size = self.bounds.size
+            titleFrame.origin = CGPoint(x: -10, y: -3)
+            self.titleLabel!.frame = titleFrame
+            self.titleLabel!.textAlignment = .Center
+        }
+    }
+    
+    
 }

@@ -31,10 +31,9 @@ class User: NSObject {
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var usernameField: kaputField!
-    
     @IBOutlet weak var passwordField: kaputField!
-    
     @IBOutlet weak var emailField: kaputField!
+    @IBOutlet var signUpButton: kaputButton!
     
 
     
@@ -78,7 +77,9 @@ class SignUpViewController: UIViewController {
         }
         else {
             // set spinner
-            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0,80,80))as UIActivityIndicatorView
+            
+            signUpButton.titleLabel?.text = ""
+            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.size.width/2-40,signUpButton.frame.origin.y,80,80))as UIActivityIndicatorView
             self.view.addSubview(spinner)
             spinner.startAnimating()
             FIRAuth.auth()?.createUserWithEmail(email!, password: password!){(user,error) in
@@ -86,13 +87,17 @@ class SignUpViewController: UIViewController {
                 if let error = error{
                     self.errorAlert("Opps!", message:"\(error.localizedDescription)")
                 }else{
+            
+                    
+                    
+                    
+                    
+                    
                     self.sccuessAlert("Sccuess", message: "User created!")
                     ref.child("Users").child(userID).setValue(["userID": userID, "batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
                     dispatch_async(dispatch_get_main_queue(), {()-> Void in
-                        
                         let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("friendListView")
                         UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
-                        
                     })
                 }
                 

@@ -23,6 +23,9 @@ class NotificationViewController: UIViewController {
     var gravityBehaviour : UIGravityBehavior!
     var snapBehavior : UISnapBehavior!
     var notifCounter = 1
+    var kaputCounter = 1
+
+
     let userID = FIRAuth.auth()?.currentUser?.uid
  
     
@@ -106,22 +109,30 @@ class NotificationViewController: UIViewController {
            
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             
+            var kaputs =  ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+                
+                self.kaputCounter = Int(snapshot.childrenCount)
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+
             
-            var refHandle = ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").child(String(notifCounter)).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            
+            var notifKaput = ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").child(String(notifCounter)).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
                 let postDict = snapshot.value as! [String : AnyObject]
                 
                 print(postDict)
                 
-                var senderText =  snapshot.value!["sent_by"] as? String
-                var timeText = snapshot.value!["sent_date"] as? String
-                var levelBat = snapshot.value!["levelBattery"] as? String
+                
+                var senderText =  snapshot.value?["sent_by"] as? String
+                var timeText = snapshot.value?["sent_date"] as? String
+                var levelBat = snapshot.value?["levelBattery"] as? String
+                
                 
                 self.senderLabel.text = "\(senderText!) IS \(levelBat!)%"
                 self.timeLabel.text = timeText
-            
                 
-            print(self.notifCounter)
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }) { (error) in
     print(error.localizedDescription)
@@ -138,25 +149,16 @@ class NotificationViewController: UIViewController {
     
     
     override func viewWillAppear(animated: Bool) {
-        notifView.animation = "zoomIn"
-        loadDatafromFirebase()
-        notifView.delay = 0.5
-        notifView.animate()
+       
     }
     
     override func viewDidAppear(animated: Bool) {
         
-        let scale = CGAffineTransformMakeScale(0, 0.5)
-        let translate = CGAffineTransformMakeTranslation(0, -200)
-        notifView.transform = CGAffineTransformConcat(scale, translate)
-        SpringAnimation.spring(0.5) {
-            let scale = CGAffineTransformMakeScale(1, 1)
-            let translate = CGAffineTransformMakeTranslation(0, 0)
-            self.notifView.transform = CGAffineTransformConcat(scale, translate)
-            
-            
-        }
-        
+
+    notifView.animation = "zoomIn"
+    notifView.delay = 0.2
+    notifView.animate()
+    
         notifView.alpha = 1
         
         loadDatafromFirebase()
@@ -168,9 +170,11 @@ class NotificationViewController: UIViewController {
 
    
     func refreshView() {
+        
+
         notifCounter=notifCounter+1
         
-        if notifCounter > 2 {
+        if notifCounter > kaputCounter {
             notifCounter = 1
         }
 
