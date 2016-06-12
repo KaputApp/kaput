@@ -16,11 +16,12 @@ class AddFriendViewController: UIViewController {
     @IBAction func addFriend(sender: AnyObject) {
         
         let inputsOutputs = [friendNameField.text!:true] as [String:Bool]
-       ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/friends").updateChildValues(inputsOutputs)
+       ref.child("Users").child(userID).child("friends").updateChildValues(inputsOutputs)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         view.backgroundColor = Colors.init().bgColor
     }

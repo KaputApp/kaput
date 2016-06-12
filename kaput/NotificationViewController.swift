@@ -29,6 +29,7 @@ class NotificationViewController: UIViewController {
     let userID = FIRAuth.auth()?.currentUser?.uid
  
     
+    @IBOutlet var numberLeft: SpringLabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var senderLabel: UILabel!
     @IBOutlet var notifView: BigNotifView!
@@ -74,6 +75,7 @@ class NotificationViewController: UIViewController {
             gravity.gravityDirection = CGVectorMake(10, 0)
             animator.addBehavior(gravity)
             
+            self.numberLeft.alpha = 0
 
             delay(0.3) {
                 self.refreshView()
@@ -97,6 +99,8 @@ class NotificationViewController: UIViewController {
         super.viewDidLoad()
         animator = UIDynamicAnimator(referenceView: view)
         notifView.alpha = 0
+     
+
 
         
          }
@@ -109,7 +113,7 @@ class NotificationViewController: UIViewController {
            
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             
-            var kaputs =  ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            var kaputs =  ref.child("Users").child(userID!).child("kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
                 
                 self.kaputCounter = Int(snapshot.childrenCount)
             }) { (error) in
@@ -118,7 +122,7 @@ class NotificationViewController: UIViewController {
 
             
             
-            var notifKaput = ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").child(String(notifCounter)).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            var notifKaput = ref.child("Users").child(userID!).child("kaput").child(String(notifCounter)).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
                 let postDict = snapshot.value as! [String : AnyObject]
                 
@@ -160,8 +164,14 @@ class NotificationViewController: UIViewController {
     notifView.animate()
     
         notifView.alpha = 1
+        self.numberLeft.alpha = 1
+        numberLeft.animation = "zoomIn"
+        numberLeft.animate()
+        
         
         loadDatafromFirebase()
+
+        self.numberLeft.text = String(1 + kaputCounter - notifCounter)
 
         
         
@@ -177,7 +187,8 @@ class NotificationViewController: UIViewController {
         if notifCounter > kaputCounter {
             notifCounter = 1
         }
-
+        
+        self.numberLeft.text = String(1 + kaputCounter - notifCounter)
         
         animator.removeAllBehaviors()
         snapBehavior = UISnapBehavior(item: notifView, snapToPoint: view.center)

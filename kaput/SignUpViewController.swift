@@ -15,6 +15,7 @@ let ref = FIRDatabase.database().reference()
 var userID = String(FIRAuth.auth()!.currentUser!.uid)
 
 
+//n'a rien n'a foutre la.
 class User: NSObject {
     var username: String
     
@@ -35,35 +36,17 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: kaputField!
     @IBOutlet var signUpButton: kaputButton!
     
-
-    
-    // setup alert
-    func errorAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    func sccuessAlert(title: String, message:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
-        
-    }
-    
     @IBAction func signUpButton(sender: AnyObject) {
+        
+
         let username: String? = self.usernameField.text
         let email = self.emailField.text
         let password = self.passwordField.text
-        //refresh textfiled
+        //refresh textfiled - non utilisé
+        
         let finalemail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let finalpassword = password!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let finalusername = username?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        
-        
-
         
         
         // verify signup information
@@ -82,23 +65,31 @@ class SignUpViewController: UIViewController {
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.size.width/2-40,signUpButton.frame.origin.y,80,80))as UIActivityIndicatorView
             self.view.addSubview(spinner)
             spinner.startAnimating()
+            
             FIRAuth.auth()?.createUserWithEmail(email!, password: password!){(user,error) in
                 spinner.stopAnimating()
                 if let error = error{
                     self.errorAlert("Opps!", message:"\(error.localizedDescription)")
                 }else{
-            
+        
+
+                    print("user created")
+                    print(email!)
                     
+                    self.performSegueWithIdentifier("toFriendList", sender: self)
+
                     
+//                    dispatch_async(dispatch_get_main_queue(), {()-> Void in
+//                        self.performSegueWithIdentifier("toFriendList", sender: self)
+//                    })
                     
-                    
-                    
-                    self.sccuessAlert("Sccuess", message: "User created!")
-                    ref.child("Users").child(userID).setValue(["userID": userID, "batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
-                    dispatch_async(dispatch_get_main_queue(), {()-> Void in
-                        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("friendListView")
-                        UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
-                    })
+                    //dispatch_async(dispatch_get_main_queue(), {()-> Void in
+//                        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("friendListView")
+//                        UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
+                
+
+                   // })
+
                 }
                 
             }
@@ -106,6 +97,53 @@ class SignUpViewController: UIViewController {
         }
     
 }
+    
+    
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toFriendList" {
+            print("prepareforsegue is called")
+
+        
+    let username = self.usernameField.text
+    
+            print(userID)
+            
+            FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: username!)
+            
+            // a supprimer
+            
+//            ref.child("Users").child(userID).setValue(["userID": userID, "batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
+//        
+            
+            let toView = segue.destinationViewController as! FriendListViewController
+
+            // ce  bout de cote doit aller dans la friendList!
+            
+            
+//            FirebaseDataService.getFriendList("xy2olnrUo2Wa5FY59c6KXIY4on62",response: { (friendList) -> () in
+//                
+//                if friendList.allKeys.isEmpty == true {
+//                    toView.data = ["Sans Ami"]
+//                    toView.friendsTableView.reloadData()
+//                }
+//                else {
+//                    print("ya des gens")
+//                toView.data =  friendList.allKeys as! [String]
+//                toView.friendsTableView.reloadData()
+//
+//
+//                }
+//                
+//            })
+//            
+            
+            
+            //jusqu'ici
+            
+        }
+    }
+    
+    
       override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.init().bgColor
@@ -116,15 +154,27 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    
+    // setup alert
+    func errorAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
     }
-    */
+    
+    
+    //inutile
+    func sccuessAlert(title: String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
+
 
 }

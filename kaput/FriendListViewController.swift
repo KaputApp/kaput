@@ -18,34 +18,49 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var friendsTableView: UITableView!
     @IBOutlet var kaputCounter: numberOfNotifications!
     var data = []
-    var kaputCount = UInt()
+    var kaputCount = Int()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/friends").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-            for child in snapshot.children {
+        print("jusque la ca va")
+            FirebaseDataService.getFriendList(userID,response: { (friendList) -> () in
                 
-                let childSnapshot = snapshot.childSnapshotForPath(child.key)
-            }
-            let friendList = snapshot.value! as! NSDictionary
             self.data =  friendList.allKeys as! [String]
             self.friendsTableView.reloadData()
-            
-        })
-        
-
-        self.kaputCounter.titleLabel?.text = String(kaputCount)
-      
-        ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-            
-            self.kaputCount = snapshot.childrenCount
-            print(snapshot.value!)
-          
             })
-        self.kaputCounter.titleLabel?.text = String(self.kaputCount)
+
+        
+        
+//        ref.child("Users/060bNfcSN8ZTmYHMvqG0QyMm8X42/friends").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+//            for child in snapshot.children {
+//                
+//                let childSnapshot = snapshot.childSnapshotForPath(child.key)
+//            }
+//            let friendList = snapshot.value! as! NSDictionary
+//            self.data =  friendList.allKeys as! [String]
+//            self.friendsTableView.reloadData()
+//            
+//        })
+        
+        FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
+            self.kaputCount = Int(kaputCount)
+            print(self.kaputCount)
+        })
+      
+//        ref.child("Users/060bNfcSN8ZTmYHMvqG0QyMm8X42/kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+//            
+//            self.kaputCount = snapshot.childrenCount
+//          
+//            })
+
+        if kaputCount != 0 {
+            self.kaputCounter.animation = "slideRight"
+            self.kaputCounter.animate()
+        }
+        
+        self.kaputCounter.setTitle(String(self.kaputCount),forState: UIControlState.Normal)
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
         friendsTableView.backgroundColor = Colors.init().bgColor
@@ -94,24 +109,43 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)
         
-        cell.textLabel!.text = "KAPUT SENT"
+        let indexPath = tableView.indexPathForSelectedRow!
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
+        let name = currentCell.textLabel!.text
         
         let inputsOutputs = [
-            "levelBattery" : String( batLevel.init().levelBat),
+            "levelBattery" : String(batLevel.init().levelBat),
             "read" : true,
-            "sent_by" : "JEREM",
+            "sent_by" : String(name!),
             "sent_date" : "NOW",
             "sent_to" : "ANDREA"
         ]
         
+        cell.textLabel!.text = "KAPUT SENT"
+
         
-        ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-            
-           self.kaputCount = snapshot.childrenCount
+        FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
+            print("coumpter")
+            self.kaputCount = Int(kaputCount)
+            print(self.kaputCount)
         })
         
-        ref.child("Users/xy2olnrUo2Wa5FY59c6KXIY4on62/kaput").child(String(kaputCount+1)).setValue(inputsOutputs as [NSObject : AnyObject])
-        self.kaputCounter.titleLabel?.text = String(kaputCount)
+        
+//        ref.child("Users/060bNfcSN8ZTmYHMvqG0QyMm8X42/kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+//            
+//           self.kaputCount = snapshot.childrenCount
+//        })
+        
+        ref.child("Users").child(userID).child("kaput").child(String(kaputCount+1)).setValue(inputsOutputs as [NSObject : AnyObject])
+        print("addad")
+        
+
+        self.kaputCounter.setTitle(String(self.kaputCount+1),forState: UIControlState.Normal)
+        
+        if kaputCount == 0 {
+            self.kaputCounter.animation = "slideRight"
+            self.kaputCounter.animate()
+        }
 
         
         
