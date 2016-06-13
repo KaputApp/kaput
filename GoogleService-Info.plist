@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>190372677215-1m4bttavqm0b3j6l62jtupcv5ekhv5c5.apps.googleusercontent.com</string>
+	<string>190372677215-mi72mu5usc7qac4huutuq6k6kc9vohni.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.190372677215-1m4bttavqm0b3j6l62jtupcv5ekhv5c5</string>
+	<string>com.googleusercontent.apps.190372677215-mi72mu5usc7qac4huutuq6k6kc9vohni</string>
 	<key>API_KEY</key>
 	<string>AIzaSyC03ZUdIkmsJj7NWQMouVKwWHNhS_SRuB4</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.kaput.ios</string>
+	<string>com.kaput.ope50</string>
 	<key>PROJECT_ID</key>
 	<string>project-3561187186486872408</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:190372677215:ios:24abf09ddf52f3d9</string>
+	<string>1:190372677215:ios:91acbe6e044ddb4f</string>
 	<key>DATABASE_URL</key>
 	<string>https://project-3561187186486872408.firebaseio.com</string>
 </dict>
