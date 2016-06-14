@@ -165,10 +165,6 @@ public class Colors {
             
         
     
-        default:
-        self.bgColor = KaputStyle.lowRed
-        self.primaryColor = KaputStyle.lowRed
-        self.secondaryColor = KaputStyle.fullGreen
         }
     
         

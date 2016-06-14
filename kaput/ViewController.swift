@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     
 //declarations of outlets
     
+    @IBAction func facebookLogin(sender: AnyObject) {
+    }
 @IBOutlet var buttonFacebook: SpringButton!
 @IBOutlet var buttonLogIn: SpringButton!
 @IBOutlet var buttonSignUp: SpringButton!

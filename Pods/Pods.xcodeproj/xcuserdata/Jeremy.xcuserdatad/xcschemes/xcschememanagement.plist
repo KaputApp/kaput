@@ -6,18 +6,13 @@
 	<dict>
 		<key>Pods-kaput.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>56A242B0072BDC99F6C9A0D1E5AF4DFB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>58CE61668524E9BF2C572A0B296268B0</key>
+		<key>C53664B0B25CA0172E6D5A70FF8BE69F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
