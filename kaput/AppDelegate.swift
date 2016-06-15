@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerForRemoteNotificationTypes(types)
         }
         
+        
         FIRApp.configure()
         
         // Add observer for InstanceID token refresh callback.
@@ -38,6 +39,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    //custom
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types != .None {
+            application.registerForRemoteNotifications()
+        }
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print("Failed to register:", error)
+    }
+    
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
@@ -48,7 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         //Tricky line
-        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Unknown)
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
+
         print("Device Token:", tokenString)
     }
     

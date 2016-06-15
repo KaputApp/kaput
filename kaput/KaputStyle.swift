@@ -55,19 +55,19 @@ public class KaputStyle : NSObject {
 
         //// Screens
         //// Home-Screen-Red
-        CGContextSaveGState(context)
-        CGContextSetShadowWithColor(context, KaputStyle.shadow.shadowOffset, KaputStyle.shadow.shadowBlurRadius, (KaputStyle.shadow.shadowColor as! UIColor).CGColor)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextSetShadowWithColor(context!, KaputStyle.shadow.shadowOffset, KaputStyle.shadow.shadowBlurRadius, (KaputStyle.shadow.shadowColor as! UIColor).CGColor)
+        CGContextBeginTransparencyLayer(context!, nil)
 
 
         //// LOGO
         //// path-1 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 86.05, 48.65)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        CGContextSaveGState(context!)
+        CGContextTranslateCTM(context!, 86.05, 48.65)
+        CGContextRotateCTM(context!, -3 * CGFloat(M_PI) / 180)
 
 
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
 
 
         //// path- Drawing
@@ -86,24 +86,24 @@ public class KaputStyle : NSObject {
 
 
         //// path-3 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 32.5, 51.3)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        CGContextSaveGState(context!)
+        CGContextTranslateCTM(context!, 32.5, 51.3)
+        CGContextRotateCTM(context!, -3 * CGFloat(M_PI) / 180)
 
 
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
 
 
         //// path- 2 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 32.5, 51.3)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        CGContextSaveGState(context!)
+        CGContextTranslateCTM(context!, 32.5, 51.3)
+        CGContextRotateCTM(context!, -3 * CGFloat(M_PI) / 180)
 
         let path2Path = UIBezierPath(rect: CGRect(x: -12.2, y: -24.7, width: 24.4, height: 49.4))
         KaputStyle.lowRed.setFill()
         path2Path.fill()
 
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
 
 
         //// KAPUT Drawing
@@ -205,21 +205,21 @@ public class KaputStyle : NSObject {
 
 
         //// Rectangle-59 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 167.35, 44.45)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        CGContextSaveGState(context!)
+        CGContextTranslateCTM(context!, 167.35, 44.45)
+        CGContextRotateCTM(context!, -3 * CGFloat(M_PI) / 180)
 
         let rectangle59Path = UIBezierPath(rect: CGRect(x: -5.03, y: -12.3, width: 10.05, height: 24.6))
         fillColor4.setFill()
         rectangle59Path.fill()
 
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
 
 
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
     }
 
     public class func drawCheckSignCanvas() {
@@ -294,14 +294,14 @@ public class KaputStyle : NSObject {
         let fillColor3 = UIColor(red: 1.000, green: 0.216, blue: 0.380, alpha: 1.000)
 
         //// Group 8
-        CGContextSaveGState(context)
-        CGContextSetShadowWithColor(context, KaputStyle.shadow.shadowOffset, KaputStyle.shadow.shadowBlurRadius, (KaputStyle.shadow.shadowColor as! UIColor).CGColor)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextSetShadowWithColor(context!, KaputStyle.shadow.shadowOffset, KaputStyle.shadow.shadowBlurRadius, (KaputStyle.shadow.shadowColor as! UIColor).CGColor)
+        CGContextBeginTransparencyLayer(context!, nil)
 
 
         //// Group
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextBeginTransparencyLayer(context!, nil)
 
         //// Clip Clip
         let clipPath = UIBezierPath(rect: CGRect(x: -36.38, y: -22.4, width: 72.75, height: 44.8))
@@ -314,38 +314,38 @@ public class KaputStyle : NSObject {
 
 
         //// Rectangle Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 37.55, 24.45)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        CGContextSaveGState(context!)
+        CGContextTranslateCTM(context!, 37.55, 24.45)
+        CGContextRotateCTM(context!, -3 * CGFloat(M_PI) / 180)
 
         let rectanglePath = UIBezierPath(rect: CGRect(x: -36.38, y: -22.4, width: 72.75, height: 44.8))
         strokeColor2.setStroke()
         rectanglePath.lineWidth = 10
         rectanglePath.stroke()
 
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
 
 
         //// Group 2
         //// Rectangle 3 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 37.51, 24.17)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        CGContextSaveGState(context!)
+        CGContextTranslateCTM(context!, 37.51, 24.17)
+        CGContextRotateCTM(context!, -3 * CGFloat(M_PI) / 180)
 
         let rectangle3Path = UIBezierPath(rect: CGRect(x: -33.56, y: -18.95, width: 67.12, height: 37.91))
         fillColor2.setFill()
         rectangle3Path.fill()
 
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
 
 
         //// Group 3
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextBeginTransparencyLayer(context!, nil)
 
         //// Clip Clip 3
         let clip3Path = UIBezierPath(rect: CGRect(x: -36.38, y: -22.4, width: 72.75, height: 44.8))
@@ -358,8 +358,8 @@ public class KaputStyle : NSObject {
 
 
         //// Group 4
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextBeginTransparencyLayer(context!, nil)
 
         //// Clip Clip 2
         let clip2Path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 76, height: 49))
@@ -367,31 +367,31 @@ public class KaputStyle : NSObject {
 
 
         //// Rectangle 4 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 37.55, 24.45)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        CGContextSaveGState(context!)
+        CGContextTranslateCTM(context!, 37.55, 24.45)
+        CGContextRotateCTM(context!, -3 * CGFloat(M_PI) / 180)
 
         let rectangle4Path = UIBezierPath(rect: CGRect(x: -36.38, y: -22.4, width: 72.75, height: 44.8))
         strokeColor2.setStroke()
         rectangle4Path.lineWidth = 10
         rectangle4Path.stroke()
 
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
 
 
 
 
         //// Group 5
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextBeginTransparencyLayer(context!, nil)
 
         //// Clip Clip 6
         let clip6Path = UIBezierPath(rect: CGRect(x: -7.65, y: -16.48, width: 15.3, height: 32.95))
@@ -404,8 +404,8 @@ public class KaputStyle : NSObject {
 
 
         //// Group 6
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextBeginTransparencyLayer(context!, nil)
 
         //// Clip Clip 5
         let clip5Path = UIBezierPath(rect: CGRect(x: 6, y: 8, width: 18, height: 35))
@@ -413,28 +413,28 @@ public class KaputStyle : NSObject {
 
 
         //// Rectangle 8 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 15.1, 25.4)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        CGContextSaveGState(context!)
+        CGContextTranslateCTM(context!, 15.1, 25.4)
+        CGContextRotateCTM(context!, -3 * CGFloat(M_PI) / 180)
 
         let rectangle8Path = UIBezierPath(rect: CGRect(x: -12.65, y: -21.48, width: 25.3, height: 42.95))
         fillColor3.setFill()
         rectangle8Path.fill()
 
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
 
 
         //// Group 7
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextBeginTransparencyLayer(context!, nil)
 
         //// Clip Clip 7
         let clip7Path = UIBezierPath(rect: CGRect(x: -3.15, y: -7.7, width: 6.3, height: 15.4))
@@ -447,23 +447,23 @@ public class KaputStyle : NSObject {
 
 
         //// Rectangle 12 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 75.7, 23.15)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        CGContextSaveGState(context!)
+        CGContextTranslateCTM(context!, 75.7, 23.15)
+        CGContextRotateCTM(context!, -3 * CGFloat(M_PI) / 180)
 
         let rectangle12Path = UIBezierPath(rect: CGRect(x: -8.15, y: -12.7, width: 16.3, height: 25.4))
         fillColor.setFill()
         rectangle12Path.fill()
 
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
     }
 
     public class func drawAddButton() {
@@ -481,18 +481,18 @@ public class KaputStyle : NSObject {
 
         //// Oval Drawing
         let ovalPath = UIBezierPath(ovalInRect: CGRect(x: -240, y: 0, width: 80, height: 80))
-        CGContextSaveGState(context)
-        CGContextSetShadowWithColor(context, shadow2.shadowOffset, shadow2.shadowBlurRadius, (shadow2.shadowColor as! UIColor).CGColor)
+        CGContextSaveGState(context!)
+        CGContextSetShadowWithColor(context!, shadow2.shadowOffset, shadow2.shadowBlurRadius, (shadow2.shadowColor as! UIColor).CGColor)
         fillColor.setFill()
         ovalPath.fill()
-        CGContextRestoreGState(context)
+        CGContextRestoreGState(context!)
 
 
 
         //// Group
         //// Group 2
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextBeginTransparencyLayer(context!, nil)
 
         //// Clip Clip
         let clipPath = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 80, height: 80))
@@ -505,15 +505,15 @@ public class KaputStyle : NSObject {
         oval2Path.fill()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
 
 
 
 
         //// Group 3
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextBeginTransparencyLayer(context!, nil)
 
         //// Clip Clip 3
         let clip3Path = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 80, height: 80))
@@ -527,8 +527,8 @@ public class KaputStyle : NSObject {
         oval4Path.stroke()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
 
 
         //// Bezier 2 Drawing
@@ -565,14 +565,14 @@ public class KaputStyle : NSObject {
         let fillColor5 = UIColor(red: 0.208, green: 0.529, blue: 0.988, alpha: 1.000)
 
         //// Group 3
-        CGContextSaveGState(context)
-        CGContextSetShadowWithColor(context, KaputStyle.shadow.shadowOffset, KaputStyle.shadow.shadowBlurRadius, (KaputStyle.shadow.shadowColor as! UIColor).CGColor)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextSetShadowWithColor(context!, KaputStyle.shadow.shadowOffset, KaputStyle.shadow.shadowBlurRadius, (KaputStyle.shadow.shadowColor as! UIColor).CGColor)
+        CGContextBeginTransparencyLayer(context!, nil)
 
 
         //// Group
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextBeginTransparencyLayer(context!, nil)
 
         //// Clip Clip
         let clipPath = UIBezierPath(rect: CGRect(x: 0.3, y: 12.82, width: 330.8, height: 96.15))
@@ -586,8 +586,8 @@ public class KaputStyle : NSObject {
         rectanglePath.stroke()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
 
 
         //// Rectangle 3 Drawing
@@ -597,8 +597,8 @@ public class KaputStyle : NSObject {
 
 
         //// Group 2
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        CGContextSaveGState(context!)
+        CGContextBeginTransparencyLayer(context!, nil)
 
         //// Clip Clip 2
         let clip2Path = UIBezierPath(rect: CGRect(x: 0.3, y: 12.82, width: 330.8, height: 96.15))
@@ -612,8 +612,8 @@ public class KaputStyle : NSObject {
         rectangle4Path.stroke()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
 
 
         //// Rectangle 6 Drawing
@@ -628,8 +628,8 @@ public class KaputStyle : NSObject {
         rectangle8Path.fill()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        CGContextEndTransparencyLayer(context!)
+        CGContextRestoreGState(context!)
 
 
         //// Rectangle 9 Drawing

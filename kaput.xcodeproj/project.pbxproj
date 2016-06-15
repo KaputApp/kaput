@@ -59,6 +59,8 @@
 		3FEDBCA81CFF21FA00A6C6C1 /* kaputPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA71CFF21FA00A6C6C1 /* kaputPrimaryButton.swift */; };
 		3FEDBCAA1CFF253C00A6C6C1 /* kaputSecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA91CFF253C00A6C6C1 /* kaputSecondaryButton.swift */; };
 		3FEDBCAE1CFF5C0900A6C6C1 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */; };
+		3FFAE4A21D10AA26008DE0C6 /* Pods_kaput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7F6C315639499F48167DB7 /* Pods_kaput.framework */; };
+		3FFAE4A31D10AA26008DE0C6 /* Pods_kaput.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7F6C315639499F48167DB7 /* Pods_kaput.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D911CF762D000DF4941 /* AppDelegate.swift */; };
 		89139D941CF762D000DF4941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D931CF762D000DF4941 /* ViewController.swift */; };
 		89139D991CF762D000DF4941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89139D981CF762D000DF4941 /* Assets.xcassets */; };
@@ -68,6 +70,20 @@
 		8933D5E71D021F05006444E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8933D5E61D021F05006444E5 /* Main.storyboard */; };
 		D2BB25170F7EA9BD489ED24E /* Pods_kaput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7F6C315639499F48167DB7 /* Pods_kaput.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3FFAE4A41D10AA27008DE0C6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3FFAE4A31D10AA26008DE0C6 /* Pods_kaput.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3F593F0B1D0603A50059745D /* addButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addButtonView.swift; sourceTree = "<group>"; };
@@ -146,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FFAE4A21D10AA26008DE0C6 /* Pods_kaput.framework in Frameworks */,
 				D2BB25170F7EA9BD489ED24E /* Pods_kaput.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +330,7 @@
 				89139D8C1CF762D000DF4941 /* Resources */,
 				19A8E77A062B4A5338A37B2E /* 📦 Embed Pods Frameworks */,
 				80834DA846978B5F36694CD9 /* 📦 Copy Pods Resources */,
+				3FFAE4A41D10AA27008DE0C6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -336,6 +354,7 @@
 					89139D8D1CF762D000DF4941 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = ZS2K7XBWJW;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -595,10 +614,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = kaput/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaput.ope50;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -610,10 +631,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = kaput/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaput.ope50;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};

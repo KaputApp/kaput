@@ -129,9 +129,9 @@ class NotificationViewController: UIViewController {
                 print(postDict)
                 
                 
-                var senderText =  snapshot.value?["sent_by"] as? String
-                var timeText = snapshot.value?["sent_date"] as? String
-                var levelBat = snapshot.value?["levelBattery"] as? String
+                let senderText =  snapshot.value?["sent_by"] as? String
+                let timeText = snapshot.value?["sent_date"] as? String
+                let levelBat = snapshot.value?["levelBattery"] as? String
                 
                 
                 self.senderLabel.text = "\(senderText!) IS \(levelBat!)%"
