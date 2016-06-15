@@ -105,9 +105,32 @@ class SignUpViewController: UIViewController {
 
         
     let username = self.usernameField.text
+            
+            let userRef = ref.child("Users/yB439wHnQXhzjjYTRPyNT0uRrpG3/name")
+            
+            userRef.observeEventType(.Value, withBlock: { snapshot in
+                
+                if snapshot.exists() {
+                    
+                    print("snapshot exists")
+                    
+                } else {
+                    
+                    print("snapshot doesnt exist")
+                    
+                }
+                
+                
+                userRef.removeAllObservers()
+                
+                }, withCancelBlock: { error in
+                    
+                    print(error)
+                    
+            })
     
             print(userID)
-            
+  
             FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: username!)
             
             // a supprimer
