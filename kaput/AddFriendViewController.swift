@@ -15,7 +15,7 @@ class AddFriendViewController: UIViewController {
     @IBOutlet var friendNameField: kaputField!
     @IBAction func addFriend(sender: AnyObject) {
         
-        let inputsOutputs = [friendNameField.text!:true] as [String:Bool]
+    let inputsOutputs = [friendNameField.text!:true] as [String:Bool]
        ref.child("Users").child(userID).child("friends").updateChildValues(inputsOutputs)
     }
 

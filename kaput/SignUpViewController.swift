@@ -44,6 +44,7 @@ class SignUpViewController: UIViewController {
         let password = self.passwordField.text
         //refresh textfiled - non utilisé
         
+        
         let finalemail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let finalpassword = password!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let finalusername = username?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -103,7 +104,7 @@ class SignUpViewController: UIViewController {
         if segue.identifier == "toFriendList" {
             print("prepareforsegue is called")
 
-        
+            
     let username = self.usernameField.text
             
             let userRef = ref.child("Users/yB439wHnQXhzjjYTRPyNT0uRrpG3/name")
