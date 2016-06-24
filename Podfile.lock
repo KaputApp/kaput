@@ -59,6 +59,7 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
 
 DEPENDENCIES:
+  - Bolts
   - FBSDKLoginKit
   - Firebase
   - Firebase/Auth
@@ -83,4 +84,6 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 7decd9d80f801c0d30f15ed465ee0653fd72fb63
+
+COCOAPODS: 1.0.0
