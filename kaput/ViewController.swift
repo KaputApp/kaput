@@ -46,6 +46,7 @@ class ViewController: UIViewController {
                         print("Logged in!")
                         
                     FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: (user?.displayName)!)
+                        self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
                         
                     }
                 }

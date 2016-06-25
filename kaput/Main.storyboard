@@ -181,6 +181,7 @@
                         <outlet property="chargingBarHeight" destination="8PA-0v-lrR" id="GUP-SK-nDr"/>
                         <outlet property="chargingBarView" destination="RER-DK-mAD" id="Rnj-6O-K5y"/>
                         <outlet property="labelBattery" destination="BGp-1d-HjY" id="hFI-01-dCX"/>
+                        <segue destination="ydw-Xu-nsu" kind="show" identifier="facebookLoginSegue" id="DMv-z4-ev9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -705,5 +706,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="CrZ-9U-CV8"/>
+        <segue reference="DMv-z4-ev9"/>
     </inferredMetricsTieBreakers>
 </document>
