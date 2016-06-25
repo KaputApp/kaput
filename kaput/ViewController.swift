@@ -8,6 +8,10 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FBSDKLoginKit
+import FBSDKCoreKit
+
 
 @IBDesignable
 
@@ -17,9 +21,42 @@ class ViewController: UIViewController {
     
 //declarations of outlets
     
+
+
+    
     @IBAction func facebookLogin(sender: AnyObject) {
+        
+        let facebookLogin = FBSDKLoginManager()
+
+       
+        facebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self, handler: {
+            (facebookResult, facebookError) -> Void in
+            if facebookError != nil {
+                print("Facebook login failed. Error \(facebookError)")
+            } else if facebookResult.isCancelled {
+                print("Facebook login was cancelled.")
+            } else {
+                
+                let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+                
+                FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+                    if error != nil {
+                        print("Login failed. \(error)")
+                    } else {
+                        print("Logged in!")
+                        
+                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: (user?.displayName)!)
+                        self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
+                        
+                    }
+                }
+            }
+        })
     }
+    
 @IBOutlet var buttonFacebook: SpringButton!
+
+
 @IBOutlet var buttonLogIn: SpringButton!
 @IBOutlet var buttonSignUp: SpringButton!
 @IBOutlet var chargingBarView: UIView!
