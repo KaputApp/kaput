@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     @IBAction func facebookLogin(sender: AnyObject) {
         
         let facebookLogin = FBSDKLoginManager()
+        print("SDK version \(FBSDKSettings .sdkVersion())")
 
        
         facebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self, handler: {
@@ -36,7 +37,6 @@ class ViewController: UIViewController {
             } else if facebookResult.isCancelled {
                 print("Facebook login was cancelled.")
             } else {
-                // your firebase authentication stuff..
                 
                 let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
                 
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
                                     "displayName": user?.displayName,
                                 ]
                                 userRef.setValue((newUser as! AnyObject))
-                                // perform segue
+                                self.performSegueWithIdentifier("friendlistview", sender: nil  )
                             }
                         })
                     }
