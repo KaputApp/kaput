@@ -45,21 +45,8 @@ class ViewController: UIViewController {
                     } else {
                         print("Logged in!")
                         
-                        let userID = FIRAuth.auth()!.currentUser!.uid
+                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: (user?.displayName)!)
                         
-                        let rootRef = FIRDatabase.database().reference()
-                        let userRef = rootRef.child("users").child(userID)
-                        
-                        userRef.observeEventType(.Value, withBlock: { snapshot in
-                            if snapshot.value is NSNull {
-                                let newUser = [
-                                    "Users": user?.providerID,
-                                    "username": user?.displayName,
-                                ]
-                                userRef.setValue((newUser as! AnyObject))
-                                self.performSegueWithIdentifier("friendListView", sender: self  )
-                            }
-                        })
                     }
                 }
             }
