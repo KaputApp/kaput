@@ -59,6 +59,7 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
 
 DEPENDENCIES:
+  - FBSDKCoreKit
   - FBSDKLoginKit
   - Firebase
   - Firebase/Auth

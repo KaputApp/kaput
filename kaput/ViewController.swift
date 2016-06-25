@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     @IBAction func facebookLogin(sender: AnyObject) {
         
         let facebookLogin = FBSDKLoginManager()
-        print("SDK version \(FBSDKSettings .sdkVersion())")
 
        
         facebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self, handler: {
@@ -54,11 +53,11 @@ class ViewController: UIViewController {
                         userRef.observeEventType(.Value, withBlock: { snapshot in
                             if snapshot.value is NSNull {
                                 let newUser = [
-                                    "providerId": user?.providerID,
-                                    "displayName": user?.displayName,
+                                    "Users": user?.providerID,
+                                    "username": user?.displayName,
                                 ]
                                 userRef.setValue((newUser as! AnyObject))
-                                self.performSegueWithIdentifier("friendlistview", sender: nil  )
+                                self.performSegueWithIdentifier("friendListView", sender: self  )
                             }
                         })
                     }
