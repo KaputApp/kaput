@@ -107,11 +107,11 @@ class SignUpViewController: UIViewController {
             
     let username = self.usernameField.text
             
-            let userRef = ref.child("Users/yB439wHnQXhzjjYTRPyNT0uRrpG3/name")
+            let userRef = ref.child("Users").child(userID).child("name")
             
             userRef.observeEventType(.Value, withBlock: { snapshot in
                 
-                if snapshot.exists() {
+                if snapshot.value!.isEqual(username) {
                     
                     print("snapshot exists")
                     
