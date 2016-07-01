@@ -100,6 +100,7 @@ class SignUpViewController: UIViewController {
 }
     
     
+    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toFriendList" {
             print("prepareforsegue is called")
@@ -107,11 +108,8 @@ class SignUpViewController: UIViewController {
             
     let username = self.usernameField.text
             
-            let userRef = ref.child("Users").child(userID).child("name")
-            
-            userRef.observeEventType(.Value, withBlock: { snapshot in
-                
-                if snapshot.value!.isEqual(username) {
+            ref.child("Users").queryOrderedByChild("name").queryEqualToValue(username).observeEventType(.Value, withBlock: { snapshot in
+                if snapshot.exists() == true {
                     
                     print("snapshot exists")
                     
@@ -122,11 +120,10 @@ class SignUpViewController: UIViewController {
                 }
                 
                 
-                userRef.removeAllObservers()
                 
                 }, withCancelBlock: { error in
                     
-                    print(error)
+                    print(error.localizedDescription)
                     
             })
     
