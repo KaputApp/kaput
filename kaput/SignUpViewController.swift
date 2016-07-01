@@ -45,6 +45,26 @@ class SignUpViewController: UIViewController {
         //refresh textfiled - non utilisé
         
         
+        
+        ref.child("Users").queryOrderedByChild("name").queryEqualToValue(username).observeEventType(.Value, withBlock: { snapshot in
+            if snapshot.exists() == true {
+                
+                 self.errorAlert("Opps!", message: "username elready taken!")
+                
+            } else {
+                
+                 self.errorAlert("Great", message: "username is free")
+                
+            }
+            
+            
+            
+            }, withCancelBlock: { error in
+                
+                print(error.localizedDescription)
+                
+        })
+        
         let finalemail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let finalpassword = password!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         let finalusername = username?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -105,27 +125,7 @@ class SignUpViewController: UIViewController {
         if segue.identifier == "toFriendList" {
             print("prepareforsegue is called")
 
-            
-    let username = self.usernameField.text
-            
-            ref.child("Users").queryOrderedByChild("name").queryEqualToValue(username).observeEventType(.Value, withBlock: { snapshot in
-                if snapshot.exists() == true {
-                    
-                    print("snapshot exists")
-                    
-                } else {
-                    
-                    print("snapshot doesnt exist")
-                    
-                }
-                
-                
-                
-                }, withCancelBlock: { error in
-                    
-                    print(error.localizedDescription)
-                    
-            })
+let username = self.usernameField.text
     
             print(userID)
   
