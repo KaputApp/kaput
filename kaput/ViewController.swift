@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         let facebookLogin = FBSDKLoginManager()
 
        
-        facebookLogin.logInWithReadPermissions(["public_profile", "email"], fromViewController: self, handler: {
+        facebookLogin.logInWithReadPermissions(["public_profile", "email","user_friends"], fromViewController: self, handler: {
             (facebookResult, facebookError) -> Void in
             if facebookError != nil {
                 print("Facebook login failed. Error \(facebookError)")
@@ -55,8 +55,6 @@ class ViewController: UIViewController {
     }
     
 @IBOutlet var buttonFacebook: SpringButton!
-
-
 @IBOutlet var buttonLogIn: SpringButton!
 @IBOutlet var buttonSignUp: SpringButton!
 @IBOutlet var chargingBarView: UIView!

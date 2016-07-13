@@ -11,7 +11,6 @@ import UIKit
 import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
-import FBSDKShareKit
 import FBSDKLoginKit
 
 @UIApplicationMain

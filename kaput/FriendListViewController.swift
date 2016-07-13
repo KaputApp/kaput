@@ -13,22 +13,29 @@ import FirebaseDatabase
 
 
 
-
 class FriendListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var friendsTableView: UITableView!
     @IBOutlet var kaputCounter: numberOfNotifications!
     var data = []
     var kaputCount = Int()
+    var friendShown = [Bool]()
+    var refreshControl: UIRefreshControl!
+    var boltView : UIView!
+    var boltImageView : UIImageView!
+
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("jusque la ca va")
+        
+        
             FirebaseDataService.getFriendList(userID,response: { (friendList) -> () in
-                
             self.data =  friendList.allKeys as! [String]
+            self.friendShown = [Bool](count: self.data.count, repeatedValue: false)
+
             self.friendsTableView.reloadData()
+            self.setBoltView()
+                
             })
 
         
@@ -103,7 +110,113 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         return cell
     }
+    
 
+    //ANIMATION CELL UP
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+
+        if self.friendShown[indexPath.row] == false
+        {
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, UIScreen.mainScreen().bounds.height - 40*CGFloat(indexPath.row - 1), 0)
+            cell.layer.transform = rotationTransform
+        
+            SpringAnimation.spring(1.5)
+            {
+            cell.layer.transform = CATransform3DIdentity
+            }
+            friendShown[indexPath.row] = true
+        }
+
+    }
+    
+    func setBoltView() {
+        
+        
+        self.refreshControl = UIRefreshControl()
+        self.friendsTableView.addSubview(self.refreshControl)
+    self.refreshControl?.addTarget(self, action: #selector(FriendListViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
+       
+       self.boltView = UIView(frame: self.refreshControl!.bounds)
+        self.boltImageView = UIImageView(image: KaputStyle.imageOfBolt)
+        self.boltView.addSubview(self.boltImageView)
+        
+        // Clip so the graphics don't stick out
+        self.boltView.clipsToBounds = true;
+        
+        // center the image
+        self.boltImageView.center = self.boltView.center
+
+        
+        // Hide the original spinner icon
+        self.refreshControl!.tintColor = UIColor.clearColor()
+        
+        // Add the loading and colors views to our refresh control
+        self.refreshControl!.addSubview(self.boltView)
+
+    }
+    
+    func refresh(){
+        
+
+        performSegueWithIdentifier("profileSegue", sender: self)
+        self.refreshControl!.endRefreshing()
+       // self.boltImageView.transform = CGAffineTransformIdentity
+
+    }
+    
+
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+     
+        // Get the current size of the refresh controller
+        var refreshBounds = self.refreshControl!.bounds;
+        
+
+        
+        // Distance the table has been pulled >= 0
+        var pullDistance = max(0.0, -self.refreshControl!.frame.origin.y);
+        
+        
+        
+        
+        var boltHeight = self.boltImageView.bounds.size.height
+        var boltWidth = self.boltImageView.bounds.size.width
+        var boltY = pullDistance / 2.0 - boltHeight / 2.0
+    
+    
+        if pullDistance < 100 {
+            self.boltImageView.transform = CGAffineTransformIdentity
+            self.boltImageView.frame.origin.y = boltY
+            self.boltImageView.bounds.size.height = pullDistance/100*45
+            self.boltImageView.bounds.size.width = pullDistance/100*25
+
+        }
+        
+        
+        
+        if pullDistance > 100 {
+            
+            let angle = CGFloat(M_PI_2)*pullDistance/2000
+            self.boltImageView.transform = CGAffineTransformRotate(self.boltImageView.transform, angle)
+
+        }
+        
+        refreshBounds.size.height = pullDistance
+        self.boltView.frame = refreshBounds
+        
+        
+        
+    
+    
+
+    
+        
+    
+   // CGAffineTransformRotate(self.boltImageView.transform, angle)
+        
+    }
+    
+   
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -125,7 +238,6 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
 
         
         FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
-            print("coumpter")
             self.kaputCount = Int(kaputCount)
             print(self.kaputCount)
         })
