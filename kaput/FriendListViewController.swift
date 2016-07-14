@@ -10,10 +10,12 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseDatabase
+import MGSwipeTableCell
 
 
 
 class FriendListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
     @IBOutlet weak var friendsTableView: UITableView!
     @IBOutlet var kaputCounter: numberOfNotifications!
     var data = []
@@ -25,59 +27,51 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
 
 
 
-    override func viewDidLoad() {
+override func viewDidLoad() {
         super.viewDidLoad()
         
+    
+        // populate the friendlist with the list of friend from firebase
         
-            FirebaseDataService.getFriendList(userID,response: { (friendList) -> () in
+        FirebaseDataService.getFriendList(userID,response: { (friendList) -> () in
             self.data =  friendList.allKeys as! [String]
             self.friendShown = [Bool](count: self.data.count, repeatedValue: false)
 
             self.friendsTableView.reloadData()
-            self.setBoltView()
-                
-            })
+            
+        })
 
-        
-        
-//        ref.child("Users/060bNfcSN8ZTmYHMvqG0QyMm8X42/friends").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-//            for child in snapshot.children {
-//                
-//                let childSnapshot = snapshot.childSnapshotForPath(child.key)
-//            }
-//            let friendList = snapshot.value! as! NSDictionary
-//            self.data =  friendList.allKeys as! [String]
-//            self.friendsTableView.reloadData()
-//            
-//        })
-        
+        // get the list of kaputs
         FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
+           
             self.kaputCount = Int(kaputCount)
             print(self.kaputCount)
+       
         })
       
-//        ref.child("Users/060bNfcSN8ZTmYHMvqG0QyMm8X42/kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-//            
-//            self.kaputCount = snapshot.childrenCount
-//          
-//            })
-
+        // setting the kaputCount if we found some
         if kaputCount != 0 {
             self.kaputCounter.animation = "slideRight"
             self.kaputCounter.animate()
         }
-        
         self.kaputCounter.setTitle(String(self.kaputCount),forState: UIControlState.Normal)
+        
+        // setting the bolt view
+        self.setBoltView()
+
+        // setting the view
+    
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
         friendsTableView.backgroundColor = Colors.init().bgColor
-        
-        }
 
-    override func didReceiveMemoryWarning() {
+    
+}
+
+override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+}
     
     
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -91,10 +85,21 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath) as! MGSwipeTableCell!
+        
+        //configure left buttons
+        cell.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named:"check.png"), backgroundColor: UIColor.greenColor())
+            ,MGSwipeButton(title: "", icon: UIImage(named:"fav.png"), backgroundColor: UIColor.blueColor())]
+        cell.leftSwipeSettings.transition = MGSwipeTransition.Rotate3D
+        
+        //configure right buttons
+        cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor())
+            ,MGSwipeButton(title: "More",backgroundColor: UIColor.lightGrayColor())]
+        cell.rightSwipeSettings.transition = MGSwipeTransition.Rotate3D
         
         
-        cell.textLabel?.text = data[indexPath.row] as! String
+        // color based on the row number --> to refactor to take into account the battery level of the guy
+        cell.textLabel?.text = data[indexPath.row] as? String
         switch indexPath.row {
         case 1:
             cell.backgroundColor = KaputStyle.lowRed
@@ -103,7 +108,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         case 3:
             cell.backgroundColor = KaputStyle.chargingBlue
         case 0:
-            cell.backgroundColor = KaputStyle.midYellow
+            cell    .backgroundColor = KaputStyle.midYellow
         default:
             cell.backgroundColor = KaputStyle.lowRed
             
@@ -113,6 +118,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     
 
     //ANIMATION CELL UP
+    
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 
         if self.friendShown[indexPath.row] == false
@@ -128,6 +134,8 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         }
 
     }
+    
+    // BOLT VIEW
     
     func setBoltView() {
         
@@ -156,34 +164,28 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func refresh(){
-        
 
         performSegueWithIdentifier("profileSegue", sender: self)
         self.refreshControl!.endRefreshing()
-       // self.boltImageView.transform = CGAffineTransformIdentity
 
     }
-    
-
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
      
         // Get the current size of the refresh controller
         var refreshBounds = self.refreshControl!.bounds;
         
-
-        
         // Distance the table has been pulled >= 0
-        var pullDistance = max(0.0, -self.refreshControl!.frame.origin.y);
+        let pullDistance = max(0.0, -self.refreshControl!.frame.origin.y);
         
+        // putting the bolt in the center of the refresh control view
         
-        
-        
-        var boltHeight = self.boltImageView.bounds.size.height
+        let boltHeight = self.boltImageView.bounds.size.height
         var boltWidth = self.boltImageView.bounds.size.width
-        var boltY = pullDistance / 2.0 - boltHeight / 2.0
+        let boltY = pullDistance / 2.0 - boltHeight / 2.0
     
     
+        //scale to 100% at the beggining
         if pullDistance < 100 {
             self.boltImageView.transform = CGAffineTransformIdentity
             self.boltImageView.frame.origin.y = boltY
@@ -192,8 +194,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
 
         }
         
-        
-        
+        // rotate then
         if pullDistance > 100 {
             
             let angle = CGFloat(M_PI_2)*pullDistance/2000
@@ -203,20 +204,8 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         refreshBounds.size.height = pullDistance
         self.boltView.frame = refreshBounds
-        
-        
-        
     
-    
-
-    
-        
-    
-   // CGAffineTransformRotate(self.boltImageView.transform, angle)
-        
     }
-    
-   
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -233,20 +222,13 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             "sent_date" : "NOW",
             "sent_to" : "ANDREA"
         ]
-        
+        cell.textLabel!.text = ""
         cell.textLabel!.text = "KAPUT SENT"
 
-        
         FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
             self.kaputCount = Int(kaputCount)
             print(self.kaputCount)
         })
-        
-        
-//        ref.child("Users/060bNfcSN8ZTmYHMvqG0QyMm8X42/kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-//            
-//           self.kaputCount = snapshot.childrenCount
-//        })
         
         ref.child("Users").child(userID).child("kaput").child(String(kaputCount+1)).setValue(inputsOutputs as [NSObject : AnyObject])
         print("addad")
@@ -258,13 +240,6 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             self.kaputCounter.animation = "slideRight"
             self.kaputCounter.animate()
         }
-
-        
-        
-        
     }
-    
-    
-    
     
 }
