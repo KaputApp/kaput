@@ -1,50 +1,51 @@
 PODS:
-  - Bolts (1.7.0):
-    - Bolts/AppLinks (= 1.7.0)
-    - Bolts/Tasks (= 1.7.0)
-  - Bolts/AppLinks (1.7.0):
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
-  - Bolts/Tasks (1.7.0)
-  - FBSDKCoreKit (4.12.0):
+  - Bolts/Tasks (1.8.4)
+  - FBSDKCoreKit (4.14.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.12.0):
+  - FBSDKLoginKit (4.14.0):
     - FBSDKCoreKit
-  - Firebase (3.2.0):
-    - Firebase/Core (= 3.2.0)
-  - Firebase/Analytics (3.2.0):
-    - FirebaseAnalytics (= 3.2.0)
-  - Firebase/Auth (3.2.0):
-    - Firebase/Analytics (= 3.2.0)
-    - FirebaseAuth (= 3.0.2)
-  - Firebase/Core (3.2.0):
-    - Firebase/Analytics (= 3.2.0)
-  - Firebase/Database (3.2.0):
-    - Firebase/Analytics (= 3.2.0)
-    - FirebaseDatabase (= 3.0.1)
-  - Firebase/Messaging (3.2.0):
-    - Firebase/Analytics (= 3.2.0)
+  - Firebase (3.3.0):
+    - Firebase/Core (= 3.3.0)
+  - Firebase/Analytics (3.3.0):
+    - FirebaseAnalytics (= 3.2.1)
+  - Firebase/Auth (3.3.0):
+    - Firebase/Analytics (= 3.3.0)
+    - FirebaseAuth (= 3.0.3)
+  - Firebase/Core (3.3.0):
+    - Firebase/Analytics (= 3.3.0)
+  - Firebase/Database (3.3.0):
+    - Firebase/Analytics (= 3.3.0)
+    - FirebaseDatabase (= 3.0.2)
+  - Firebase/Messaging (3.3.0):
+    - Firebase/Analytics (= 3.3.0)
     - FirebaseMessaging (= 1.1.0)
-  - Firebase/Storage (3.2.0):
-    - Firebase/Analytics (= 3.2.0)
-    - FirebaseStorage (= 1.0.1)
-  - FirebaseAnalytics (3.2.0):
+  - Firebase/Storage (3.3.0):
+    - Firebase/Analytics (= 3.3.0)
+    - FirebaseStorage (= 1.0.2)
+  - FirebaseAnalytics (3.2.1):
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleUtilities (~> 1.3)
-  - FirebaseAuth (3.0.2):
+  - FirebaseAuth (3.0.3):
     - FirebaseAnalytics (~> 3.2)
     - GoogleNetworkingUtilities (~> 1.2)
+    - GoogleParsingUtilities (~> 1.1)
     - GoogleUtilities (~> 1.3)
-  - FirebaseDatabase (3.0.1):
+  - FirebaseDatabase (3.0.2):
     - FirebaseAnalytics (~> 3.2)
-  - FirebaseInstanceID (1.0.6)
+  - FirebaseInstanceID (1.0.7)
   - FirebaseMessaging (1.1.0):
     - FirebaseAnalytics (~> 3.2)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleIPhoneUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
-  - FirebaseStorage (1.0.1):
+  - FirebaseStorage (1.0.2):
     - FirebaseAnalytics (~> 3.2)
     - GoogleNetworkingUtilities (~> 1.2)
   - GoogleInterchangeUtilities (1.2.1):
@@ -54,9 +55,13 @@ PODS:
     - GoogleUtilities (~> 1.0)
   - GoogleNetworkingUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - GoogleParsingUtilities (1.1.1):
+    - GoogleNetworkingUtilities (~> 1.0)
+    - GoogleSymbolUtilities (~> 1.0)
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - MGSwipeTableCell (1.5.5)
 
 DEPENDENCIES:
   - Bolts
@@ -66,22 +71,27 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Messaging
   - Firebase/Storage
+  - MGSwipeTableCell
 
 SPEC CHECKSUMS:
-  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
-  FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
-  FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
-  Firebase: 6d4012da1598732a2b43f16d8355eca90f94ed59
-  FirebaseAnalytics: 6f75b04e6bfb8e0b6e9ef298e04c24eea3b13863
-  FirebaseAuth: 94b851fc345ce98036dfedfdc2eddeaef8fa3b4c
-  FirebaseDatabase: 34301d11621a83546f39f670d256477ba6f7fcea
-  FirebaseInstanceID: d014d574053a2fe84478f12f7bae96979e7051bb
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  FBSDKCoreKit: 6e020b5db0b5bd1e01f5fb0902131befd129a502
+  FBSDKLoginKit: da563567a108050ef83739c8c8c001ee9e25fa13
+  Firebase: 6250071f0e2440a5c4c67b8cb6b868f868237ac3
+  FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
+  FirebaseAuth: 5efddc3fae47042b73585f083f956462be4f5b8e
+  FirebaseDatabase: 59bea2e7dfd81b3b8b2f8e396caf1a52c2ced6f7
+  FirebaseInstanceID: a9d923f3d0b6fbf9fac89310860357aaadc34be5
   FirebaseMessaging: 8a92e9ea70673605aa7d1803d2d5aa3eb946009c
-  FirebaseStorage: e9c32a8d246c07eeefd78180c22736aa1b81e81b
+  FirebaseStorage: fa2a87dee81f682f553af6839daa37a750e65f6a
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
   GoogleIPhoneUtilities: 63f25e93a3ddcb66884d182aab3a660d98f1479b
   GoogleNetworkingUtilities: 3e83269048cfb498dc7ec83ab36813360965c74f
+  GoogleParsingUtilities: 30b3896f9ee167dc78747f013d3de157ced1cadf
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: d3b7b8ce52afbaa46039b13df43b6b3c6be4f14c
+
+COCOAPODS: 1.0.0

@@ -11,6 +11,7 @@ pod 'Firebase/Storage'
 pod 'Firebase/Messaging'
 pod 'FBSDKLoginKit'
 pod 'Bolts'
+pod 'MGSwipeTableCell'
 
 end
 

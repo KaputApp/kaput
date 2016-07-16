@@ -64,6 +64,8 @@ override func viewDidLoad() {
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
         friendsTableView.backgroundColor = Colors.init().bgColor
+    
+       // self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
     
 }
@@ -85,21 +87,14 @@ override func didReceiveMemoryWarning() {
     }
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath) as! MGSwipeTableCell!
-        
-        //configure left buttons
-        cell.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named:"check.png"), backgroundColor: UIColor.greenColor())
-            ,MGSwipeButton(title: "", icon: UIImage(named:"fav.png"), backgroundColor: UIColor.blueColor())]
-        cell.leftSwipeSettings.transition = MGSwipeTransition.Rotate3D
+        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)  as! MGSwipeTableCell
         
         //configure right buttons
         cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor())
-            ,MGSwipeButton(title: "More",backgroundColor: UIColor.lightGrayColor())]
-        cell.rightSwipeSettings.transition = MGSwipeTransition.Rotate3D
+            ,MGSwipeButton(title: "More",backgroundColor: UIColor.blackColor())]
+        cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
         
-        
-        // color based on the row number --> to refactor to take into account the battery level of the guy
-        cell.textLabel?.text = data[indexPath.row] as? String
+        cell.textLabel?.text = data[indexPath.row] as! String
         switch indexPath.row {
         case 1:
             cell.backgroundColor = KaputStyle.lowRed
@@ -108,10 +103,9 @@ override func didReceiveMemoryWarning() {
         case 3:
             cell.backgroundColor = KaputStyle.chargingBlue
         case 0:
-            cell    .backgroundColor = KaputStyle.midYellow
+            cell.backgroundColor = KaputStyle.midYellow
         default:
             cell.backgroundColor = KaputStyle.lowRed
-            
         }
         return cell
     }
@@ -142,9 +136,9 @@ override func didReceiveMemoryWarning() {
         
         self.refreshControl = UIRefreshControl()
         self.friendsTableView.addSubview(self.refreshControl)
-    self.refreshControl?.addTarget(self, action: #selector(FriendListViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(FriendListViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
        
-       self.boltView = UIView(frame: self.refreshControl!.bounds)
+        self.boltView = UIView(frame: self.refreshControl!.bounds)
         self.boltImageView = UIImageView(image: KaputStyle.imageOfBolt)
         self.boltView.addSubview(self.boltImageView)
         
@@ -153,6 +147,8 @@ override func didReceiveMemoryWarning() {
         
         // center the image
         self.boltImageView.center = self.boltView.center
+        
+        print(boltImageView.center)
 
         
         // Hide the original spinner icon
@@ -189,6 +185,7 @@ override func didReceiveMemoryWarning() {
         if pullDistance < 100 {
             self.boltImageView.transform = CGAffineTransformIdentity
             self.boltImageView.frame.origin.y = boltY
+            self.boltImageView.center = self.boltView.center
             self.boltImageView.bounds.size.height = pullDistance/100*45
             self.boltImageView.bounds.size.width = pullDistance/100*25
 

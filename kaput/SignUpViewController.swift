@@ -30,20 +30,43 @@ class User: NSObject {
 
 
 class SignUpViewController: UIViewController {
+    
 
     @IBOutlet weak var usernameField: kaputField!
     @IBOutlet weak var passwordField: kaputField!
     @IBOutlet weak var emailField: kaputField!
     @IBOutlet var signUpButton: kaputButton!
-    
     @IBAction func signUpButton(sender: AnyObject) {
+        
+        
         
 
         let username: String? = self.usernameField.text
         let email = self.emailField.text
         let password = self.passwordField.text
-        //refresh textfiled - non utilisé
         
+        
+        let err: SpringLabel = SpringLabel()
+        
+        
+        err.opacity = 0
+        err.backgroundColor = KaputStyle.midYellow
+        err.textColor = UIColor.whiteColor()
+        err.duration = 1
+        err.font = UIFont(name: "Futura-Condensed", size: 18.0 )
+        err.animation = "fadeInRight"
+    
+        
+        func errorMessage(text: String,field: kaputField){
+        
+        err.text = text
+        err.frame =  CGRectMake(0,0,field.frame.width,field.frame.height)
+        err.sizeToFit()
+        err.frame.origin.x = field.frame.width - err.frame.width
+        field.addSubview(err)
+        err.animate()
+            
+        }
         
         
         ref.child("Users").queryOrderedByChild("name").queryEqualToValue(username).observeEventType(.Value, withBlock: { snapshot in
@@ -54,8 +77,7 @@ class SignUpViewController: UIViewController {
             } else {
                 
                  self.errorAlert("Great", message: "username is free")
-                
-            }
+        }
             
             
             
@@ -71,12 +93,15 @@ class SignUpViewController: UIViewController {
         
         
         // verify signup information
+        
         if username?.characters.count<5 {
-            self.errorAlert("Opps!", message: "username must longer than 5 characters!")
+            errorMessage("5 CHAR MIN",field: self.usernameField)
+            
         } else if email?.characters.count<8 {
-            self.errorAlert("Opps!", message: "Please enter vaild email address!")
+            errorMessage("INVALID MAIL",field: self.emailField)
         }else if password?.characters.count<8{
-            self.errorAlert("Opps!", message: "Your password must larger than 8 characters!")
+            errorMessage("INVALID PASSWORD",field: self.passwordField)
+
             
         }
         else {
@@ -165,9 +190,9 @@ let username = self.usernameField.text
     }
     
     
-      override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Colors.init().bgColor
+    override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = Colors.init().bgColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -195,6 +220,11 @@ let username = self.usernameField.text
         presentViewController(alert, animated: true, completion: nil)
         
     }
+    
+    
+    
+    
+    
     
 
 

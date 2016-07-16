@@ -53,7 +53,7 @@ struct FirebaseDataService {
             response(friendList: friendList)
                  print(friendList)
             }
-            else {let friendList = ["Tu n'a pas d'ami!":true]
+            else {let friendList = ["Tu n'as pas d'ami!":true]
                 print(friendList)
                 response(friendList: friendList)
 }
