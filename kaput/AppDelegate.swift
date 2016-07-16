@@ -43,10 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         FIRApp.configure()
-            print("BLABLABLABLABLABKABKAOIUHOIHOI")
+
 
     if ((FIRAuth.auth()!.currentUser) != nil){
-                print(FIRAuth.auth()?.currentUser?.uid)
     self.window?.rootViewController = vc
     }
     
@@ -94,9 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
         
-        // Print message ID.
-        //print("Message ID: \(userInfo["gcm.message_id"]!)")
-        
+
         // Print full message.
         print("%@", userInfo)
     }
