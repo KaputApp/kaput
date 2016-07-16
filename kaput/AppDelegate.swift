@@ -1,4 +1,3 @@
-//
 //  AppDelegate.swift
 //  kaput
 //
@@ -14,11 +13,22 @@ import FirebaseMessaging
 import FBSDKLoginKit
 
 @UIApplicationMain
+
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
     
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("friendListView") as! UIViewController
+        
+        
+        
+        
+        
         // Register for remote notifications
         if #available(iOS 8.0, *) {
             let settings: UIUserNotificationSettings =
@@ -33,7 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         FIRApp.configure()
-        
+            print("BLABLABLABLABLABKABKAOIUHOIHOI")
+
+    if ((FIRAuth.auth()!.currentUser) != nil){
+                print(FIRAuth.auth()?.currentUser?.uid)
+    self.window?.rootViewController = vc
+    }
+    
         // Add observer for InstanceID token refresh callback.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
                                                          name: kFIRInstanceIDTokenRefreshNotification, object: nil)
@@ -118,5 +134,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRMessaging.messaging().disconnect()
         print("Disconnected from FCM.")
     }
+    
     // [END disconnect_from_fcm]
 }

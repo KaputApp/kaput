@@ -22,7 +22,6 @@ class ViewController: UIViewController {
 //declarations of outlets
     
 
-
     
     @IBAction func facebookLogin(sender: AnyObject) {
         
@@ -62,9 +61,11 @@ class ViewController: UIViewController {
 @IBOutlet weak var labelBattery: SpringLabel!
 
 
+    
     override func viewDidLoad()
     
     {
+        
         
         // setting the height of the bar with a constraint.
         
@@ -112,7 +113,9 @@ class ViewController: UIViewController {
         Colors.init()
         viewDidLoad()
     }
- 
+    
+
+
     
 }
 
