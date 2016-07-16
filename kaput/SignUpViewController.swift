@@ -101,8 +101,6 @@ class SignUpViewController: UIViewController {
             errorMessage("INVALID MAIL",field: self.emailField)
         }else if password?.characters.count<8{
             errorMessage("INVALID PASSWORD",field: self.passwordField)
-
-            
         }
         else {
             // set spinner
