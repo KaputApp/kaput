@@ -21,6 +21,11 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.init().bgColor
+        
+        self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
+        
+        self.avatarImageView.layer.borderWidth = 5;
+        self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor;
         // Do any additional setup after loading the view.
     }
 
