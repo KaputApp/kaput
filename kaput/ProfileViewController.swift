@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
         performSegueWithIdentifier("logoutSegue", sender: self)
         
     }
+    @IBOutlet var avatarImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.init().bgColor
