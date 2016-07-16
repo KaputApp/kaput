@@ -195,7 +195,9 @@ let username = self.usernameField.text
     override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = Colors.init().bgColor
+        
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -41,12 +41,10 @@ struct FirebaseDataService {
         let friendsURL = ResourcePath.Friends(uid: uid).description
      
         ref.child(friendsURL).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-             print("1/3")
             for child in snapshot.children {
                 
                 let childSnapshot = snapshot.childSnapshotForPath(child.key)
             }
-            print("2/3")
 
             if snapshot.hasChildren(){
             let friendList = snapshot.value! as! NSDictionary

@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
 
+    @IBAction func LogOut(sender: AnyObject) {
+        
+        try! FIRAuth.auth()!.signOut()
+        performSegueWithIdentifier("logoutSegue", sender: self)
+        
+    }
     @IBOutlet var avatarImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +34,8 @@ class ProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
 
     /*
