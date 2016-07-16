@@ -61,6 +61,7 @@
 		3FEDBCAE1CFF5C0900A6C6C1 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */; };
 		3FFAE4A31D10AA26008DE0C6 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3FFE32DC1D3952FB00DCDD6A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE32DB1D3952FB00DCDD6A /* ProfileViewController.swift */; };
+		3FFE32DE1D3AF42200DCDD6A /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */; };
 		89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D911CF762D000DF4941 /* AppDelegate.swift */; };
 		89139D941CF762D000DF4941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D931CF762D000DF4941 /* ViewController.swift */; };
 		89139D991CF762D000DF4941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89139D981CF762D000DF4941 /* Assets.xcassets */; };
@@ -143,6 +144,7 @@
 		3FEDBCA91CFF253C00A6C6C1 /* kaputSecondaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaputSecondaryButton.swift; sourceTree = "<group>"; };
 		3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		3FFE32DB1D3952FB00DCDD6A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaddingLabel.swift; path = ../PaddingLabel.swift; sourceTree = "<group>"; };
 		4E65E518A71EC10955F42BF9 /* Pods-kaput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig"; sourceTree = "<group>"; };
 		51F07C9279E4AE84B489ABF4 /* Pods_kaput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89139D8E1CF762D000DF4941 /* kaput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaput.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +236,7 @@
 		3FD1633C1CF852F600862C77 /* Design Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */,
 				3F7A12261CF88CB800AAD538 /* logoKaput.swift */,
 				3F593F7E1D09EE420059745D /* BigNotifView.swift */,
 				3F72E31F1D05CE1B00B44336 /* numberOfNotifications.swift */,
@@ -491,6 +494,7 @@
 				3FEDBCA21CFEE24000A6C6C1 /* kaputField.swift in Sources */,
 				3F593F321D099F780059745D /* NotificationViewController.swift in Sources */,
 				3F593F7B1D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				3FFE32DE1D3AF42200DCDD6A /* PaddingLabel.swift in Sources */,
 				3FEDBCA01CFEDFB700A6C6C1 /* kaputButton.swift in Sources */,
 				3F593F601D09A02A0059745D /* LoadingView.swift in Sources */,
 				3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */,
