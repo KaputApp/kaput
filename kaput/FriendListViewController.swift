@@ -26,9 +26,16 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     var boltImageView : UIImageView!
 
     
+     //envoie d'un push device to device
+    //remplacer le "to" en dur par le instance ID du destinaire
+    //remplacer le contenu du body par le niveau de batterie 
+    //probablement la migrer dans le fichier DataService
+    //la fonction est betement appelée dans le viewdidload juste en dessous sendMessage()
+    //la partie dans do{ je ne l'ai pas bien comprise 
+    
     func sendMessage(){
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-        let postParams: [String : AnyObject] = ["to": "cMXEWwigHKc:APA91bEHR9JecRuX9YIZOyDrFBGKrxdI7qzkvPqHk_NcgPNmepd9JkNkU4gRHyp8AoimiE6xODI7qeRXBESQQJI66W18bIm2An28s9KXrKhAMGtDKqkfB0OX-TcmUtAZR2-E-I1hrOTb", "notification": ["body": "This is the body.", "title": "This is the title."]]
+        let postParams: [String : AnyObject] = ["to": "cMXEWwigHKc:APA91bEHR9JecRuX9YIZOyDrFBGKrxdI7qzkvPqHk_NcgPNmepd9JkNkU4gRHyp8AoimiE6xODI7qeRXBESQQJI66W18bIm2An28s9KXrKhAMGtDKqkfB0OX-TcmUtAZR2-E-I1hrOTb", "notification": ["body": "I have 100% of battery", "title": "You have a new Kaput"]]
         
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
@@ -70,11 +77,6 @@ override func viewDidLoad() {
     sendMessage()
 
    ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
-    FIRMessaging.messaging().sendMessage(
-        ["title": "hey"],
-        to: "2dc2307ffbf858657e1a69791a93a4512ea47e93ca839027cbdb5c1789d35fbf",
-        withMessageID: "1",
-        timeToLive: 108)
 
     
         // populate the friendlist with the list of friend from firebase
