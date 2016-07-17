@@ -40,6 +40,8 @@ struct FirebaseDataService {
         
         let friendsURL = ResourcePath.Friends(uid: uid).description
      
+
+        
         ref.child(friendsURL).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             for child in snapshot.children {
                 

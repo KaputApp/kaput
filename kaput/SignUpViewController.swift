@@ -46,7 +46,7 @@ class SignUpViewController: UIViewController {
         let password = self.passwordField.text
         
         
-        let err: SpringLabel = SpringLabel()
+        let err: PaddingLabel = PaddingLabel()
         
         
         err.opacity = 0
@@ -55,6 +55,9 @@ class SignUpViewController: UIViewController {
         err.duration = 1
         err.font = UIFont(name: "Futura-Condensed", size: 18.0 )
         err.animation = "fadeInRight"
+        let rect = err.frame
+        let myLabelInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        err.drawTextInRect(UIEdgeInsetsInsetRect(rect, myLabelInsets))
     
         
         func errorMessage(text: String,field: kaputField){
@@ -62,6 +65,7 @@ class SignUpViewController: UIViewController {
         err.text = text
         err.frame =  CGRectMake(0,0,field.frame.width,field.frame.height)
         err.sizeToFit()
+        err.frame =  CGRectMake(0,0,err.frame.width + 30,field.frame.height + 10)
         err.frame.origin.x = field.frame.width - err.frame.width
         field.addSubview(err)
         err.animate()
