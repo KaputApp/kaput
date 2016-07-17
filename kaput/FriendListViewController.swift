@@ -30,7 +30,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
 override func viewDidLoad() {
         super.viewDidLoad()
 
-   //ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
+   ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
 
     
         // populate the friendlist with the list of friend from firebase

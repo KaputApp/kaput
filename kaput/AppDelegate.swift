@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseInstanceID
 import FirebaseMessaging
 import FBSDKLoginKit

@@ -44,34 +44,20 @@ class ViewController: UIViewController {
 
                     } else {
                         print("Logged in!")
-//                        
-//                        if( FirebaseDataService.userExists(userID,response:{ (userExists:Bool) -> () in
-//                        
-//                        self.userExists = userExists
-//                        
+                        if FBSDKAccessToken.currentAccessToken().hasGranted("public_profile"){
+                            self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
+                            
+                        } else {
                         
                         self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
-                        
-                        
-//                        })
-//                            ){
-                        
-                        
-//                        if(userExists) {
                             FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: (user?.displayName)!)
                         }
-
-                        
-//                
-//                        } else {
-//                             self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
-                    
-                        
-                
-                }
+                    }}
             }
-        })
-    }
+        }
+    
+        )}
+    
     
 @IBOutlet var buttonFacebook: SpringButton!
 @IBOutlet var buttonLogIn: SpringButton!
