@@ -28,10 +28,11 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     
      //envoie d'un push device to device
     //remplacer le "to" en dur par le instance ID du destinaire
+    //il est possible de rajouter From pour savoir de qui ca vient
     //remplacer le contenu du body par le niveau de batterie 
     //probablement la migrer dans le fichier DataService
     //la fonction est betement appelée dans le viewdidload juste en dessous sendMessage()
-    //la partie dans do{ je ne l'ai pas bien comprise 
+    //la partie dans do{ je ne l'ai pas bien comprise
     
     func sendMessage(){
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
