@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<string>com.kaput.ope50</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -46,46 +46,52 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-<key>LSApplicationQueriesSchemes</key>
-<array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
 		<string>fbapi</string>
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
-</array>
-<key>NSAppTransportSecurity</key>
-<dict>
-  <key>NSExceptionDomains</key>
-  <dict>
-    <key>facebook.com</key>
-    <dict>
-      <key>NSIncludesSubdomains</key> <true/>        
-      <key>NSThirdPartyExceptionRequiresForwardSecrecy</key> <false/>
-    </dict>
-    <key>fbcdn.net</key>
-    <dict>
-      <key>NSIncludesSubdomains</key> <true/>
-      <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>  <false/>
-    </dict>
-    <key>akamaihd.net</key>
-    <dict>
-      <key>NSIncludesSubdomains</key> <true/>
-      <key>NSThirdPartyExceptionRequiresForwardSecrecy</key> <false/>
-    </dict>
-  </dict>
-</dict>
-<key>CFBundleURLTypes</key>
-<array>
-  <dict>
-  <key>CFBundleURLSchemes</key>
-  <array>
-    <string>fb1080343305331995</string>
-  </array>
-  </dict>
-</array>
-<key>FacebookAppID</key>
-<string>1080343305331995</string>
-<key>FacebookDisplayName</key>
-<string>Kaput</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>facebook.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>fbcdn.net</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>akamaihd.net</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1080343305331995</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1080343305331995</string>
+	<key>FacebookDisplayName</key>
+	<string>Kaput</string>
 </dict>
 </plist>

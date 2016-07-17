@@ -4,7 +4,7 @@
 //
 //  Created by Jeremy OUANOUNOU on 12/06/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
-//
+// $(PRODUCT_BUNDLE_IDENTIFIER)
 
 import UIKit
 import FirebaseAuth
