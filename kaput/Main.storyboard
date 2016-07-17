@@ -434,6 +434,7 @@
                     <connections>
                         <outlet property="emailField" destination="kd0-sP-YCe" id="ftE-EG-ENj"/>
                         <outlet property="passwordField" destination="hVD-XQ-lo0" id="rFB-vv-RzB"/>
+                        <segue destination="ydw-Xu-nsu" kind="custom" identifier="FriendList" customClass="SegueFromRight" id="Clw-R7-hAE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zA7-JZ-E5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -923,7 +924,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DMv-z4-ev9"/>
-        <segue reference="bOw-6v-Zoa"/>
+        <segue reference="CrZ-9U-CV8"/>
+        <segue reference="Clw-R7-hAE"/>
     </inferredMetricsTieBreakers>
 </document>

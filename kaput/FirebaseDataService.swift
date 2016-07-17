@@ -53,6 +53,7 @@ struct FirebaseDataService {
             }
             else {let friendList = ["Tu n'as pas d'ami!":true]
                 print(friendList)
+                print(FIRAuth.auth()?.currentUser?.uid)
                 response(friendList: friendList)
 }
 //
@@ -93,10 +94,28 @@ struct FirebaseDataService {
         let user = ResourcePath.User(uid: uid).description
        
         ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":""])
-        
+
+    
     }
+    
+    
+    static func userExists(uid: String, response: (userExists : Bool) -> ()) {
+        let user = ResourcePath.User(uid: uid).description
+        
+        ref.child(user).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            if snapshot.hasChildren()
+            {
+                print(snapshot)
+                let userExists = snapshot.hasChildren()
+                response(userExists : userExists)
+                
+            }else{
+                let userExists = true
+                response(userExists : userExists)
+                
+            }
+
+})
 
 }
-
-
-
+}

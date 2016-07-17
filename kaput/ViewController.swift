@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     @IBAction func facebookLogin(sender: AnyObject) {
         
         let facebookLogin = FBSDKLoginManager()
-
+        let userExists = Bool()
        
         facebookLogin.logInWithReadPermissions(["public_profile", "email","user_friends"], fromViewController: self, handler: {
             (facebookResult, facebookError) -> Void in
@@ -41,13 +41,33 @@ class ViewController: UIViewController {
                 FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
                     if error != nil {
                         print("Login failed. \(error)")
+
                     } else {
                         print("Logged in!")
+//                        
+//                        if( FirebaseDataService.userExists(userID,response:{ (userExists:Bool) -> () in
+//                        
+//                        self.userExists = userExists
+//                        
                         
-                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: (user?.displayName)!)
                         self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
                         
-                    }
+                        
+//                        })
+//                            ){
+                        
+                        
+//                        if(userExists) {
+                            FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: (user?.displayName)!)
+                        }
+
+                        
+//                
+//                        } else {
+//                             self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
+                    
+                        
+                
                 }
             }
         })

@@ -116,10 +116,10 @@ class SignUpViewController: UIViewController {
                     self.errorAlert("Opps!", message:"\(error.localizedDescription)")
                 }else{
         
-
+                    userID = String(FIRAuth.auth()!.currentUser!.uid)
                     print("user created")
                     print(email!)
-                    
+                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: username!)
                     self.performSegueWithIdentifier("toFriendList", sender: self)
 
                     
@@ -152,37 +152,12 @@ let username = self.usernameField.text
     
             print(userID)
   
-            FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: username!)
+
             
-            // a supprimer
-            
-//            ref.child("Users").child(userID).setValue(["userID": userID, "batteryLevel": batteryLevel, "isOnLine": "true", "name":String(username!)])
-//        
-            
+ 
             let toView = segue.destinationViewController as! FriendListViewController
 
-            // ce  bout de cote doit aller dans la friendList!
-            
-            
-//            FirebaseDataService.getFriendList("xy2olnrUo2Wa5FY59c6KXIY4on62",response: { (friendList) -> () in
-//                
-//                if friendList.allKeys.isEmpty == true {
-//                    toView.data = ["Sans Ami"]
-//                    toView.friendsTableView.reloadData()
-//                }
-//                else {
-//                    print("ya des gens")
-//                toView.data =  friendList.allKeys as! [String]
-//                toView.friendsTableView.reloadData()
-//
-//
-//                }
-//                
-//            })
-//            
-            
-            
-            //jusqu'ici
+
             
         }
     }
