@@ -25,12 +25,56 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     var boltView : UIView!
     var boltImageView : UIImageView!
 
+    
+    func sendMessage(){
+        let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
+        let postParams: [String : AnyObject] = ["to": "cMXEWwigHKc:APA91bEHR9JecRuX9YIZOyDrFBGKrxdI7qzkvPqHk_NcgPNmepd9JkNkU4gRHyp8AoimiE6xODI7qeRXBESQQJI66W18bIm2An28s9KXrKhAMGtDKqkfB0OX-TcmUtAZR2-E-I1hrOTb", "notification": ["body": "This is the body.", "title": "This is the title."]]
+        
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("key=AIzaSyAxHVl_jj4oyZrLw0aozMyk3b_msOvApSQ", forHTTPHeaderField: "Authorization")
+        
+        do
+        {
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions())
+            print("My paramaters: \(postParams)")
+        }
+        catch
+        {
+            print("Caught an error: \(error)")
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            if let realResponse = response as? NSHTTPURLResponse
+            {
+                if realResponse.statusCode != 200
+                {
+                    print("Not a 200 response")
+                }
+            }
+            
+            if let postString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String
+            {
+                print("POST: \(postString)")
+            }
+        }
+        
+        task.resume()
+    }
 
 
 override func viewDidLoad() {
         super.viewDidLoad()
+    sendMessage()
 
    ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
+    FIRMessaging.messaging().sendMessage(
+        ["title": "hey"],
+        to: "2dc2307ffbf858657e1a69791a93a4512ea47e93ca839027cbdb5c1789d35fbf",
+        withMessageID: "1",
+        timeToLive: 108)
 
     
         // populate the friendlist with the list of friend from firebase
@@ -230,7 +274,6 @@ override func didReceiveMemoryWarning() {
         })
         
         ref.child("Users").child(userID).child("kaput").child(String(kaputCount+1)).setValue(inputsOutputs as [NSObject : AnyObject])
-        print("addad")
         
 
         self.kaputCounter.setTitle(String(self.kaputCount+1),forState: UIControlState.Normal)

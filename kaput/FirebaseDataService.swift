@@ -32,6 +32,7 @@ struct FirebaseDataService {
             }
         }
     }
+ 
 
 
     static func getFriendList(uid: String, response: (friendList : NSDictionary) -> ()) {
@@ -39,8 +40,7 @@ struct FirebaseDataService {
         print("getFriendList is called")
         
         let friendsURL = ResourcePath.Friends(uid: uid).description
-     
-
+    
         
         ref.child(friendsURL).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             for child in snapshot.children {

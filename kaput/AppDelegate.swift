@@ -98,6 +98,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Print full message.
         print("%@", userInfo)
+        FIRMessaging.messaging().appDidReceiveMessage(userInfo)
+    
+
     }
     // [END receive_message]
     
