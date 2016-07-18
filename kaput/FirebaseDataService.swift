@@ -105,18 +105,12 @@ struct FirebaseDataService {
         let user = ResourcePath.User(uid: uid).description
         
         ref.child(user).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-            if snapshot.hasChildren()
-            {
-                print(snapshot)
-                let userExists = snapshot.hasChildren()
+      
+                let userExists = snapshot.exists()
+                print(userExists)
                 response(userExists : userExists)
                 
-            }else{
-                let userExists = true
-                response(userExists : userExists)
-                
-            }
-
+            
 })
 
 }

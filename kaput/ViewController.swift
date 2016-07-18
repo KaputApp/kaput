@@ -26,8 +26,8 @@ class ViewController: UIViewController {
     @IBAction func facebookLogin(sender: AnyObject) {
         
         let facebookLogin = FBSDKLoginManager()
-        let userExists = Bool()
-       
+
+        
         facebookLogin.logInWithReadPermissions(["public_profile", "email","user_friends"], fromViewController: self, handler: {
             (facebookResult, facebookError) -> Void in
             if facebookError != nil {
@@ -36,23 +36,32 @@ class ViewController: UIViewController {
                 print("Facebook login was cancelled.")
             } else {
                 
-                let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+            let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
                 
-                FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+            FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
                     if error != nil {
-                        print("Login failed. \(error)")
-
+                    print("Login failed. \(error)")
                     } else {
-                        print("Logged in!")
-                        if FBSDKAccessToken.currentAccessToken().hasGranted("public_profile"){
-                            self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
-                            
-                        } else {
+                    print("Logged in!")
                         
+                        userID = String(FIRAuth.auth()!.currentUser!.uid)
+                      
+                        // on verifie si l'arbo dédiée a mon user existe déja
+                        ref.child("Users").child(userID).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+                        //Si oui, on passe l'étape
+                            if snapshot.hasChildren(){
                         self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
-                            FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: (user?.displayName)!)
-                        }
-                    }}
+                            } else {
+                        //Si non, créer l'user et on passe l'étape
+                                self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
+                                FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: (user?.displayName)!)
+                            }
+
+                            
+                        })
+                        
+                        
+            }}
             }
         }
     
