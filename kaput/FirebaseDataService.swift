@@ -4,7 +4,7 @@
 //
 //  Created by Jeremy OUANOUNOU on 12/06/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
-//
+// $(PRODUCT_BUNDLE_IDENTIFIER)
 
 import UIKit
 import FirebaseAuth
@@ -32,6 +32,7 @@ struct FirebaseDataService {
             }
         }
     }
+ 
 
 
     static func getFriendList(uid: String, response: (friendList : NSDictionary) -> ()) {
@@ -39,8 +40,7 @@ struct FirebaseDataService {
         print("getFriendList is called")
         
         let friendsURL = ResourcePath.Friends(uid: uid).description
-     
-
+    
         
         ref.child(friendsURL).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             for child in snapshot.children {
