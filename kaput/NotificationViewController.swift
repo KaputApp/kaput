@@ -22,7 +22,7 @@ class NotificationViewController: UIViewController {
     var attachmentBehavior : UIAttachmentBehavior!
     var gravityBehaviour : UIGravityBehavior!
     var snapBehavior : UISnapBehavior!
-    var notifCounter = 1
+//    var notifCounter = 1
     var kaputCounter = 1
 
 
@@ -113,31 +113,43 @@ class NotificationViewController: UIViewController {
            
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             
-            var kaputs =  ref.child("Users").child(userID!).child("kaput").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            var kaputs =  ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
                 
                 self.kaputCounter = Int(snapshot.childrenCount)
+                self.numberLeft.text = String(self.kaputCounter)
+              
+               
+                
+                
             }) { (error) in
                 print(error.localizedDescription)
             }
 
+
+            var notifKaput = ref.child("Users").child(userID!).child("kaput").queryLimitedToFirst(1).queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
+                let keyDict = snapshot.value as! [String : AnyObject]
+                let key = keyDict.keys.first!
+                print(key)
+                ref.child("Users").child(self.userID!).child("kaput").child(key).updateChildValues(["read":true])
+              
+                for child in snapshot.children{
+                    
             
-            var notifKaput = ref.child("Users").child(userID!).child("kaput").child(String(notifCounter)).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-            
-                let postDict = snapshot.value as! [String : AnyObject]
-                
-                print(postDict)
-                
-                
-                let senderText =  snapshot.value?["sent_by"] as? String
-                let timeText = snapshot.value?["sent_date"] as? String
-                let levelBat = snapshot.value?["levelBattery"] as? String
-                
-                
+                let senderText =  child.value?["sent_by"] as? String
+                let timeText = child.value?["sent_date"] as? String
+                let levelBat = child.value?["levelBattery"] as? String
+                 
+   
+                //child.updateChildValues(["read":true])
+    
+                    
                 self.senderLabel.text = "\(senderText!) IS \(levelBat!)%"
                 self.timeLabel.text = timeText
                 
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    
+                }
             }) { (error) in
     print(error.localizedDescription)
     }
@@ -167,11 +179,14 @@ class NotificationViewController: UIViewController {
         self.numberLeft.alpha = 1
         numberLeft.animation = "zoomIn"
         numberLeft.animate()
-        
-        
+       
+        if kaputCounter != 0 {
         loadDatafromFirebase()
+        }
+        
 
-        self.numberLeft.text = String(1 + kaputCounter - notifCounter)
+//        self.numberLeft.text = String(1 + kaputCounter - notifCounter)
+
 
         
         
@@ -181,14 +196,25 @@ class NotificationViewController: UIViewController {
    
     func refreshView() {
         
+//
+//        notifCounter=notifCounter+1
+//        
+//        if notifCounter > kaputCounter {
+//            notifCounter = 1
+//        }
+//    
+        
+        
+        
+        if kaputCounter == 0 {
+            
+            self.performSegueWithIdentifier("unWindtoFriendList", sender: self)
+        } else {
+        
+        self.numberLeft.text = String(self.kaputCounter)
 
-        notifCounter=notifCounter+1
-        
-        if notifCounter > kaputCounter {
-            notifCounter = 1
         }
-        
-        self.numberLeft.text = String(1 + kaputCounter - notifCounter)
+//        self.numberLeft.text = String(1 + kaputCounter - notifCounter)
         
         animator.removeAllBehaviors()
         snapBehavior = UISnapBehavior(item: notifView, snapToPoint: view.center)

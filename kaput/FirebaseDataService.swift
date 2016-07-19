@@ -71,35 +71,13 @@ struct FirebaseDataService {
         
     }
     
-     static func getKaputList(uid: String, response: (kaputCount : UInt) -> ()) {
-        let kaputs = ResourcePath.Kaputs(uid: uid).description
+    
+    
+    static func createUserData(uid: String, bat: String, username: String) {
         
-        ref.child(kaputs).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-        if snapshot.hasChildren(){
-        print(snapshot)
-        let kaputCount = snapshot.childrenCount
-            
-            response(kaputCount : kaputCount)
-                
-            }else{
-                let kaputCount = UInt(0)
-                response(kaputCount : kaputCount)
-
-            }
-
-    })
-
+    let user = ResourcePath.User(uid: uid).description
+    ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"","instanceID":FIRInstanceID.instanceID().token()!])
     }
-    
-   static func createUserData(uid: String, bat: String, username: String) {
-        
-        let user = ResourcePath.User(uid: uid).description
-       
-        ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":""])
-
-    
-    }
-    
     
     static func userExists(uid: String, response: (userExists : Bool) -> ()) {
         let user = ResourcePath.User(uid: uid).description
@@ -112,6 +90,118 @@ struct FirebaseDataService {
                 
             
 })
-
 }
+
+
+
+    static func getUidWithUsername(name: String, response: (uid : String, exists:Bool) -> ()){
+    
+        let users = ResourcePath.Users.description
+        var uid = String()
+        var exists = Bool()
+        ref.child(users).queryOrderedByChild("name").queryEqualToValue(name).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+          print("snap = \(snapshot)")
+            if snapshot.hasChildren(){
+                for child in snapshot.children {
+                    uid = child.key!
+                    exists = true
+                }
+            } else {
+                    exists = false
+                }
+            
+            response(uid: uid,exists: exists)
+        }){ (error) in
+            print(error.localizedDescription)
+            
+        }
+        
+
+    
+        
+    }
+   
+    static func getInstanceIDwithuid(uid: String, response: (instanceID : String) -> ()){
+        let user = ResourcePath.User(uid: uid).description
+        var instanceID = String()
+        ref.child(user).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        instanceID = snapshot.value!["instanceID"] as! String
+        response(instanceID: instanceID)
+        }){ (error) in
+            print(error.localizedDescription)
+    }
+    }
+    
+    
+    static func getKaputList(uid: String, response: (kaputCount : UInt) -> ()) {
+        
+            let kaputs = ResourcePath.Kaputs(uid: uid).description
+            
+            ref.child(kaputs).queryOrderedByChild("read").queryEqualToValue(false).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+                if snapshot.hasChildren(){
+                    print(snapshot)
+                    let kaputCount = snapshot.childrenCount
+                    
+                    response(kaputCount : kaputCount)
+                    
+                }else{
+                    let kaputCount = UInt(0)
+                    response(kaputCount : kaputCount)
+                    
+                }
+                
+            })
+            
+        
+        
+    }
+    
+    static func sendMessageToName(name:String){
+    getUidWithUsername(name,response: {(uid,exists)->() in
+    getInstanceIDwithuid(uid,response: { (instanceID) -> () in
+    sendMessage(instanceID)
+    })
+    })
+    }
+    
+    static func sendMessage(instanceID: String){
+        
+        let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
+        let postParams: [String : AnyObject] = ["to": instanceID, "notification": ["body": "I have 100% of battery", "title": "You have a new Kaput"]]
+        
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("key=AIzaSyAxHVl_jj4oyZrLw0aozMyk3b_msOvApSQ", forHTTPHeaderField: "Authorization")
+        
+        do
+        {
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions())
+            print("My paramaters: \(postParams)")
+        }
+        catch
+        {
+            print("Caught an error: \(error)")
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            if let realResponse = response as? NSHTTPURLResponse
+            {
+                if realResponse.statusCode != 200
+                {
+                    print("Not a 200 response")
+                }
+            }
+            
+            if let postString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String
+            {
+                print("POST: \(postString)")
+            }
+        }
+        
+        task.resume()
+    }
+ 
+    
 }

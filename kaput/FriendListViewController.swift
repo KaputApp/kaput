@@ -26,58 +26,16 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     var boltImageView : UIImageView!
 
     
-     //envoie d'un push device to device
-    //remplacer le "to" en dur par le instance ID du destinaire
-    //il est possible de rajouter From pour savoir de qui ca vient
-    //remplacer le contenu du body par le niveau de batterie 
-    //probablement la migrer dans le fichier DataService
-    //la fonction est betement appelée dans le viewdidload juste en dessous sendMessage()
-    //la partie dans do{ je ne l'ai pas bien comprise
-    
-    func sendMessage(){
-        let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-        let postParams: [String : AnyObject] = ["to": "cMXEWwigHKc:APA91bEHR9JecRuX9YIZOyDrFBGKrxdI7qzkvPqHk_NcgPNmepd9JkNkU4gRHyp8AoimiE6xODI7qeRXBESQQJI66W18bIm2An28s9KXrKhAMGtDKqkfB0OX-TcmUtAZR2-E-I1hrOTb", "notification": ["body": "I have 100% of battery", "title": "You have a new Kaput"]]
-        
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("key=AIzaSyAxHVl_jj4oyZrLw0aozMyk3b_msOvApSQ", forHTTPHeaderField: "Authorization")
-        
-        do
-        {
-            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions())
-            print("My paramaters: \(postParams)")
-        }
-        catch
-        {
-            print("Caught an error: \(error)")
-        }
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
-            
-            if let realResponse = response as? NSHTTPURLResponse
-            {
-                if realResponse.statusCode != 200
-                {
-                    print("Not a 200 response")
-                }
-            }
-            
-            if let postString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String
-            {
-                print("POST: \(postString)")
-            }
-        }
-        
-        task.resume()
-    }
-
+  
 
 override func viewDidLoad() {
         super.viewDidLoad()
-    sendMessage()
-
-   ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
+   
+    
+  // FirebaseDataService.sendMessageToName("HEREM")
+    
+    
+    ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
 
     
         // populate the friendlist with the list of friend from firebase
@@ -94,16 +52,21 @@ override func viewDidLoad() {
         FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
            
             self.kaputCount = Int(kaputCount)
-            print(self.kaputCount)
+            print("kaput count is equal to \(self.kaputCount)")
+            
+            // setting the kaputCount if we found some
+            if self.kaputCount != 0 {
+                self.kaputCounter.hidden = false
+                self.kaputCounter.animation = "slideRight"
+                self.kaputCounter.animate()
+            } else {
+                self.kaputCounter.hidden = true
+            }
+            
+            self.kaputCounter.setTitle(String(self.kaputCount),forState: UIControlState.Normal)
        
         })
-      
-        // setting the kaputCount if we found some
-        if kaputCount != 0 {
-            self.kaputCounter.animation = "slideRight"
-            self.kaputCounter.animate()
-        }
-        self.kaputCounter.setTitle(String(self.kaputCount),forState: UIControlState.Normal)
+    
         
         // setting the bolt view
         self.setBoltView()
@@ -260,31 +223,45 @@ override func didReceiveMemoryWarning() {
         let indexPath = tableView.indexPathForSelectedRow!
         let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
         let name = currentCell.textLabel!.text
+//        
+//        ref.child("Users").child(userID).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+//            let myName = snapshot.value?["name"] as? String
+           let inputsOutputs = [
+                "levelBattery" : String(batLevel.init().levelBat),
+                "read" : false,
+                "sent_by" : "SENDER",
+                "sent_date" : "NOW",
+                "sent_to" :  String(name!)
+            ]
         
-        let inputsOutputs = [
-            "levelBattery" : String(batLevel.init().levelBat),
-            "read" : true,
-            "sent_by" : String(name!),
-            "sent_date" : "NOW",
-            "sent_to" : "ANDREA"
-        ]
+        FirebaseDataService.getUidWithUsername(name!,response: {(uid,exists)->() in
+            
+       ref.child("Users").child(uid).child("kaput").childByAutoId().setValue(inputsOutputs as [NSObject : AnyObject])
+
+            })
+
+//        })
+        
+       
         cell.textLabel!.text = ""
         cell.textLabel!.text = "KAPUT SENT"
 
         FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
             self.kaputCount = Int(kaputCount)
             print(self.kaputCount)
+            self.kaputCounter.setTitle(String(self.kaputCount),forState: UIControlState.Normal)
+            
+            if self.kaputCount == 1 {
+                self.kaputCounter.animation = "slideRight"
+                self.kaputCounter.animate()
+            }
+
+
         })
         
-        ref.child("Users").child(userID).child("kaput").child(String(kaputCount+1)).setValue(inputsOutputs as [NSObject : AnyObject])
         
+        FirebaseDataService.sendMessageToName(name!)
 
-        self.kaputCounter.setTitle(String(self.kaputCount+1),forState: UIControlState.Normal)
-        
-        if kaputCount == 0 {
-            self.kaputCounter.animation = "slideRight"
-            self.kaputCounter.animate()
-        }
     }
     
 }

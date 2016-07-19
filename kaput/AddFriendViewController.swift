@@ -14,10 +14,23 @@ import FirebaseDatabase
 class AddFriendViewController: UIViewController {
     @IBOutlet var friendNameField: kaputField!
     @IBAction func addFriend(sender: AnyObject) {
+    
+    let name = friendNameField.text!
+    FirebaseDataService.getUidWithUsername(name,response: {(uid,exists)->() in
         
-    let inputsOutputs = [friendNameField.text!:true] as [String:Bool]
-       ref.child("Users").child(userID).child("friends").updateChildValues(inputsOutputs)
-    }
+        if exists{
+            let inputsOutputs = [name:true] as [String:Bool]
+            ref.child("Users").child(userID).child("friends").updateChildValues(inputsOutputs)
+
+            
+        } else {
+            
+            print("doesnt exist")
+            
+        }
+        
+        })
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()

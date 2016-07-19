@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     if ((FIRAuth.auth()!.currentUser) != nil){
+    userID = String(FIRAuth.auth()!.currentUser!.uid)
     self.window?.rootViewController = vc
     }
     

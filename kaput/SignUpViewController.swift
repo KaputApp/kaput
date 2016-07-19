@@ -126,17 +126,7 @@ class SignUpViewController: UIViewController {
                     FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: username!)
                     self.performSegueWithIdentifier("toFriendList", sender: self)
 
-                    
-//                    dispatch_async(dispatch_get_main_queue(), {()-> Void in
-//                        self.performSegueWithIdentifier("toFriendList", sender: self)
-//                    })
-                    
-                    //dispatch_async(dispatch_get_main_queue(), {()-> Void in
-//                        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("friendListView")
-//                        UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
-                
 
-                   // })
 
                 }
                 
