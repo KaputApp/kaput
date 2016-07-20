@@ -167,7 +167,8 @@ struct FirebaseDataService {
     static func sendMessage(instanceID: String){
         
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-        let postParams: [String : AnyObject] = ["to": instanceID, "notification": ["body": "I have 100% of battery", "title": "You have a new Kaput"]]
+        let postParams: [String : AnyObject] = ["to": instanceID,"priority":"high","content_available" : true
+, "notification": ["body": "I have 100% of battery", "title": "mec tu reçois? et y'a un badge ?","badge" : "1"]]
         
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
