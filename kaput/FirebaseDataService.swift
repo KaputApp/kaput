@@ -159,22 +159,27 @@ struct FirebaseDataService {
     static func sendMessageToName(name:String){
     getUidWithUsername(name,response: {(uid,exists)->() in
     getInstanceIDwithuid(uid,response: { (instanceID) -> () in
-    sendMessage(instanceID)
+        sendMessage(instanceID,uid: uid)
     })
     })
     }
     
-    static func sendMessage(instanceID: String){
+    static func sendMessage(instanceID: String,uid: String){
+      
         
-        let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-        let postParams: [String : AnyObject] = ["to": instanceID,"priority":"high","content_available" : true
-, "notification": ["body": "I have 100% of battery", "title": "mec tu reçois? et y'a un badge ?","badge" : "1"]]
+        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        getKaputList(uid,response: { (kaputCount) -> () in
+            
+            let myName = snapshot.value?["name"] as? String
+            let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
+            let postParams: [String : AnyObject] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has \(batteryLevel)% of battery", "title": "You have a new Kaput","badge" : "\(kaputCount)"]]
         
+            
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("key=AIzaSyAxHVl_jj4oyZrLw0aozMyk3b_msOvApSQ", forHTTPHeaderField: "Authorization")
-        
+            
         do
         {
             request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions())
@@ -202,7 +207,11 @@ struct FirebaseDataService {
         }
         
         task.resume()
+        })
+        })
+        
     }
- 
+    
+    
     
 }
