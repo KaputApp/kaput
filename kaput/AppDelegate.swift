@@ -116,13 +116,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // [START connect_to_fcm]
     func connectToFcm() {
+
         FIRMessaging.messaging().connectWithCompletion { (error) in
             if (error != nil) {
                 print("Unable to connect with FCM. \(error)")
             } else {
                 print("Connected to FCM.")
-                let refreshedToken = FIRInstanceID.instanceID().token()!
-                print("InstanceID token: \(refreshedToken)")
+            let refreshedToken = FIRInstanceID.instanceID().token()!
+               print("InstanceID token: \(refreshedToken)")
                 
             }
         }
@@ -130,7 +131,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // [END connect_to_fcm]
     
     func applicationDidBecomeActive(application: UIApplication) {
-        connectToFcm()
+       connectToFcm()
+
         FBSDKAppEvents.activateApp()
 
     }
