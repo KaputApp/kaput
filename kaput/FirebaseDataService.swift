@@ -164,10 +164,18 @@ struct FirebaseDataService {
     })
     }
     
+    
+    
     static func sendMessage(instanceID: String){
         
+        
+        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            let myName = snapshot.value?["name"] as? String
+        
+        
+        
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-        let postParams: [String : AnyObject] = ["to": instanceID, "notification": ["body": "I have 100% of battery", "title": "You have a new Kaput"]]
+            let postParams: [String : AnyObject] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has \(batteryLevel)% of battery", "title": "You have a new Kaput","badge" : ""]]
         
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
@@ -182,7 +190,7 @@ struct FirebaseDataService {
         catch
         {
             print("Caught an error: \(error)")
-        }
+            }
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
             
@@ -198,10 +206,10 @@ struct FirebaseDataService {
             {
                 print("POST: \(postString)")
             }
-        }
+            }
         
         task.resume()
-    }
+        })}
  
     
 }
