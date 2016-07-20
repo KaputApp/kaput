@@ -159,7 +159,7 @@ struct FirebaseDataService {
     static func sendMessageToName(name:String){
     getUidWithUsername(name,response: {(uid,exists)->() in
     getInstanceIDwithuid(uid,response: { (instanceID) -> () in
-    sendMessage(instanceID)
+        sendMessage(instanceID,uid: uid)
     })
     })
     }
@@ -177,11 +177,12 @@ struct FirebaseDataService {
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
             let postParams: [String : AnyObject] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has \(batteryLevel)% of battery", "title": "You have a new Kaput","badge" : ""]]
         
+            
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("key=AIzaSyAxHVl_jj4oyZrLw0aozMyk3b_msOvApSQ", forHTTPHeaderField: "Authorization")
-        
+            
         do
         {
             request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions())

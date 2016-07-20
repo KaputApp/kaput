@@ -105,7 +105,6 @@ override func didReceiveMemoryWarning() {
         cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor())
             ,MGSwipeButton(title: "More",backgroundColor: UIColor.blackColor())]
         cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
-        
         cell.textLabel?.text = data[indexPath.row] as! String
         switch indexPath.row {
         case 1:
@@ -119,6 +118,8 @@ override func didReceiveMemoryWarning() {
         default:
             cell.backgroundColor = KaputStyle.lowRed
         }
+        
+      
         return cell
     }
     
@@ -217,19 +218,21 @@ override func didReceiveMemoryWarning() {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)
         
         let indexPath = tableView.indexPathForSelectedRow!
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+
         let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
         let name = currentCell.textLabel!.text
-//        
-//        ref.child("Users").child(userID).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-//            let myName = snapshot.value?["name"] as? String
+        
+        
+        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            let myName = snapshot.value?["name"] as? String
            let inputsOutputs = [
                 "levelBattery" : String(batLevel.init().levelBat),
                 "read" : false,
-                "sent_by" : "SENDER",
+                "sent_by" : String(myName!),
                 "sent_date" : "NOW",
                 "sent_to" :  String(name!)
             ]
@@ -240,11 +243,16 @@ override func didReceiveMemoryWarning() {
 
             })
 
-//        })
+      })
         
        
-        cell.textLabel!.text = ""
+        
         cell.textLabel!.text = "KAPUT SENT"
+        
+        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            cell.textLabel!.text = name
+        })
 
         FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
             self.kaputCount = Int(kaputCount)
