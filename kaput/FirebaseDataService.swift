@@ -160,7 +160,7 @@ struct FirebaseDataService {
     getUidWithUsername(name,response: {(uid,exists)->() in
     getInstanceIDwithuid(uid,response: { (instanceID) -> () in
         sendMessage(instanceID,uid: uid)
-    })
+    })  
     })
     }
     

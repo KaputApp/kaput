@@ -116,15 +116,15 @@ class NotificationViewController: UIViewController {
             var kaputs =  ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
                 
                 self.kaputCounter = Int(snapshot.childrenCount)
+
                 self.numberLeft.text = String(self.kaputCounter)
-              
-               
-                
+
+
                 
             }) { (error) in
                 print(error.localizedDescription)
             }
-
+            
 
             var notifKaput = ref.child("Users").child(userID!).child("kaput").queryLimitedToFirst(1).queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
@@ -140,9 +140,6 @@ class NotificationViewController: UIViewController {
                 let timeText = child.value?["sent_date"] as? String
                 let levelBat = child.value?["levelBattery"] as? String
                  
-   
-                //child.updateChildValues(["read":true])
-    
                     
                 self.senderLabel.text = "\(senderText!) IS \(levelBat!)%"
                 self.timeLabel.text = timeText
@@ -153,7 +150,8 @@ class NotificationViewController: UIViewController {
             }) { (error) in
     print(error.localizedDescription)
     }
-
+            
+            
 
 }
 
@@ -175,19 +173,12 @@ class NotificationViewController: UIViewController {
     notifView.delay = 0.2
     notifView.animate()
     
-        notifView.alpha = 1
-        self.numberLeft.alpha = 1
-        numberLeft.animation = "zoomIn"
-        numberLeft.animate()
-       
-        if kaputCounter != 0 {
-        loadDatafromFirebase()
-        }
-        
-
-//        self.numberLeft.text = String(1 + kaputCounter - notifCounter)
-
-
+    notifView.alpha = 1
+    self.numberLeft.alpha = 1
+    numberLeft.animation = "zoomIn"
+    numberLeft.animate()
+    
+    loadDatafromFirebase()
         
         
     }
@@ -196,33 +187,25 @@ class NotificationViewController: UIViewController {
    
     func refreshView() {
         
-//
-//        notifCounter=notifCounter+1
-//        
-//        if notifCounter > kaputCounter {
-//            notifCounter = 1
-//        }
-//    
+
         
         
-        
-        if kaputCounter == 0 {
+        if kaputCounter == 1 {
             
-            self.performSegueWithIdentifier("unWindtoFriendList", sender: self)
+        self.performSegueWithIdentifier("unWindtoFriendList", sender: self)
         } else {
         
         self.numberLeft.text = String(self.kaputCounter)
-
-        }
-//        self.numberLeft.text = String(1 + kaputCounter - notifCounter)
-        
         animator.removeAllBehaviors()
         snapBehavior = UISnapBehavior(item: notifView, snapToPoint: view.center)
         attachmentBehavior.anchorPoint = view.center
         notifView.center = view.center
-
         viewDidAppear(true)
-    }
+
+
+        }
+        
+        }
     
     
     
