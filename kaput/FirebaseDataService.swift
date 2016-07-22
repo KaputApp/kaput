@@ -124,7 +124,7 @@ struct FirebaseDataService {
     static func getInstanceIDwithuid(uid: String, response: (instanceID : String) -> ()){
         let user = ResourcePath.User(uid: uid).description
         var instanceID = String()
-        ref.child(user).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        ref.child(user).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
         instanceID = snapshot.value!["instanceID"] as! String
         response(instanceID: instanceID)
         }){ (error) in
@@ -155,6 +155,31 @@ struct FirebaseDataService {
         
         
     }
+    
+    
+    static func getSingleKaputList(uid: String, response: (kaputCount : UInt) -> ()) {
+        
+        let kaputs = ResourcePath.Kaputs(uid: uid).description
+        
+        ref.child(kaputs).queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            if snapshot.hasChildren(){
+                print(snapshot)
+                let kaputCount = snapshot.childrenCount
+                
+                response(kaputCount : kaputCount)
+                
+            }else{
+                let kaputCount = UInt(0)
+                response(kaputCount : kaputCount)
+                
+            }
+            
+        })
+        
+        
+        
+    }
+
     
     static func sendMessageToName(name:String){
     getUidWithUsername(name,response: {(uid,exists)->() in
