@@ -169,6 +169,7 @@ struct FirebaseDataService {
     static func sendMessage(instanceID: String){
         
         
+    
         ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             let myName = snapshot.value?["name"] as? String
         
