@@ -252,6 +252,7 @@ override func didReceiveMemoryWarning() {
         let triggerTime = (Int64(NSEC_PER_SEC) * 1)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
             cell.textLabel!.text = name
+            
         })
 
         FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in

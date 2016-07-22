@@ -75,11 +75,13 @@ class SignInViewController: UIViewController {
                 if let error = error {
                     self.errorAlert("Opps!", message:"Wrong username or password")
                 }else{
+                    self.view.endEditing(true)
+
                     self.sccuessAlert("Success", message: "Welcome to Kaput")
-                    dispatch_async(dispatch_get_main_queue(),{()-> Void in
-                        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendList")
-                        UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
-                    })
+                   // dispatch_async(dispatch_get_main_queue(),{()-> Void in
+                        self.performSegueWithIdentifier("FriendList", sender: self)
+                       // UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
+                    
                 }
             }
         }
@@ -93,6 +95,7 @@ class SignInViewController: UIViewController {
         
     emailField.becomeFirstResponder()
         view.backgroundColor = Colors.init().bgColor
+        
 
 
         // Do any additional setup after loading the view.
