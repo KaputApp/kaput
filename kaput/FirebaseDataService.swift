@@ -167,6 +167,7 @@ struct FirebaseDataService {
     static func sendMessage(instanceID: String,uid: String){
       
         
+    
         ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
         getKaputList(uid,response: { (kaputCount) -> () in
             
