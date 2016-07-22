@@ -189,19 +189,17 @@ struct FirebaseDataService {
     })
     }
     
-    
-    
-    static func sendMessage(instanceID: String){
-        
+    static func sendMessage(instanceID: String,uid: String){
+      
         
     
-        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
-            let myName = snapshot.value?["name"] as? String
+       ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        getSingleKaputList(uid,response: { (kaputCount) -> () in
+            
+           let myName = snapshot.value?["name"] as? String
+            let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
+         let postParams: [String : AnyObject] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has \(batteryLevel)% of battery", "title": "You have a new Kaput","badge" : "\(kaputCount)"]]
         
-        
-        
-        let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-            let postParams: [String : AnyObject] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has \(batteryLevel)% of battery", "title": "You have a new Kaput","badge" : ""]]
         
             
         let request = NSMutableURLRequest(URL: url!)
@@ -217,7 +215,7 @@ struct FirebaseDataService {
         catch
         {
             print("Caught an error: \(error)")
-            }
+        }
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
             
@@ -233,10 +231,14 @@ struct FirebaseDataService {
             {
                 print("POST: \(postString)")
             }
-            }
+        }
         
         task.resume()
-        })}
- 
+        })
+      })
+        
+    }
+    
+    
     
 }
