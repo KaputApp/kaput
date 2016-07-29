@@ -90,10 +90,7 @@ class SignUpViewController: UIViewController {
                 print(error.localizedDescription)
                 
         })
-        
-        let finalemail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        let finalpassword = password!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        let finalusername = username?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+       
         
         
         // verify signup information
@@ -142,14 +139,8 @@ class SignUpViewController: UIViewController {
         if segue.identifier == "toFriendList" {
             print("prepareforsegue is called")
 
-let username = self.usernameField.text
-    
-            print(userID)
   
-
-            
  
-            let toView = segue.destinationViewController as! FriendListViewController
 
 
             

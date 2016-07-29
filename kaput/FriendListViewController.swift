@@ -18,67 +18,47 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var friendsTableView: UITableView!
     @IBOutlet var kaputCounter: numberOfNotifications!
-    var data = []
+    var data = NSMutableArray()
     var kaputCount = Int()
     var friendShown = [Bool]()
     var refreshControl: UIRefreshControl!
     var boltView : UIView!
     var boltImageView : UIImageView!
 
-    
-  
 
 override func viewDidLoad() {
-        super.viewDidLoad()
-   
-    
-  // FirebaseDataService.sendMessageToName("HEREM")
-    
+    super.viewDidLoad()
     
     ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
 
-    
-        // populate the friendlist with the list of friend from firebase
+    FirebaseDataService.getFriendList(userID,response: { (friendList) -> () in
         
-        FirebaseDataService.getFriendList(userID,response: { (friendList) -> () in
-            self.data =  friendList.allKeys as! [String]
-            self.friendShown = [Bool](count: self.data.count, repeatedValue: false)
-
-            self.friendsTableView.reloadData()
+        self.data =  friendList.allKeys  as! NSMutableArray
+        self.friendShown = [Bool](count: self.data.count, repeatedValue: false)
+        self.friendsTableView.reloadData()
             
-        })
+    })
 
-        // get the list of kaputs
-        FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
+    FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
            
-            self.kaputCount = Int(kaputCount)
-            print("kaput count is equal to \(self.kaputCount)")
-            
-            // setting the kaputCount if we found some
-            if self.kaputCount != 0 {
-                self.kaputCounter.hidden = false
-                self.kaputCounter.animation = "slideRight"
-                self.kaputCounter.animate()
-            } else {
-                self.kaputCounter.hidden = true
-            }
-            
+        self.kaputCount = Int(kaputCount)
+        UIApplication.sharedApplication().applicationIconBadgeNumber = self.kaputCount
+
+        if self.kaputCount != 0 {
+            self.kaputCounter.hidden = false
+            self.kaputCounter.animation = "slideRight"
+            self.kaputCounter.animate()
+        } else {
+            self.kaputCounter.hidden = true
+        }
             self.kaputCounter.setTitle(String(self.kaputCount),forState: UIControlState.Normal)
-       
         })
     
-        
-        // setting the bolt view
         self.setBoltView()
-
-        // setting the view
     
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
         friendsTableView.backgroundColor = Colors.init().bgColor
-    
-       // self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-
     
 }
 
@@ -102,10 +82,21 @@ override func didReceiveMemoryWarning() {
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)  as! MGSwipeTableCell
         
         //configure right buttons
-        cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor())
-            ,MGSwipeButton(title: "More",backgroundColor: UIColor.blackColor())]
+        cell.rightButtons = [MGSwipeButton(title: "", icon: KaputStyle.imageOfTrashCan,backgroundColor: KaputStyle.lowRed,padding:30,callback: {
+            (sender: MGSwipeTableCell!) -> Bool in
+            //self.data.removeObjectAtIndex(indexPath.row)
+            let name = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
+            FirebaseDataService.removeFriend(name!)
+            //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+            return true
+       
+        })]
+
         cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
+        
         cell.textLabel?.text = data[indexPath.row] as! String
+       
+        
         switch indexPath.row {
         case 1:
             cell.backgroundColor = KaputStyle.lowRed
@@ -225,7 +216,9 @@ override func didReceiveMemoryWarning() {
 
         let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
         let name = currentCell.textLabel!.text
-        
+        let date = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         
         ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             let myName = snapshot.value?["name"] as? String
@@ -233,7 +226,7 @@ override func didReceiveMemoryWarning() {
                 "levelBattery" : String(batLevel.init().levelBat),
                 "read" : false,
                 "sent_by" : String(myName!),
-                "sent_date" : "NOW",
+                "sent_date" : dateFormatter.stringFromDate(date),
                 "sent_to" :  String(name!)
             ]
         
@@ -265,9 +258,7 @@ override func didReceiveMemoryWarning() {
                 self.kaputCounter.animate()
             }
 
-
         })
-        
         
         FirebaseDataService.sendMessageToName(name!)
 

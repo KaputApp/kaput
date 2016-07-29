@@ -30,7 +30,7 @@ class NotificationViewController: UIViewController {
  
     
     @IBOutlet var numberLeft: SpringLabel!
-    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var timeLabel: PaddingLabel!
     @IBOutlet var senderLabel: UILabel!
     @IBOutlet var notifView: BigNotifView!
     @IBOutlet var PanRecognizer: UIPanGestureRecognizer!
@@ -113,12 +113,12 @@ class NotificationViewController: UIViewController {
            
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             
-            var kaputs =  ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
                 
                 self.kaputCounter = Int(snapshot.childrenCount)
 
                 self.numberLeft.text = String(self.kaputCounter)
-
+                
 
                 
             }) { (error) in
@@ -126,35 +126,44 @@ class NotificationViewController: UIViewController {
             }
             
 
-            var notifKaput = ref.child("Users").child(userID!).child("kaput").queryLimitedToFirst(1).queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            ref.child("Users").child(userID!).child("kaput").queryLimitedToFirst(1).queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
                 let keyDict = snapshot.value as! [String : AnyObject]
                 let key = keyDict.keys.first!
                 print(key)
                 ref.child("Users").child(self.userID!).child("kaput").child(key).updateChildValues(["read":true])
               
+                UIApplication.sharedApplication().applicationIconBadgeNumber = self.kaputCounter
+
                 for child in snapshot.children{
                     
             
                 let senderText =  child.value?["sent_by"] as? String
                 let timeText = child.value?["sent_date"] as? String
                 let levelBat = child.value?["levelBattery"] as? String
-                 
-                    
-                self.senderLabel.text = "\(senderText!) IS \(levelBat!)%"
-                self.timeLabel.text = timeText
                 
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+                    let sentDate = dateFormatter.dateFromString(timeText!)
+                    print("dateText \(sentDate!)")
+                    
+                let interval = NSDate().timeIntervalSinceDate(sentDate!)
+                    
+                let dateComponentsFormatter = NSDateComponentsFormatter()
+                    dateComponentsFormatter.unitsStyle = NSDateComponentsFormatterUnitsStyle.Short
+                let intervalAgo = dateComponentsFormatter.stringFromTimeInterval(interval)
+                let timeAgo = "\(intervalAgo!.uppercaseString) AGO"
+                self.senderLabel.text = "\(senderText!) IS \(levelBat!)%"
+                self.timeLabel.backgroundColor = KaputStyle.chargingBlue
+                self.timeLabel.text = timeAgo
+                
                 }
             }) { (error) in
     print(error.localizedDescription)
     }
-            
-            
 
 }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

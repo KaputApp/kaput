@@ -63,13 +63,13 @@
 		3FFAE4A31D10AA26008DE0C6 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3FFE32DC1D3952FB00DCDD6A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE32DB1D3952FB00DCDD6A /* ProfileViewController.swift */; };
 		3FFE32DE1D3AF42200DCDD6A /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */; };
+		4B4B8D4FA0E80263D19725A2 /* Pods_kaput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E88B6BCA9550A3E04C66AB /* Pods_kaput.framework */; };
 		89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D911CF762D000DF4941 /* AppDelegate.swift */; };
 		89139D941CF762D000DF4941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D931CF762D000DF4941 /* ViewController.swift */; };
 		89139D991CF762D000DF4941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89139D981CF762D000DF4941 /* Assets.xcassets */; };
 		89139D9C1CF762D000DF4941 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89139D9A1CF762D000DF4941 /* LaunchScreen.storyboard */; };
 		89139DA61CF7633800DF4941 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89139DA51CF7633800DF4941 /* GoogleService-Info.plist */; };
 		8933D5E71D021F05006444E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8933D5E61D021F05006444E5 /* Main.storyboard */; };
-		FDF1D309524B9BF4335E222B /* Pods_kaput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51F07C9279E4AE84B489ABF4 /* Pods_kaput.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		19661862EF0C095F2730183B /* Pods-kaput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig"; sourceTree = "<group>"; };
 		3F4525631D42CA870033ED97 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3F593F0B1D0603A50059745D /* addButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addButtonView.swift; sourceTree = "<group>"; };
 		3F593F311D099F780059745D /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -147,8 +148,7 @@
 		3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		3FFE32DB1D3952FB00DCDD6A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaddingLabel.swift; path = ../PaddingLabel.swift; sourceTree = "<group>"; };
-		4E65E518A71EC10955F42BF9 /* Pods-kaput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig"; sourceTree = "<group>"; };
-		51F07C9279E4AE84B489ABF4 /* Pods_kaput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68E88B6BCA9550A3E04C66AB /* Pods_kaput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89139D8E1CF762D000DF4941 /* kaput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaput.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89139D911CF762D000DF4941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89139D931CF762D000DF4941 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		89139DA51CF7633800DF4941 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89139DA71CF7636000DF4941 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8933D5E61D021F05006444E5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8BF62F7E15B937B9C2FE5D02 /* Pods-kaput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig"; sourceTree = "<group>"; };
+		8BEC17F1383DC8AB31288158 /* Pods-kaput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDF1D309524B9BF4335E222B /* Pods_kaput.framework in Frameworks */,
+				4B4B8D4FA0E80263D19725A2 /* Pods_kaput.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,9 +178,18 @@
 			children = (
 				3F593F6F1D09B4750059745D /* TPKeyboardAvoiding */,
 				3F593F331D09A02A0059745D /* Spring */,
-				51F07C9279E4AE84B489ABF4 /* Pods_kaput.framework */,
+				68E88B6BCA9550A3E04C66AB /* Pods_kaput.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27FEE8A02977F437BA0A90D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BEC17F1383DC8AB31288158 /* Pods-kaput.debug.xcconfig */,
+				19661862EF0C095F2730183B /* Pods-kaput.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		3F593F331D09A02A0059745D /* Spring */ = {
@@ -274,7 +283,7 @@
 				89139D8F1CF762D000DF4941 /* Products */,
 				89139DA71CF7636000DF4941 /* GoogleService-Info.plist */,
 				1866139DC5AABD367B436585 /* Frameworks */,
-				CE256B4E99566346A9977ECF /* Pods */,
+				27FEE8A02977F437BA0A90D8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -314,15 +323,6 @@
 			name = StoryBoard;
 			sourceTree = "<group>";
 		};
-		CE256B4E99566346A9977ECF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4E65E518A71EC10955F42BF9 /* Pods-kaput.debug.xcconfig */,
-				8BF62F7E15B937B9C2FE5D02 /* Pods-kaput.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -330,13 +330,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89139DA01CF762D000DF4941 /* Build configuration list for PBXNativeTarget "kaput" */;
 			buildPhases = (
-				0A1AEDED5D2D4608DB8DB37E /* 📦 Check Pods Manifest.lock */,
+				E34B6507C431FA6B3E67C9EA /* 📦 Check Pods Manifest.lock */,
 				89139D8A1CF762D000DF4941 /* Sources */,
 				89139D8B1CF762D000DF4941 /* Frameworks */,
 				89139D8C1CF762D000DF4941 /* Resources */,
 				3FFAE4A41D10AA27008DE0C6 /* Embed Frameworks */,
-				6BDEE8AF8C43D81B8A47CAE3 /* 📦 Embed Pods Frameworks */,
-				7C73216A72B598F88673D8DE /* 📦 Copy Pods Resources */,
+				0318891CEE297C9E9BDDF7D1 /* 📦 Embed Pods Frameworks */,
+				B173FB3AB31894240D7B134B /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -409,22 +409,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A1AEDED5D2D4608DB8DB37E /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6BDEE8AF8C43D81B8A47CAE3 /* 📦 Embed Pods Frameworks */ = {
+		0318891CEE297C9E9BDDF7D1 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -439,7 +424,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaput/Pods-kaput-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7C73216A72B598F88673D8DE /* 📦 Copy Pods Resources */ = {
+		B173FB3AB31894240D7B134B /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -452,6 +437,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaput/Pods-kaput-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E34B6507C431FA6B3E67C9EA /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -616,7 +616,7 @@
 		};
 		89139DA11CF762D000DF4941 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E65E518A71EC10955F42BF9 /* Pods-kaput.debug.xcconfig */;
+			baseConfigurationReference = 8BEC17F1383DC8AB31288158 /* Pods-kaput.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -633,7 +633,7 @@
 		};
 		89139DA21CF762D000DF4941 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BF62F7E15B937B9C2FE5D02 /* Pods-kaput.release.xcconfig */;
+			baseConfigurationReference = 19661862EF0C095F2730183B /* Pods-kaput.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

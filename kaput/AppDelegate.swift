@@ -25,8 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("friendListView") as! UIViewController
-        
+        let vc = storyboard.instantiateViewControllerWithIdentifier("friendListView")
         
         
         
@@ -122,9 +121,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Unable to connect with FCM. \(error)")
             } else {
                 print("Connected to FCM.")
-            let refreshedToken = FIRInstanceID.instanceID().token()!
+                if let refreshedToken = FIRInstanceID.instanceID().token() {
                print("InstanceID token: \(refreshedToken)")
-                
+                }
             }
         }
     }

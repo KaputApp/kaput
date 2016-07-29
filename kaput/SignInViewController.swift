@@ -72,7 +72,7 @@ class SignInViewController: UIViewController {
             spinner.startAnimating()
             FIRAuth.auth()?.signInWithEmail(email!, password: password!){(user,error) in
                 spinner.stopAnimating()
-                if let error = error {
+                if error != nil {
                     self.errorAlert("Opps!", message:"Wrong username or password")
                 }else{
                     self.view.endEditing(true)

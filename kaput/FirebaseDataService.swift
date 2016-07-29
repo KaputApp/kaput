@@ -33,7 +33,9 @@ struct FirebaseDataService {
         }
     }
  
-
+    static func removeFriend( friend: String){
+        ref.child("Users").child(userID).child("friends").child(friend).removeValue()
+    }
 
     static func getFriendList(uid: String, response: (friendList : NSDictionary) -> ()) {
     
@@ -59,6 +61,7 @@ struct FirebaseDataService {
         
         
     }
+    
     
     
     

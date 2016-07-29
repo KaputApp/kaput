@@ -4,7 +4,6 @@
 //
 //  Created by Jeremy OUANOUNOU on 11/06/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
-//
 
 import UIKit
 import FirebaseAuth
@@ -13,29 +12,30 @@ import FirebaseDatabase
 
 class AddFriendViewController: UIViewController {
     @IBOutlet var friendNameField: kaputField!
+    @IBOutlet var addFriendButton: kaputPrimaryButton!
     @IBAction func addFriend(sender: AnyObject) {
     
     let name = friendNameField.text!
     FirebaseDataService.getUidWithUsername(name,response: {(uid,exists)->() in
         
-        if exists{
-            let inputsOutputs = [name:true] as [String:Bool]
-            ref.child("Users").child(userID).child("friends").updateChildValues(inputsOutputs)
-
-            
-        } else {
-            
-            print("doesnt exist")
-            
-        }
+    if exists{
+        let inputsOutputs = [name:true] as [String:Bool]
+        ref.child("Users").child(userID).child("friends").updateChildValues(inputsOutputs)
         
-        })
-        }
+    } else {
+
+        self.addFriendButton.animation = "shake"
+        self.addFriendButton.animate()
+        print("doesnt exist")
+            
+    }
+        
+    })
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         view.backgroundColor = Colors.init().bgColor
     }
 
@@ -44,7 +44,6 @@ class AddFriendViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
