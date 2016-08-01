@@ -39,7 +39,7 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpButton(sender: AnyObject) {
         
         
-        
+        signUpButton.animation = "shake"
 
         let username: String? = self.usernameField.text
         let email = self.emailField.text
@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController {
         err.font = UIFont(name: "Futura-Condensed", size: 18.0 )
         err.animation = "fadeInRight"
         let rect = err.frame
-        let myLabelInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        let myLabelInsets = UIEdgeInsets(top: 4, left: 10, bottom: 0, right: 10)
         err.drawTextInRect(UIEdgeInsetsInsetRect(rect, myLabelInsets))
     
         
@@ -69,6 +69,8 @@ class SignUpViewController: UIViewController {
         err.frame.origin.x = field.frame.width - err.frame.width
         field.addSubview(err)
         err.animate()
+        signUpButton.animate()
+
             
         }
         
@@ -100,8 +102,10 @@ class SignUpViewController: UIViewController {
             
         } else if email?.characters.count<8 {
             errorMessage("INVALID MAIL",field: self.emailField)
+
         }else if password?.characters.count<8{
             errorMessage("INVALID PASSWORD",field: self.passwordField)
+            
         }
         else {
             // set spinner

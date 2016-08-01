@@ -458,7 +458,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMZ-Ge-UiT" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMZ-Ge-UiT" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
                                 <rect key="frame" x="20" y="167" width="560" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="NLf-Da-gfY"/>
@@ -471,16 +471,10 @@
                                     <action selector="addFriend:" destination="DHS-xq-Ngq" eventType="touchUpInside" id="tvn-ez-wq9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD FRIENDS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-An-i6V">
-                                <rect key="frame" x="201" y="16" width="198" height="43"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="40"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SOI-6P-Vj4" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="25" y="27" width="34" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOI-6P-Vj4" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="40" width="34" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bct-Em-j0S">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bct-Em-j0S">
                                         <rect key="frame" x="0.0" y="0.0" width="34" height="32"/>
                                         <connections>
                                             <segue destination="ydw-Xu-nsu" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="zZL-rH-20r"/>
@@ -488,14 +482,18 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="8Ci-Vt-FgK"/>
+                                    <constraint firstAttribute="height" constant="30" id="Ha1-eC-IbJ"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR USERNAME IS ILLANOU85 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zK-BY-QlP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="YOUR USERNAME IS ILLANOU85 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zK-BY-QlP">
                                 <rect key="frame" x="20" y="258" width="551" height="18"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="Abs-7T-HWv" customClass="kaputField" customModule="kaput" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="Abs-7T-HWv" customClass="kaputField" customModule="kaput" customModuleProvider="target">
                                 <rect key="frame" x="20" y="119" width="560" height="28"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
@@ -506,15 +504,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ADD FRIENDS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-An-i6V">
+                                <rect key="frame" x="201" y="33" width="198" height="43"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.1019607843" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="7zK-BY-QlP" firstAttribute="centerX" secondItem="8s3-Y4-VCV" secondAttribute="centerX" id="DeB-Mr-QhE"/>
+                            <constraint firstItem="2Oq-An-i6V" firstAttribute="centerY" secondItem="SOI-6P-Vj4" secondAttribute="centerY" id="IJa-LM-H14"/>
                             <constraint firstItem="Abs-7T-HWv" firstAttribute="top" secondItem="2Oq-An-i6V" secondAttribute="bottom" constant="60" id="IQM-cF-SwM"/>
                             <constraint firstItem="2Oq-An-i6V" firstAttribute="centerX" secondItem="8s3-Y4-VCV" secondAttribute="centerX" id="NDx-FB-ud2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gMZ-Ge-UiT" secondAttribute="trailing" id="NPg-30-NIc"/>
+                            <constraint firstItem="2Oq-An-i6V" firstAttribute="centerY" secondItem="bct-Em-j0S" secondAttribute="centerY" id="ODV-c8-e4t"/>
                             <constraint firstItem="gMZ-Ge-UiT" firstAttribute="top" secondItem="Abs-7T-HWv" secondAttribute="bottom" constant="20" id="QqT-co-rMk"/>
                             <constraint firstItem="7zK-BY-QlP" firstAttribute="top" secondItem="gMZ-Ge-UiT" secondAttribute="bottom" constant="20" id="Ssy-Vr-BnU"/>
+                            <constraint firstItem="SOI-6P-Vj4" firstAttribute="leading" secondItem="8s3-Y4-VCV" secondAttribute="leadingMargin" id="Xqk-jy-hKM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Abs-7T-HWv" secondAttribute="trailing" id="a14-Te-0Tj"/>
                             <constraint firstAttribute="leadingMargin" secondItem="7zK-BY-QlP" secondAttribute="leading" id="gEP-AR-lgL"/>
                             <constraint firstItem="gMZ-Ge-UiT" firstAttribute="leading" secondItem="8s3-Y4-VCV" secondAttribute="leadingMargin" id="gi3-1A-h12"/>
@@ -522,9 +529,11 @@
                             <constraint firstItem="2Oq-An-i6V" firstAttribute="centerY" secondItem="8s3-Y4-VCV" secondAttribute="centerY" id="jOh-eb-vDn"/>
                             <constraint firstItem="2Oq-An-i6V" firstAttribute="top" secondItem="Ej0-H2-Uf1" secondAttribute="bottom" constant="16" id="mig-P8-hUL"/>
                             <constraint firstItem="Abs-7T-HWv" firstAttribute="leading" secondItem="8s3-Y4-VCV" secondAttribute="leadingMargin" id="sOe-Pf-ugV"/>
+                            <constraint firstItem="SOI-6P-Vj4" firstAttribute="top" secondItem="Ej0-H2-Uf1" secondAttribute="bottom" constant="20" id="vVB-fM-QwQ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="IJa-LM-H14"/>
                                 <exclude reference="jOh-eb-vDn"/>
                             </mask>
                         </variation>
@@ -536,7 +545,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eib-CZ-cv7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1739" y="879"/>
+            <point key="canvasLocation" x="1731" y="956"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Qd9-mH-IF8">
@@ -625,7 +634,7 @@
                                     <action selector="LogOut:" destination="TKK-0J-CQX" eventType="touchUpInside" id="A8v-R5-1B1"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1zw-VC-K2x">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1zw-VC-K2x">
                                 <rect key="frame" x="234" y="53" width="132" height="132"/>
                                 <color key="backgroundColor" red="0.0" green="0.084724564651545098" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -826,7 +835,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPz-5A-Tla" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1739" y="135"/>
+            <point key="canvasLocation" x="1731" y="171"/>
         </scene>
         <!--Notification View Controller-->
         <scene sceneID="v80-Fl-cT0">
@@ -856,18 +865,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3NS-sg-7LB" customClass="BigNotifView" customModule="kaput" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3NS-sg-7LB" customClass="BigNotifView" customModule="kaput" customModuleProvider="target">
                                             <rect key="frame" x="79" y="236" width="521" height="128"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="X MN AGO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJA-8h-U8b" customClass="PaddingLabel" customModule="kaput" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="X MN AGO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJA-8h-U8b" customClass="PaddingLabel" customModule="kaput" customModuleProvider="target">
                                                     <rect key="frame" x="162" y="54" width="117" height="21"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="SENDER IS X%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ1-tm-gXD">
-                                                    <rect key="frame" x="121" y="34" width="295" height="58"/>
-                                                    <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="54"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SENDER IS X%" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="rZ1-tm-gXD">
+                                                    <rect key="frame" x="121" y="19" width="295" height="85"/>
+                                                    <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="70"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -876,10 +885,13 @@
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="BFM-bI-AZs"/>
+                                                <constraint firstItem="rZ1-tm-gXD" firstAttribute="centerY" secondItem="3NS-sg-7LB" secondAttribute="centerY" id="GUf-OE-tKf"/>
+                                                <constraint firstItem="rZ1-tm-gXD" firstAttribute="height" secondItem="3NS-sg-7LB" secondAttribute="height" id="Jxz-C3-mLU"/>
                                                 <constraint firstItem="rZ1-tm-gXD" firstAttribute="top" secondItem="3NS-sg-7LB" secondAttribute="top" constant="37" id="Vss-9k-i1W"/>
                                                 <constraint firstItem="NJA-8h-U8b" firstAttribute="top" secondItem="3NS-sg-7LB" secondAttribute="top" constant="1" id="WQ9-a4-CFp"/>
                                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="119" id="X9j-mw-yx1"/>
                                                 <constraint firstItem="NJA-8h-U8b" firstAttribute="centerX" secondItem="3NS-sg-7LB" secondAttribute="centerX" constant="-5" id="b2U-T9-tmX"/>
+                                                <constraint firstItem="rZ1-tm-gXD" firstAttribute="width" secondItem="3NS-sg-7LB" secondAttribute="width" constant="-35" id="x26-dt-lLA"/>
                                                 <constraint firstItem="rZ1-tm-gXD" firstAttribute="centerX" secondItem="3NS-sg-7LB" secondAttribute="centerX" constant="-10" id="z0J-a2-oki"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -887,6 +899,11 @@
                                                     <real key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Jxz-C3-mLU"/>
+                                                </mask>
+                                            </variation>
                                             <connections>
                                                 <outletCollection property="gestureRecognizers" destination="kpC-Xk-FFc" appends="YES" id="PDZ-ft-ITT"/>
                                                 <outletCollection property="gestureRecognizers" destination="gc0-IJ-eUf" appends="YES" id="r64-Yb-u6P"/>
@@ -896,6 +913,8 @@
                                     <constraints>
                                         <constraint firstItem="3NS-sg-7LB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Wc-ra-SIA" secondAttribute="leading" constant="10" id="5P4-8S-Dz5"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3NS-sg-7LB" secondAttribute="trailing" constant="10" id="H73-Ui-q1F"/>
+                                        <constraint firstItem="3NS-sg-7LB" firstAttribute="centerX" secondItem="9Wc-ra-SIA" secondAttribute="centerX" id="OzU-fi-WDy"/>
+                                        <constraint firstItem="3NS-sg-7LB" firstAttribute="centerY" secondItem="9Wc-ra-SIA" secondAttribute="centerY" id="abd-br-HMu"/>
                                     </constraints>
                                 </view>
                                 <gestureRecognizers/>
@@ -947,7 +966,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2465" y="135"/>
+            <point key="canvasLocation" x="2445" y="159"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="xWs-Ll-xk9">
@@ -972,7 +991,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ext-ed-SU0">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ext-ed-SU0">
                                 <rect key="frame" x="427" y="20" width="153" height="34"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
                                 <state key="normal" title="CHANGE PASSWORD">
@@ -1006,7 +1025,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-bf-bvi">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-bf-bvi">
                                 <rect key="frame" x="234" y="53" width="132" height="132"/>
                                 <color key="backgroundColor" red="0.0" green="0.3817860450493078" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1015,7 +1034,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="natural" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="ddw-Qf-SWX" customClass="kaputField" customModule="kaput" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="natural" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="ddw-Qf-SWX" customClass="kaputField" customModule="kaput" customModuleProvider="target">
                                 <rect key="frame" x="20" y="205" width="560" height="28"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>

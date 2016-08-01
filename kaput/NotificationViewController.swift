@@ -157,7 +157,9 @@ class NotificationViewController: UIViewController {
                 self.senderLabel.text = "\(senderText!) IS \(levelBat!)%"
                 self.timeLabel.backgroundColor = KaputStyle.chargingBlue
                 self.timeLabel.text = timeAgo
-                
+                notifLenght = Int(levelBat!)!
+                print("this is \(notifLenght)")
+                self.notifView.setNeedsDisplay()
                 }
             }) { (error) in
     print(error.localizedDescription)

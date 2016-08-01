@@ -38,6 +38,8 @@ override func viewDidLoad() {
         self.friendsTableView.reloadData()
             
     })
+    
+    
 
     FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
            
