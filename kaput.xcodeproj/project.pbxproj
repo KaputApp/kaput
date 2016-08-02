@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F121BF61D50902100D657F9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F121BF51D50902100D657F9 /* Errors.swift */; };
 		3F4525641D42CA870033ED97 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4525631D42CA870033ED97 /* EditProfileViewController.swift */; };
 		3F593F0C1D0603A50059745D /* addButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F0B1D0603A50059745D /* addButtonView.swift */; };
 		3F593F321D099F780059745D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F311D099F780059745D /* NotificationViewController.swift */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		19661862EF0C095F2730183B /* Pods-kaput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig"; sourceTree = "<group>"; };
+		3F121BF51D50902100D657F9 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		3F4525631D42CA870033ED97 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3F593F0B1D0603A50059745D /* addButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addButtonView.swift; sourceTree = "<group>"; };
 		3F593F311D099F780059745D /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		3FD1633C1CF852F600862C77 /* Design Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3F121BF51D50902100D657F9 /* Errors.swift */,
 				3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */,
 				3F7A12261CF88CB800AAD538 /* logoKaput.swift */,
 				3F593F7E1D09EE420059745D /* BigNotifView.swift */,
@@ -508,6 +511,7 @@
 				3F593F6E1D09A02A0059745D /* UnwindSegue.swift in Sources */,
 				3F593F6A1D09A02A0059745D /* SpringTextView.swift in Sources */,
 				3F593F5B1D09A02A0059745D /* DesignableTextView.swift in Sources */,
+				3F121BF61D50902100D657F9 /* Errors.swift in Sources */,
 				3F593F641D09A02A0059745D /* Spring.swift in Sources */,
 				3FEDBCAA1CFF253C00A6C6C1 /* kaputSecondaryButton.swift in Sources */,
 				3F593F7D1D09C7000059745D /* FriendListViewController.swift in Sources */,

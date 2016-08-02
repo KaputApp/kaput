@@ -15,6 +15,8 @@ var stateBattery = batLevel.init().stateBat
 
 
 
+
+
 public class SegueFromLeft: UIStoryboardSegue
 {
     override public func perform() {
@@ -197,4 +199,7 @@ public class Colors {
     
         
     }
+    
+    
+    
 }

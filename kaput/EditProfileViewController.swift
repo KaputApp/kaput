@@ -17,6 +17,7 @@ import FirebaseStorage
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
+    @IBOutlet var pickAvatarButton: UIButton!
     @IBAction func pickAvatar(sender: UIButton) {
         
         let picker = UIImagePickerController()
@@ -92,8 +93,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         
         super.viewDidLoad()
-            mailField.becomeFirstResponder()
-        }
+        view.backgroundColor = Colors.init().bgColor
+        self.pickAvatarButton.layer.cornerRadius = self.pickAvatarButton.frame.size.width / 2;
+        self.pickAvatarButton.layer.borderWidth = 5;
+        self.pickAvatarButton.layer.borderColor = UIColor.whiteColor().CGColor;
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -29,7 +29,7 @@ class User: NSObject {
 }
 
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
 
     @IBOutlet weak var usernameField: kaputField!
@@ -37,42 +37,18 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: kaputField!
     @IBOutlet var signUpButton: kaputButton!
     @IBAction func signUpButton(sender: AnyObject) {
+       
         
+        Errors.clearErrors(emailField)
+        Errors.clearErrors(usernameField)
+        Errors.clearErrors(passwordField)
+
         
         signUpButton.animation = "shake"
 
         let username: String? = self.usernameField.text
         let email = self.emailField.text
         let password = self.passwordField.text
-        
-        
-        let err: PaddingLabel = PaddingLabel()
-        
-        
-        err.opacity = 0
-        err.backgroundColor = KaputStyle.midYellow
-        err.textColor = UIColor.whiteColor()
-        err.duration = 1
-        err.font = UIFont(name: "Futura-Condensed", size: 18.0 )
-        err.animation = "fadeInRight"
-        let rect = err.frame
-        let myLabelInsets = UIEdgeInsets(top: 4, left: 10, bottom: 0, right: 10)
-        err.drawTextInRect(UIEdgeInsetsInsetRect(rect, myLabelInsets))
-    
-        
-        func errorMessage(text: String,field: kaputField){
-        
-        err.text = text
-        err.frame =  CGRectMake(0,0,field.frame.width,field.frame.height)
-        err.sizeToFit()
-        err.frame =  CGRectMake(0,0,err.frame.width + 30,field.frame.height + 10)
-        err.frame.origin.x = field.frame.width - err.frame.width
-        field.addSubview(err)
-        err.animate()
-        signUpButton.animate()
-
-            
-        }
         
         
         ref.child("Users").queryOrderedByChild("name").queryEqualToValue(username).observeEventType(.Value, withBlock: { snapshot in
@@ -97,18 +73,44 @@ class SignUpViewController: UIViewController {
         
         // verify signup information
         
-        if username?.characters.count<5 {
-            errorMessage("5 CHAR MIN",field: self.usernameField)
-            
-        } else if email?.characters.count<8 {
-            errorMessage("INVALID MAIL",field: self.emailField)
+        var error = false
+        
+        
+        if username == "" {
+            Errors.errorMessage("REQUIRED",field: self.usernameField)
+            error = true
 
-        }else if password?.characters.count<8{
-            errorMessage("INVALID PASSWORD",field: self.passwordField)
-            
         }
-        else {
+          else if username?.characters.count<5 {
+            Errors.errorMessage("5 CHAR MIN",field: self.usernameField)
+            error = true
+        }
+        if email == "" {
+            Errors.errorMessage("REQUIRED",field: self.emailField)
+            error = true
+
+
+        }else if Errors.validateEmail(email!) == false {
+            Errors.errorMessage("INVALID MAIL",field: self.emailField)
+            error = true
+
+        }
+        if password == "" {
+            Errors.errorMessage("REQUIRED",field: self.passwordField)
+            error = true
+
+        }else if password?.characters.count<4{
+            Errors.errorMessage("4 CHAR MIN",field: self.passwordField)
+            error = true
+
+        }
+        
+        
+        if !error{
             // set spinner
+            
+          
+            
             
             signUpButton.titleLabel?.text = ""
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.size.width/2-40,signUpButton.frame.origin.y,80,80))as UIActivityIndicatorView
@@ -155,6 +157,10 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = Colors.init().bgColor
+    usernameField.delegate = self
+    passwordField.delegate = self
+    emailField.delegate = self
+
         
     }
 
@@ -187,7 +193,22 @@ class SignUpViewController: UIViewController {
     
     
     
-    
+    func textFieldDidBeginEditing(textField: UITextField) {
+       
+        switch textField {
+        case usernameField:
+            Errors.clearErrors(usernameField)
+        
+        case passwordField:
+            Errors.clearErrors(passwordField)
+
+        case emailField:
+            Errors.clearErrors(emailField)
+        default: break
+        }
+        
+        
+    }
     
     
 

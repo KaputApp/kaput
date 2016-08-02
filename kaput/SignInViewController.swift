@@ -14,7 +14,7 @@ import FirebaseDatabase
 
 
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
     
 
 
@@ -23,9 +23,26 @@ class SignInViewController: UIViewController {
     @IBAction func resetPassword(sender: AnyObject) {
         
             let email = self.emailField.text
-        if email?.characters.count<8 {
-            self.errorAlert("Oops", message: "Please enter vaild email address!")
-        }else{
+        Errors.clearErrors(emailField)
+        Errors.clearErrors(passwordField)
+        
+        
+        var error = false
+        
+        if email == "" {
+        Errors.errorMessage("REQUIRED",field: self.emailField)
+        error = true
+            
+            
+        } else if Errors.validateEmail(email!) == false {
+            Errors.errorMessage("INVALID MAIL",field: self.emailField)
+            error = true
+            
+        }
+        
+        
+        if !error {
+        
             let finalemail = email?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             FIRAuth.auth()?.sendPasswordResetWithEmail(email!, completion: nil)
             let  alert = UIAlertController(title: "Password resrt!", message: "An email containing information on how to reset your password has been sent to  \(finalemail!)", preferredStyle: UIAlertControllerStyle.Alert)
@@ -56,17 +73,43 @@ class SignInViewController: UIViewController {
     
     @IBAction func logInButton(sender: AnyObject) {
         
+        
+        Errors.clearErrors(emailField)
+        Errors.clearErrors(passwordField)
+
+        
         var email = self.emailField.text
         var password = self.passwordField.text
         email = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         password = password!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        if email!.characters.count<8{
-            self.errorAlert("Oops!", message: "Please type valid email!")
-        } else if password!.characters.count<8{
-            self.errorAlert("Oops!", message: "Please type valid password!")
+     
+        var error = false
+        
+        if email == "" {
+            Errors.errorMessage("REQUIRED",field: self.emailField)
+            error = true
             
-        } else{
+            
+        } else if Errors.validateEmail(email!) == false {
+            Errors.errorMessage("INVALID MAIL",field: self.emailField)
+            error = true
+            
+        }
+        
+        if password == "" {
+            Errors.errorMessage("REQUIRED",field: self.passwordField)
+            error = true
+            
+        }else if password?.characters.count<4{
+            Errors.errorMessage("4 CHAR MIN",field: self.passwordField)
+            error = true
+            
+        }
 
+        
+        
+        if !error {
+        
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0,80,80)) as UIActivityIndicatorView
             self.view.addSubview(spinner)
             spinner.startAnimating()
@@ -77,10 +120,8 @@ class SignInViewController: UIViewController {
                 }else{
                     self.view.endEditing(true)
 
-                    self.sccuessAlert("Success", message: "Welcome to Kaput")
-                   // dispatch_async(dispatch_get_main_queue(),{()-> Void in
-                        self.performSegueWithIdentifier("FriendList", sender: self)
-                       // UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
+                
+                    self.performSegueWithIdentifier("FriendList", sender: self)
                     
                 }
             }
@@ -89,11 +130,10 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         
+        emailField.delegate = self
+        passwordField.delegate = self
         
-    emailField.becomeFirstResponder()
         view.backgroundColor = Colors.init().bgColor
         
 
@@ -107,14 +147,15 @@ class SignInViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        switch textField {
+               case passwordField:
+            Errors.clearErrors(passwordField)
+            
+        case emailField:
+            Errors.clearErrors(emailField)
+        default: break
+        }
     }
-    */
-
 }

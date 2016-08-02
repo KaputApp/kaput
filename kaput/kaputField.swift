@@ -8,7 +8,7 @@
 
 import UIKit
 
-class kaputField: UITextField {
+class kaputField: SpringTextField {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!

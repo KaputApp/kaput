@@ -15,19 +15,29 @@ class AddFriendViewController: UIViewController {
     @IBOutlet var addFriendButton: kaputPrimaryButton!
     @IBAction func addFriend(sender: AnyObject) {
     
+    Errors.clearErrors(friendNameField)
+
+        
     let name = friendNameField.text!
     FirebaseDataService.getUidWithUsername(name,response: {(uid,exists)->() in
         
     if exists{
         let inputsOutputs = [name:true] as [String:Bool]
         ref.child("Users").child(userID).child("friends").updateChildValues(inputsOutputs)
+        self.addFriendButton.titleLabel?.text = "\(name) WAS ADDED"
+        self.addFriendButton.backgroundColor = KaputStyle.fullGreen
+        
+        delay(1.5) {
+        self.addFriendButton.titleLabel?.text = "HERE WE GO!"
+        self.addFriendButton.backgroundColor = Colors.init().primaryColor
+        }
         
     } else {
-
+        
+        Errors.errorMessage("YOU SURE ?",field: self.friendNameField)
         self.addFriendButton.animation = "shake"
         self.addFriendButton.animate()
-        print("doesnt exist")
-            
+        
     }
         
     })
