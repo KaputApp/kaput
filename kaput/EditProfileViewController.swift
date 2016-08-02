@@ -35,7 +35,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                                didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         picker.dismissViewControllerAnimated(true, completion:nil)
         
-        var storageRef:FIRStorageReference!
+        var storageRef = FIRStorage.storage().reference()
+
         // if it's a photo from the library, not an image from the camera
         if #available(iOS 8.0, *), let referenceUrl = info[UIImagePickerControllerReferenceURL] {
             let assets = PHAsset.fetchAssetsWithALAssetURLs([referenceUrl as! NSURL], options: nil)
@@ -56,22 +57,28 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 }
                 // [END uploadimage]
             })
-//        } else {
-//            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//            let imageData = UIImageJPEGRepresentation(image, 0.8)
-//            let imagePath = FIRAuth.auth()!.currentUser!.uid +
-//                "/\(Int(NSDate.timeIntervalSinceReferenceDate() * 1000)).jpg"
-//            let metadata = FIRStorageMetadata()
-//            metadata.contentType = "image/jpeg"
-//            storageRef.child(imagePath)
-//                .putData(imageData!, metadata: metadata) { (metadata, error) in
-//                    if let error = error {
-//                        print("Error uploading: \(error)")
-//                        return
-//                    }
-//                    self.uploadSuccess(metadata!, storagePath: imagePath)
-//            }}
-        }}
+        } else {
+            print("Hello c'est la photo")
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            let imageData = UIImageJPEGRepresentation(image, 0.8)
+            let imagePath = "Image" +
+                "/\(Int(NSDate.timeIntervalSinceReferenceDate() * 1000)).jpg"
+            let metadata = FIRStorageMetadata()
+            print("Hello c'est la photo")
+            metadata.contentType = "image/jpeg"
+            print(imagePath)
+            print(metadata)
+            print(storageRef)
+            storageRef.child(imagePath)
+                .putData(imageData!, metadata: metadata) { (metadata, error) in
+                    if let error = error {
+                        print("Error uploading: \(error)")
+                        return
+                    }
+                  print("Hello c'est la photo \(imagePath)")
+                    self.uploadSuccess(metadata!, storagePath: imagePath)
+            }}
+    }
     
     
     
