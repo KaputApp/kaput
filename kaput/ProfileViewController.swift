@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class ProfileViewController: UIViewController {
 
@@ -20,16 +21,38 @@ class ProfileViewController: UIViewController {
     }
     @IBOutlet var avatarImageView: UIImageView!
     override func viewDidLoad() {
+        let storage = FIRStorage.storage()
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
+        let avatar = storageRef.child("Image/\(FIRAuth.auth()!.currentUser!.uid)/avatar.jpg")
+        let documentsDirectory = paths[0]
+        let filePath = "Image/\(FIRAuth.auth()!.currentUser!.uid)/avatar.jpg"
+        let storagePath = NSUserDefaults.standardUserDefaults().objectForKey("storagePath") as! String
+        
+
+        // [END downloadimage]
+        
         super.viewDidLoad()
-        view.backgroundColor = Colors.init().bgColor
+        //view.backgroundColor = Colors.init().bgColor
         
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
         
         self.avatarImageView.layer.borderWidth = 5;
         self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor;
-        // Do any additional setup after loading the view.
+        
+        storageRef.child(storagePath).writeToFile(NSURL.init(string: filePath)!,
+                                                  completion: { (url, error) in
+        if let error = error {
+            print("Error downloading:\(error)")
+            print("Download Failed")
+            return
+        }
+        print("Download Succeeded!")
+        self.avatarImageView.image = UIImage.init(contentsOfFile: filePath)
+        })
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

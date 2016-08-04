@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseDatabase
+import FirebaseInstanceID
 
 struct FirebaseDataService {
     
@@ -33,6 +34,7 @@ struct FirebaseDataService {
         }
     }
  
+    
     static func removeFriend( friend: String){
         ref.child("Users").child(userID).child("friends").child(friend).removeValue()
     }
@@ -66,9 +68,9 @@ struct FirebaseDataService {
     
     
     static func createUserData(uid: String, bat: String, username: String) {
-        
     let user = ResourcePath.User(uid: uid).description
-    ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"","instanceID":FIRInstanceID.instanceID().token()!])
+    ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"","instanceID": FIRInstanceID.instanceID().token()!])
+        
     }
     
     static func userExists(uid: String, response: (userExists : Bool) -> ()) {

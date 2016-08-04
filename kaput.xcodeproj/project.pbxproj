@@ -1,683 +1,2218 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		3F121BF61D50902100D657F9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F121BF51D50902100D657F9 /* Errors.swift */; };
-		3F121C161D52473D00D657F9 /* downButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F121C151D52473D00D657F9 /* downButton.swift */; };
-		3F4525641D42CA870033ED97 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4525631D42CA870033ED97 /* EditProfileViewController.swift */; };
-		3F593F0C1D0603A50059745D /* addButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F0B1D0603A50059745D /* addButtonView.swift */; };
-		3F593F321D099F780059745D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F311D099F780059745D /* NotificationViewController.swift */; };
-		3F593F521D09A02A0059745D /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F341D09A02A0059745D /* AsyncButton.swift */; };
-		3F593F531D09A02A0059745D /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F351D09A02A0059745D /* AsyncImageView.swift */; };
-		3F593F541D09A02A0059745D /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F361D09A02A0059745D /* AutoTextView.swift */; };
-		3F593F551D09A02A0059745D /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F371D09A02A0059745D /* BlurView.swift */; };
-		3F593F561D09A02A0059745D /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F381D09A02A0059745D /* DesignableButton.swift */; };
-		3F593F571D09A02A0059745D /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F391D09A02A0059745D /* DesignableImageView.swift */; };
-		3F593F581D09A02A0059745D /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F3A1D09A02A0059745D /* DesignableLabel.swift */; };
-		3F593F591D09A02A0059745D /* DesignableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F3B1D09A02A0059745D /* DesignableTabBarController.swift */; };
-		3F593F5A1D09A02A0059745D /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F3C1D09A02A0059745D /* DesignableTextField.swift */; };
-		3F593F5B1D09A02A0059745D /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F3D1D09A02A0059745D /* DesignableTextView.swift */; };
-		3F593F5C1D09A02A0059745D /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F3E1D09A02A0059745D /* DesignableView.swift */; };
-		3F593F5D1D09A02A0059745D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F3F1D09A02A0059745D /* ImageLoader.swift */; };
-		3F593F5E1D09A02A0059745D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F593F401D09A02A0059745D /* Info.plist */; };
-		3F593F5F1D09A02A0059745D /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F411D09A02A0059745D /* KeyboardLayoutConstraint.swift */; };
-		3F593F601D09A02A0059745D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F421D09A02A0059745D /* LoadingView.swift */; };
-		3F593F611D09A02A0059745D /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F593F431D09A02A0059745D /* LoadingView.xib */; };
-		3F593F621D09A02A0059745D /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F441D09A02A0059745D /* Misc.swift */; };
-		3F593F631D09A02A0059745D /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F451D09A02A0059745D /* SoundPlayer.swift */; };
-		3F593F641D09A02A0059745D /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F471D09A02A0059745D /* Spring.swift */; };
-		3F593F651D09A02A0059745D /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F481D09A02A0059745D /* SpringAnimation.swift */; };
-		3F593F661D09A02A0059745D /* SpringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F491D09A02A0059745D /* SpringButton.swift */; };
-		3F593F671D09A02A0059745D /* SpringImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F4A1D09A02A0059745D /* SpringImageView.swift */; };
-		3F593F681D09A02A0059745D /* SpringLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F4B1D09A02A0059745D /* SpringLabel.swift */; };
-		3F593F691D09A02A0059745D /* SpringTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F4C1D09A02A0059745D /* SpringTextField.swift */; };
-		3F593F6A1D09A02A0059745D /* SpringTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F4D1D09A02A0059745D /* SpringTextView.swift */; };
-		3F593F6B1D09A02A0059745D /* SpringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F4E1D09A02A0059745D /* SpringView.swift */; };
-		3F593F6C1D09A02A0059745D /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F4F1D09A02A0059745D /* TransitionManager.swift */; };
-		3F593F6D1D09A02A0059745D /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F501D09A02A0059745D /* TransitionZoom.swift */; };
-		3F593F6E1D09A02A0059745D /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F511D09A02A0059745D /* UnwindSegue.swift */; };
-		3F593F781D09B4750059745D /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F711D09B4750059745D /* TPKeyboardAvoidingCollectionView.m */; };
-		3F593F791D09B4750059745D /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F731D09B4750059745D /* TPKeyboardAvoidingScrollView.m */; };
-		3F593F7A1D09B4750059745D /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F751D09B4750059745D /* TPKeyboardAvoidingTableView.m */; };
-		3F593F7B1D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F771D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
-		3F593F7D1D09C7000059745D /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F7C1D09C7000059745D /* FriendListViewController.swift */; };
-		3F593F7F1D09EE420059745D /* BigNotifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F7E1D09EE420059745D /* BigNotifView.swift */; };
-		3F72D5431CF8A7C400EA43AF /* KaputStyleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72D5421CF8A7C400EA43AF /* KaputStyleFactory.swift */; };
-		3F72E3201D05CE1B00B44336 /* numberOfNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72E31F1D05CE1B00B44336 /* numberOfNotifications.swift */; };
-		3F7A12251CF888AD00AAD538 /* Futura_condensed_bold_oblique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */; };
-		3F7A12271CF88CB800AAD538 /* logoKaput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A12261CF88CB800AAD538 /* logoKaput.swift */; };
-		3FB496D11D0C8E17007AF1C8 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB496D01D0C8E17007AF1C8 /* AddFriendViewController.swift */; };
-		3FB496D51D0CF69E007AF1C8 /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB496D41D0CF69E007AF1C8 /* FirebaseDataService.swift */; };
-		3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1633A1CF8515200862C77 /* KaputStyle.swift */; };
-		3FEDBC9C1CFEDB5600A6C6C1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBC9B1CFEDB5600A6C6C1 /* SignUpViewController.swift */; };
-		3FEDBC9E1CFEDB9C00A6C6C1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBC9D1CFEDB9C00A6C6C1 /* SignInViewController.swift */; };
-		3FEDBCA01CFEDFB700A6C6C1 /* kaputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBC9F1CFEDFB700A6C6C1 /* kaputButton.swift */; };
-		3FEDBCA21CFEE24000A6C6C1 /* kaputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA11CFEE24000A6C6C1 /* kaputField.swift */; };
-		3FEDBCA61CFEFF0700A6C6C1 /* backButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */; };
-		3FEDBCA81CFF21FA00A6C6C1 /* kaputPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA71CFF21FA00A6C6C1 /* kaputPrimaryButton.swift */; };
-		3FEDBCAA1CFF253C00A6C6C1 /* kaputSecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBCA91CFF253C00A6C6C1 /* kaputSecondaryButton.swift */; };
-		3FEDBCAE1CFF5C0900A6C6C1 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */; };
-		3FFAE4A31D10AA26008DE0C6 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3FFE32DC1D3952FB00DCDD6A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE32DB1D3952FB00DCDD6A /* ProfileViewController.swift */; };
-		3FFE32DE1D3AF42200DCDD6A /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */; };
-		4B4B8D4FA0E80263D19725A2 /* Pods_kaput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E88B6BCA9550A3E04C66AB /* Pods_kaput.framework */; };
-		89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D911CF762D000DF4941 /* AppDelegate.swift */; };
-		89139D941CF762D000DF4941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D931CF762D000DF4941 /* ViewController.swift */; };
-		89139D991CF762D000DF4941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89139D981CF762D000DF4941 /* Assets.xcassets */; };
-		89139D9C1CF762D000DF4941 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89139D9A1CF762D000DF4941 /* LaunchScreen.storyboard */; };
-		89139DA61CF7633800DF4941 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89139DA51CF7633800DF4941 /* GoogleService-Info.plist */; };
-		8933D5E71D021F05006444E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8933D5E61D021F05006444E5 /* Main.storyboard */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		3FFAE4A41D10AA27008DE0C6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3FFAE4A31D10AA26008DE0C6 /* (null) in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXFileReference section */
-		19661862EF0C095F2730183B /* Pods-kaput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig"; sourceTree = "<group>"; };
-		3F121BF51D50902100D657F9 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		3F121C151D52473D00D657F9 /* downButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = downButton.swift; sourceTree = "<group>"; };
-		3F4525631D42CA870033ED97 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		3F593F0B1D0603A50059745D /* addButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addButtonView.swift; sourceTree = "<group>"; };
-		3F593F311D099F780059745D /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		3F593F341D09A02A0059745D /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
-		3F593F351D09A02A0059745D /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
-		3F593F361D09A02A0059745D /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
-		3F593F371D09A02A0059745D /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
-		3F593F381D09A02A0059745D /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
-		3F593F391D09A02A0059745D /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
-		3F593F3A1D09A02A0059745D /* DesignableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
-		3F593F3B1D09A02A0059745D /* DesignableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTabBarController.swift; sourceTree = "<group>"; };
-		3F593F3C1D09A02A0059745D /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
-		3F593F3D1D09A02A0059745D /* DesignableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
-		3F593F3E1D09A02A0059745D /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
-		3F593F3F1D09A02A0059745D /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		3F593F401D09A02A0059745D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F593F411D09A02A0059745D /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
-		3F593F421D09A02A0059745D /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		3F593F431D09A02A0059745D /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
-		3F593F441D09A02A0059745D /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
-		3F593F451D09A02A0059745D /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
-		3F593F461D09A02A0059745D /* Spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spring.h; sourceTree = "<group>"; };
-		3F593F471D09A02A0059745D /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
-		3F593F481D09A02A0059745D /* SpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringAnimation.swift; sourceTree = "<group>"; };
-		3F593F491D09A02A0059745D /* SpringButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringButton.swift; sourceTree = "<group>"; };
-		3F593F4A1D09A02A0059745D /* SpringImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringImageView.swift; sourceTree = "<group>"; };
-		3F593F4B1D09A02A0059745D /* SpringLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringLabel.swift; sourceTree = "<group>"; };
-		3F593F4C1D09A02A0059745D /* SpringTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringTextField.swift; sourceTree = "<group>"; };
-		3F593F4D1D09A02A0059745D /* SpringTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringTextView.swift; sourceTree = "<group>"; };
-		3F593F4E1D09A02A0059745D /* SpringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringView.swift; sourceTree = "<group>"; };
-		3F593F4F1D09A02A0059745D /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
-		3F593F501D09A02A0059745D /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
-		3F593F511D09A02A0059745D /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
-		3F593F701D09B4750059745D /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
-		3F593F711D09B4750059745D /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
-		3F593F721D09B4750059745D /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
-		3F593F731D09B4750059745D /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
-		3F593F741D09B4750059745D /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
-		3F593F751D09B4750059745D /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
-		3F593F761D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
-		3F593F771D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
-		3F593F7C1D09C7000059745D /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
-		3F593F7E1D09EE420059745D /* BigNotifView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigNotifView.swift; sourceTree = "<group>"; };
-		3F72D5421CF8A7C400EA43AF /* KaputStyleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaputStyleFactory.swift; sourceTree = "<group>"; };
-		3F72E31F1D05CE1B00B44336 /* numberOfNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numberOfNotifications.swift; sourceTree = "<group>"; };
-		3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Futura_condensed_bold_oblique.ttf; sourceTree = "<group>"; };
-		3F7A12261CF88CB800AAD538 /* logoKaput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logoKaput.swift; sourceTree = "<group>"; };
-		3FB496D01D0C8E17007AF1C8 /* AddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
-		3FB496D41D0CF69E007AF1C8 /* FirebaseDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
-		3FD1633A1CF8515200862C77 /* KaputStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaputStyle.swift; sourceTree = "<group>"; };
-		3FEDBC9B1CFEDB5600A6C6C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		3FEDBC9D1CFEDB9C00A6C6C1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		3FEDBC9F1CFEDFB700A6C6C1 /* kaputButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaputButton.swift; sourceTree = "<group>"; };
-		3FEDBCA11CFEE24000A6C6C1 /* kaputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaputField.swift; sourceTree = "<group>"; };
-		3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backButtonView.swift; sourceTree = "<group>"; };
-		3FEDBCA71CFF21FA00A6C6C1 /* kaputPrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaputPrimaryButton.swift; sourceTree = "<group>"; };
-		3FEDBCA91CFF253C00A6C6C1 /* kaputSecondaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaputSecondaryButton.swift; sourceTree = "<group>"; };
-		3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
-		3FFE32DB1D3952FB00DCDD6A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaddingLabel.swift; path = ../PaddingLabel.swift; sourceTree = "<group>"; };
-		68E88B6BCA9550A3E04C66AB /* Pods_kaput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		89139D8E1CF762D000DF4941 /* kaput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaput.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		89139D911CF762D000DF4941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		89139D931CF762D000DF4941 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		89139D981CF762D000DF4941 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		89139D9B1CF762D000DF4941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89139D9D1CF762D000DF4941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89139DA51CF7633800DF4941 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
-		89139DA71CF7636000DF4941 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8933D5E61D021F05006444E5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8BEC17F1383DC8AB31288158 /* Pods-kaput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		89139D8B1CF762D000DF4941 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B4B8D4FA0E80263D19725A2 /* Pods_kaput.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		1866139DC5AABD367B436585 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3F593F6F1D09B4750059745D /* TPKeyboardAvoiding */,
-				3F593F331D09A02A0059745D /* Spring */,
-				68E88B6BCA9550A3E04C66AB /* Pods_kaput.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		27FEE8A02977F437BA0A90D8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8BEC17F1383DC8AB31288158 /* Pods-kaput.debug.xcconfig */,
-				19661862EF0C095F2730183B /* Pods-kaput.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		3F593F331D09A02A0059745D /* Spring */ = {
-			isa = PBXGroup;
-			children = (
-				3F593F341D09A02A0059745D /* AsyncButton.swift */,
-				3F593F351D09A02A0059745D /* AsyncImageView.swift */,
-				3F593F361D09A02A0059745D /* AutoTextView.swift */,
-				3F593F371D09A02A0059745D /* BlurView.swift */,
-				3F593F381D09A02A0059745D /* DesignableButton.swift */,
-				3F593F391D09A02A0059745D /* DesignableImageView.swift */,
-				3F593F3A1D09A02A0059745D /* DesignableLabel.swift */,
-				3F593F3B1D09A02A0059745D /* DesignableTabBarController.swift */,
-				3F593F3C1D09A02A0059745D /* DesignableTextField.swift */,
-				3F593F3D1D09A02A0059745D /* DesignableTextView.swift */,
-				3F593F3E1D09A02A0059745D /* DesignableView.swift */,
-				3F593F3F1D09A02A0059745D /* ImageLoader.swift */,
-				3F593F401D09A02A0059745D /* Info.plist */,
-				3F593F411D09A02A0059745D /* KeyboardLayoutConstraint.swift */,
-				3F593F421D09A02A0059745D /* LoadingView.swift */,
-				3F593F431D09A02A0059745D /* LoadingView.xib */,
-				3F593F441D09A02A0059745D /* Misc.swift */,
-				3F593F451D09A02A0059745D /* SoundPlayer.swift */,
-				3F593F461D09A02A0059745D /* Spring.h */,
-				3F593F471D09A02A0059745D /* Spring.swift */,
-				3F593F481D09A02A0059745D /* SpringAnimation.swift */,
-				3F593F491D09A02A0059745D /* SpringButton.swift */,
-				3F593F4A1D09A02A0059745D /* SpringImageView.swift */,
-				3F593F4B1D09A02A0059745D /* SpringLabel.swift */,
-				3F593F4C1D09A02A0059745D /* SpringTextField.swift */,
-				3F593F4D1D09A02A0059745D /* SpringTextView.swift */,
-				3F593F4E1D09A02A0059745D /* SpringView.swift */,
-				3F593F4F1D09A02A0059745D /* TransitionManager.swift */,
-				3F593F501D09A02A0059745D /* TransitionZoom.swift */,
-				3F593F511D09A02A0059745D /* UnwindSegue.swift */,
-			);
-			path = Spring;
-			sourceTree = "<group>";
-		};
-		3F593F6F1D09B4750059745D /* TPKeyboardAvoiding */ = {
-			isa = PBXGroup;
-			children = (
-				3F593F701D09B4750059745D /* TPKeyboardAvoidingCollectionView.h */,
-				3F593F711D09B4750059745D /* TPKeyboardAvoidingCollectionView.m */,
-				3F593F721D09B4750059745D /* TPKeyboardAvoidingScrollView.h */,
-				3F593F731D09B4750059745D /* TPKeyboardAvoidingScrollView.m */,
-				3F593F741D09B4750059745D /* TPKeyboardAvoidingTableView.h */,
-				3F593F751D09B4750059745D /* TPKeyboardAvoidingTableView.m */,
-				3F593F761D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
-				3F593F771D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
-			);
-			path = TPKeyboardAvoiding;
-			sourceTree = "<group>";
-		};
-		3FD1633C1CF852F600862C77 /* Design Classes */ = {
-			isa = PBXGroup;
-			children = (
-				3F121C151D52473D00D657F9 /* downButton.swift */,
-				3F121BF51D50902100D657F9 /* Errors.swift */,
-				3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */,
-				3F7A12261CF88CB800AAD538 /* logoKaput.swift */,
-				3F593F7E1D09EE420059745D /* BigNotifView.swift */,
-				3F72E31F1D05CE1B00B44336 /* numberOfNotifications.swift */,
-				3F593F0B1D0603A50059745D /* addButtonView.swift */,
-				3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */,
-				3FEDBC9F1CFEDFB700A6C6C1 /* kaputButton.swift */,
-				3FEDBCA71CFF21FA00A6C6C1 /* kaputPrimaryButton.swift */,
-				3FEDBCA91CFF253C00A6C6C1 /* kaputSecondaryButton.swift */,
-				3FEDBCA11CFEE24000A6C6C1 /* kaputField.swift */,
-			);
-			name = "Design Classes";
-			sourceTree = "<group>";
-		};
-		3FEDBC9A1CFEDAF500A6C6C1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3F4525631D42CA870033ED97 /* EditProfileViewController.swift */,
-				3FFE32DB1D3952FB00DCDD6A /* ProfileViewController.swift */,
-				3FB496D01D0C8E17007AF1C8 /* AddFriendViewController.swift */,
-				3F593F311D099F780059745D /* NotificationViewController.swift */,
-				89139D931CF762D000DF4941 /* ViewController.swift */,
-				3F593F7C1D09C7000059745D /* FriendListViewController.swift */,
-				3FEDBC9B1CFEDB5600A6C6C1 /* SignUpViewController.swift */,
-				3FEDBC9D1CFEDB9C00A6C6C1 /* SignInViewController.swift */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		89139D851CF762CF00DF4941 = {
-			isa = PBXGroup;
-			children = (
-				89139D901CF762D000DF4941 /* kaput */,
-				89139D8F1CF762D000DF4941 /* Products */,
-				89139DA71CF7636000DF4941 /* GoogleService-Info.plist */,
-				1866139DC5AABD367B436585 /* Frameworks */,
-				27FEE8A02977F437BA0A90D8 /* Pods */,
-			);
-			sourceTree = "<group>";
-		};
-		89139D8F1CF762D000DF4941 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				89139D8E1CF762D000DF4941 /* kaput.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		89139D901CF762D000DF4941 /* kaput */ = {
-			isa = PBXGroup;
-			children = (
-				89139DB11CF7860900DF4941 /* StoryBoard */,
-				3FD1633C1CF852F600862C77 /* Design Classes */,
-				89139DA51CF7633800DF4941 /* GoogleService-Info.plist */,
-				3FEDBC9A1CFEDAF500A6C6C1 /* Views */,
-				89139D911CF762D000DF4941 /* AppDelegate.swift */,
-				89139D981CF762D000DF4941 /* Assets.xcassets */,
-				3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */,
-				89139D9A1CF762D000DF4941 /* LaunchScreen.storyboard */,
-				89139D9D1CF762D000DF4941 /* Info.plist */,
-				3FB496D41D0CF69E007AF1C8 /* FirebaseDataService.swift */,
-				3F72D5421CF8A7C400EA43AF /* KaputStyleFactory.swift */,
-				3FD1633A1CF8515200862C77 /* KaputStyle.swift */,
-				3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */,
-			);
-			path = kaput;
-			sourceTree = "<group>";
-		};
-		89139DB11CF7860900DF4941 /* StoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				8933D5E61D021F05006444E5 /* Main.storyboard */,
-			);
-			name = StoryBoard;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		89139D8D1CF762D000DF4941 /* kaput */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 89139DA01CF762D000DF4941 /* Build configuration list for PBXNativeTarget "kaput" */;
-			buildPhases = (
-				E34B6507C431FA6B3E67C9EA /* 📦 Check Pods Manifest.lock */,
-				89139D8A1CF762D000DF4941 /* Sources */,
-				89139D8B1CF762D000DF4941 /* Frameworks */,
-				89139D8C1CF762D000DF4941 /* Resources */,
-				3FFAE4A41D10AA27008DE0C6 /* Embed Frameworks */,
-				0318891CEE297C9E9BDDF7D1 /* 📦 Embed Pods Frameworks */,
-				B173FB3AB31894240D7B134B /* 📦 Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = kaput;
-			productName = kaput;
-			productReference = 89139D8E1CF762D000DF4941 /* kaput.app */;
-			productType = "com.apple.product-type.application";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		89139D861CF762CF00DF4941 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = OPE50;
-				TargetAttributes = {
-					89139D8D1CF762D000DF4941 = {
-						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = ZS2K7XBWJW;
-						LastSwiftMigration = 0800;
-						SystemCapabilities = {
-							com.apple.BackgroundModes = {
-								enabled = 1;
-							};
-							com.apple.Push = {
-								enabled = 1;
-							};
-						};
-					};
-				};
-			};
-			buildConfigurationList = 89139D891CF762CF00DF4941 /* Build configuration list for PBXProject "kaput" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 89139D851CF762CF00DF4941;
-			productRefGroup = 89139D8F1CF762D000DF4941 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				89139D8D1CF762D000DF4941 /* kaput */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		89139D8C1CF762D000DF4941 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F593F5E1D09A02A0059745D /* Info.plist in Resources */,
-				3FEDBCAE1CFF5C0900A6C6C1 /* AppIcon.appiconset in Resources */,
-				3F7A12251CF888AD00AAD538 /* Futura_condensed_bold_oblique.ttf in Resources */,
-				89139D9C1CF762D000DF4941 /* LaunchScreen.storyboard in Resources */,
-				8933D5E71D021F05006444E5 /* Main.storyboard in Resources */,
-				89139DA61CF7633800DF4941 /* GoogleService-Info.plist in Resources */,
-				3F593F611D09A02A0059745D /* LoadingView.xib in Resources */,
-				89139D991CF762D000DF4941 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0318891CEE297C9E9BDDF7D1 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaput/Pods-kaput-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B173FB3AB31894240D7B134B /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaput/Pods-kaput-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E34B6507C431FA6B3E67C9EA /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		89139D8A1CF762D000DF4941 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F593F621D09A02A0059745D /* Misc.swift in Sources */,
-				3F121C161D52473D00D657F9 /* downButton.swift in Sources */,
-				3F593F651D09A02A0059745D /* SpringAnimation.swift in Sources */,
-				3F593F581D09A02A0059745D /* DesignableLabel.swift in Sources */,
-				3F593F631D09A02A0059745D /* SoundPlayer.swift in Sources */,
-				3F593F5F1D09A02A0059745D /* KeyboardLayoutConstraint.swift in Sources */,
-				3F593F671D09A02A0059745D /* SpringImageView.swift in Sources */,
-				3FB496D51D0CF69E007AF1C8 /* FirebaseDataService.swift in Sources */,
-				3F593F791D09B4750059745D /* TPKeyboardAvoidingScrollView.m in Sources */,
-				3FEDBC9E1CFEDB9C00A6C6C1 /* SignInViewController.swift in Sources */,
-				3F593F5A1D09A02A0059745D /* DesignableTextField.swift in Sources */,
-				3FEDBCA81CFF21FA00A6C6C1 /* kaputPrimaryButton.swift in Sources */,
-				3F593F561D09A02A0059745D /* DesignableButton.swift in Sources */,
-				3F593F681D09A02A0059745D /* SpringLabel.swift in Sources */,
-				3F593F521D09A02A0059745D /* AsyncButton.swift in Sources */,
-				3FEDBCA61CFEFF0700A6C6C1 /* backButtonView.swift in Sources */,
-				3F72D5431CF8A7C400EA43AF /* KaputStyleFactory.swift in Sources */,
-				3FB496D11D0C8E17007AF1C8 /* AddFriendViewController.swift in Sources */,
-				3F593F531D09A02A0059745D /* AsyncImageView.swift in Sources */,
-				3FEDBC9C1CFEDB5600A6C6C1 /* SignUpViewController.swift in Sources */,
-				3F7A12271CF88CB800AAD538 /* logoKaput.swift in Sources */,
-				3F593F591D09A02A0059745D /* DesignableTabBarController.swift in Sources */,
-				3F72E3201D05CE1B00B44336 /* numberOfNotifications.swift in Sources */,
-				3F593F6C1D09A02A0059745D /* TransitionManager.swift in Sources */,
-				3F593F5D1D09A02A0059745D /* ImageLoader.swift in Sources */,
-				3FFE32DC1D3952FB00DCDD6A /* ProfileViewController.swift in Sources */,
-				3F593F0C1D0603A50059745D /* addButtonView.swift in Sources */,
-				3F593F7F1D09EE420059745D /* BigNotifView.swift in Sources */,
-				3F593F571D09A02A0059745D /* DesignableImageView.swift in Sources */,
-				3F593F541D09A02A0059745D /* AutoTextView.swift in Sources */,
-				89139D941CF762D000DF4941 /* ViewController.swift in Sources */,
-				3F593F781D09B4750059745D /* TPKeyboardAvoidingCollectionView.m in Sources */,
-				3F593F6B1D09A02A0059745D /* SpringView.swift in Sources */,
-				3F593F6D1D09A02A0059745D /* TransitionZoom.swift in Sources */,
-				3F4525641D42CA870033ED97 /* EditProfileViewController.swift in Sources */,
-				3FEDBCA21CFEE24000A6C6C1 /* kaputField.swift in Sources */,
-				3F593F321D099F780059745D /* NotificationViewController.swift in Sources */,
-				3F593F7B1D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
-				3FFE32DE1D3AF42200DCDD6A /* PaddingLabel.swift in Sources */,
-				3FEDBCA01CFEDFB700A6C6C1 /* kaputButton.swift in Sources */,
-				3F593F601D09A02A0059745D /* LoadingView.swift in Sources */,
-				3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */,
-				3F593F661D09A02A0059745D /* SpringButton.swift in Sources */,
-				3F593F551D09A02A0059745D /* BlurView.swift in Sources */,
-				3F593F691D09A02A0059745D /* SpringTextField.swift in Sources */,
-				3F593F6E1D09A02A0059745D /* UnwindSegue.swift in Sources */,
-				3F593F6A1D09A02A0059745D /* SpringTextView.swift in Sources */,
-				3F593F5B1D09A02A0059745D /* DesignableTextView.swift in Sources */,
-				3F121BF61D50902100D657F9 /* Errors.swift in Sources */,
-				3F593F641D09A02A0059745D /* Spring.swift in Sources */,
-				3FEDBCAA1CFF253C00A6C6C1 /* kaputSecondaryButton.swift in Sources */,
-				3F593F7D1D09C7000059745D /* FriendListViewController.swift in Sources */,
-				89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */,
-				3F593F5C1D09A02A0059745D /* DesignableView.swift in Sources */,
-				3F593F7A1D09B4750059745D /* TPKeyboardAvoidingTableView.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		89139D9A1CF762D000DF4941 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				89139D9B1CF762D000DF4941 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		89139D9E1CF762D000DF4941 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		89139D9F1CF762D000DF4941 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		89139DA11CF762D000DF4941 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BEC17F1383DC8AB31288158 /* Pods-kaput.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = kaput/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kaput.ope50;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
-			};
-			name = Debug;
-		};
-		89139DA21CF762D000DF4941 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19661862EF0C095F2730183B /* Pods-kaput.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = kaput/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kaput.ope50;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		89139D891CF762CF00DF4941 /* Build configuration list for PBXProject "kaput" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				89139D9E1CF762D000DF4941 /* Debug */,
-				89139D9F1CF762D000DF4941 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		89139DA01CF762D000DF4941 /* Build configuration list for PBXNativeTarget "kaput" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				89139DA11CF762D000DF4941 /* Debug */,
-				89139DA21CF762D000DF4941 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 89139D861CF762CF00DF4941 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0318891CEE297C9E9BDDF7D1</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-kaput/Pods-kaput-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>1866139DC5AABD367B436585</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3F593F6F1D09B4750059745D</string>
+				<string>3F593F331D09A02A0059745D</string>
+				<string>68E88B6BCA9550A3E04C66AB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>19661862EF0C095F2730183B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-kaput.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>27FEE8A02977F437BA0A90D8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8BEC17F1383DC8AB31288158</string>
+				<string>19661862EF0C095F2730183B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F121BF51D50902100D657F9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Errors.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F121BF61D50902100D657F9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F121BF51D50902100D657F9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F121C151D52473D00D657F9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>downButton.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F121C161D52473D00D657F9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F121C151D52473D00D657F9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F4525631D42CA870033ED97</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>EditProfileViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F4525641D42CA870033ED97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F4525631D42CA870033ED97</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F0B1D0603A50059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>addButtonView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F0C1D0603A50059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F0B1D0603A50059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F311D099F780059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>NotificationViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F321D099F780059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F311D099F780059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F331D09A02A0059745D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3F593F341D09A02A0059745D</string>
+				<string>3F593F351D09A02A0059745D</string>
+				<string>3F593F361D09A02A0059745D</string>
+				<string>3F593F371D09A02A0059745D</string>
+				<string>3F593F381D09A02A0059745D</string>
+				<string>3F593F391D09A02A0059745D</string>
+				<string>3F593F3A1D09A02A0059745D</string>
+				<string>3F593F3B1D09A02A0059745D</string>
+				<string>3F593F3C1D09A02A0059745D</string>
+				<string>3F593F3D1D09A02A0059745D</string>
+				<string>3F593F3E1D09A02A0059745D</string>
+				<string>3F593F3F1D09A02A0059745D</string>
+				<string>3F593F401D09A02A0059745D</string>
+				<string>3F593F411D09A02A0059745D</string>
+				<string>3F593F421D09A02A0059745D</string>
+				<string>3F593F431D09A02A0059745D</string>
+				<string>3F593F441D09A02A0059745D</string>
+				<string>3F593F451D09A02A0059745D</string>
+				<string>3F593F461D09A02A0059745D</string>
+				<string>3F593F471D09A02A0059745D</string>
+				<string>3F593F481D09A02A0059745D</string>
+				<string>3F593F491D09A02A0059745D</string>
+				<string>3F593F4A1D09A02A0059745D</string>
+				<string>3F593F4B1D09A02A0059745D</string>
+				<string>3F593F4C1D09A02A0059745D</string>
+				<string>3F593F4D1D09A02A0059745D</string>
+				<string>3F593F4E1D09A02A0059745D</string>
+				<string>3F593F4F1D09A02A0059745D</string>
+				<string>3F593F501D09A02A0059745D</string>
+				<string>3F593F511D09A02A0059745D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Spring</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F341D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AsyncButton.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F351D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AsyncImageView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F361D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AutoTextView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F371D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>BlurView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F381D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DesignableButton.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F391D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DesignableImageView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F3A1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DesignableLabel.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F3B1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DesignableTabBarController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F3C1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DesignableTextField.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F3D1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DesignableTextView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F3E1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DesignableView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F3F1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ImageLoader.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F401D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F411D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>KeyboardLayoutConstraint.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F421D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>LoadingView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F431D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>path</key>
+			<string>LoadingView.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F441D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Misc.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F451D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SoundPlayer.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F461D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Spring.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F471D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Spring.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F481D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SpringAnimation.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F491D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SpringButton.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F4A1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SpringImageView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F4B1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SpringLabel.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F4C1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SpringTextField.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F4D1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SpringTextView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F4E1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SpringView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F4F1D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>TransitionManager.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F501D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>TransitionZoom.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F511D09A02A0059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>UnwindSegue.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F521D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F341D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F531D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F351D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F541D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F361D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F551D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F371D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F561D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F381D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F571D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F391D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F581D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F3A1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F591D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F3B1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F5A1D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F3C1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F5B1D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F3D1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F5C1D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F3E1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F5D1D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F3F1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F5E1D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F401D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F5F1D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F411D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F601D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F421D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F611D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F431D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F621D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F441D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F631D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F451D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F641D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F471D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F651D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F481D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F661D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F491D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F671D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F4A1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F681D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F4B1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F691D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F4C1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F6A1D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F4D1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F6B1D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F4E1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F6C1D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F4F1D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F6D1D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F501D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F6E1D09A02A0059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F511D09A02A0059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F6F1D09B4750059745D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3F593F701D09B4750059745D</string>
+				<string>3F593F711D09B4750059745D</string>
+				<string>3F593F721D09B4750059745D</string>
+				<string>3F593F731D09B4750059745D</string>
+				<string>3F593F741D09B4750059745D</string>
+				<string>3F593F751D09B4750059745D</string>
+				<string>3F593F761D09B4750059745D</string>
+				<string>3F593F771D09B4750059745D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>TPKeyboardAvoiding</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F701D09B4750059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>TPKeyboardAvoidingCollectionView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F711D09B4750059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>TPKeyboardAvoidingCollectionView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F721D09B4750059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>TPKeyboardAvoidingScrollView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F731D09B4750059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>TPKeyboardAvoidingScrollView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F741D09B4750059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>TPKeyboardAvoidingTableView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F751D09B4750059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>TPKeyboardAvoidingTableView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F761D09B4750059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>UIScrollView+TPKeyboardAvoidingAdditions.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F771D09B4750059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>UIScrollView+TPKeyboardAvoidingAdditions.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F781D09B4750059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F711D09B4750059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F791D09B4750059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F731D09B4750059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F7A1D09B4750059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F751D09B4750059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F7B1D09B4750059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F771D09B4750059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F7C1D09C7000059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>FriendListViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F7D1D09C7000059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F7C1D09C7000059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F593F7E1D09EE420059745D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>BigNotifView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F593F7F1D09EE420059745D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F593F7E1D09EE420059745D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F72D5421CF8A7C400EA43AF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>KaputStyleFactory.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F72D5431CF8A7C400EA43AF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F72D5421CF8A7C400EA43AF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F72E31F1D05CE1B00B44336</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>numberOfNotifications.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F72E3201D05CE1B00B44336</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F72E31F1D05CE1B00B44336</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F7A12241CF8888C00AAD538</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file</string>
+			<key>path</key>
+			<string>Futura_condensed_bold_oblique.ttf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F7A12251CF888AD00AAD538</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F7A12241CF8888C00AAD538</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3F7A12261CF88CB800AAD538</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>logoKaput.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3F7A12271CF88CB800AAD538</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F7A12261CF88CB800AAD538</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FB496D01D0C8E17007AF1C8</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AddFriendViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FB496D11D0C8E17007AF1C8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FB496D01D0C8E17007AF1C8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FB496D41D0CF69E007AF1C8</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>FirebaseDataService.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FB496D51D0CF69E007AF1C8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FB496D41D0CF69E007AF1C8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FD1633A1CF8515200862C77</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>KaputStyle.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FD1633B1CF8515200862C77</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FD1633A1CF8515200862C77</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FD1633C1CF852F600862C77</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3F121C151D52473D00D657F9</string>
+				<string>3F121BF51D50902100D657F9</string>
+				<string>3FFE32DD1D3AF42200DCDD6A</string>
+				<string>3F7A12261CF88CB800AAD538</string>
+				<string>3F593F7E1D09EE420059745D</string>
+				<string>3F72E31F1D05CE1B00B44336</string>
+				<string>3F593F0B1D0603A50059745D</string>
+				<string>3FEDBCA51CFEFF0700A6C6C1</string>
+				<string>3FEDBC9F1CFEDFB700A6C6C1</string>
+				<string>3FEDBCA71CFF21FA00A6C6C1</string>
+				<string>3FEDBCA91CFF253C00A6C6C1</string>
+				<string>3FEDBCA11CFEE24000A6C6C1</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Design Classes</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FEDBC9A1CFEDAF500A6C6C1</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3F4525631D42CA870033ED97</string>
+				<string>3FFE32DB1D3952FB00DCDD6A</string>
+				<string>3FB496D01D0C8E17007AF1C8</string>
+				<string>3F593F311D099F780059745D</string>
+				<string>89139D931CF762D000DF4941</string>
+				<string>3F593F7C1D09C7000059745D</string>
+				<string>3FEDBC9B1CFEDB5600A6C6C1</string>
+				<string>3FEDBC9D1CFEDB9C00A6C6C1</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Views</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FEDBC9B1CFEDB5600A6C6C1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SignUpViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FEDBC9C1CFEDB5600A6C6C1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FEDBC9B1CFEDB5600A6C6C1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FEDBC9D1CFEDB9C00A6C6C1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SignInViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FEDBC9E1CFEDB9C00A6C6C1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FEDBC9D1CFEDB9C00A6C6C1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FEDBC9F1CFEDFB700A6C6C1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>kaputButton.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FEDBCA01CFEDFB700A6C6C1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FEDBC9F1CFEDFB700A6C6C1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FEDBCA11CFEE24000A6C6C1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>kaputField.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FEDBCA21CFEE24000A6C6C1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FEDBCA11CFEE24000A6C6C1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FEDBCA51CFEFF0700A6C6C1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>backButtonView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FEDBCA61CFEFF0700A6C6C1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FEDBCA51CFEFF0700A6C6C1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FEDBCA71CFF21FA00A6C6C1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>kaputPrimaryButton.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FEDBCA81CFF21FA00A6C6C1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FEDBCA71CFF21FA00A6C6C1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FEDBCA91CFF253C00A6C6C1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>kaputSecondaryButton.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FEDBCAA1CFF253C00A6C6C1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FEDBCA91CFF253C00A6C6C1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FEDBCAD1CFF5C0900A6C6C1</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder</string>
+			<key>path</key>
+			<string>AppIcon.appiconset</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FEDBCAE1CFF5C0900A6C6C1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FEDBCAD1CFF5C0900A6C6C1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FFAE4A31D10AA26008DE0C6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>CodeSignOnCopy</string>
+					<string>RemoveHeadersOnCopy</string>
+				</array>
+			</dict>
+		</dict>
+		<key>3FFAE4A41D10AA27008DE0C6</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>dstPath</key>
+			<string></string>
+			<key>dstSubfolderSpec</key>
+			<string>10</string>
+			<key>files</key>
+			<array>
+				<string>3FFAE4A31D10AA26008DE0C6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXCopyFilesBuildPhase</string>
+			<key>name</key>
+			<string>Embed Frameworks</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3FFE32DB1D3952FB00DCDD6A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ProfileViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FFE32DC1D3952FB00DCDD6A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FFE32DB1D3952FB00DCDD6A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3FFE32DD1D3AF42200DCDD6A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>PaddingLabel.swift</string>
+			<key>path</key>
+			<string>../PaddingLabel.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FFE32DE1D3AF42200DCDD6A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3FFE32DD1D3AF42200DCDD6A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B4B8D4FA0E80263D19725A2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>68E88B6BCA9550A3E04C66AB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>68E88B6BCA9550A3E04C66AB</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_kaput.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>872CAEBC1527AE49D240E773</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-kaput/Pods-kaput-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>89139D851CF762CF00DF4941</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>89139D901CF762D000DF4941</string>
+				<string>89139D8F1CF762D000DF4941</string>
+				<string>89139DA71CF7636000DF4941</string>
+				<string>1866139DC5AABD367B436585</string>
+				<string>27FEE8A02977F437BA0A90D8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89139D861CF762CF00DF4941</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0730</string>
+				<key>LastUpgradeCheck</key>
+				<string>0730</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>OPE50</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>89139D8D1CF762D000DF4941</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+						<key>DevelopmentTeam</key>
+						<string>ZS2K7XBWJW</string>
+						<key>LastSwiftMigration</key>
+						<string>0800</string>
+						<key>SystemCapabilities</key>
+						<dict>
+							<key>com.apple.BackgroundModes</key>
+							<dict>
+								<key>enabled</key>
+								<string>1</string>
+							</dict>
+							<key>com.apple.Push</key>
+							<dict>
+								<key>enabled</key>
+								<string>1</string>
+							</dict>
+						</dict>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>89139D891CF762CF00DF4941</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>89139D851CF762CF00DF4941</string>
+			<key>productRefGroup</key>
+			<string>89139D8F1CF762D000DF4941</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>89139D8D1CF762D000DF4941</string>
+			</array>
+		</dict>
+		<key>89139D891CF762CF00DF4941</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>89139D9E1CF762D000DF4941</string>
+				<string>89139D9F1CF762D000DF4941</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>89139D8A1CF762D000DF4941</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3F593F621D09A02A0059745D</string>
+				<string>3F121C161D52473D00D657F9</string>
+				<string>3F593F651D09A02A0059745D</string>
+				<string>3F593F581D09A02A0059745D</string>
+				<string>3F593F631D09A02A0059745D</string>
+				<string>3F593F5F1D09A02A0059745D</string>
+				<string>3F593F671D09A02A0059745D</string>
+				<string>3FB496D51D0CF69E007AF1C8</string>
+				<string>3F593F791D09B4750059745D</string>
+				<string>3FEDBC9E1CFEDB9C00A6C6C1</string>
+				<string>3F593F5A1D09A02A0059745D</string>
+				<string>3FEDBCA81CFF21FA00A6C6C1</string>
+				<string>3F593F561D09A02A0059745D</string>
+				<string>3F593F681D09A02A0059745D</string>
+				<string>3F593F521D09A02A0059745D</string>
+				<string>3FEDBCA61CFEFF0700A6C6C1</string>
+				<string>3F72D5431CF8A7C400EA43AF</string>
+				<string>3FB496D11D0C8E17007AF1C8</string>
+				<string>3F593F531D09A02A0059745D</string>
+				<string>3FEDBC9C1CFEDB5600A6C6C1</string>
+				<string>3F7A12271CF88CB800AAD538</string>
+				<string>3F593F591D09A02A0059745D</string>
+				<string>3F72E3201D05CE1B00B44336</string>
+				<string>3F593F6C1D09A02A0059745D</string>
+				<string>3F593F5D1D09A02A0059745D</string>
+				<string>3FFE32DC1D3952FB00DCDD6A</string>
+				<string>3F593F0C1D0603A50059745D</string>
+				<string>3F593F7F1D09EE420059745D</string>
+				<string>3F593F571D09A02A0059745D</string>
+				<string>3F593F541D09A02A0059745D</string>
+				<string>89139D941CF762D000DF4941</string>
+				<string>3F593F781D09B4750059745D</string>
+				<string>3F593F6B1D09A02A0059745D</string>
+				<string>3F593F6D1D09A02A0059745D</string>
+				<string>3F4525641D42CA870033ED97</string>
+				<string>3FEDBCA21CFEE24000A6C6C1</string>
+				<string>3F593F321D099F780059745D</string>
+				<string>3F593F7B1D09B4750059745D</string>
+				<string>3FFE32DE1D3AF42200DCDD6A</string>
+				<string>3FEDBCA01CFEDFB700A6C6C1</string>
+				<string>3F593F601D09A02A0059745D</string>
+				<string>3FD1633B1CF8515200862C77</string>
+				<string>3F593F661D09A02A0059745D</string>
+				<string>3F593F551D09A02A0059745D</string>
+				<string>3F593F691D09A02A0059745D</string>
+				<string>3F593F6E1D09A02A0059745D</string>
+				<string>3F593F6A1D09A02A0059745D</string>
+				<string>3F593F5B1D09A02A0059745D</string>
+				<string>3F121BF61D50902100D657F9</string>
+				<string>3F593F641D09A02A0059745D</string>
+				<string>3FEDBCAA1CFF253C00A6C6C1</string>
+				<string>3F593F7D1D09C7000059745D</string>
+				<string>89139D921CF762D000DF4941</string>
+				<string>3F593F5C1D09A02A0059745D</string>
+				<string>3F593F7A1D09B4750059745D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>89139D8B1CF762D000DF4941</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4B4B8D4FA0E80263D19725A2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>89139D8C1CF762D000DF4941</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3F593F5E1D09A02A0059745D</string>
+				<string>3FEDBCAE1CFF5C0900A6C6C1</string>
+				<string>3F7A12251CF888AD00AAD538</string>
+				<string>89139D9C1CF762D000DF4941</string>
+				<string>8933D5E71D021F05006444E5</string>
+				<string>89139DA61CF7633800DF4941</string>
+				<string>3F593F611D09A02A0059745D</string>
+				<string>89139D991CF762D000DF4941</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>89139D8D1CF762D000DF4941</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>89139DA01CF762D000DF4941</string>
+			<key>buildPhases</key>
+			<array>
+				<string>E34B6507C431FA6B3E67C9EA</string>
+				<string>89139D8A1CF762D000DF4941</string>
+				<string>89139D8B1CF762D000DF4941</string>
+				<string>89139D8C1CF762D000DF4941</string>
+				<string>3FFAE4A41D10AA27008DE0C6</string>
+				<string>0318891CEE297C9E9BDDF7D1</string>
+				<string>B173FB3AB31894240D7B134B</string>
+				<string>872CAEBC1527AE49D240E773</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>kaput</string>
+			<key>productName</key>
+			<string>kaput</string>
+			<key>productReference</key>
+			<string>89139D8E1CF762D000DF4941</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>89139D8E1CF762D000DF4941</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>kaput.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>89139D8F1CF762D000DF4941</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>89139D8E1CF762D000DF4941</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89139D901CF762D000DF4941</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>89139DB11CF7860900DF4941</string>
+				<string>3FD1633C1CF852F600862C77</string>
+				<string>89139DA51CF7633800DF4941</string>
+				<string>3FEDBC9A1CFEDAF500A6C6C1</string>
+				<string>89139D911CF762D000DF4941</string>
+				<string>89139D981CF762D000DF4941</string>
+				<string>3FEDBCAD1CFF5C0900A6C6C1</string>
+				<string>89139D9A1CF762D000DF4941</string>
+				<string>89139D9D1CF762D000DF4941</string>
+				<string>3FB496D41D0CF69E007AF1C8</string>
+				<string>3F72D5421CF8A7C400EA43AF</string>
+				<string>3FD1633A1CF8515200862C77</string>
+				<string>3F7A12241CF8888C00AAD538</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>kaput</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89139D911CF762D000DF4941</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89139D921CF762D000DF4941</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89139D911CF762D000DF4941</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89139D931CF762D000DF4941</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89139D941CF762D000DF4941</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89139D931CF762D000DF4941</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89139D981CF762D000DF4941</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89139D991CF762D000DF4941</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89139D981CF762D000DF4941</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89139D9A1CF762D000DF4941</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>89139D9B1CF762D000DF4941</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89139D9B1CF762D000DF4941</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89139D9C1CF762D000DF4941</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89139D9A1CF762D000DF4941</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89139D9D1CF762D000DF4941</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89139D9E1CF762D000DF4941</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>89139D9F1CF762D000DF4941</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>89139DA01CF762D000DF4941</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>89139DA11CF762D000DF4941</string>
+				<string>89139DA21CF762D000DF4941</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>89139DA11CF762D000DF4941</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>8BEC17F1383DC8AB31288158</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>kaput/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.kaput.ope50</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_VERSION</key>
+				<string>2.3</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>89139DA21CF762D000DF4941</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>19661862EF0C095F2730183B</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>kaput/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.kaput.ope50</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_VERSION</key>
+				<string>2.3</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>89139DA51CF7633800DF4941</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>name</key>
+			<string>GoogleService-Info.plist</string>
+			<key>path</key>
+			<string>../GoogleService-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89139DA61CF7633800DF4941</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89139DA51CF7633800DF4941</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89139DA71CF7636000DF4941</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>GoogleService-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89139DB11CF7860900DF4941</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8933D5E61D021F05006444E5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>StoryBoard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8933D5E61D021F05006444E5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>path</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8933D5E71D021F05006444E5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8933D5E61D021F05006444E5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8BEC17F1383DC8AB31288158</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-kaput.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B173FB3AB31894240D7B134B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-kaput/Pods-kaput-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>E34B6507C431FA6B3E67C9EA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>89139D861CF762CF00DF4941</string>
+</dict>
+</plist>
