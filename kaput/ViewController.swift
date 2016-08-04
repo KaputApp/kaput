@@ -53,11 +53,10 @@ class ViewController: UIViewController {
                         self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
                             } else {
                         //Si non, créer l'user et on passe l'étape
-                                self.performSegueWithIdentifier("pickUsernameSegue", sender: self)
+                            self.performSegueWithIdentifier("pickUsernameSegue", sender: self)
                                 FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "")
                             }
 
-                            
                         })
                         
                         
@@ -75,6 +74,7 @@ class ViewController: UIViewController {
 @IBOutlet var chargingBarHeight: NSLayoutConstraint!
 @IBOutlet weak var labelBattery: SpringLabel!
 
+    @IBOutlet var labelTag: SpringLabel!
 
     
     override func viewDidLoad()
@@ -85,6 +85,8 @@ class ViewController: UIViewController {
         // setting the height of the bar with a constraint.
         
         batLevel.init()
+        
+        self.labelTag.text =  Colors.init().label
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.batteryLevelDidChange(_:)), name:UIDeviceBatteryLevelDidChangeNotification, object: nil)
           NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.batteryStateDidChange(_:)), name:UIDeviceBatteryStateDidChangeNotification, object: nil)

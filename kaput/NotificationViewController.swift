@@ -207,6 +207,7 @@ class NotificationViewController: UIViewController {
         } else {
         
         self.numberLeft.text = String(self.kaputCounter)
+            
         animator.removeAllBehaviors()
         snapBehavior = UISnapBehavior(item: notifView, snapToPoint: view.center)
         attachmentBehavior.anchorPoint = view.center

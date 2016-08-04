@@ -25,6 +25,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         picker.delegate = self
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
             picker.sourceType = UIImagePickerControllerSourceType.Camera
+            
         } else {
             picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         }

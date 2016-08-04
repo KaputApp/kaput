@@ -51,7 +51,9 @@ struct FirebaseDataService {
             let friendList = snapshot.value! as! NSDictionary
             response(friendList: friendList)
             }
-            else {let friendList = ["NO FRIENDS YET ?":true]
+            else {
+                
+            let friendList = ["NO FRIENDS YET ?":true]
             print(FIRAuth.auth()?.currentUser?.uid)
                 response(friendList: friendList)
 }
@@ -84,7 +86,19 @@ struct FirebaseDataService {
 })
 }
 
+    static func getBatLevelWithName(name: String, response: (batLevel : Int) -> ()) {
+        
+        getUidWithUsername(name,response: {(uid,exists)->() in
 
+        let user = ResourcePath.User(uid: uid).description
+        var batLevel = Int()
+        
+        ref.child(user).child("batteryLevel").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+                    batLevel = snapshot.value! as! Int
+                    response(batLevel : batLevel)
+             })
+         })
+    }
 
     static func getUidWithUsername(name: String, response: (uid : String, exists:Bool) -> ()){
     

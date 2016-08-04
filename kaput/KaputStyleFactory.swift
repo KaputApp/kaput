@@ -134,12 +134,40 @@ class batLevel{
 }
 
 
+public func ColorsForBat(bat: Int) -> UIColor {
+    
+    var color = UIColor()
+    
+    switch bat {
+    case 0...5:
+    color =  KaputStyle.kaputBlack
+    case  6...20:
+    color =  KaputStyle.lowRed
+    case 21...40:
+    color =   KaputStyle.bloodyOrange
+    case 41...80: 
+    color =   KaputStyle.midYellow
+        
+    case 81...100:
+    color =  KaputStyle.fullGreen
+    default :
+
+    color =   KaputStyle.chargingBlue
+        
+    }
+    
+    return color
+}
+
+
 public class Colors {
     
     
     var primaryColor: UIColor!
     var secondaryColor: UIColor!
     var bgColor: UIColor!
+    var label : String
+    
     
     init() {
        
@@ -153,27 +181,37 @@ public class Colors {
             self.bgColor = KaputStyle.kaputBlack
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.fullGreen
+            self.label = "IT'S NOT TOO LATE"
             
         case 6...20:
             self.bgColor = KaputStyle.lowRed
             self.primaryColor = KaputStyle.chargingBlue
             self.secondaryColor = KaputStyle.fullGreen
+            self.label = "CHARGE MEEEEE"
         case 21...40:
             self.bgColor = KaputStyle.bloodyOrange
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.fullGreen
+            self.label = "TOO MUCH POKEMON GO?"
+
         case 41...80:
             self.bgColor = KaputStyle.midYellow
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.fullGreen
+            self.label = "I'M OKAY."
+
         case 81...100:
             self.bgColor = KaputStyle.fullGreen
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.chargingBlue
+            self.label = "THANKS FOR RESPECTING ME!"
+
         default :
             self.bgColor = KaputStyle.lowRed
             self.primaryColor = KaputStyle.chargingBlue
             self.secondaryColor = KaputStyle.fullGreen
+            self.label = "I'VE NO IDEA WHAt TO SAY"
+
             
         }
 
@@ -183,39 +221,53 @@ public class Colors {
                 self.bgColor = KaputStyle.kaputBlack
                 self.primaryColor = KaputStyle.lowRed
                 self.secondaryColor = KaputStyle.fullGreen
-                
+                self.label = "IT'S NOT TOO LATE"
+
                 case 6...20:
                 self.bgColor = KaputStyle.lowRed
                 self.primaryColor = KaputStyle.chargingBlue
                 self.secondaryColor = KaputStyle.fullGreen
+                self.label = "CHARGE MEEEEE"
+
                 case 21...40:
                 self.bgColor = KaputStyle.bloodyOrange
                 self.primaryColor = KaputStyle.lowRed
                 self.secondaryColor = KaputStyle.fullGreen
+                self.label = "TOO MUCH POKEMON GO?"
+
                 case 41...80:
                 self.bgColor = KaputStyle.midYellow
                 self.primaryColor = KaputStyle.lowRed
                 self.secondaryColor = KaputStyle.fullGreen
+                self.label = "I'M OKAY."
+
                 case 81...100:
                 self.bgColor = KaputStyle.fullGreen
                 self.primaryColor = KaputStyle.lowRed
                 self.secondaryColor = KaputStyle.chargingBlue
+                self.label = "THANKS FOR RESPECTING ME!"
                 default :
                 self.bgColor = KaputStyle.lowRed
                 self.primaryColor = KaputStyle.chargingBlue
                 self.secondaryColor = KaputStyle.fullGreen
+                self.label = "I'VE NO IDEA WHAt TO SAY"
+
 
             }
         case UIDeviceBatteryState.Charging:
             self.bgColor = KaputStyle.chargingBlue
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.fullGreen
+            self.label = "CHARGING YOUR PHONE. AWESOME IDEA."
+
             
 
         case UIDeviceBatteryState.Full:
             self.bgColor = KaputStyle.fullGreen
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.chargingBlue
+            self.label = "I'M SO FULL. GO BRAG ABOUT IT."
+
             
         
     

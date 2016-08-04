@@ -44,8 +44,9 @@ override func viewDidLoad() {
             
     })
     
+ 
     
-
+    
     FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
            
         self.kaputCount = Int(kaputCount)
@@ -99,22 +100,21 @@ override func didReceiveMemoryWarning() {
         })]
 
         cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
-        
+        cell.backgroundColor = Colors.init().bgColor
+
+
         cell.textLabel?.text = data[indexPath.row] as! String
-       
         
-        switch indexPath.row {
-        case 1:
-            cell.backgroundColor = KaputStyle.lowRed
-        case 2:
-            cell.backgroundColor = KaputStyle.fullGreen
-        case 3:
-            cell.backgroundColor = KaputStyle.chargingBlue
-        case 0:
-            cell.backgroundColor = KaputStyle.midYellow
-        default:
-            cell.backgroundColor = KaputStyle.lowRed
+        let username = cell.textLabel!.text
+        
+        print(username)
+        
+        FirebaseDataService.getBatLevelWithName(username!) { (batLevel) in
+            
+            cell.backgroundColor = ColorsForBat(batLevel)
+            
         }
+        
         
         return cell
     }
@@ -128,7 +128,7 @@ override func didReceiveMemoryWarning() {
         {
             let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, UIScreen.mainScreen().bounds.height - 40*CGFloat(indexPath.row - 1), 0)
             cell.layer.transform = rotationTransform
-        
+            
             SpringAnimation.spring(1.5)
             {
             cell.layer.transform = CATransform3DIdentity
