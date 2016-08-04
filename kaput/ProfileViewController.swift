@@ -24,19 +24,25 @@ class ProfileViewController: UIViewController {
         let storage = FIRStorage.storage()
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
-        let avatar = storageRef.child("Image/\(FIRAuth.auth()!.currentUser!.uid)/avatar.jpg")
+        let avatar = storageRef.child("Image/\(userID)/avatar.jpg")
         let documentsDirectory = paths[0]
         let filePath = "Image/\(FIRAuth.auth()!.currentUser!.uid)/avatar.jpg"
         let storagePath = NSUserDefaults.standardUserDefaults().objectForKey("storagePath") as! String
+    
+        print("lololol")
+        
+        print(storageRef)
+        print(filePath)
+        print(storagePath)
         
 
         // [END downloadimage]
         
         super.viewDidLoad()
-        //view.backgroundColor = Colors.init().bgColor
+        
+        view.backgroundColor = Colors.init().bgColor
         
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
-        
         self.avatarImageView.layer.borderWidth = 5;
         self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor;
         
