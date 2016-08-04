@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F121BF61D50902100D657F9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F121BF51D50902100D657F9 /* Errors.swift */; };
+		3F121C161D52473D00D657F9 /* downButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F121C151D52473D00D657F9 /* downButton.swift */; };
 		3F4525641D42CA870033ED97 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4525631D42CA870033ED97 /* EditProfileViewController.swift */; };
 		3F593F0C1D0603A50059745D /* addButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F0B1D0603A50059745D /* addButtonView.swift */; };
 		3F593F321D099F780059745D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F311D099F780059745D /* NotificationViewController.swift */; };
@@ -90,6 +91,7 @@
 /* Begin PBXFileReference section */
 		19661862EF0C095F2730183B /* Pods-kaput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig"; sourceTree = "<group>"; };
 		3F121BF51D50902100D657F9 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		3F121C151D52473D00D657F9 /* downButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = downButton.swift; sourceTree = "<group>"; };
 		3F4525631D42CA870033ED97 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3F593F0B1D0603A50059745D /* addButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addButtonView.swift; sourceTree = "<group>"; };
 		3F593F311D099F780059745D /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 		3FD1633C1CF852F600862C77 /* Design Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3F121C151D52473D00D657F9 /* downButton.swift */,
 				3F121BF51D50902100D657F9 /* Errors.swift */,
 				3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */,
 				3F7A12261CF88CB800AAD538 /* logoKaput.swift */,
@@ -465,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F593F621D09A02A0059745D /* Misc.swift in Sources */,
+				3F121C161D52473D00D657F9 /* downButton.swift in Sources */,
 				3F593F651D09A02A0059745D /* SpringAnimation.swift in Sources */,
 				3F593F581D09A02A0059745D /* DesignableLabel.swift in Sources */,
 				3F593F631D09A02A0059745D /* SoundPlayer.swift in Sources */,

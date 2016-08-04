@@ -112,7 +112,6 @@ override func didReceiveMemoryWarning() {
             cell.backgroundColor = KaputStyle.lowRed
         }
         
-      
         return cell
     }
     
@@ -210,17 +209,20 @@ override func didReceiveMemoryWarning() {
     
     }
     
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)
         
         let indexPath = tableView.indexPathForSelectedRow!
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
-
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
         let name = currentCell.textLabel!.text
         let date = NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        
+
         
         ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             let myName = snapshot.value?["name"] as? String
@@ -239,15 +241,18 @@ override func didReceiveMemoryWarning() {
             })
 
       })
-        
-       
-        
-        cell.textLabel!.text = "KAPUT SENT"
-        
+
+        let boltImageAnimationView = SpringImageView(image: KaputStyle.imageOfBolt)
+
+        currentCell.textLabel!.text = ""
+        currentCell.backgroundView = boltImageAnimationView
+        currentCell.backgroundView?.contentMode = .Center
+        boltImageAnimationView.animation = "slideLeft"
+        boltImageAnimationView.animateTo()
         let triggerTime = (Int64(NSEC_PER_SEC) * 1)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            cell.textLabel!.text = name
-            
+            currentCell.textLabel!.text = name
+            currentCell.backgroundView = nil
         })
 
         FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in

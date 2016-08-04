@@ -96,6 +96,30 @@ public class SegueFromUp: UIStoryboardSegue
     }
 }
 
+public class SegueFromDown: UIStoryboardSegue
+{
+    override public func perform() {
+        let toViewController = destinationViewController
+        let fromViewController = sourceViewController
+        
+        let containerView = fromViewController.view.superview
+        let screenBounds = UIScreen.mainScreen().bounds
+        
+        let finalToFrame = screenBounds
+        let finalFromFrame = CGRectOffset(finalToFrame, 0, -screenBounds.size.height)
+        
+        toViewController.view.frame = CGRectOffset(finalToFrame,0, screenBounds.size.height)
+        containerView?.addSubview(toViewController.view)
+        
+        UIView.animateWithDuration(0.5, animations: {
+            toViewController.view.frame = finalToFrame
+            fromViewController.view.frame = finalFromFrame
+            }, completion: { finished in
+        })
+    }
+}
+
+
 
 
 class batLevel{

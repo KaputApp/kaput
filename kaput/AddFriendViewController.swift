@@ -36,7 +36,7 @@ class AddFriendViewController: UIViewController {
         
         Errors.errorMessage("YOU SURE ?",field: self.friendNameField)
         self.addFriendButton.animation = "shake"
-        self.addFriendButton.animate()
+        self.addFriendButton.animate()  
         
     }
         
