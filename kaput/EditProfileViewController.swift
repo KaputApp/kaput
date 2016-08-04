@@ -62,7 +62,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             let imageData = UIImageJPEGRepresentation(image, 0.8)
             let imagePath = "Image" +
-                "/\(Int(NSDate.timeIntervalSinceReferenceDate() * 1000)).jpg"
+                "/\(FIRAuth.auth()!.currentUser!.uid)" + "/avatar.jpg"
             let metadata = FIRStorageMetadata()
             metadata.contentType = "image/jpeg"
             print(imagePath)
@@ -75,6 +75,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                         return
                     }
                     self.uploadSuccess(metadata!, storagePath: imagePath)
+                    self.pickAvatarButton.setBackgroundImage(UIImage(named: "avatar.jpg"), forState: UIControlState.Normal)
             }}
     }
     
