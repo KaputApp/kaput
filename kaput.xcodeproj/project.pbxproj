@@ -10,6 +10,7 @@
 		3F121BF61D50902100D657F9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F121BF51D50902100D657F9 /* Errors.swift */; };
 		3F121C161D52473D00D657F9 /* downButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F121C151D52473D00D657F9 /* downButton.swift */; };
 		3F4525641D42CA870033ED97 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4525631D42CA870033ED97 /* EditProfileViewController.swift */; };
+		3F4633D31D5384F000FFBEDD /* PickUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4633D21D5384F000FFBEDD /* PickUsernameViewController.swift */; };
 		3F593F0C1D0603A50059745D /* addButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F0B1D0603A50059745D /* addButtonView.swift */; };
 		3F593F321D099F780059745D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F311D099F780059745D /* NotificationViewController.swift */; };
 		3F593F521D09A02A0059745D /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F341D09A02A0059745D /* AsyncButton.swift */; };
@@ -93,6 +94,7 @@
 		3F121BF51D50902100D657F9 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		3F121C151D52473D00D657F9 /* downButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = downButton.swift; sourceTree = "<group>"; };
 		3F4525631D42CA870033ED97 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		3F4633D21D5384F000FFBEDD /* PickUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUsernameViewController.swift; sourceTree = "<group>"; };
 		3F593F0B1D0603A50059745D /* addButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addButtonView.swift; sourceTree = "<group>"; };
 		3F593F311D099F780059745D /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		3F593F341D09A02A0059745D /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		3FEDBC9A1CFEDAF500A6C6C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F4633D21D5384F000FFBEDD /* PickUsernameViewController.swift */,
 				3F4525631D42CA870033ED97 /* EditProfileViewController.swift */,
 				3FFE32DB1D3952FB00DCDD6A /* ProfileViewController.swift */,
 				3FB496D01D0C8E17007AF1C8 /* AddFriendViewController.swift */,
@@ -485,6 +488,7 @@
 				3FEDBCA61CFEFF0700A6C6C1 /* backButtonView.swift in Sources */,
 				3F72D5431CF8A7C400EA43AF /* KaputStyleFactory.swift in Sources */,
 				3FB496D11D0C8E17007AF1C8 /* AddFriendViewController.swift in Sources */,
+				3F4633D31D5384F000FFBEDD /* PickUsernameViewController.swift in Sources */,
 				3F593F531D09A02A0059745D /* AsyncImageView.swift in Sources */,
 				3FEDBC9C1CFEDB5600A6C6C1 /* SignUpViewController.swift in Sources */,
 				3F7A12271CF88CB800AAD538 /* logoKaput.swift in Sources */,

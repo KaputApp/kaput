@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("friendListView")
+        let vc2 = storyboard.instantiateViewControllerWithIdentifier("usernameViewController")
+
         
         
         
@@ -48,7 +50,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     if ((FIRAuth.auth()!.currentUser) != nil){
     userID = String(FIRAuth.auth()!.currentUser!.uid)
-    self.window?.rootViewController = vc
+        
+    // Ici je fais le test sur firebase. Hors ca prend trop de temps, ce serait 100x meilleur de le faire en local.
+        
+        
+        ref.child("Users").child(userID).child("name").observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            if (snapshot.value as? String == ""){
+                self.window?.rootViewController = vc2
+            }else{
+                self.window?.rootViewController = vc
+
+            }
+        })
+        
     }
     
         // Add observer for InstanceID token refresh callback.

@@ -47,14 +47,14 @@ class ViewController: UIViewController {
                         userID = String(FIRAuth.auth()!.currentUser!.uid)
                       
                         // on verifie si l'arbo dédiée a mon user existe déja
-                        ref.child("Users").child(userID).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+                        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
                         //Si oui, on passe l'étape
                             if snapshot.hasChildren(){
                         self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
                             } else {
                         //Si non, créer l'user et on passe l'étape
-                                self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
-                                FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: (user?.displayName)!)
+                                self.performSegueWithIdentifier("pickUsernameSegue", sender: self)
+                                FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "")
                             }
 
                             

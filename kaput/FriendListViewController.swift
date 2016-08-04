@@ -34,6 +34,11 @@ override func viewDidLoad() {
     FirebaseDataService.getFriendList(userID,response: { (friendList) -> () in
         
         self.data =  friendList.allKeys  as! NSMutableArray
+        if (friendList == ["NO FRIENDS YET ?":true]){
+            print("pas d'ami")
+        }
+        
+        
         self.friendShown = [Bool](count: self.data.count, repeatedValue: false)
         self.friendsTableView.reloadData()
             
@@ -83,13 +88,12 @@ override func didReceiveMemoryWarning() {
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)  as! MGSwipeTableCell
         
-        //configure right buttons
-        cell.rightButtons = [MGSwipeButton(title: "", icon: KaputStyle.imageOfTrashCan,backgroundColor: KaputStyle.lowRed,padding:30,callback: {
+            cell.rightButtons = [MGSwipeButton(title: "", icon: KaputStyle.imageOfTrashCan,backgroundColor: KaputStyle.lowRed,padding:30,callback: {
             (sender: MGSwipeTableCell!) -> Bool in
-            //self.data.removeObjectAtIndex(indexPath.row)
+
             let name = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
             FirebaseDataService.removeFriend(name!)
-            //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+            
             return true
        
         })]
@@ -213,7 +217,7 @@ override func didReceiveMemoryWarning() {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)
-        
+
         let indexPath = tableView.indexPathForSelectedRow!
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
@@ -222,7 +226,6 @@ override func didReceiveMemoryWarning() {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         
-
         
         ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             let myName = snapshot.value?["name"] as? String
@@ -244,14 +247,14 @@ override func didReceiveMemoryWarning() {
 
         let boltImageAnimationView = SpringImageView(image: KaputStyle.imageOfBolt)
 
-        currentCell.textLabel!.text = ""
+        currentCell.textLabel!.alpha = 0
         currentCell.backgroundView = boltImageAnimationView
         currentCell.backgroundView?.contentMode = .Center
         boltImageAnimationView.animation = "slideLeft"
         boltImageAnimationView.animateTo()
         let triggerTime = (Int64(NSEC_PER_SEC) * 1)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            currentCell.textLabel!.text = name
+            currentCell.textLabel!.alpha = 1
             currentCell.backgroundView = nil
         })
 

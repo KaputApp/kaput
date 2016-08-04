@@ -47,6 +47,10 @@
             <string>Futura-CondensedBoldOblique</string>
             <string>Futura-CondensedBoldOblique</string>
             <string>Futura-CondensedBoldOblique</string>
+            <string>Futura-CondensedBoldOblique</string>
+            <string>Futura-CondensedBoldOblique</string>
+            <string>Futura-CondensedBoldOblique</string>
+            <string>Futura-CondensedBoldOblique</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -198,6 +202,7 @@
                         <outlet property="chargingBarView" destination="RER-DK-mAD" id="Rnj-6O-K5y"/>
                         <outlet property="labelBattery" destination="BGp-1d-HjY" id="hFI-01-dCX"/>
                         <segue destination="ydw-Xu-nsu" kind="show" identifier="facebookLoginSegue" id="DMv-z4-ev9"/>
+                        <segue destination="VDP-45-lCm" kind="show" identifier="pickUsernameSegue" id="wCw-na-iLd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -320,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbQ-q0-wXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="536"/>
+            <point key="canvasLocation" x="1031" y="692"/>
         </scene>
         <!--LogInScreeen-->
         <scene sceneID="iMd-db-0Hq">
@@ -449,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zA7-JZ-E5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="-85"/>
+            <point key="canvasLocation" x="1031" y="-149"/>
         </scene>
         <!--Add Friend View Controller-->
         <scene sceneID="fbR-AT-ERI">
@@ -640,14 +645,6 @@
                                     <action selector="LogOut:" destination="TKK-0J-CQX" eventType="touchUpInside" id="A8v-R5-1B1"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1zw-VC-K2x">
-                                <rect key="frame" x="234" y="53" width="132" height="132"/>
-                                <color key="backgroundColor" red="0.0" green="0.084724564651545098" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="132" id="9bj-K6-xnA"/>
-                                    <constraint firstAttribute="height" constant="132" id="wO8-9b-NRz"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5a-KV-eS1">
                                 <rect key="frame" x="20" y="20" width="73" height="34"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
@@ -681,6 +678,13 @@
                                     <segue destination="YRy-tG-V53" kind="unwind" unwindAction="unwindToViewController:" id="hjk-Pd-IP8"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="1zw-VC-K2x">
+                                <rect key="frame" x="234" y="53" width="132" height="132"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="9bj-K6-xnA"/>
+                                    <constraint firstAttribute="height" constant="132" id="wO8-9b-NRz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.21568627450980393" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1100,9 +1104,122 @@
             </objects>
             <point key="canvasLocation" x="2471" y="-532"/>
         </scene>
+        <!--Pick Username View Controller-->
+        <scene sceneID="5Pz-A9-oOr">
+            <objects>
+                <viewController storyboardIdentifier="usernameViewController" id="VDP-45-lCm" customClass="PickUsernameViewController" customModule="kaput" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bmV-IA-dMe"/>
+                        <viewControllerLayoutGuide type="bottom" id="V9K-Vn-qdc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mef-3t-Ec7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0N3-5D-qnl">
+                                <rect key="frame" x="513" y="20" width="67" height="34"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
+                                <state key="normal" title="LOG OUT">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkO-58-Ff7" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="325" width="560" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="IBm-Bl-c3l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
+                                <state key="normal" title="SAVE CHANGES">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autohide" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveChanges:" destination="VDP-45-lCm" eventType="touchUpInside" id="W0J-y4-l3i"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="wWU-EN-DaY">
+                                <rect key="frame" x="234" y="53" width="132" height="132"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="6CM-1x-WUt"/>
+                                    <constraint firstAttribute="height" constant="132" id="etU-nx-0sp"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rkp-2Y-Hcy" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="187" y="206" width="227.5" height="51"/>
+                                <string key="text">ALMOST THERE, JEREMY !
+PICK YOUR USERNAME</string>
+                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideRight"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="mxf-EY-KKe" customClass="kaputField" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="277" width="560" height="28"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.2156862745" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SkO-58-Ff7" secondAttribute="trailing" id="1al-Ve-yZw"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0N3-5D-qnl" secondAttribute="leading" id="2iu-4l-t0W"/>
+                            <constraint firstItem="mxf-EY-KKe" firstAttribute="top" secondItem="Rkp-2Y-Hcy" secondAttribute="bottom" constant="20" id="EcF-vB-dZq"/>
+                            <constraint firstItem="Rkp-2Y-Hcy" firstAttribute="centerX" secondItem="mef-3t-Ec7" secondAttribute="centerX" id="MOi-5d-0rt"/>
+                            <constraint firstItem="0N3-5D-qnl" firstAttribute="top" secondItem="bmV-IA-dMe" secondAttribute="bottom" constant="20" id="SyT-Oo-HXv"/>
+                            <constraint firstItem="SkO-58-Ff7" firstAttribute="top" secondItem="mxf-EY-KKe" secondAttribute="bottom" constant="20" id="WHq-WC-WXb"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="mxf-EY-KKe" secondAttribute="leading" id="aCH-LX-xI5"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="SkO-58-Ff7" secondAttribute="leading" id="eLb-xc-57i"/>
+                            <constraint firstItem="V9K-Vn-qdc" firstAttribute="top" secondItem="SkO-58-Ff7" secondAttribute="bottom" constant="68" id="fYm-Me-Gdd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0N3-5D-qnl" secondAttribute="trailing" id="fm7-kk-qaV"/>
+                            <constraint firstItem="Rkp-2Y-Hcy" firstAttribute="top" secondItem="wWU-EN-DaY" secondAttribute="bottom" constant="21" id="gfb-T8-VJV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mxf-EY-KKe" secondAttribute="trailing" id="gwe-mq-uwp"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0N3-5D-qnl" secondAttribute="leading" id="iLC-ic-xhS"/>
+                            <constraint firstItem="wWU-EN-DaY" firstAttribute="centerX" secondItem="mef-3t-Ec7" secondAttribute="centerX" id="wsV-UQ-AnU"/>
+                            <constraint firstItem="wWU-EN-DaY" firstAttribute="top" secondItem="bmV-IA-dMe" secondAttribute="bottom" constant="53" id="yaM-qz-xKF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2iu-4l-t0W"/>
+                                <exclude reference="iLC-ic-xhS"/>
+                                <exclude reference="fYm-Me-Gdd"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="almostLabel" destination="Rkp-2Y-Hcy" id="FFG-CD-NZ3"/>
+                        <outlet property="avatarImageView" destination="wWU-EN-DaY" id="z1e-We-cph"/>
+                        <outlet property="saveChangeButton" destination="SkO-58-Ff7" id="wEO-FB-kq5"/>
+                        <outlet property="usernameField" destination="mxf-EY-KKe" id="cjS-Ce-4cj"/>
+                        <segue destination="ydw-Xu-nsu" kind="custom" identifier="toFriendList" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="3Z2-sQ-5eE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f4i-OJ-7n8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="39" y="766"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="LaunchScreenImage" width="89" height="56"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bOw-6v-Zoa"/>
-        <segue reference="Clw-R7-hAE"/>
+        <segue reference="CrZ-9U-CV8"/>
+        <segue reference="3Z2-sQ-5eE"/>
     </inferredMetricsTieBreakers>
 </document>

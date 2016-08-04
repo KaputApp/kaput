@@ -48,11 +48,9 @@ struct FirebaseDataService {
             if snapshot.hasChildren(){
             let friendList = snapshot.value! as! NSDictionary
             response(friendList: friendList)
-                 print(friendList)
             }
-            else {let friendList = ["Tu n'as pas d'ami!":true]
-                print(friendList)
-                print(FIRAuth.auth()?.currentUser?.uid)
+            else {let friendList = ["NO FRIENDS YET ?":true]
+            print(FIRAuth.auth()?.currentUser?.uid)
                 response(friendList: friendList)
 }
 
