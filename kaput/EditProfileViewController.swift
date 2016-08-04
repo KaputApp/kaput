@@ -23,13 +23,39 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         let picker = UIImagePickerController()
         picker.delegate = self
-        if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
-            picker.sourceType = UIImagePickerControllerSourceType.Camera
-        } else {
-            picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        }
+        picker.allowsEditing = true
+
         
-        presentViewController(picker, animated: true, completion:nil)
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+        // 2
+        let cameraAction = UIAlertAction(title: "Camera Roll", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            picker.sourceType = UIImagePickerControllerSourceType.Camera
+            self.presentViewController(picker, animated: true, completion:nil)
+        })
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            self.presentViewController(picker, animated: true, completion:nil)
+
+        })
+        
+        //
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+
+        })
+        
+        
+
+        optionMenu.addAction(cameraAction)
+        optionMenu.addAction(libraryAction)
+        optionMenu.addAction(cancelAction)
+        
+
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+
     }
     
     func imagePickerController(picker: UIImagePickerController,
@@ -39,26 +65,26 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         var storageRef = FIRStorage.storage().reference()
 
         // if it's a photo from the library, not an image from the camera
-        if #available(iOS 8.0, *), let referenceUrl = info[UIImagePickerControllerReferenceURL] {
-            let assets = PHAsset.fetchAssetsWithALAssetURLs([referenceUrl as! NSURL], options: nil)
-            let asset = assets.firstObject
-            asset?.requestContentEditingInputWithOptions(nil, completionHandler: { (contentEditingInput,info) in
-                let imageFile = contentEditingInput?.fullSizeImageURL
-                let filePath = FIRAuth.auth()!.currentUser!.uid +
-                    "/\(Int(NSDate.timeIntervalSinceReferenceDate() * 1000))/\(imageFile!.lastPathComponent!)"
-                // [START uploadimage]
-                storageRef.child(filePath)
-                    .putFile(imageFile!, metadata: nil) { (metadata, error) in
-                        if let error = error {
-                            print("Error uploading: \(error)")
-
-                            return
-                        }
-                        self.uploadSuccess(metadata!, storagePath: filePath)
-                }
-                // [END uploadimage]
-            })
-        } else {
+//        if #available(iOS 8.0, *), let referenceUrl = info[UIImagePickerControllerReferenceURL] {
+//            let assets = PHAsset.fetchAssetsWithALAssetURLs([referenceUrl as! NSURL], options: nil)
+//            let asset = assets.firstObject
+//            asset?.requestContentEditingInputWithOptions(nil, completionHandler: { (contentEditingInput,info) in
+//                let imageFile = contentEditingInput?.fullSizeImageURL
+//                let filePath = FIRAuth.auth()!.currentUser!.uid +
+//                    "/\(Int(NSDate.timeIntervalSinceReferenceDate() * 1000))/\(imageFile!.lastPathComponent!)"
+//                // [START uploadimage]
+//                storageRef.child(filePath)
+//                    .putFile(imageFile!, metadata: nil) { (metadata, error) in
+//                        if let error = error {
+//                            print("Error uploading: \(error)")
+//
+//                            return
+//                        }
+//                        self.uploadSuccess(metadata!, storagePath: filePath)
+//                }
+//                // [END uploadimage]
+//            })
+//        } else {
             let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             let imageData = UIImageJPEGRepresentation(image, 0.8)
             let imagePath = "Image" +
@@ -74,10 +100,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                         print("Error uploading: \(error)")
                         return
                     }
-                    self.uploadSuccess(metadata!, storagePath: imagePath)
+//                    self.uploadSuccess(metadata!, storagePath: imagePath)
                     self.pickAvatarButton.setBackgroundImage(UIImage(named: "avatar.jpg"), forState: UIControlState.Normal)
             }}
-    }
+    
     
     
     
