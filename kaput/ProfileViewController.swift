@@ -21,41 +21,34 @@ class ProfileViewController: UIViewController {
     }
     @IBOutlet var avatarImageView: UIImageView!
     override func viewDidLoad() {
-        let storage = FIRStorage.storage()
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
-        let avatar = storageRef.child("Image/\(userID)/avatar.jpg")
-        let documentsDirectory = paths[0]
-        let filePath = "Image/\(FIRAuth.auth()!.currentUser!.uid)/avatar.jpg"
-        let storagePath = NSUserDefaults.standardUserDefaults().objectForKey("storagePath") as! String
-    
-        print("lololol")
         
-        print(storageRef)
-        print(filePath)
-        print(storagePath)
-        
-
-        // [END downloadimage]
         
         super.viewDidLoad()
+
+        let storage = FIRStorage.storage()
+        let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
+        let avatar = storageRef.child("Image/\(userID)/avatar.jpg")
+        let filePath = "Image/\(userID)/avatar.jpg"
+
+        
+        avatar.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                self.avatarImageView.image = UIImage(data: data!)
+            }
+        }
+        
         
         view.backgroundColor = Colors.init().bgColor
         
+        self.avatarImageView.contentMode = .ScaleAspectFill
+
+        
+        self.avatarImageView.clipsToBounds = true
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
         self.avatarImageView.layer.borderWidth = 5;
         self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor;
-        
-        storageRef.child(storagePath).writeToFile(NSURL.init(string: filePath)!,
-                                                  completion: { (url, error) in
-        if let error = error {
-            print("Error downloading:\(error)")
-            print("Download Failed")
-            return
-        }
-        print("Download Succeeded!")
-        self.avatarImageView.image = UIImage.init(contentsOfFile: filePath)
-        })
         
     }
     
