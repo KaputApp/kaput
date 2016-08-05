@@ -25,6 +25,7 @@ class PickUsernameViewController: UIViewController {
         self.avatarImageView.layer.borderWidth = 5;
         self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor;
 
+
     
     
     }
