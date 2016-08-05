@@ -14,7 +14,7 @@ import UIKit
 
 
 
-class BackButtonView: UIView {
+class BackButtonView: UIButton {
     
     override func drawRect(rect: CGRect) {
         KaputStyle.drawBackArrow()

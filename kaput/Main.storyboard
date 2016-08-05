@@ -86,16 +86,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-p9-4WT" customClass="logoKaput" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="210" y="17" width="180" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-p9-4WT" customClass="logoKaput" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="210" y="20" width="180" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="UBM-b7-qhL"/>
+                                    <constraint firstAttribute="width" constant="180" id="cQ5-WW-5Rb"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="8%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGp-1d-HjY" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="220" y="207" width="162" height="127"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGp-1d-HjY" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="219" y="207" width="162" height="127"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="120"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -144,11 +148,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="5KF-Fe-tG4" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="Cqv-ec-fAe"/>
+                                    <segue destination="5KF-Fe-tG4" kind="custom" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="Cqv-ec-fAe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfO-EZ-jaf" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="420" width="560" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfO-EZ-jaf" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="418" width="560" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="RvP-hq-wuH"/>
                                 </constraints>
@@ -222,9 +226,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s96-VA-GjZ">
-                                <rect key="frame" x="216" y="16" width="167" height="43"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s96-VA-GjZ">
+                                <rect key="frame" x="253" y="20" width="93.5" height="32"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -240,18 +244,12 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BIH-Mb-dAq" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="26" y="20" width="34" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hht-gN-6Mk">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="CrZ-9U-CV8"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hht-gN-6Mk" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="34" height="30"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="CrZ-9U-CV8"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uK-Ia-mqN" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
                                 <rect key="frame" x="20" y="343" width="560" height="71"/>
                                 <constraints>
@@ -313,7 +311,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="M0h-wU-27D" secondAttribute="trailing" id="to6-ih-h9G"/>
                             <constraint firstAttribute="leadingMargin" secondItem="hQm-v7-EXK" secondAttribute="leading" id="uHw-Si-1Jn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WzC-FS-vcj" secondAttribute="trailing" id="z1j-ji-5jA"/>
-                            <constraint firstItem="s96-VA-GjZ" firstAttribute="top" secondItem="dOo-m1-qft" secondAttribute="bottom" constant="16" id="zuB-Ko-g7a"/>
+                            <constraint firstItem="s96-VA-GjZ" firstAttribute="top" secondItem="dOo-m1-qft" secondAttribute="bottom" constant="20" id="zuB-Ko-g7a"/>
                         </constraints>
                     </view>
                     <connections>
@@ -342,12 +340,12 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LOG IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="107" translatesAutoresizingMaskIntoConstraints="NO" id="KSf-6C-Hzl">
                                 <rect key="frame" x="230" y="16" width="141" height="43"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="40"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVD-XQ-lo0" customClass="kaputField" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="122" width="560" height="28"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVD-XQ-lo0" customClass="kaputField" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="126" width="560" height="28"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
@@ -358,8 +356,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3J-qu-0tH" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="269" width="560" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3J-qu-0tH" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="273" width="560" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="Vby-tV-SNN"/>
                                 </constraints>
@@ -380,20 +378,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="We6-Q5-TRT" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="16" width="34" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzI-e6-fL4">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="1id-Qr-VbS"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="400-uj-QFD" customClass="kaputButton" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="160" width="560" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzI-e6-fL4" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="34" height="30"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="1id-Qr-VbS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="400-uj-QFD" customClass="kaputButton" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="164" width="560" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="G1J-G1-asN"/>
                                 </constraints>
@@ -405,8 +397,8 @@
                                     <action selector="logInButton:" destination="5KF-Fe-tG4" eventType="touchUpInside" id="d0y-51-tsJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6e-3Y-oZV">
-                                <rect key="frame" x="235" y="236" width="130" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6e-3Y-oZV">
+                                <rect key="frame" x="235" y="240" width="130" height="30"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="17"/>
                                 <state key="normal" title="FORGOT PASSWORD">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -421,12 +413,10 @@
                             <constraint firstItem="400-uj-QFD" firstAttribute="leading" secondItem="1Fi-iy-vsU" secondAttribute="leadingMargin" id="0Xq-BN-YgU"/>
                             <constraint firstItem="kd0-sP-YCe" firstAttribute="centerX" secondItem="1Fi-iy-vsU" secondAttribute="centerX" id="46R-XC-xsN"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kd0-sP-YCe" secondAttribute="leading" id="5Ir-u3-YDD"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="We6-Q5-TRT" secondAttribute="leading" id="6gy-sV-gBF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Z3J-qu-0tH" secondAttribute="trailing" id="7kp-4x-nqN"/>
                             <constraint firstItem="KSf-6C-Hzl" firstAttribute="centerX" secondItem="1Fi-iy-vsU" secondAttribute="centerX" id="CmG-hP-rir"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hVD-XQ-lo0" secondAttribute="trailing" id="IRi-d8-Nfh"/>
-                            <constraint firstItem="We6-Q5-TRT" firstAttribute="top" secondItem="DGw-Fx-8TE" secondAttribute="bottom" constant="20" id="QhM-tD-3IG"/>
-                            <constraint firstItem="KSf-6C-Hzl" firstAttribute="top" secondItem="DGw-Fx-8TE" secondAttribute="bottom" constant="16" id="UJg-ot-Xlx"/>
+                            <constraint firstItem="KSf-6C-Hzl" firstAttribute="top" secondItem="DGw-Fx-8TE" secondAttribute="bottom" constant="20" id="UJg-ot-Xlx"/>
                             <constraint firstItem="hVD-XQ-lo0" firstAttribute="top" secondItem="kd0-sP-YCe" secondAttribute="bottom" constant="20" id="VUf-nW-f2U"/>
                             <constraint firstItem="r6e-3Y-oZV" firstAttribute="top" secondItem="400-uj-QFD" secondAttribute="bottom" constant="5" id="Zc0-tR-2gR"/>
                             <constraint firstAttribute="leadingMargin" secondItem="hVD-XQ-lo0" secondAttribute="leading" id="a24-sT-3qY"/>
@@ -482,22 +472,6 @@
                                     <action selector="addFriend:" destination="DHS-xq-Ngq" eventType="touchUpInside" id="tvn-ez-wq9"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SOI-6P-Vj4" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="40" width="34" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bct-Em-j0S">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="32"/>
-                                        <connections>
-                                            <segue destination="ydw-Xu-nsu" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="zZL-rH-20r"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="34" id="8Ci-Vt-FgK"/>
-                                    <constraint firstAttribute="height" constant="30" id="Ha1-eC-IbJ"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="YOUR USERNAME IS ILLANOU85 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zK-BY-QlP">
                                 <rect key="frame" x="20" y="258" width="551" height="18"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="17"/>
@@ -516,36 +490,38 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ADD FRIENDS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-An-i6V">
-                                <rect key="frame" x="201" y="33" width="198" height="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD FRIENDS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-An-i6V">
+                                <rect key="frame" x="226" y="20" width="148.5" height="32"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bct-Em-j0S" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="34" height="32"/>
+                                <connections>
+                                    <segue destination="ydw-Xu-nsu" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="zZL-rH-20r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549999996" green="0.1019607843" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="7zK-BY-QlP" firstAttribute="centerX" secondItem="8s3-Y4-VCV" secondAttribute="centerX" id="DeB-Mr-QhE"/>
-                            <constraint firstItem="2Oq-An-i6V" firstAttribute="centerY" secondItem="SOI-6P-Vj4" secondAttribute="centerY" id="IJa-LM-H14"/>
                             <constraint firstItem="Abs-7T-HWv" firstAttribute="top" secondItem="2Oq-An-i6V" secondAttribute="bottom" constant="60" id="IQM-cF-SwM"/>
                             <constraint firstItem="2Oq-An-i6V" firstAttribute="centerX" secondItem="8s3-Y4-VCV" secondAttribute="centerX" id="NDx-FB-ud2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gMZ-Ge-UiT" secondAttribute="trailing" id="NPg-30-NIc"/>
-                            <constraint firstItem="2Oq-An-i6V" firstAttribute="centerY" secondItem="bct-Em-j0S" secondAttribute="centerY" id="ODV-c8-e4t"/>
                             <constraint firstItem="gMZ-Ge-UiT" firstAttribute="top" secondItem="Abs-7T-HWv" secondAttribute="bottom" constant="20" id="QqT-co-rMk"/>
                             <constraint firstItem="7zK-BY-QlP" firstAttribute="top" secondItem="gMZ-Ge-UiT" secondAttribute="bottom" constant="20" id="Ssy-Vr-BnU"/>
-                            <constraint firstItem="SOI-6P-Vj4" firstAttribute="leading" secondItem="8s3-Y4-VCV" secondAttribute="leadingMargin" id="Xqk-jy-hKM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Abs-7T-HWv" secondAttribute="trailing" id="a14-Te-0Tj"/>
                             <constraint firstAttribute="leadingMargin" secondItem="7zK-BY-QlP" secondAttribute="leading" id="gEP-AR-lgL"/>
                             <constraint firstItem="gMZ-Ge-UiT" firstAttribute="leading" secondItem="8s3-Y4-VCV" secondAttribute="leadingMargin" id="gi3-1A-h12"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7zK-BY-QlP" secondAttribute="trailing" constant="9" id="iuY-nm-Ph7"/>
                             <constraint firstItem="2Oq-An-i6V" firstAttribute="centerY" secondItem="8s3-Y4-VCV" secondAttribute="centerY" id="jOh-eb-vDn"/>
-                            <constraint firstItem="2Oq-An-i6V" firstAttribute="top" secondItem="Ej0-H2-Uf1" secondAttribute="bottom" constant="16" id="mig-P8-hUL"/>
+                            <constraint firstItem="2Oq-An-i6V" firstAttribute="top" secondItem="Ej0-H2-Uf1" secondAttribute="bottom" constant="20" id="mig-P8-hUL"/>
                             <constraint firstItem="Abs-7T-HWv" firstAttribute="leading" secondItem="8s3-Y4-VCV" secondAttribute="leadingMargin" id="sOe-Pf-ugV"/>
-                            <constraint firstItem="SOI-6P-Vj4" firstAttribute="top" secondItem="Ej0-H2-Uf1" secondAttribute="bottom" constant="20" id="vVB-fM-QwQ"/>
+                            <constraint firstItem="2Oq-An-i6V" firstAttribute="centerY" secondItem="bct-Em-j0S" secondAttribute="centerY" id="ui2-dx-rKc"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="IJa-LM-H14"/>
                                 <exclude reference="jOh-eb-vDn"/>
                             </mask>
                         </variation>
@@ -676,7 +652,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YRy-tG-V53" kind="unwind" unwindAction="unwindToViewController:" id="hjk-Pd-IP8"/>
+                                    <segue destination="ydw-Xu-nsu" kind="custom" customClass="SegueFromDown" customModule="kaput" customModuleProvider="target" id="gPn-Xk-fUh"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="1zw-VC-K2x">
@@ -729,7 +705,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDA-Sv-o0x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="YRy-tG-V53" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1739" y="-532"/>
         </scene>
@@ -1003,13 +978,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ext-ed-SU0">
-                                <rect key="frame" x="427" y="20" width="153" height="34"/>
-                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
-                                <state key="normal" title="CHANGE PASSWORD">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nC-Wa-W0K" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
                                 <rect key="frame" x="20" y="302" width="560" height="71"/>
                                 <constraints>
@@ -1028,18 +996,6 @@
                                     <action selector="saveChangeButton:" destination="xxA-AP-5JK" eventType="touchUpInside" id="uWL-8B-bNF"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QQ-MM-yix" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="20" width="34" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMI-bv-0vM">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
-                                        <connections>
-                                            <segue destination="C7e-B6-Avq" kind="unwind" unwindAction="unwindToViewController:" id="vKR-iU-5lU"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-bf-bvi">
                                 <rect key="frame" x="234" y="53" width="132" height="132"/>
                                 <color key="backgroundColor" red="0.0" green="0.3817860450493078" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1068,6 +1024,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMI-bv-0vM" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="34" height="30"/>
+                                <connections>
+                                    <segue destination="C7e-B6-Avq" kind="unwind" unwindAction="unwindToViewController:" id="vKR-iU-5lU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ext-ed-SU0">
+                                <rect key="frame" x="427" y="20" width="153" height="34"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
+                                <state key="normal" title="CHANGE PASSWORD">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.2156862745" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1224,7 +1193,7 @@ PICK YOUR USERNAME</string>
         <image name="LaunchScreenImage" width="89" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CrZ-9U-CV8"/>
+        <segue reference="1id-Qr-VbS"/>
         <segue reference="DMv-z4-ev9"/>
     </inferredMetricsTieBreakers>
 </document>

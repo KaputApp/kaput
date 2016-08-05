@@ -32,8 +32,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         let cameraAction = UIAlertAction(title: "Camera Roll", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             picker.sourceType = UIImagePickerControllerSourceType.Camera
-            
-        } else {
+            self.presentViewController(picker, animated: true, completion:nil)
+        })
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
             picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
             self.presentViewController(picker, animated: true, completion:nil)
 
