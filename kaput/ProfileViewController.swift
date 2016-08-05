@@ -10,36 +10,77 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseStorage
+import FBSDKLoginKit
 
 class ProfileViewController: UIViewController {
 
     @IBAction func LogOut(sender: AnyObject) {
+    
+        let optionMenu = UIAlertController(title: nil, message: "Are you sure ?", preferredStyle: .ActionSheet)
         
-        try! FIRAuth.auth()!.signOut()
-        performSegueWithIdentifier("logoutSegue", sender: self)
+        let cameraAction = UIAlertAction(title: "Log Out", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            try! FIRAuth.auth()!.signOut()
+            self.performSegueWithIdentifier("logoutSegue", sender: self)
+
+        })
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+        })
+
+        optionMenu.addAction(cameraAction)
+        optionMenu.addAction(cancelAction)
+        
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
         
     }
+
+
+
     @IBOutlet var avatarImageView: UIImageView!
     override func viewDidLoad() {
         
-        
-        super.viewDidLoad()
 
+        super.viewDidLoad()
+        
+        let params: [NSObject : AnyObject] = ["redirect": false, "height": 800, "width": 800, "type": "large"]
         let storage = FIRStorage.storage()
         let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
         let avatar = storageRef.child("Image/\(userID)/avatar.jpg")
         let filePath = "Image/\(userID)/avatar.jpg"
-
         
-        avatar.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
-            if (error != nil) {
-                print(error)
-            } else {
-                self.avatarImageView.image = UIImage(data: data!)
+        
+        
+        let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture", parameters: params, HTTPMethod: "GET")
+        
+        pictureRequest.startWithCompletionHandler({
+            (connection, result, error: NSError!) -> Void in
+            if error == nil {
+                print("\(result)")
+                let dictionary = result as? NSDictionary
+                let data = dictionary?.objectForKey("data")
+                let urlPic = (data?.objectForKey("url"))! as! String
+                print(urlPic)
+                self.avatarImageView.image = imageFromURL(urlPic)
+            }else{
+                print("\(error)")
             }
-        }
-        
-        
+       
+        })
+
+    
+//        avatar.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+//            if (error != nil) {
+//                print(error)
+//            } else {
+//                self.avatarImageView.image = UIImage(data: data!)
+//            }
+//        }
+//    
+    
         view.backgroundColor = Colors.init().bgColor
         
         self.avatarImageView.contentMode = .ScaleAspectFill
