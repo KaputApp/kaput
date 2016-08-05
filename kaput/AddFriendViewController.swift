@@ -21,7 +21,7 @@ class AddFriendViewController: UIViewController {
     let name = friendNameField.text!
     FirebaseDataService.getUidWithUsername(name,response: {(uid,exists)->() in
         
-    if exists{
+        if exists && name != ""{
         let inputsOutputs = [name:true] as [String:Bool]
         ref.child("Users").child(userID).child("friends").updateChildValues(inputsOutputs)
         self.addFriendButton.titleLabel?.text = "\(name) WAS ADDED"
@@ -42,7 +42,8 @@ class AddFriendViewController: UIViewController {
         
     })
     }
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,6 +55,11 @@ class AddFriendViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+            super.touchesBegan(touches, withEvent:event)
+        view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 

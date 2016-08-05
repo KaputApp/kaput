@@ -14,6 +14,10 @@ import FBSDKLoginKit
 
 class ProfileViewController: UIViewController {
 
+    
+    @IBOutlet var boltImageView: UIImageView!
+    @IBOutlet var kaputSent: SpringLabel!
+    
     @IBAction func LogOut(sender: AnyObject) {
     
         let optionMenu = UIAlertController(title: nil, message: "Are you sure ?", preferredStyle: .ActionSheet)
@@ -45,6 +49,10 @@ class ProfileViewController: UIViewController {
         
 
         super.viewDidLoad()
+        
+        boltImageView.image = KaputStyle.imageOfBolt
+
+        
         
         let params: [NSObject : AnyObject] = ["redirect": false, "height": 800, "width": 800, "type": "large"]
         let storage = FIRStorage.storage()
