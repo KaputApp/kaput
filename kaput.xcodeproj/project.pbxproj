@@ -11,6 +11,7 @@
 		3F121C161D52473D00D657F9 /* downButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F121C151D52473D00D657F9 /* downButton.swift */; };
 		3F4525641D42CA870033ED97 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4525631D42CA870033ED97 /* EditProfileViewController.swift */; };
 		3F4633D31D5384F000FFBEDD /* PickUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4633D21D5384F000FFBEDD /* PickUsernameViewController.swift */; };
+		3F516F331D555C9B0041B760 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F516F321D555C9B0041B760 /* Users.swift */; };
 		3F593F0C1D0603A50059745D /* addButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F0B1D0603A50059745D /* addButtonView.swift */; };
 		3F593F321D099F780059745D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F311D099F780059745D /* NotificationViewController.swift */; };
 		3F593F521D09A02A0059745D /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F593F341D09A02A0059745D /* AsyncButton.swift */; };
@@ -95,6 +96,7 @@
 		3F121C151D52473D00D657F9 /* downButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = downButton.swift; sourceTree = "<group>"; };
 		3F4525631D42CA870033ED97 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3F4633D21D5384F000FFBEDD /* PickUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUsernameViewController.swift; sourceTree = "<group>"; };
+		3F516F321D555C9B0041B760 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Users.swift; path = ../Users.swift; sourceTree = "<group>"; };
 		3F593F0B1D0603A50059745D /* addButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addButtonView.swift; sourceTree = "<group>"; };
 		3F593F311D099F780059745D /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		3F593F341D09A02A0059745D /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				3FEDBCA71CFF21FA00A6C6C1 /* kaputPrimaryButton.swift */,
 				3FEDBCA91CFF253C00A6C6C1 /* kaputSecondaryButton.swift */,
 				3FEDBCA11CFEE24000A6C6C1 /* kaputField.swift */,
+				3F516F321D555C9B0041B760 /* Users.swift */,
 			);
 			name = "Design Classes";
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				3FEDBCA01CFEDFB700A6C6C1 /* kaputButton.swift in Sources */,
 				3F593F601D09A02A0059745D /* LoadingView.swift in Sources */,
 				3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */,
+				3F516F331D555C9B0041B760 /* Users.swift in Sources */,
 				3F593F661D09A02A0059745D /* SpringButton.swift in Sources */,
 				3F593F551D09A02A0059745D /* BlurView.swift in Sources */,
 				3F593F691D09A02A0059745D /* SpringTextField.swift in Sources */,

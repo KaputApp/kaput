@@ -11,6 +11,11 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 import FirebaseInstanceID
+import FirebaseStorage
+import FBSDKLoginKit
+
+
+
 
 struct FirebaseDataService {
     
@@ -54,8 +59,7 @@ struct FirebaseDataService {
             else {
                 
             let friendList = ["NO FRIENDS YET ?":true]
-            print(FIRAuth.auth()?.currentUser?.uid)
-                response(friendList: friendList)
+            response(friendList: friendList)
 }
 
             
@@ -65,12 +69,9 @@ struct FirebaseDataService {
     }
     
     
-    
-    
     static func createUserData(uid: String, bat: String, username: String) {
     let user = ResourcePath.User(uid: uid).description
-    ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"","instanceID": FIRInstanceID.instanceID().token()!])
-        
+    ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"s","instanceID": FIRInstanceID.instanceID().token()!])
     }
     
     static func userExists(uid: String, response: (userExists : Bool) -> ()) {
@@ -79,7 +80,6 @@ struct FirebaseDataService {
         ref.child(user).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
       
                 let userExists = snapshot.exists()
-                print(userExists)
                 response(userExists : userExists)
                 
             
@@ -115,7 +115,6 @@ struct FirebaseDataService {
             } else {
                     exists = false
                 }
-            
             response(uid: uid,exists: exists)
         }){ (error) in
             print(error.localizedDescription)
@@ -126,18 +125,64 @@ struct FirebaseDataService {
     
         
     }
+    
+    static func getName(response : (name : String) -> ()){
+        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            response(name:(snapshot.value?["name"] as? String)!)
+        })
+    }
    
     static func getInstanceIDwithuid(uid: String, response: (instanceID : String) -> ()){
         let user = ResourcePath.User(uid: uid).description
         var instanceID = String()
         ref.child(user).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
         instanceID = snapshot.value!["instanceID"] as! String
-        response(instanceID: instanceID)
+
+            response(instanceID: instanceID)
         }){ (error) in
             print(error.localizedDescription)
     }
     }
     
+    static func getAvatarFromFB(response: (image : UIImage) -> ()){
+        
+        let params: [NSObject : AnyObject] = ["redirect": false, "height": 800, "width": 800, "type": "large"]
+        let storage = FIRStorage.storage()
+        let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
+        let avatar = storageRef.child("Image/\(userID)/avatar.jpg")
+        let filePath = "Image/\(userID)/avatar.jpg"
+        var image = UIImage()
+        let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture", parameters: params, HTTPMethod: "GET")
+        
+        pictureRequest.startWithCompletionHandler({
+            (connection, result, error: NSError!) -> Void in
+            if error == nil {
+                print("\(result)")
+                let dictionary = result as? NSDictionary
+                let data = dictionary?.objectForKey("data")
+                let urlPic = (data?.objectForKey("url"))! as! String
+                print(urlPic)
+              
+            response(image: imageFromURL(urlPic)) 
+                
+            }else{
+                print("\(error)")
+            }
+            
+        })
+        
+
+        
+        //        avatar.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+        //            if (error != nil) {
+        //                print(error)
+        //            } else {
+        //                self.avatarImageView.image = UIImage(data: data!)
+        //            }
+        //        }
+        //
+        
+    }
     
     static func getKaputList(uid: String, response: (kaputCount : UInt) -> ()) {
         
@@ -145,7 +190,6 @@ struct FirebaseDataService {
             
             ref.child(kaputs).queryOrderedByChild("read").queryEqualToValue(false).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
                 if snapshot.hasChildren(){
-                    print(snapshot)
                     let kaputCount = snapshot.childrenCount
                     
                     response(kaputCount : kaputCount)
@@ -169,7 +213,6 @@ struct FirebaseDataService {
         
         ref.child(kaputs).queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             if snapshot.hasChildren(){
-                print(snapshot)
                 let kaputCount = snapshot.childrenCount
                 
                 response(kaputCount : kaputCount)

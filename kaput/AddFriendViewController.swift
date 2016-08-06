@@ -11,6 +11,7 @@ import Firebase
 import FirebaseDatabase
 
 class AddFriendViewController: UIViewController {
+    @IBOutlet var yourUsername: UILabel!
     @IBOutlet var friendNameField: kaputField!
     @IBOutlet var addFriendButton: kaputPrimaryButton!
     @IBAction func addFriend(sender: AnyObject) {
@@ -47,6 +48,7 @@ class AddFriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        yourUsername.text = "YOUR USERNAME IS \(myUsername)"
         view.backgroundColor = Colors.init().bgColor
     }
 

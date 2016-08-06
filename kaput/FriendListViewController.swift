@@ -12,7 +12,8 @@ import Firebase
 import FirebaseDatabase
 import MGSwipeTableCell
 
-
+var myUsername = String()
+var myAvatar = UIImage()
 
 class FriendListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -28,6 +29,15 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
 
 override func viewDidLoad() {
     super.viewDidLoad()
+    
+    FirebaseDataService.getName({(name) in
+        myUsername = name
+    })
+    
+    FirebaseDataService.getAvatarFromFB({(image) in
+        myAvatar = image
+    })
+    
     
     ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
 
