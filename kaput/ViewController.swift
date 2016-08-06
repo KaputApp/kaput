@@ -16,7 +16,8 @@ import FBSDKCoreKit
 @IBDesignable
 
 
-class ViewController: UIViewController {
+class ViewController: UIappViewController {
+     var reachability:Reachability?
     
     
 //declarations of outlets
@@ -85,7 +86,7 @@ class ViewController: UIViewController {
     override func viewDidLoad()
     
     {
-
+       
         
         // setting the height of the bar with a constraint.
         
@@ -115,6 +116,37 @@ class ViewController: UIViewController {
         labelBattery.text = String(batLevel.init().levelBat) + "%"
         
         
+        // Monitoring du réseau
+        super.viewDidLoad()
+         manager.delegate = self
+        
+        if(AppManager.sharedInstance.isReachability)
+        {
+            print("net available")
+            //call API from here.
+            
+        } else {
+            dispatch_async(dispatch_get_main_queue()) {
+                print("net not available")
+                //Show Alert
+            }
+        }
+        //Determine Network Type
+        if(AppManager.sharedInstance.reachabiltyNetworkType == "Wifi")
+        {
+            print(".Wifi")
+        }
+        else if (AppManager.sharedInstance.reachabiltyNetworkType == "Cellular")
+        {
+            print(".Cellular")
+        }
+        else {
+            dispatch_async(dispatch_get_main_queue()) {
+                print("Network not reachable")
+                
+            }
+        }
+
         
         // Do any additional setup after loading the view, typically from a nib.
     }

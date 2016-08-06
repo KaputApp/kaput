@@ -74,6 +74,11 @@
 		89139D9C1CF762D000DF4941 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89139D9A1CF762D000DF4941 /* LaunchScreen.storyboard */; };
 		89139DA61CF7633800DF4941 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89139DA51CF7633800DF4941 /* GoogleService-Info.plist */; };
 		8933D5E71D021F05006444E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8933D5E61D021F05006444E5 /* Main.storyboard */; };
+		894275991D5568740083000B /* UIappViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894275981D5568740083000B /* UIappViewController.swift */; };
+		8942759B1D5569110083000B /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942759A1D5569110083000B /* AppManager.swift */; };
+		8942759D1D5569520083000B /* AppReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942759C1D5569520083000B /* AppReference.swift */; };
+		8942759F1D55698B0083000B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942759E1D55698B0083000B /* Protocols.swift */; };
+		89EF7A401D55675500B47EE7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF7A3F1D55675500B47EE7 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -166,6 +171,11 @@
 		89139DA51CF7633800DF4941 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89139DA71CF7636000DF4941 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8933D5E61D021F05006444E5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		894275981D5568740083000B /* UIappViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIappViewController.swift; sourceTree = "<group>"; };
+		8942759A1D5569110083000B /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		8942759C1D5569520083000B /* AppReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReference.swift; sourceTree = "<group>"; };
+		8942759E1D55698B0083000B /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		89EF7A3F1D55675500B47EE7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8BEC17F1383DC8AB31288158 /* Pods-kaput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -310,6 +320,7 @@
 		89139D901CF762D000DF4941 /* kaput */ = {
 			isa = PBXGroup;
 			children = (
+				89EF7A3E1D55673700B47EE7 /* Reachability */,
 				89139DB11CF7860900DF4941 /* StoryBoard */,
 				3FD1633C1CF852F600862C77 /* Design Classes */,
 				89139DA51CF7633800DF4941 /* GoogleService-Info.plist */,
@@ -333,6 +344,18 @@
 				8933D5E61D021F05006444E5 /* Main.storyboard */,
 			);
 			name = StoryBoard;
+			sourceTree = "<group>";
+		};
+		89EF7A3E1D55673700B47EE7 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				8942759C1D5569520083000B /* AppReference.swift */,
+				8942759A1D5569110083000B /* AppManager.swift */,
+				894275981D5568740083000B /* UIappViewController.swift */,
+				8942759E1D55698B0083000B /* Protocols.swift */,
+				89EF7A3F1D55675500B47EE7 /* Reachability.swift */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,10 +532,12 @@
 				3F593F6B1D09A02A0059745D /* SpringView.swift in Sources */,
 				3F593F6D1D09A02A0059745D /* TransitionZoom.swift in Sources */,
 				3F4525641D42CA870033ED97 /* EditProfileViewController.swift in Sources */,
+				89EF7A401D55675500B47EE7 /* Reachability.swift in Sources */,
 				3FEDBCA21CFEE24000A6C6C1 /* kaputField.swift in Sources */,
 				3F593F321D099F780059745D /* NotificationViewController.swift in Sources */,
 				3F593F7B1D09B4750059745D /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				3FFE32DE1D3AF42200DCDD6A /* PaddingLabel.swift in Sources */,
+				8942759D1D5569520083000B /* AppReference.swift in Sources */,
 				3FEDBCA01CFEDFB700A6C6C1 /* kaputButton.swift in Sources */,
 				3F593F601D09A02A0059745D /* LoadingView.swift in Sources */,
 				3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */,
@@ -523,11 +548,14 @@
 				3F593F6E1D09A02A0059745D /* UnwindSegue.swift in Sources */,
 				3F593F6A1D09A02A0059745D /* SpringTextView.swift in Sources */,
 				3F593F5B1D09A02A0059745D /* DesignableTextView.swift in Sources */,
+				8942759B1D5569110083000B /* AppManager.swift in Sources */,
 				3F121BF61D50902100D657F9 /* Errors.swift in Sources */,
 				3F593F641D09A02A0059745D /* Spring.swift in Sources */,
+				894275991D5568740083000B /* UIappViewController.swift in Sources */,
 				3FEDBCAA1CFF253C00A6C6C1 /* kaputSecondaryButton.swift in Sources */,
 				3F593F7D1D09C7000059745D /* FriendListViewController.swift in Sources */,
 				89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */,
+				8942759F1D55698B0083000B /* Protocols.swift in Sources */,
 				3F593F5C1D09A02A0059745D /* DesignableView.swift in Sources */,
 				3F593F7A1D09B4750059745D /* TPKeyboardAvoidingTableView.m in Sources */,
 			);
