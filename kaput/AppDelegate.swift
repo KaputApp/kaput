@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         FIRApp.configure()
-        FIRDatabase.database().persistenceEnabled = true
+    //    FIRDatabase.database().persistenceEnabled = true
 
 
     if ((FIRAuth.auth()!.currentUser) != nil){
@@ -53,9 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         ref.child("Users").child(userID).child("name").observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             if (snapshot.value as? String == ""){
-                self.window?.rootViewController = vc2
+               self.window?.rootViewController = vc2
             }else{
-                self.window?.rootViewController = vc
+               self.window?.rootViewController = vc
 
             }
         })
