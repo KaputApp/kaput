@@ -30,6 +30,8 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
 override func viewDidLoad() {
     super.viewDidLoad()
     
+    //charge les differents éléments
+    
     FirebaseDataService.getName({(name) in
         myUsername = name
     })
@@ -37,6 +39,7 @@ override func viewDidLoad() {
     FirebaseDataService.getAvatarFromFB({(image) in
         myAvatar = image
     })
+    
     
     
     ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
@@ -264,8 +267,9 @@ override func didReceiveMemoryWarning() {
         boltImageAnimationView.animateTo()
         let triggerTime = (Int64(NSEC_PER_SEC) * 1)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            currentCell.textLabel!.alpha = 1
-            currentCell.backgroundView = nil
+        currentCell.textLabel!.alpha = 1
+        currentCell.backgroundView = nil
+      
         })
 
         FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in

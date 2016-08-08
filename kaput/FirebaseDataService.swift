@@ -58,7 +58,7 @@ struct FirebaseDataService {
             }
             else {
                 
-            let friendList = ["NO FRIENDS YET ?":true]
+            let friendList = ["NO FRIENDS YET":true]
             response(friendList: friendList)
 }
 
@@ -71,7 +71,7 @@ struct FirebaseDataService {
     
     static func createUserData(uid: String, bat: String, username: String) {
     let user = ResourcePath.User(uid: uid).description
-    ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"s","instanceID": FIRInstanceID.instanceID().token()!])
+    ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"","instanceID": FIRInstanceID.instanceID().token()!])
     }
     
     static func userExists(uid: String, response: (userExists : Bool) -> ()) {

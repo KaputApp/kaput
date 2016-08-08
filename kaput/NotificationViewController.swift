@@ -24,6 +24,7 @@ class NotificationViewController: UIViewController {
     var snapBehavior : UISnapBehavior!
 //    var notifCounter = 1
     var kaputCounter = 1
+    var senderText = String()
 
 
     let userID = FIRAuth.auth()?.currentUser?.uid
@@ -89,8 +90,10 @@ class NotificationViewController: UIViewController {
     @IBAction func shake(sender: AnyObject) {
       
         notifView.animation = "swing"
-        
         notifView.animate()
+        FirebaseDataService.sendMessageToName(self.senderText)
+
+        
     }
     
     
@@ -101,14 +104,12 @@ class NotificationViewController: UIViewController {
         notifView.alpha = 0
      
 
-
         
          }
     
     
 
-    
-        func loadDatafromFirebase(){
+     func loadDatafromFirebase(){
             
            
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -119,16 +120,18 @@ class NotificationViewController: UIViewController {
 
                 self.numberLeft.text = String(self.kaputCounter)
                 
-
+               
+                
                 
             }) { (error) in
                 print(error.localizedDescription)
             }
-            
+        
 
-            ref.child("Users").child(userID!).child("kaput").queryLimitedToFirst(1).queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).queryLimitedToFirst(1).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
                 let keyDict = snapshot.value as! [String : AnyObject]
+                print("lol")
                 let key = keyDict.keys.first!
                 print(key)
                 ref.child("Users").child(self.userID!).child("kaput").child(key).updateChildValues(["read":true])
@@ -138,7 +141,7 @@ class NotificationViewController: UIViewController {
                 for child in snapshot.children{
                     
             
-                let senderText =  child.value?["sent_by"] as? String
+                self.senderText =  child.value?["sent_by"] as! String
                 let timeText = child.value?["sent_date"] as? String
                 let levelBat = child.value?["levelBattery"] as? String
                 
@@ -154,7 +157,7 @@ class NotificationViewController: UIViewController {
                     dateComponentsFormatter.unitsStyle = NSDateComponentsFormatterUnitsStyle.Short
                 let intervalAgo = dateComponentsFormatter.stringFromTimeInterval(interval)
                 let timeAgo = "\(intervalAgo!.uppercaseString) AGO"
-                self.senderLabel.text = "\(senderText!) IS \(levelBat!)%"
+                self.senderLabel.text = "\(self.senderText) IS \(levelBat!)%"
                 self.timeLabel.backgroundColor = KaputStyle.chargingBlue
                 self.timeLabel.text = timeAgo
                 notifLenght = Int(levelBat!)!
