@@ -23,16 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-
+		AppManager.sharedInstance.initRechabilityMonitor()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("friendListView")
         let vc2 = storyboard.instantiateViewControllerWithIdentifier("usernameViewController")
-
-        
-        
-        
-        
         // Register for remote notifications
         if #available(iOS 8.0, *) {
             let settings: UIUserNotificationSettings =

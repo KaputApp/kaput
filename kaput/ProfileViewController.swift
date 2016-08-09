@@ -47,13 +47,26 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
 
 
     @IBOutlet var avatarImageView: UIImageView!
+
     override func viewDidLoad() {
         
-
+        
         super.viewDidLoad()
         
+        let storage = FIRStorage.storage()
+        let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
+        let avatar = storageRef.child("Image/\(userID)/avatar.jpg")
+        let filePath = "Image/\(userID)/avatar.jpg"
+        
+        
+        avatar.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                self.avatarImageView.image = UIImage(data: data!)
+            }
+        }
         boltImageView.image = KaputStyle.imageOfBolt
-        scrollView.delegate = self
         
         view.backgroundColor = Colors.init().bgColor
         self.myNameLabel.text = myUsername
@@ -63,9 +76,10 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
         self.avatarImageView.layer.borderWidth = 5;
         self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor;
-        
     }
-    
+
+
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
