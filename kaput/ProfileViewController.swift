@@ -12,8 +12,10 @@ import FirebaseAuth
 import FirebaseStorage
 import FBSDKLoginKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet var backButton: downButton!
+    @IBOutlet var scrollView: UIScrollView!
     
     @IBOutlet var boltImageView: UIImageView!
     @IBOutlet var myNameLabel: SpringLabel!
@@ -52,7 +54,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         boltImageView.image = KaputStyle.imageOfBolt
-       
+        scrollView.delegate = self
+        
         view.backgroundColor = Colors.init().bgColor
         self.myNameLabel.text = myUsername
         self.avatarImageView.image = myAvatar
@@ -69,9 +72,36 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        if scrollView.contentOffset.y <= 0 {
+        self.backButton.transform = CGAffineTransformIdentity
+        }
 
+
+        if scrollView.contentOffset.y <= 60 && scrollView.contentOffset.y > 0 {
+        
+        self.backButton.transform = CGAffineTransformIdentity
+        let angle = CGFloat(M_PI)*scrollView.contentOffset.y/60
+        self.backButton.transform = CGAffineTransformRotate(self.backButton.transform, angle)
+        print(angle)
+
+        }
+        
+        if scrollView.contentOffset.y > 60 {
+            self.backButton.transform = CGAffineTransformIdentity
+            self.backButton.transform = CGAffineTransformRotate(self.backButton.transform, CGFloat(M_PI))
+        }
+        
+        if scrollView.contentOffset.y > 80 {
+            self.scrollView.scrollEnabled = false
+            self.performSegueWithIdentifier("downToFriendList", sender: self)
+
+        }
+    }
     
-
+    
+    
     /*
     // MARK: - Navigation
 
