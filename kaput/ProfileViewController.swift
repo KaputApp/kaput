@@ -16,7 +16,6 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var backButton: downButton!
     @IBOutlet var scrollView: UIScrollView!
-    
     @IBOutlet var boltImageView: UIImageView!
     @IBOutlet var myNameLabel: SpringLabel!
     @IBOutlet var kaputSent: SpringLabel!

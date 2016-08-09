@@ -87,6 +87,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 //        } else {
             let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             let imageData = UIImageJPEGRepresentation(image, 0.8)
+            var compressedImage = UIImage(data : imageData!)
             let imagePath = "Image" +
                 "/\(FIRAuth.auth()!.currentUser!.uid)" + "/avatar.jpg"
             let metadata = FIRStorageMetadata()
@@ -100,9 +101,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                         print("Error uploading: \(error)")
                         return
                     }
+                    
+                    
 //                    self.uploadSuccess(metadata!, storagePath: imagePath)
-                    self.pickAvatarButton.setBackgroundImage(UIImage(named: "avatar.jpg"), forState: UIControlState.Normal)
+                 
+                    myAvatar = compressedImage!
+                    
+                    self.pickAvatarButton.setBackgroundImage(compressedImage, forState: UIControlState.Normal)
             }}
+    
     
     
     
@@ -121,17 +128,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         
     
-    @IBOutlet var mailField: kaputField!
     @IBOutlet var usernameField: kaputField!
 
     
     @IBAction func saveChangeButton(sender: AnyObject) {
         
-        Errors.clearErrors(mailField)
         Errors.clearErrors(usernameField)
 
         let username: String? = self.usernameField.text
-        let email = self.mailField.text
         
         var error = false
         
@@ -145,17 +149,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             Errors.errorMessage("5 CHAR MIN",field: self.usernameField)
             error = true
         }
-        if email == "" {
-            Errors.errorMessage("REQUIRED",field: self.mailField)
-            error = true
-            
-            
-        }else if Errors.validateEmail(email!) == false {
-            Errors.errorMessage("INVALID MAIL",field: self.mailField)
-            error = true
-            
-        }
-
         
         if !error{
             print("you can change")
@@ -170,10 +163,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         switch textField {
         case usernameField:
             Errors.clearErrors(usernameField)
-            
-        case mailField:
-            Errors.clearErrors(mailField)
-     
+          
         default: break
         }
         
@@ -188,11 +178,18 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         view.backgroundColor = Colors.init().bgColor
         self.pickAvatarButton.layer.cornerRadius = self.pickAvatarButton.frame.size.width / 2;
         self.pickAvatarButton.layer.borderWidth = 5;
+        self.pickAvatarButton.clipsToBounds = true
+
         self.pickAvatarButton.layer.borderColor = UIColor.whiteColor().CGColor;
-        self.mailField.delegate = self
         self.usernameField.delegate = self
         // dans firebase data service, aller chercher l'avatar sur internet, et le mettre en background
-//        self.pickAvatarButton.setBackgroundImage(KaputStyle.imageOfBolt, forState: UIControlState.Normal)
+      
+        self.pickAvatarButton.setBackgroundImage(myAvatar, forState: UIControlState.Normal)
+
+        
+        
+        
+    
     }
 
     override func didReceiveMemoryWarning() {
