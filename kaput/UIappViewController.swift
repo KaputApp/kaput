@@ -21,10 +21,14 @@ class UIappViewController: UIViewController,AppManagerDelegate {
 		super.didReceiveMemoryWarning()
 	}
 	func reachabilityStatusChangeHandler(reachability: Reachability) {
+        let notification = CWStatusBarNotification()
 		if reachability.isReachable() {
 			print("isReachable")
 		} else {
 			print("notReachable")
+
+            notification.displayNotificationWithMessage("Check your network connection", forDuration: 1.0)
+            
 		}
 	}
 }

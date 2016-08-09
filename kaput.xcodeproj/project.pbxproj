@@ -78,6 +78,8 @@
 		8942759B1D5569110083000B /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942759A1D5569110083000B /* AppManager.swift */; };
 		8942759D1D5569520083000B /* AppReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942759C1D5569520083000B /* AppReference.swift */; };
 		8942759F1D55698B0083000B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942759E1D55698B0083000B /* Protocols.swift */; };
+		89DD5F8C1D5A2FEB008EC160 /* CWStatusBarNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD5F8B1D5A2FEB008EC160 /* CWStatusBarNotification.swift */; };
+		89DD5F8E1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD5F8D1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift */; };
 		89EF7A401D55675500B47EE7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF7A3F1D55675500B47EE7 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +177,8 @@
 		8942759A1D5569110083000B /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		8942759C1D5569520083000B /* AppReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReference.swift; sourceTree = "<group>"; };
 		8942759E1D55698B0083000B /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		89DD5F8B1D5A2FEB008EC160 /* CWStatusBarNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotification.swift; sourceTree = "<group>"; };
+		89DD5F8D1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotificationUtils.swift; sourceTree = "<group>"; };
 		89EF7A3F1D55675500B47EE7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8BEC17F1383DC8AB31288158 /* Pods-kaput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -354,6 +358,8 @@
 				894275981D5568740083000B /* UIappViewController.swift */,
 				8942759E1D55698B0083000B /* Protocols.swift */,
 				89EF7A3F1D55675500B47EE7 /* Reachability.swift */,
+				89DD5F8B1D5A2FEB008EC160 /* CWStatusBarNotification.swift */,
+				89DD5F8D1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift */,
 			);
 			name = Reachability;
 			sourceTree = "<group>";
@@ -504,6 +510,7 @@
 				3F593F5F1D09A02A0059745D /* KeyboardLayoutConstraint.swift in Sources */,
 				3F593F671D09A02A0059745D /* SpringImageView.swift in Sources */,
 				3FB496D51D0CF69E007AF1C8 /* FirebaseDataService.swift in Sources */,
+				89DD5F8E1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift in Sources */,
 				3F593F791D09B4750059745D /* TPKeyboardAvoidingScrollView.m in Sources */,
 				3FEDBC9E1CFEDB9C00A6C6C1 /* SignInViewController.swift in Sources */,
 				3F593F5A1D09A02A0059745D /* DesignableTextField.swift in Sources */,
@@ -548,6 +555,7 @@
 				3F593F6E1D09A02A0059745D /* UnwindSegue.swift in Sources */,
 				3F593F6A1D09A02A0059745D /* SpringTextView.swift in Sources */,
 				3F593F5B1D09A02A0059745D /* DesignableTextView.swift in Sources */,
+				89DD5F8C1D5A2FEB008EC160 /* CWStatusBarNotification.swift in Sources */,
 				8942759B1D5569110083000B /* AppManager.swift in Sources */,
 				3F121BF61D50902100D657F9 /* Errors.swift in Sources */,
 				3F593F641D09A02A0059745D /* Spring.swift in Sources */,
