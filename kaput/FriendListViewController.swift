@@ -217,6 +217,7 @@ override func didReceiveMemoryWarning() {
         if pullDistance > 100 {
             
             let angle = CGFloat(M_PI_2)*pullDistance/2000
+            
             self.boltImageView.transform = CGAffineTransformRotate(self.boltImageView.transform, angle)
 
         }

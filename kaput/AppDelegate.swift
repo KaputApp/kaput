@@ -52,10 +52,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     if ((FIRAuth.auth()!.currentUser) != nil){
     userID = String(FIRAuth.auth()!.currentUser!.uid)
+        print("this is my provider id \(FIRAuth.auth()!.currentUser?.providerID)")
         
     // Ici je fais le test sur firebase. Hors ca prend trop de temps, ce serait 100x meilleur de le faire en local.
-        
-        
+
         ref.child("Users").child(userID).child("name").observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             if (snapshot.value as? String == ""){
                self.window?.rootViewController = vc2
