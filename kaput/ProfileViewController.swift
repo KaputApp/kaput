@@ -67,7 +67,8 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
             }
         }
         boltImageView.image = KaputStyle.imageOfBolt
-        
+        scrollView.delegate = self
+
         view.backgroundColor = Colors.init().bgColor
         self.myNameLabel.text = myUsername
         self.avatarImageView.image = myAvatar
