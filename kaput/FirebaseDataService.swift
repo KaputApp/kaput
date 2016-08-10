@@ -16,7 +16,7 @@ import FBSDKLoginKit
 
 
 
-
+var hasFriend = Bool()
 struct FirebaseDataService {
     
     private enum ResourcePath: CustomStringConvertible {
@@ -55,10 +55,12 @@ struct FirebaseDataService {
             if snapshot.hasChildren(){
             let friendList = snapshot.value! as! NSDictionary
             response(friendList: friendList)
+                hasFriend  = true
             }
             else {
-                
-            let friendList = ["NO FRIENDS YET":true]
+                hasFriend  = false
+
+            let friendList = ["ADD FRIENDS !":true]
             response(friendList: friendList)
 }
 
@@ -72,6 +74,11 @@ struct FirebaseDataService {
     static func createUserData(uid: String, bat: String, username: String) {
     let user = ResourcePath.User(uid: uid).description
     ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"","instanceID": FIRInstanceID.instanceID().token()!])
+        
+            storeAvatarInFirebase(UIImage(named:"AvatarBlue.jpg")!)
+       
+        
+        
     }
     
     static func userExists(uid: String, response: (userExists : Bool) -> ()) {
@@ -227,11 +234,11 @@ struct FirebaseDataService {
             ref.child(kaputs).queryOrderedByChild("read").queryEqualToValue(false).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
                 if snapshot.hasChildren(){
                     let kaputCount = snapshot.childrenCount
-                    
                     response(kaputCount : kaputCount)
                     
                 }else{
                     let kaputCount = UInt(0)
+
                     response(kaputCount : kaputCount)
                     
                 }

@@ -55,6 +55,10 @@
 		3F7A12271CF88CB800AAD538 /* logoKaput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A12261CF88CB800AAD538 /* logoKaput.swift */; };
 		3FB496D11D0C8E17007AF1C8 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB496D01D0C8E17007AF1C8 /* AddFriendViewController.swift */; };
 		3FB496D51D0CF69E007AF1C8 /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB496D41D0CF69E007AF1C8 /* FirebaseDataService.swift */; };
+		3FB8552F1D5B626C008E0B35 /* AvatarYellow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8552B1D5B626C008E0B35 /* AvatarYellow.jpg */; };
+		3FB855301D5B626C008E0B35 /* AvatarRed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8552C1D5B626C008E0B35 /* AvatarRed.jpg */; };
+		3FB855311D5B626C008E0B35 /* AvatarGreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8552D1D5B626C008E0B35 /* AvatarGreen.jpg */; };
+		3FB855321D5B626C008E0B35 /* AvatarBlue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8552E1D5B626C008E0B35 /* AvatarBlue.jpg */; };
 		3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1633A1CF8515200862C77 /* KaputStyle.swift */; };
 		3FEDBC9C1CFEDB5600A6C6C1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBC9B1CFEDB5600A6C6C1 /* SignUpViewController.swift */; };
 		3FEDBC9E1CFEDB9C00A6C6C1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBC9D1CFEDB9C00A6C6C1 /* SignInViewController.swift */; };
@@ -152,6 +156,10 @@
 		3F7A12261CF88CB800AAD538 /* logoKaput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logoKaput.swift; sourceTree = "<group>"; };
 		3FB496D01D0C8E17007AF1C8 /* AddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		3FB496D41D0CF69E007AF1C8 /* FirebaseDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
+		3FB8552B1D5B626C008E0B35 /* AvatarYellow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AvatarYellow.jpg; sourceTree = "<group>"; };
+		3FB8552C1D5B626C008E0B35 /* AvatarRed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AvatarRed.jpg; sourceTree = "<group>"; };
+		3FB8552D1D5B626C008E0B35 /* AvatarGreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AvatarGreen.jpg; sourceTree = "<group>"; };
+		3FB8552E1D5B626C008E0B35 /* AvatarBlue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AvatarBlue.jpg; sourceTree = "<group>"; };
 		3FD1633A1CF8515200862C77 /* KaputStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaputStyle.swift; sourceTree = "<group>"; };
 		3FEDBC9B1CFEDB5600A6C6C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3FEDBC9D1CFEDB9C00A6C6C1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +346,10 @@
 				3F72D5421CF8A7C400EA43AF /* KaputStyleFactory.swift */,
 				3FD1633A1CF8515200862C77 /* KaputStyle.swift */,
 				3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */,
+				3FB8552B1D5B626C008E0B35 /* AvatarYellow.jpg */,
+				3FB8552C1D5B626C008E0B35 /* AvatarRed.jpg */,
+				3FB8552D1D5B626C008E0B35 /* AvatarGreen.jpg */,
+				3FB8552E1D5B626C008E0B35 /* AvatarBlue.jpg */,
 			);
 			path = kaput;
 			sourceTree = "<group>";
@@ -437,10 +449,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F593F5E1D09A02A0059745D /* Info.plist in Resources */,
+				3FB855321D5B626C008E0B35 /* AvatarBlue.jpg in Resources */,
 				3FEDBCAE1CFF5C0900A6C6C1 /* AppIcon.appiconset in Resources */,
 				3F7A12251CF888AD00AAD538 /* Futura_condensed_bold_oblique.ttf in Resources */,
+				3FB8552F1D5B626C008E0B35 /* AvatarYellow.jpg in Resources */,
+				3FB855311D5B626C008E0B35 /* AvatarGreen.jpg in Resources */,
 				89139D9C1CF762D000DF4941 /* LaunchScreen.storyboard in Resources */,
 				8933D5E71D021F05006444E5 /* Main.storyboard in Resources */,
+				3FB855301D5B626C008E0B35 /* AvatarRed.jpg in Resources */,
 				89139DA61CF7633800DF4941 /* GoogleService-Info.plist in Resources */,
 				3F593F611D09A02A0059745D /* LoadingView.xib in Resources */,
 				89139D991CF762D000DF4941 /* Assets.xcassets in Resources */,
