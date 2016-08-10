@@ -59,6 +59,7 @@
 		3FB855301D5B626C008E0B35 /* AvatarRed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8552C1D5B626C008E0B35 /* AvatarRed.jpg */; };
 		3FB855311D5B626C008E0B35 /* AvatarGreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8552D1D5B626C008E0B35 /* AvatarGreen.jpg */; };
 		3FB855321D5B626C008E0B35 /* AvatarBlue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8552E1D5B626C008E0B35 /* AvatarBlue.jpg */; };
+		3FB855341D5B99CA008E0B35 /* labelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB855331D5B99CA008E0B35 /* labelButton.swift */; };
 		3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1633A1CF8515200862C77 /* KaputStyle.swift */; };
 		3FEDBC9C1CFEDB5600A6C6C1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBC9B1CFEDB5600A6C6C1 /* SignUpViewController.swift */; };
 		3FEDBC9E1CFEDB9C00A6C6C1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDBC9D1CFEDB9C00A6C6C1 /* SignInViewController.swift */; };
@@ -160,6 +161,7 @@
 		3FB8552C1D5B626C008E0B35 /* AvatarRed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AvatarRed.jpg; sourceTree = "<group>"; };
 		3FB8552D1D5B626C008E0B35 /* AvatarGreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AvatarGreen.jpg; sourceTree = "<group>"; };
 		3FB8552E1D5B626C008E0B35 /* AvatarBlue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AvatarBlue.jpg; sourceTree = "<group>"; };
+		3FB855331D5B99CA008E0B35 /* labelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = labelButton.swift; sourceTree = "<group>"; };
 		3FD1633A1CF8515200862C77 /* KaputStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaputStyle.swift; sourceTree = "<group>"; };
 		3FEDBC9B1CFEDB5600A6C6C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3FEDBC9D1CFEDB9C00A6C6C1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				3F593F0B1D0603A50059745D /* addButtonView.swift */,
 				3FEDBCA51CFEFF0700A6C6C1 /* backButtonView.swift */,
 				3FEDBC9F1CFEDFB700A6C6C1 /* kaputButton.swift */,
+				3FB855331D5B99CA008E0B35 /* labelButton.swift */,
 				3FEDBCA71CFF21FA00A6C6C1 /* kaputPrimaryButton.swift */,
 				3FEDBCA91CFF253C00A6C6C1 /* kaputSecondaryButton.swift */,
 				3FEDBCA11CFEE24000A6C6C1 /* kaputField.swift */,
@@ -568,6 +571,7 @@
 				3F593F661D09A02A0059745D /* SpringButton.swift in Sources */,
 				3F593F551D09A02A0059745D /* BlurView.swift in Sources */,
 				3F593F691D09A02A0059745D /* SpringTextField.swift in Sources */,
+				3FB855341D5B99CA008E0B35 /* labelButton.swift in Sources */,
 				3F593F6E1D09A02A0059745D /* UnwindSegue.swift in Sources */,
 				3F593F6A1D09A02A0059745D /* SpringTextView.swift in Sources */,
 				3F593F5B1D09A02A0059745D /* DesignableTextView.swift in Sources */,

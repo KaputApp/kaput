@@ -276,7 +276,7 @@ struct FirebaseDataService {
     static func updateUsername(oldUsername: String, newUsername:String){
         
     // update my username
-         let user = ResourcePath.User(uid: userID).description
+        let user = ResourcePath.User(uid: userID).description
        ref.child(user).updateChildValues(["name": newUsername])
 
     // update my username in friends list
