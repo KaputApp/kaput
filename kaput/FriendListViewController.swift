@@ -307,7 +307,8 @@ override func didReceiveMemoryWarning() {
 
     }
     else {
-            notification.displayNotificationWithMessage("YOU CANT DO THAT.", forDuration: 3.0)
+            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
             
 
         }

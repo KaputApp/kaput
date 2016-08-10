@@ -16,6 +16,8 @@ class AddFriendViewController: UIViewController {
     @IBOutlet var addFriendButton: kaputPrimaryButton!
     @IBAction func addFriend(sender: AnyObject) {
     
+        if reachable == true {
+        
     Errors.clearErrors(friendNameField)
 
         
@@ -42,9 +44,12 @@ class AddFriendViewController: UIViewController {
     }
         
     })
+        }else{
+            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
+        }
+    
     }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
