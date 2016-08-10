@@ -17,13 +17,32 @@ import FirebaseStorage
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate  {
 
- 
+    @IBAction func changePassword(sender: AnyObject) {
+        
+        if reachable == true {
+            
+            let email = FIRAuth.auth()?.currentUser?.email
+            var error = false
+            
+                let finalemail = email?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                FIRAuth.auth()?.sendPasswordResetWithEmail(email!, completion: nil)
+                let  alert = UIAlertController(title: "Password reset!", message: "An email containing information on how to reset your password has been sent to  \(finalemail!)", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            
+        } else {
+            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
+        }
+    }
+    
     @IBOutlet var pickAvatarButton: UIButton!
     @IBAction func pickAvatar(sender: UIButton) {
         
         if reachable == true {
         
         let picker = UIImagePickerController()
+
         picker.delegate = self
         picker.allowsEditing = true
 

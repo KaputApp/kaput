@@ -1066,6 +1066,9 @@
                                         <state key="normal" title="CHANGE PASSWORD">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changePassword:" destination="xxA-AP-5JK" eventType="touchUpInside" id="160-mv-yCq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nC-Wa-W0K" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
                                         <rect key="frame" x="20" y="263" width="560" height="71"/>
