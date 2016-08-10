@@ -10,7 +10,7 @@ import UIKit
 
 var manager:AppManager = AppManager.sharedInstance
 let notification = CWStatusBarNotification()
-
+var reachable = true
 
 class UIappViewController: UIViewController,AppManagerDelegate {
 
@@ -25,9 +25,12 @@ class UIappViewController: UIViewController,AppManagerDelegate {
      		if reachability.isReachable() {
 			print("isReachable")
                 notification.dismissNotification()
+                reachable = true
 
 		} else {
 			print("notReachable")
+            reachable = false
+
 
             notification.displayNotificationWithMessage("CHECK YOUR NETWORK CONNECTION", forDuration: 10.0)
 

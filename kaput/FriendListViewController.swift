@@ -15,7 +15,7 @@ import MGSwipeTableCell
 var myUsername = String()
 var myAvatar = UIImage()
 
-class FriendListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class FriendListViewController: UIappViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var friendsTableView: UITableView!
     @IBOutlet var kaputCounter: numberOfNotifications!
@@ -35,6 +35,7 @@ override func viewDidLoad() {
     FirebaseDataService.getName({(name) in
         myUsername = name
     })
+    
     
     
     FirebaseDataService.getAvatarFromFirebase({(image) in
@@ -241,6 +242,8 @@ override func didReceiveMemoryWarning() {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         
+        if reachable {
+        
         
         ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             let myName = snapshot.value?["name"] as? String
@@ -288,6 +291,12 @@ override func didReceiveMemoryWarning() {
         
         FirebaseDataService.sendMessageToName(name!)
 
+    }
+    else {
+            notification.displayNotificationWithMessage("YOU CANT DO THAT.", forDuration: 3.0)
+            
+
+        }
     }
     
 }
