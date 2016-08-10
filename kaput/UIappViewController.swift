@@ -9,6 +9,7 @@
 import UIKit
 
 var manager:AppManager = AppManager.sharedInstance
+let notification = CWStatusBarNotification()
 
 
 class UIappViewController: UIViewController,AppManagerDelegate {
@@ -21,14 +22,15 @@ class UIappViewController: UIViewController,AppManagerDelegate {
 		super.didReceiveMemoryWarning()
 	}
 	func reachabilityStatusChangeHandler(reachability: Reachability) {
-        let notification = CWStatusBarNotification()
-		if reachability.isReachable() {
+     		if reachability.isReachable() {
 			print("isReachable")
+                notification.dismissNotification()
+
 		} else {
 			print("notReachable")
 
-            notification.displayNotificationWithMessage("Check your network connection", forDuration: 1.0)
-            
+            notification.displayNotificationWithMessage("CHECK YOUR NETWORK CONNECTION", forDuration: 10.0)
+
 		}
 	}
 }

@@ -17,12 +17,9 @@ import FBSDKCoreKit
 
 
 class ViewController: UIappViewController {
-     var reachability:Reachability?
-    
+
     
 //declarations of outlets
-    
-
     
     @IBAction func facebookLogin(sender: AnyObject) {
         
@@ -64,12 +61,10 @@ class ViewController: UIappViewController {
                                 FirebaseDataService.storeAvatarInFirebase(image)
                                 })
                                 
-                                
                             }
 
                         })
-                        
-                        
+    
             }}
             }
         }
@@ -119,38 +114,9 @@ class ViewController: UIappViewController {
         //Shows the level battery on the welcom screen
         labelBattery.text = String(batLevel.init().levelBat) + "%"
         
-        
-        // Monitoring du réseau
+
         super.viewDidLoad()
          manager.delegate = self
-        
-        if(AppManager.sharedInstance.isReachability)
-        {
-            print("net available")
-            //call API from here.
-            
-        } else {
-            dispatch_async(dispatch_get_main_queue()) {
-                print("net not available")
-                //Show Alert
-            }
-        }
-        //Determine Network Type
-        if(AppManager.sharedInstance.reachabiltyNetworkType == "Wifi")
-        {
-            print(".Wifi")
-        }
-        else if (AppManager.sharedInstance.reachabiltyNetworkType == "Cellular")
-        {
-            print(".Cellular")
-        }
-        else {
-            dispatch_async(dispatch_get_main_queue()) {
-                print("Network not reachable")
-                
-            }
-        }
-
         
         // Do any additional setup after loading the view, typically from a nib.
     }

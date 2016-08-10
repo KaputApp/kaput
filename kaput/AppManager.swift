@@ -71,6 +71,7 @@ class AppManager: NSObject{
   private func notifyReachability(reachability:Reachability) {
     if reachability.isReachable() {
       self._isReachability = true
+        
 
       //Determine Network Type
       if reachability.isReachableViaWiFi() {

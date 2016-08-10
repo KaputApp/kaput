@@ -24,7 +24,7 @@ import UIKit
 public class CWStatusBarNotification : NSObject {
     // MARK: - properties
     
-    private let fontSize : CGFloat = 10.0
+    private let fontSize : CGFloat = 20.0
     
     private var tapGestureRecognizer : UITapGestureRecognizer!
     private var dismissHandle : CWDelayedClosureHandle?
@@ -61,7 +61,7 @@ public class CWStatusBarNotification : NSObject {
             self.notificationLabelBackgroundColor = UIColor.blackColor()
         }
         self.notificationLabelTextColor = UIColor.whiteColor()
-        self.notificationLabelFont = UIFont.systemFontOfSize(self.fontSize)
+        self.notificationLabelFont = UIFont(name: "Futura-Condensed", size: 20.0 )!
         self.notificationLabelHeight = 0.0
         self.customView = nil
         self.multiline = false
@@ -74,9 +74,9 @@ public class CWStatusBarNotification : NSObject {
         }
         self.notificationAnimationDuration = 0.25
         self.notificationStyle = .StatusBarNotification
-        self.notificationAnimationInStyle = .Bottom
-        self.notificationAnimationOutStyle = .Bottom
-        self.notificationAnimationType = .Replace
+        self.notificationAnimationInStyle = .Top
+        self.notificationAnimationOutStyle = .Top
+        self.notificationAnimationType = .Overlay
         self.notificationIsDismissing = false
         self.isCustomView = false
         self.preferredStatusBarStyle = .Default
@@ -113,7 +113,7 @@ public class CWStatusBarNotification : NSObject {
             statusBarHeight = UIApplication.sharedApplication().statusBarFrame
                 .size.width
         }
-        return statusBarHeight > 0 ? statusBarHeight : 20
+        return statusBarHeight > 0 ? statusBarHeight : 30
     }
     
     private func getStatusBarWidth() -> CGFloat {
