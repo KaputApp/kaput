@@ -1131,6 +1131,7 @@
                     </view>
                     <connections>
                         <outlet property="pickAvatarButton" destination="hV7-bf-bvi" id="2F2-2g-yAK"/>
+                        <outlet property="saveChangesButton" destination="6nC-Wa-W0K" id="4Dh-5G-5z9"/>
                         <outlet property="usernameField" destination="2mN-3q-kFR" id="rCb-Os-uOa"/>
                     </connections>
                 </viewController>

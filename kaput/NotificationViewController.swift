@@ -200,10 +200,7 @@ class NotificationViewController: UIViewController {
 
    
     func refreshView() {
-        
 
-        
-        
         if kaputCounter == 1 {
             
         self.performSegueWithIdentifier("unWindtoFriendList", sender: self)
