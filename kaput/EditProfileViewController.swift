@@ -198,11 +198,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.pickAvatarButton.layer.cornerRadius = self.pickAvatarButton.frame.size.width / 2;
         self.pickAvatarButton.layer.borderWidth = 5;
         self.pickAvatarButton.clipsToBounds = true
-        self.pickAvatarButton.layer.shadowColor = KaputStyle.shadowColor.CGColor;
-        self.pickAvatarButton.layer.shadowOffset = CGSizeMake(10, 10);
-        self.pickAvatarButton.layer.shadowRadius = 0
-        self.pickAvatarButton.layer.shadowOpacity = 1;
-
+        
         self.pickAvatarButton.layer.borderColor = UIColor.whiteColor().CGColor;
         self.usernameField.delegate = self      
         self.pickAvatarButton.setBackgroundImage(myAvatar, forState: UIControlState.Normal)

@@ -65,10 +65,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
         self.avatarImageView.layer.borderWidth = 5;
         self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor;
-        self.avatarImageView.layer.shadowColor = KaputStyle.shadowColor.CGColor;
-        self.avatarImageView.layer.shadowOffset = CGSizeMake(10, 10);
-        self.avatarImageView.layer.shadowRadius = 0
-        self.avatarImageView.layer.shadowOpacity = 1;
+
     }
 
 

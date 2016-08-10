@@ -270,6 +270,13 @@ struct FirebaseDataService {
         
     }
 
+    static func updateUsername(newUsername:String){
+        
+    // update my username
+        
+    // update my username in friends list
+    
+    }
     
     static func sendMessageToName(name:String){
     getUidWithUsername(name,response: {(uid,exists)->() in
