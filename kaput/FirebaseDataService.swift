@@ -96,19 +96,20 @@ struct FirebaseDataService {
     static func getBatLevelWithName(name: String, response: (batLevel : Int) -> ()) {
         
         getUidWithUsername(name,response: {(uid,exists)->() in
+            if exists {
 
         let user = ResourcePath.User(uid: uid).description
         var batLevel = Int()
-        
         ref.child(user).child("batteryLevel").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
                     batLevel = snapshot.value! as! Int
                     response(batLevel : batLevel)
              })
+            } else { print("COULDNT FETCH BATLEVEL - USERDOENSTEXIST")}
          })
+        
+        
     }
     
-    static func changeUsername(name: String, )
-
     static func getUidWithUsername(name: String, response: (uid : String, exists:Bool) -> ()){
     
         let users = ResourcePath.Users.description
@@ -272,12 +273,24 @@ struct FirebaseDataService {
         
     }
 
-    static func updateUsername(newUsername:String){
+    static func updateUsername(oldUsername: String, newUsername:String){
         
     // update my username
-        
+         let user = ResourcePath.User(uid: userID).description
+       ref.child(user).updateChildValues(["name": newUsername])
+
     // update my username in friends list
-    
+     let users = ResourcePath.Users.description
+       print( ref.child(users).queryOrderedByChild("friends/\(oldUsername)").queryEqualToValue(true).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        
+        for child in snapshot.children {
+            let inputsOutputs = [newUsername:true] as [String:Bool]
+            ref.child("Users").child(child.key!).child("friends").updateChildValues(inputsOutputs)
+            ref.child("Users").child(child.key!).child("friends").child(oldUsername).removeValue()
+            
+        }
+        
+        }))
     }
     
     static func sendMessageToName(name:String){

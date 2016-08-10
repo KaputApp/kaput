@@ -167,8 +167,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         if !error{
             print("you can change")
-            ref.child("Users").child(userID).updateChildValues(["name": username!])
-            
+           // ref.child("Users").child(userID).updateChildValues(["name": username!])
+            FirebaseDataService.updateUsername(myUsername, newUsername:username!)
             myUsername = username!
             
             self.saveChangesButton.titleLabel?.text = "NAME CHANGED"
