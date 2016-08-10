@@ -31,6 +31,7 @@ override func viewDidLoad() {
     super.viewDidLoad()
     
     //charge les differents éléments
+
     
     FirebaseDataService.getName({(name) in
         myUsername = name
@@ -50,10 +51,9 @@ override func viewDidLoad() {
         
         self.data =  friendList.allKeys  as! NSMutableArray
         
-    
         self.friendShown = [Bool](count: self.data.count, repeatedValue: false)
-        self.friendsTableView.reloadData()
         
+        self.friendsTableView.reloadData()
     
 
     })
@@ -142,7 +142,6 @@ override func didReceiveMemoryWarning() {
     //ANIMATION CELL UP
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
 
         if self.friendShown[indexPath.row] == false
         {
@@ -155,6 +154,8 @@ override func didReceiveMemoryWarning() {
             }
             friendShown[indexPath.row] = true
         }
+            
+        
 
 
     }
