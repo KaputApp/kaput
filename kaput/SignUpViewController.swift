@@ -37,6 +37,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: kaputField!
     @IBOutlet var signUpButton: kaputButton!
     @IBAction func signUpButton(sender: AnyObject) {
+        
+        if reachable == true {
        
         
         Errors.clearErrors(emailField)
@@ -137,8 +139,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
         }
     
-}
+        } else {
+            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
+            
+        }
     
+    }
     
     
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

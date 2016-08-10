@@ -22,6 +22,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: kaputField!
     @IBAction func resetPassword(sender: AnyObject) {
         
+        if reachable == true {
+        
             let email = self.emailField.text
         Errors.clearErrors(emailField)
         Errors.clearErrors(passwordField)
@@ -49,6 +51,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
+        } else {
+            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
+        }
     }
     
     @IBOutlet weak var passwordField: kaputField!
@@ -72,6 +78,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
    
     
     @IBAction func logInButton(sender: AnyObject) {
+        
+        if reachable == true {
         
         
         Errors.clearErrors(emailField)
@@ -125,6 +133,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     
                 }
             }
+        }
+        } else {
+            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
         }
     }
     

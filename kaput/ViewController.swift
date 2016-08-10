@@ -23,6 +23,8 @@ class ViewController: UIappViewController {
     
     @IBAction func facebookLogin(sender: AnyObject) {
         
+        if reachable == true {
+        
         let facebookLogin = FBSDKLoginManager()
 
         
@@ -41,18 +43,13 @@ class ViewController: UIappViewController {
                     print("Login failed. \(error)")
                     } else {
                     print("Logged in!")
-                        
 
-                      
                         // on verifie si l'arbo dédiée a mon user existe déja
                         ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
                         //Si oui, on passe l'étape
                             if snapshot.hasChildren(){
                         self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
                         userID = String(FIRAuth.auth()!.currentUser!.uid)
-                            
-                                
-                                
                             } else {
                         //Si non, créer l'user et on passe l'étape
                             self.performSegueWithIdentifier("pickUsernameSegue", sender: self)
@@ -69,8 +66,12 @@ class ViewController: UIappViewController {
             }
         }
     
-        )}
+            )} else {
+            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
+        }
     
+    }
     
 @IBOutlet var buttonFacebook: SpringButton!
 @IBOutlet var buttonLogIn: SpringButton!
@@ -80,12 +81,9 @@ class ViewController: UIappViewController {
 @IBOutlet weak var labelBattery: SpringLabel!
 
     @IBOutlet var labelTag: SpringLabel!
-
-    
     override func viewDidLoad()
     
     {
-       
         
         // setting the height of the bar with a constraint.
         

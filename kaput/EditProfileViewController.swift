@@ -21,6 +21,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet var pickAvatarButton: UIButton!
     @IBAction func pickAvatar(sender: UIButton) {
         
+        if reachable == true {
+        
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
@@ -56,6 +58,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
         self.presentViewController(optionMenu, animated: true, completion: nil)
 
+        } else {
+            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
+        }
     }
     
     func imagePickerController(picker: UIImagePickerController,
@@ -119,6 +125,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func saveChangeButton(sender: AnyObject) {
         
+        if reachable == true {
+        
         Errors.clearErrors(usernameField)
 
         let username: String? = self.usernameField.text
@@ -140,6 +148,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             print("you can change")
         }
         
+        } else {
+            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
+            
+        }
     }
     
     

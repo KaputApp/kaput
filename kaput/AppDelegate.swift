@@ -141,6 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // [END connect_to_fcm]
     
     func applicationDidBecomeActive(application: UIApplication) {
+        
        connectToFcm()
 
         FBSDKAppEvents.activateApp()
