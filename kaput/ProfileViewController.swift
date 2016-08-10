@@ -53,19 +53,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         
         super.viewDidLoad()
         
-        let storage = FIRStorage.storage()
-        let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
-        let avatar = storageRef.child("Image/\(userID)/avatar.jpg")
-        let filePath = "Image/\(userID)/avatar.jpg"
         
-        
-        avatar.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
-            if (error != nil) {
-                print(error)
-            } else {
-                self.avatarImageView.image = UIImage(data: data!)
-            }
-        }
         boltImageView.image = KaputStyle.imageOfBolt
         scrollView.delegate = self
 

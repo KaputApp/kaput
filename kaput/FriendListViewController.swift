@@ -36,7 +36,8 @@ override func viewDidLoad() {
         myUsername = name
     })
     
-    FirebaseDataService.getAvatarFromFB({(image) in
+    
+    FirebaseDataService.getAvatarFromFirebase({(image) in
         myAvatar = image
     })
     

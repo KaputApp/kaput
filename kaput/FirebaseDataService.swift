@@ -144,6 +144,40 @@ struct FirebaseDataService {
     }
     }
     
+    static func getAvatarFromFirebase(response: (image : UIImage) -> ()){
+        
+        let storage = FIRStorage.storage()
+        let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
+        let avatar = storageRef.child("Image/\(userID)/avatar.jpg")
+        
+        avatar.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                response(image: UIImage(data: data!)!)
+            }
+        }
+    
+    }
+    
+    static func storeAvatarInFirebase(image: UIImage){
+    
+    var storageRef = FIRStorage.storage().reference()
+    let imagePath = "Image" + "/\(userID)" + "/avatar.jpg"
+    let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+    let imageData = UIImageJPEGRepresentation(image, 0.8)
+
+        storageRef.child(imagePath).putData(imageData!, metadata: metadata) { (metadata, error) in
+                if let error = error {
+                    print("Error uploading: \(error)")
+                    return
+                }
+        
+        }
+    }
+    
+    
     static func getAvatarFromFB(response: (image : UIImage) -> ()){
         
         let params: [NSObject : AnyObject] = ["redirect": false, "height": 800, "width": 800, "type": "large"]

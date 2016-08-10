@@ -52,7 +52,7 @@ class ViewController: UIappViewController {
                         //Si oui, on passe l'étape
                             if snapshot.hasChildren(){
                         self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
-                                userID = String(FIRAuth.auth()!.currentUser!.uid)
+                        userID = String(FIRAuth.auth()!.currentUser!.uid)
                             
                                 
                                 
@@ -60,6 +60,10 @@ class ViewController: UIappViewController {
                         //Si non, créer l'user et on passe l'étape
                             self.performSegueWithIdentifier("pickUsernameSegue", sender: self)
                                 FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "")
+                                FirebaseDataService.getAvatarFromFB({(image) in
+                                FirebaseDataService.storeAvatarInFirebase(image)
+                                })
+                                
                                 
                             }
 

@@ -13,7 +13,7 @@ import Photos
 import Firebase
 import FirebaseAuth
 import FirebaseStorage
-
+//FIXME: enlever Firebase FirebaseAuth et FirebaseStorage d'ici. Model View Controller
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate  {
 
@@ -62,7 +62,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                                didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         picker.dismissViewControllerAnimated(true, completion:nil)
         
-        var storageRef = FIRStorage.storage().reference()
 
         // if it's a photo from the library, not an image from the camera
 //        if #available(iOS 8.0, *), let referenceUrl = info[UIImagePickerControllerReferenceURL] {
@@ -87,33 +86,20 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 //        } else {
             let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             let imageData = UIImageJPEGRepresentation(image, 0.8)
-            var compressedImage = UIImage(data : imageData!)
-            let imagePath = "Image" +
-                "/\(FIRAuth.auth()!.currentUser!.uid)" + "/avatar.jpg"
-            let metadata = FIRStorageMetadata()
-            metadata.contentType = "image/jpeg"
-            print(imagePath)
-            print(metadata)
-            print(storageRef)
-            storageRef.child(imagePath)
-                .putData(imageData!, metadata: metadata) { (metadata, error) in
-                    if let error = error {
-                        print("Error uploading: \(error)")
-                        return
-                    }
-                    
-                    
+            let compressedImage = UIImage(data : imageData!)
+                              
 //                    self.uploadSuccess(metadata!, storagePath: imagePath)
                  
-                    myAvatar = compressedImage!
-                    
-                    self.pickAvatarButton.setBackgroundImage(compressedImage, forState: UIControlState.Normal)
-            }}
+            FirebaseDataService.storeAvatarInFirebase(compressedImage!)
+            myAvatar  = compressedImage!
+        
+                    self.pickAvatarButton.setBackgroundImage(myAvatar, forState: UIControlState.Normal)
+    }
     
     
     
-    
-    
+
+
     func uploadSuccess(metadata: FIRStorageMetadata, storagePath: String) {
         print("Upload Succeeded!")
 //        self.urlTextView.text = metadata.downloadURL()!.absoluteString
@@ -126,7 +112,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         picker.dismissViewControllerAnimated(true, completion:nil)
     }
         
-        
+
     
     @IBOutlet var usernameField: kaputField!
 
@@ -176,14 +162,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         super.viewDidLoad()
         view.backgroundColor = Colors.init().bgColor
+        self.pickAvatarButton.contentMode = .ScaleAspectFill
         self.pickAvatarButton.layer.cornerRadius = self.pickAvatarButton.frame.size.width / 2;
         self.pickAvatarButton.layer.borderWidth = 5;
         self.pickAvatarButton.clipsToBounds = true
 
         self.pickAvatarButton.layer.borderColor = UIColor.whiteColor().CGColor;
-        self.usernameField.delegate = self
-        // dans firebase data service, aller chercher l'avatar sur internet, et le mettre en background
-      
+        self.usernameField.delegate = self      
         self.pickAvatarButton.setBackgroundImage(myAvatar, forState: UIControlState.Normal)
 
         
