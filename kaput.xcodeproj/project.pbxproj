@@ -84,6 +84,7 @@
 		8942759F1D55698B0083000B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942759E1D55698B0083000B /* Protocols.swift */; };
 		89DD5F8C1D5A2FEB008EC160 /* CWStatusBarNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD5F8B1D5A2FEB008EC160 /* CWStatusBarNotification.swift */; };
 		89DD5F8E1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD5F8D1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift */; };
+		89DD5F901D5B978A008EC160 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DD5F8F1D5B978A008EC160 /* MessageUI.framework */; };
 		89EF7A401D55675500B47EE7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF7A3F1D55675500B47EE7 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +188,7 @@
 		8942759E1D55698B0083000B /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		89DD5F8B1D5A2FEB008EC160 /* CWStatusBarNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotification.swift; sourceTree = "<group>"; };
 		89DD5F8D1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotificationUtils.swift; sourceTree = "<group>"; };
+		89DD5F8F1D5B978A008EC160 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		89EF7A3F1D55675500B47EE7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8BEC17F1383DC8AB31288158 /* Pods-kaput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89DD5F901D5B978A008EC160 /* MessageUI.framework in Frameworks */,
 				4B4B8D4FA0E80263D19725A2 /* Pods_kaput.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +209,7 @@
 		1866139DC5AABD367B436585 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89DD5F8F1D5B978A008EC160 /* MessageUI.framework */,
 				3F593F6F1D09B4750059745D /* TPKeyboardAvoiding */,
 				3F593F331D09A02A0059745D /* Spring */,
 				68E88B6BCA9550A3E04C66AB /* Pods_kaput.framework */,

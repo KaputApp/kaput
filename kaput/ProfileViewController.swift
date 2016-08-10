@@ -11,8 +11,10 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 import FBSDKLoginKit
+import MessageUI
 
-class ProfileViewController: UIViewController, UIScrollViewDelegate {
+
+class ProfileViewController: UIViewController, MFMessageComposeViewControllerDelegate, UIScrollViewDelegate {
 
     @IBOutlet var backButton: downButton!
     @IBOutlet var scrollView: UIScrollView!
@@ -20,6 +22,61 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var myNameLabel: SpringLabel!
     @IBOutlet var kaputSent: SpringLabel!
     
+    @IBAction func inviteFriend(sender: AnyObject) {
+        if reachable == true {
+
+            
+            
+            let optionMenu = UIAlertController(title: nil, message: "INVITE FRIENDS", preferredStyle: .ActionSheet)
+            
+            // 2
+            let smsAction = UIAlertAction(title: "SMS", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in
+              //  UIApplication.sharedApplication().openURL(NSURL(string: "sms:")!)
+                let messageVC = MFMessageComposeViewController()
+                
+                messageVC.body = "Hey, I have \(batteryLevel)% of battery, what about you?"
+                messageVC.messageComposeDelegate = self
+         
+                
+                
+                self.presentViewController(messageVC, animated: true, completion: nil)
+                
+            })
+            let whatsappAction = UIAlertAction(title: "WHATSAPP", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in
+
+                
+            })
+            
+            let facebookAction = UIAlertAction(title: "FACEBOOK", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in
+                
+                
+            })
+            
+            //
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+                (alert: UIAlertAction!) -> Void in
+                
+            })
+            
+            
+            optionMenu.addAction(smsAction)
+            optionMenu.addAction(whatsappAction)
+            optionMenu.addAction(facebookAction)
+            optionMenu.addAction(cancelAction)
+            
+            
+            self.presentViewController(optionMenu, animated: true, completion: nil)
+            
+        } else {
+            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
+        }
+    
+
+    }
     @IBAction func LogOut(sender: AnyObject) {
     
         let optionMenu = UIAlertController(title: nil, message: "Are you sure ?", preferredStyle: .ActionSheet)
@@ -103,6 +160,30 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult){
+        
+        switch (result) {
+            
+        case MessageComposeResultCancelled:
+            break
+            
+        case MessageComposeResultFailed:
+            
+            break
+            
+        case MessageComposeResultSent:
+            
+            break
+            
+        default:
+            break
+        }
+        
+        self.dismissViewControllerAnimated(true) { () -> Void in
+            
+        }
+    }
+
     
     
     /*

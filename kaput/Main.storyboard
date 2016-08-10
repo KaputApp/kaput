@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -72,7 +72,7 @@
                                     <constraint firstAttribute="height" constant="268" id="8PA-0v-lrR"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHARGING YOUR PHONE. AWESOME IDEA." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-zd-6Pe" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CHARGING YOUR PHONE. AWESOME IDEA." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-zd-6Pe" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
                                 <rect key="frame" x="60" y="314" width="480" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -612,6 +612,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="facebookLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5W-8E-kER"/>
+                                            <action selector="inviteFriend:" destination="TKK-0J-CQX" eventType="touchUpInside" id="dGE-0c-HZh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5a-KV-eS1">
@@ -1255,8 +1256,8 @@ PICK YOUR USERNAME</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4zB-dw-8Kx"/>
-        <segue reference="Clw-R7-hAE"/>
-        <segue reference="1id-Qr-VbS"/>
+        <segue reference="gPn-Xk-fUh"/>
+        <segue reference="bOw-6v-Zoa"/>
         <segue reference="SUI-Oa-RVs"/>
     </inferredMetricsTieBreakers>
 </document>
