@@ -49,21 +49,20 @@ override func viewDidLoad() {
     FirebaseDataService.getFriendList(userID,response: { (friendList) -> () in
         
         self.data =  friendList.allKeys  as! NSMutableArray
-        if (friendList == ["NO FRIENDS YET ?":true]){
-            print("pas d'ami")
-        }
         
-        
+    
         self.friendShown = [Bool](count: self.data.count, repeatedValue: false)
         self.friendsTableView.reloadData()
-            
-    })
+        
     
- 
+
+    })
     
     
     FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
-           
+        
+        
+        
         self.kaputCount = Int(kaputCount)
         UIApplication.sharedApplication().applicationIconBadgeNumber = self.kaputCount
 
@@ -83,6 +82,7 @@ override func viewDidLoad() {
         friendsTableView.dataSource = self
         friendsTableView.backgroundColor = Colors.init().bgColor
     
+
 }
 
 override func didReceiveMemoryWarning() {
@@ -103,7 +103,7 @@ override func didReceiveMemoryWarning() {
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)  as! MGSwipeTableCell
-        
+        if hasFriend {
             cell.rightButtons = [MGSwipeButton(title: "", icon: KaputStyle.imageOfTrashCan,backgroundColor: KaputStyle.lowRed,padding:30,callback: {
             (sender: MGSwipeTableCell!) -> Bool in
 
@@ -113,8 +113,11 @@ override func didReceiveMemoryWarning() {
             return true
        
         })]
-
+        } else {
+            cell.rightButtons = nil
+        }
         cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
+        
         cell.backgroundColor = Colors.init().bgColor
 
 
@@ -122,12 +125,13 @@ override func didReceiveMemoryWarning() {
         
         let username = cell.textLabel!.text
         
-        print(username)
         
+        if hasFriend {
         FirebaseDataService.getBatLevelWithName(username!) { (batLevel) in
             
             cell.backgroundColor = ColorsForBat(batLevel)
             
+        }
         }
         
         
@@ -138,6 +142,7 @@ override func didReceiveMemoryWarning() {
     //ANIMATION CELL UP
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
 
         if self.friendShown[indexPath.row] == false
         {
@@ -150,6 +155,7 @@ override func didReceiveMemoryWarning() {
             }
             friendShown[indexPath.row] = true
         }
+
 
     }
     
@@ -232,6 +238,14 @@ override func didReceiveMemoryWarning() {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        if !hasFriend {
+            
+        self.performSegueWithIdentifier("toAddView", sender: self)
+            
+        }
+        else {
+        
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)
 
         let indexPath = tableView.indexPathForSelectedRow!
@@ -297,6 +311,7 @@ override func didReceiveMemoryWarning() {
             
 
         }
+    }
     }
     
 }
