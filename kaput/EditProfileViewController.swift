@@ -140,6 +140,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
     
     @IBOutlet var usernameField: kaputField!
+    
+    @IBOutlet weak var saveChangesButton: kaputPrimaryButton!
 
     
     @IBAction func saveChangeButton(sender: AnyObject) {
@@ -158,13 +160,29 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             error = true
             
         }
-        else if username?.characters.count<5 {
-            Errors.errorMessage("5 CHAR MIN",field: self.usernameField)
+        else if username?.characters.count<4 {
+            Errors.errorMessage("4 CHAR MIN",field: self.usernameField)
             error = true
         }
         
         if !error{
             print("you can change")
+            ref.child("Users").child(userID).updateChildValues(["name": username!])
+            
+            myUsername = username!
+            
+            self.saveChangesButton.titleLabel?.text = "NAME CHANGED"
+            self.saveChangesButton.backgroundColor = KaputStyle.fullGreen
+            
+            delay(1.5) {
+                self.saveChangesButton.titleLabel?.text = "SAVE CHANGES"
+                self.saveChangesButton.backgroundColor = Colors.init().primaryColor
+            }
+            
+
+            
+            
+            
         }
         
         } else {

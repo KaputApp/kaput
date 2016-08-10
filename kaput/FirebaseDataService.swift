@@ -106,6 +106,8 @@ struct FirebaseDataService {
              })
          })
     }
+    
+    static func changeUsername(name: String, )
 
     static func getUidWithUsername(name: String, response: (uid : String, exists:Bool) -> ()){
     
