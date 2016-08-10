@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseDatabase
+import FBSDKLoginKit
 
 let ref = FIRDatabase.database().reference()
 var userID = String(FIRAuth.auth()!.currentUser!.uid)
@@ -35,6 +36,51 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameField: kaputField!
     @IBOutlet weak var passwordField: kaputField!
     @IBOutlet weak var emailField: kaputField!
+    
+    @IBAction func loginFB(sender: AnyObject) {
+        if reachable == true {
+            let facebookLogin = FBSDKLoginManager()
+            facebookLogin.logInWithReadPermissions(["public_profile", "email","user_friends"], fromViewController: self, handler: {
+                (facebookResult, facebookError) -> Void in
+                if facebookError != nil {
+                    print("Facebook login failed. Error \(facebookError)")
+                } else if facebookResult.isCancelled {
+                    print("Facebook login was cancelled.")
+                } else {
+                    let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+                    FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+                        if error != nil {
+                            print("Login failed. \(error)")
+                        } else {
+                            print("Logged in!")
+                            // on verifie si l'arbo dédiée a mon user existe déja
+                            ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+                                //Si oui, on passe l'étape
+                                if snapshot.hasChildren(){
+                                    self.performSegueWithIdentifier("toFriendList", sender: self)
+                                    userID = String(FIRAuth.auth()!.currentUser!.uid)
+                                } else {
+                                    //Si non, créer l'user et on passe l'étape
+                                    self.performSegueWithIdentifier("pickUsernameSegue", sender: self)
+                                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "")
+                                    FirebaseDataService.getAvatarFromFB({(image) in
+                                        FirebaseDataService.storeAvatarInFirebase(image)
+                                    })
+                                    
+                                }
+                                
+                            })
+                            
+                        }}
+                }
+                }
+            )} else {
+            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
+        }
+    }
+    
+    
     @IBOutlet var signUpButton: kaputButton!
     @IBAction func signUpButton(sender: AnyObject) {
         
@@ -71,7 +117,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 
         })
        
-        
         
         // verify signup information
         
@@ -110,10 +155,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         if !error{
             // set spinner
-            
-          
-            
-            
+
             signUpButton.titleLabel?.text = ""
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.size.width/2-40,signUpButton.frame.origin.y,80,80))as UIActivityIndicatorView
             self.view.addSubview(spinner)
@@ -150,13 +192,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toFriendList" {
-            print("prepareforsegue is called")
-
-  
- 
-
-
-            
+            print("prepareforsegue is called")            
         }
     }
     
