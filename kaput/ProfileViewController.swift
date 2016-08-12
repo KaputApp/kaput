@@ -29,6 +29,8 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
     @IBOutlet var boltImageView: UIImageView!
     @IBOutlet var myNameLabel: SpringLabel!
     @IBOutlet var kaputSent: SpringLabel!
+    @IBOutlet var myBatteryLevel: UILabel!
+
     
     @IBAction func inviteFriend(sender: AnyObject) {
         
@@ -127,7 +129,6 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
     }
 
 
-
     @IBOutlet var avatarImageView: UIImageView!
 
     override func viewDidLoad() {
@@ -147,7 +148,12 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
         self.avatarImageView.layer.borderWidth = 5;
         self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor;
+        
+        self.myBatteryLevel.text = String(batteryLevel) + " %"
+        
+        self.kaputSent.text = "3"
 
+        batLenght = CGFloat(batteryLevel)
     }
 
 
