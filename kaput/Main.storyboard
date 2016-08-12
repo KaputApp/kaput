@@ -294,7 +294,7 @@
                                         </state>
                                         <connections>
                                             <action selector="loginFB:" destination="B0k-56-6Dj" eventType="touchUpInside" id="xC6-sL-kfc"/>
-                                            <segue destination="VDP-45-lCm" kind="show" identifier="pickUserName" id="Bee-ye-fXO"/>
+                                            <segue destination="VDP-45-lCm" kind="show" identifier="pickUsername" id="XYH-wB-Qeb"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s96-VA-GjZ">
@@ -404,7 +404,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginFB:" destination="5KF-Fe-tG4" eventType="touchUpInside" id="WZ3-bT-gBX"/>
-                                    <segue destination="VDP-45-lCm" kind="custom" identifier="pickUsername" id="SUI-Oa-RVs"/>
+                                    <segue destination="VDP-45-lCm" kind="show" identifier="pickUsername" action="showDetailViewController:sender:" id="SUI-Oa-RVs"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kd0-sP-YCe" customClass="kaputField" customModule="kaput" customModuleProvider="target">
@@ -1268,10 +1268,8 @@ PICK YOUR USERNAME</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4zB-dw-8Kx"/>
-        <segue reference="gPn-Xk-fUh"/>
-        <segue reference="bOw-6v-Zoa"/>
+        <segue reference="CrZ-9U-CV8"/>
         <segue reference="SUI-Oa-RVs"/>
-        <segue reference="1id-Qr-VbS"/>
-        <segue reference="4zB-dw-8Kx"/>
+        <segue reference="3Z2-sQ-5eE"/>
     </inferredMetricsTieBreakers>
 </document>

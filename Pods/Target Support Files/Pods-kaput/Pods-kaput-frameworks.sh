@@ -87,11 +87,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-kaput/Bolts.framework"
   install_framework "Pods-kaput/FBSDKCoreKit.framework"
   install_framework "Pods-kaput/FBSDKLoginKit.framework"
+  install_framework "Pods-kaput/FBSDKShareKit.framework"
   install_framework "Pods-kaput/MGSwipeTableCell.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-kaput/Bolts.framework"
   install_framework "Pods-kaput/FBSDKCoreKit.framework"
   install_framework "Pods-kaput/FBSDKLoginKit.framework"
+  install_framework "Pods-kaput/FBSDKShareKit.framework"
   install_framework "Pods-kaput/MGSwipeTableCell.framework"
 fi
