@@ -273,6 +273,7 @@ struct FirebaseDataService {
         
     }
 
+    
     static func updateUsername(oldUsername: String, newUsername:String){
         
     // update my username

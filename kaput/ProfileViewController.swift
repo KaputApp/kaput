@@ -21,6 +21,8 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
     @IBOutlet var boltImageView: UIImageView!
     @IBOutlet var myNameLabel: SpringLabel!
     @IBOutlet var kaputSent: SpringLabel!
+    @IBOutlet var myBatteryLevel: UILabel!
+
     
     @IBAction func inviteFriend(sender: AnyObject) {
         if reachable == true {
@@ -102,7 +104,6 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
     }
 
 
-
     @IBOutlet var avatarImageView: UIImageView!
 
     override func viewDidLoad() {
@@ -122,7 +123,12 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
         self.avatarImageView.layer.borderWidth = 5;
         self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor;
+        
+        self.myBatteryLevel.text = String(batteryLevel) + " %"
+        
+        self.kaputSent.text = "3"
 
+        batLenght = CGFloat(batteryLevel)
     }
 
 
