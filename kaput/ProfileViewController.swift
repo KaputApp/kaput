@@ -15,16 +15,12 @@ import FBSDKCoreKit
 import FBSDKShareKit
 import MessageUI
 
-extension  FBSDKAppInviteDialogDelegate{
-    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
-        //TODO
-    }
-    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
-        //TODO
-    }
-}
 
-class ProfileViewController: UIViewController, MFMessageComposeViewControllerDelegate, UIScrollViewDelegate {
+
+
+
+
+class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFMessageComposeViewControllerDelegate, UIScrollViewDelegate {
  
     
 
@@ -35,6 +31,8 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
     @IBOutlet var kaputSent: SpringLabel!
     
     @IBAction func inviteFriend(sender: AnyObject) {
+        
+        
         if reachable == true {
 
             
@@ -64,6 +62,13 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
             let facebookAction = UIAlertAction(title: "FACEBOOK", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
                 
+                let content: FBSDKAppInviteContent = FBSDKAppInviteContent()
+                content.appLinkURL = NSURL(string: "https://fb.me/1243777468988577")!
+                //optionally set previewImageURL
+                content.appInvitePreviewImageURL = NSURL(string: "https://lh4.googleusercontent.com/4mKKCWymaRzOW6TNwipzXWokqcVpmDTMtJ3tUSaCCIffVkmceJy5Qk5Usd246ePoiSC9sMhmXug2wO4=w1280-h701-rw")
+                // Present the dialog. Assumes self is a view controller
+                // which implements the protocol `FBSDKAppInviteDialogDelegate`.
+                FBSDKAppInviteDialog.showFromViewController(self, withContent: content, delegate: self)
             })
             
             //
@@ -88,6 +93,15 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
     
 
     }
+    
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        //TODO
+    }
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
+        //TODO
+    }
+
+    
     @IBAction func LogOut(sender: AnyObject) {
     
         let optionMenu = UIAlertController(title: nil, message: "Are you sure ?", preferredStyle: .ActionSheet)
@@ -170,6 +184,8 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
 
         }
     }
+    
+
     
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult){
         
