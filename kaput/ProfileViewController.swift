@@ -11,10 +11,22 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 import FBSDKLoginKit
+import FBSDKCoreKit
+import FBSDKShareKit
 import MessageUI
 
+extension  FBSDKAppInviteDialogDelegate{
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        //TODO
+    }
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
+        //TODO
+    }
+}
 
 class ProfileViewController: UIViewController, MFMessageComposeViewControllerDelegate, UIScrollViewDelegate {
+ 
+    
 
     @IBOutlet var backButton: downButton!
     @IBOutlet var scrollView: UIScrollView!
@@ -53,7 +65,6 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
             
             let facebookAction = UIAlertAction(title: "FACEBOOK", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
-                
                 
             })
             
