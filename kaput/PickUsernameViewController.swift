@@ -44,8 +44,8 @@ class PickUsernameViewController: UIViewController {
             self.saveChangeButton.animate()
             
         }
-        else if username.characters.count<5 {
-            Errors.errorMessage("5 CHAR MIN",field: self.usernameField)
+        else if username.characters.count<4 {
+            Errors.errorMessage("4 CHAR MIN",field: self.usernameField)
             error = true
             self.saveChangeButton.animate()
 

@@ -121,21 +121,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         // verify signup information
         
         var error = false
-        
-        
+                
         if username == "" {
             Errors.errorMessage("REQUIRED",field: self.usernameField)
             error = true
 
         }
-          else if username?.characters.count<5 {
-            Errors.errorMessage("5 CHAR MIN",field: self.usernameField)
+          else if username?.characters.count<4 {
+            Errors.errorMessage("4 CHAR MIN",field: self.usernameField)
             error = true
         }
         else if username?.rangeOfCharacterFromSet(letters.invertedSet) != nil {
             Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.usernameField)
             error = true
-            }
+        } 
             
         if email == "" {
             Errors.errorMessage("REQUIRED",field: self.emailField)
