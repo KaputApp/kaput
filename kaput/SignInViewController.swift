@@ -15,6 +15,7 @@ import FBSDKLoginKit
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
     
+    let letters = NSCharacterSet.letterCharacterSet()
 
     @IBAction func loginFB(sender: AnyObject) {
         
@@ -156,8 +157,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         if password == "" {
             Errors.errorMessage("REQUIRED",field: self.passwordField)
             error = true
+        } else if password!.rangeOfCharacterFromSet(letters.invertedSet) != nil {
+            Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.passwordField)
+            error = true
+            }
             
-        }else if password?.characters.count<4{
+        else if password?.characters.count<4{
             Errors.errorMessage("4 CHAR MIN",field: self.passwordField)
             error = true
             

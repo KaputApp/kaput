@@ -14,7 +14,7 @@ import FBSDKLoginKit
 
 let ref = FIRDatabase.database().reference()
 var userID = String(FIRAuth.auth()!.currentUser!.uid)
-
+let letters = NSCharacterSet.letterCharacterSet()
 
 //n'a rien n'a foutre la.
 class User: NSObject {
@@ -132,6 +132,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             Errors.errorMessage("5 CHAR MIN",field: self.usernameField)
             error = true
         }
+        else if username?.rangeOfCharacterFromSet(letters.invertedSet) != nil {
+            Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.usernameField)
+            error = true
+            }
+            
         if email == "" {
             Errors.errorMessage("REQUIRED",field: self.emailField)
             error = true

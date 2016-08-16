@@ -160,6 +160,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             error = true
             
         }
+        else if username?.rangeOfCharacterFromSet(letters.invertedSet) != nil {
+            Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.usernameField)
+            error = true
+            
+        }
         else if username?.characters.count<4 {
             Errors.errorMessage("4 CHAR MIN",field: self.usernameField)
             error = true
