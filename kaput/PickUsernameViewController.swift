@@ -38,6 +38,13 @@ class PickUsernameViewController: UIViewController {
         
         var error = false
         
+        ref.child("Users").queryOrderedByChild("name").queryEqualToValue(username).observeEventType(.Value, withBlock: { snapshot in
+            if snapshot.exists() == true {
+                
+                Errors.errorMessage("ALREADY TAKEN",field: self.usernameField)
+                
+            } else
+        
         if username == "" {
             Errors.errorMessage("REQUIRED",field: self.usernameField)
             error = true
@@ -57,7 +64,13 @@ class PickUsernameViewController: UIViewController {
             self.performSegueWithIdentifier("toFriendList", sender: self)
 
             
-        }
+            }
+            }, withCancelBlock: { error in
+                
+                print(error.localizedDescription)
+                
+            })
+            
         
     }
 

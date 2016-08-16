@@ -62,7 +62,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                                 } else {
                                     //Si non, créer l'user et on passe l'étape
                                     self.performSegueWithIdentifier("pickUsernameSegue", sender: self)
-                                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "")
+                                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "", kaputSent: 0)
                                     FirebaseDataService.getAvatarFromFB({(image) in
                                         FirebaseDataService.storeAvatarInFirebase(image)
                                     })
@@ -102,14 +102,73 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         ref.child("Users").queryOrderedByChild("name").queryEqualToValue(username).observeEventType(.Value, withBlock: { snapshot in
             if snapshot.exists() == true {
                 
-                 self.errorAlert("Opps!", message: "username elready taken!")
+                Errors.errorMessage("ALREADY TAKEN",field: self.usernameField)
+                
                 
             } else {
                 
-                 self.errorAlert("Great", message: "username is free")
-        }
-            
-            
+                var error = false
+                
+                if username == "" {
+                    Errors.errorMessage("REQUIRED",field: self.usernameField)
+                    error = true
+                    
+                }
+                else if username?.characters.count<4 {
+                    Errors.errorMessage("4 CHAR MIN",field: self.usernameField)
+                    error = true
+                }
+                else if username?.rangeOfCharacterFromSet(letters.invertedSet) != nil {
+                    Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.usernameField)
+                    error = true
+                }
+                
+                if email == "" {
+                    Errors.errorMessage("REQUIRED",field: self.emailField)
+                    error = true
+                    
+                    
+                }else if Errors.validateEmail(email!) == false {
+                    Errors.errorMessage("INVALID MAIL",field: self.emailField)
+                    error = true
+                    
+                }
+                if password == "" {
+                    Errors.errorMessage("REQUIRED",field: self.passwordField)
+                    error = true
+                    
+                }else if password?.characters.count<4{
+                    Errors.errorMessage("4 CHAR MIN",field: self.passwordField)
+                    error = true
+                    
+                }
+                
+                
+                if !error{
+                    // set spinner
+                    
+                    self.signUpButton.titleLabel?.text = ""
+                    let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.size.width/2-40,self.signUpButton.frame.origin.y,80,80))as UIActivityIndicatorView
+                    self.view.addSubview(spinner)
+                    spinner.startAnimating()
+                    
+                    FIRAuth.auth()?.createUserWithEmail(email!, password: password!){(user,error) in
+                        spinner.stopAnimating()
+                        if let error = error{
+                            self.errorAlert("Opps!", message:"\(error.localizedDescription)")
+                        }else{
+                            
+                            userID = String(FIRAuth.auth()!.currentUser!.uid)
+                            print("user created")
+                            print(email!)
+                            FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: username!, kaputSent: 0)
+                            self.performSegueWithIdentifier("toFriendList", sender: self)
+                
+                        }
+                        
+                    }
+
+                }}
             
             }, withCancelBlock: { error in
                 
@@ -117,81 +176,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 
         })
        
-        
-        // verify signup information
-        
-        var error = false
-                
-        if username == "" {
-            Errors.errorMessage("REQUIRED",field: self.usernameField)
-            error = true
-
-        }
-          else if username?.characters.count<4 {
-            Errors.errorMessage("4 CHAR MIN",field: self.usernameField)
-            error = true
-        }
-        else if username?.rangeOfCharacterFromSet(letters.invertedSet) != nil {
-            Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.usernameField)
-            error = true
-        } 
-            
-        if email == "" {
-            Errors.errorMessage("REQUIRED",field: self.emailField)
-            error = true
-
-
-        }else if Errors.validateEmail(email!) == false {
-            Errors.errorMessage("INVALID MAIL",field: self.emailField)
-            error = true
-
-        }
-        if password == "" {
-            Errors.errorMessage("REQUIRED",field: self.passwordField)
-            error = true
-
-        }else if password?.characters.count<4{
-            Errors.errorMessage("4 CHAR MIN",field: self.passwordField)
-            error = true
-
-        }
-        
-        
-        if !error{
-            // set spinner
-
-            signUpButton.titleLabel?.text = ""
-            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.size.width/2-40,signUpButton.frame.origin.y,80,80))as UIActivityIndicatorView
-            self.view.addSubview(spinner)
-            spinner.startAnimating()
-            
-            FIRAuth.auth()?.createUserWithEmail(email!, password: password!){(user,error) in
-                spinner.stopAnimating()
-                if let error = error{
-                    self.errorAlert("Opps!", message:"\(error.localizedDescription)")
-                }else{
-        
-                    userID = String(FIRAuth.auth()!.currentUser!.uid)
-                    print("user created")
-                    print(email!)
-                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: username!)
-                    self.performSegueWithIdentifier("toFriendList", sender: self)
-
-
-
-                }
+            } else {
+                notification.notificationLabelBackgroundColor = KaputStyle.lowRed
+                notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
                 
             }
-            
-        }
+            }
     
-        } else {
-            notification.notificationLabelBackgroundColor = KaputStyle.lowRed
-            notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
-            
-        }
     
-    }
     
     
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -154,7 +154,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         var error = false
         
-        
+            FirebaseDataService.getUidWithUsername(username!,response: {(uid,exists)->() in
+
+     
         if username == "" {
             Errors.errorMessage("REQUIRED",field: self.usernameField)
             error = true
@@ -169,6 +171,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             Errors.errorMessage("4 CHAR MIN",field: self.usernameField)
             error = true
         }
+        else if exists && username != ""{
+            Errors.errorMessage("ALREADY TAKEN",field: self.usernameField)
+            error = true}
         
         if !error{
             print("you can change")
@@ -183,20 +188,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 self.saveChangesButton.titleLabel?.text = "SAVE CHANGES"
                 self.saveChangesButton.backgroundColor = Colors.init().primaryColor
             }
-            
-
-            
-            
-            
-        }
-        
-        } else {
+                }
+            })
+        }else {
             notification.notificationLabelBackgroundColor = KaputStyle.lowRed
             notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
             
         }
     }
-    
+        
     
     
     func textFieldDidBeginEditing(textField: UITextField) {

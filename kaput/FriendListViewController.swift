@@ -258,9 +258,7 @@ override func didReceiveMemoryWarning() {
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         
         if reachable {
-        
-        
-        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+               ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             let myName = snapshot.value?["name"] as? String
            let inputsOutputs = [
                 "levelBattery" : String(batLevel.init().levelBat),
@@ -270,10 +268,11 @@ override func didReceiveMemoryWarning() {
                 "sent_to" :  String(name!)
             ]
         
+                
         FirebaseDataService.getUidWithUsername(name!,response: {(uid,exists)->() in
             
        ref.child("Users").child(uid).child("kaput").childByAutoId().setValue(inputsOutputs as [NSObject : AnyObject])
-
+            
             })
 
       })
@@ -305,6 +304,7 @@ override func didReceiveMemoryWarning() {
         })
         
         FirebaseDataService.sendMessageToName(name!)
+            
 
     }
     else {

@@ -48,7 +48,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                                 } else {
                                     //Si non, créer l'user et on passe l'étape
                                     self.performSegueWithIdentifier("pickUsername", sender: self)
-                                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "")
+                                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "", kaputSent: 0)
                                     FirebaseDataService.getAvatarFromFB({(image) in
                                         FirebaseDataService.storeAvatarInFirebase(image)
                                     })

@@ -4,7 +4,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'kaput' do
-#pod 'Firebase'
+pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'

@@ -53,7 +53,7 @@ class ViewController: UIappViewController {
                             } else {
                         //Si non, créer l'user et on passe l'étape
                             self.performSegueWithIdentifier("pickUsernameSegue", sender: self)
-                                FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "")
+                                FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "", kaputSent: 0)
                                 FirebaseDataService.getAvatarFromFB({(image) in
                                 FirebaseDataService.storeAvatarInFirebase(image)
                                 })

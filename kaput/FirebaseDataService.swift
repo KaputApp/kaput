@@ -14,7 +14,7 @@ import FirebaseInstanceID
 import FirebaseStorage
 import FBSDKLoginKit
 
-
+var kaputSent = Int(0)
 
 var hasFriend = Bool()
 struct FirebaseDataService {
@@ -71,9 +71,10 @@ struct FirebaseDataService {
     }
     
     
-    static func createUserData(uid: String, bat: String, username: String) {
+    static func createUserData(uid: String, bat: String, username: String, kaputSent: Int) {
     let user = ResourcePath.User(uid: uid).description
-    ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"","instanceID": FIRInstanceID.instanceID().token()!])
+        
+    ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"", "kaputSent": 0 ,"instanceID": FIRInstanceID.instanceID().token()!])
         
             storeAvatarInFirebase(UIImage(named:"AvatarBlue.jpg")!)
        
