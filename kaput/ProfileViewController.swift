@@ -57,6 +57,13 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
             })
             let whatsappAction = UIAlertAction(title: "WHATSAPP", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
+                
+                var urlString = "Hey, I have \(batteryLevel)% of battery, what about you?"
+                var urlStringEncoded = urlString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+                var url  = NSURL(string: "whatsapp://send?text=\(urlStringEncoded!)")
+                if UIApplication.sharedApplication().canOpenURL(url!) {
+                    UIApplication.sharedApplication().openURL(url!)
+                }
 
                 
             })
