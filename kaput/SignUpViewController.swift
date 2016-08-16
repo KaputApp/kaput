@@ -14,7 +14,7 @@ import FBSDKLoginKit
 
 let ref = FIRDatabase.database().reference()
 var userID = String(FIRAuth.auth()!.currentUser!.uid)
-let letters = NSCharacterSet.letterCharacterSet()
+
 
 //n'a rien n'a foutre la.
 class User: NSObject {

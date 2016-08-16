@@ -14,8 +14,7 @@ import FBSDKLoginKit
 
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
-    
-    let letters = NSCharacterSet.letterCharacterSet()
+
 
     @IBAction func loginFB(sender: AnyObject) {
         

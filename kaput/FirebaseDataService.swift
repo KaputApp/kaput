@@ -14,6 +14,9 @@ import FirebaseInstanceID
 import FirebaseStorage
 import FBSDKLoginKit
 
+
+let letters = NSCharacterSet.alphanumericCharacterSet()
+
 var kaputSent = Int(0)
 
 var hasFriend = Bool()
