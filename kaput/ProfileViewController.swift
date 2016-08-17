@@ -139,10 +139,20 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
     @IBOutlet var avatarImageView: UIImageView!
 
     override func viewDidLoad() {
+
         
+        ref.child("Users").child(userID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            let kaputSentView = snapshot.value!["kaputSent"] as! Int
+            self.kaputSent.text = String(kaputSentView)
+            print(kaputSentView)
+            }
+            )
+        
+
         
         super.viewDidLoad()
         
+
         
         boltImageView.image = KaputStyle.imageOfBolt
         scrollView.delegate = self
@@ -158,7 +168,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
         
         self.myBatteryLevel.text = String(batteryLevel) + " %"
         
-        self.kaputSent.text = "3"
+        //self.kaputSent.text = "3"
 
         batLenght = CGFloat(batteryLevel)
     }

@@ -17,7 +17,7 @@ import FBSDKLoginKit
 
 let letters = NSCharacterSet.alphanumericCharacterSet()
 
-var kaputSent = Int(0)
+var kaputSent = Int()
 
 var hasFriend = Bool()
 struct FirebaseDataService {
@@ -173,6 +173,8 @@ struct FirebaseDataService {
         }
     
     }
+    
+
     
     static func storeAvatarInFirebase(image: UIImage){
     

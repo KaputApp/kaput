@@ -37,8 +37,7 @@ override func viewDidLoad() {
         myUsername = name
     })
     
-    
-    
+
     FirebaseDataService.getAvatarFromFirebase({(image) in
         myAvatar = image
     })
@@ -304,8 +303,15 @@ override func didReceiveMemoryWarning() {
         })
         
         FirebaseDataService.sendMessageToName(name!)
+//            kaputSent = kaputSent + 1
+//            ref.child("Users").child(userID).child("kaputSent").setValue(kaputSent)
             
-
+            ref.child("Users").child(userID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                let kaputSentOld = snapshot.value!["kaputSent"] as! Int
+                let kaputSentNew = kaputSentOld + 1
+            
+            ref.child("Users").child(userID).child("kaputSent").setValue(kaputSentNew)
+          })  
     }
     else {
             notification.notificationLabelBackgroundColor = KaputStyle.lowRed
