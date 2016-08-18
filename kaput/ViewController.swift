@@ -85,7 +85,7 @@ class ViewController: UIappViewController {
     
     {
         // setting the height of the bar with a constraint.
-        //try! FIRAuth.auth()!.signOut()
+        
 
         
         batLevel.init()
