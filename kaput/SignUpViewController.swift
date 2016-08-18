@@ -2,7 +2,7 @@
 //  SignUpViewController.swift
 //  kaput
 //
-//  Created by Jeremy OUANOUNOU on 01/06/2016.
+//  Created by OPE50 Team on 01/06/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
 //
 
@@ -159,8 +159,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                         }else{
                             
                             userID = String(FIRAuth.auth()!.currentUser!.uid)
-                            print("user created")
-                            print(email!)
+                           
+                            
                             FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: username!, kaputSent: 0)
                             self.performSegueWithIdentifier("toFriendList", sender: self)
                 

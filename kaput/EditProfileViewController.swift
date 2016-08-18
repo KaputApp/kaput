@@ -2,7 +2,7 @@
 //  EditProfileViewController.swift
 //  
 //
-//  Created by Jeremy OUANOUNOU on 22/07/2016.
+//  Created by OPE50 Team on 22/07/2016.
 //
 //
 

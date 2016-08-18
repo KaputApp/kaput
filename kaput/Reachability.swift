@@ -2,7 +2,7 @@
 //  Reachability.swift
 //  kaput
 //
-//  Created by Noémie Rebibo on 06/08/2016.
+//  Created by OPE50 Team on 06/08/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
 //
 

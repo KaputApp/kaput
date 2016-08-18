@@ -2,10 +2,7 @@
 //  UIappViewController.swift
 //  ReachOut
 //
-//  Created by FTS-MAC-017 on 07/01/16.
-//  Copyright © 2016 Fingent Technology Solutions. All rights reserved.
-//
-
+//  Created by OPE50 Team on 07/01/16.
 import UIKit
 
 var manager:AppManager = AppManager.sharedInstance
@@ -23,12 +20,12 @@ class UIappViewController: UIViewController,AppManagerDelegate {
 	}
 	func reachabilityStatusChangeHandler(reachability: Reachability) {
      		if reachability.isReachable() {
-			print("isReachable")
+			
                 notification.dismissNotification()
                 reachable = true
 
 		} else {
-			print("notReachable")
+			
             reachable = false
 
 

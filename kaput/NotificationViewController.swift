@@ -2,7 +2,7 @@
 //  NotificationViewController.swift
 //  kaput
 //
-//  Created by Jeremy OUANOUNOU on 09/06/2016.
+//  Created by OPE50 Team on 09/06/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
 //
 
@@ -131,9 +131,9 @@ class NotificationViewController: UIViewController {
             ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).queryLimitedToFirst(1).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
                 let keyDict = snapshot.value as! [String : AnyObject]
-                print("lol")
+                
                 let key = keyDict.keys.first!
-                print(key)
+               
                 ref.child("Users").child(self.userID!).child("kaput").child(key).updateChildValues(["read":true])
               
                 UIApplication.sharedApplication().applicationIconBadgeNumber = self.kaputCounter

@@ -1,7 +1,7 @@
 //  AppDelegate.swift
 //  kaput
 //
-//  Created by Noémie Rebibo on 26/05/2016.
+//  Created by OPE50 Team on 26/05/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
 //
 
@@ -47,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     if ((FIRAuth.auth()!.currentUser) != nil){
     userID = String(FIRAuth.auth()!.currentUser!.uid)
-        print("this is my provider id \(FIRAuth.auth()!.currentUser?.providerID)")
         
     // Ici je fais le test sur firebase. Hors ca prend trop de temps, ce serait 100x meilleur de le faire en local.
 
@@ -76,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        print("Failed to register:", error)
+        
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
@@ -95,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Tricky line
         FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
 
-        print("Device Token:", tokenString)
+        
     }
     
     
@@ -108,7 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         // Print full message.
-        print("%@", userInfo)
+        
         FIRMessaging.messaging().appDidReceiveMessage(userInfo)
     
 

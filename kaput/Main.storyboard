@@ -502,7 +502,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Ckr-dv-9SW" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Ckr-dv-9SW" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMZ-Ge-UiT" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
@@ -1307,9 +1307,9 @@ PICK YOUR USERNAME</string>
         <image name="LaunchScreenImage" width="89" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="CrZ-9U-CV8"/>
+        <segue reference="XYH-wB-Qeb"/>
+        <segue reference="G4B-m6-b4R"/>
         <segue reference="4zB-dw-8Kx"/>
-        <segue reference="gPn-Xk-fUh"/>
-        <segue reference="bOw-6v-Zoa"/>
-        <segue reference="wCw-na-iLd"/>
     </inferredMetricsTieBreakers>
 </document>

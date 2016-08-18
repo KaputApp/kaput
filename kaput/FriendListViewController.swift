@@ -2,7 +2,7 @@
 //  FriendListViewController.swift
 //  kaput
 //
-//  Created by Jeremy OUANOUNOU on 09/06/2016.
+//  Created by OPE50 Team on 09/06/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
 //
 
@@ -111,7 +111,7 @@ override func didReceiveMemoryWarning() {
             FirebaseDataService.removeFriend(name!)
                 FirebaseDataService.getUidWithUsername(name!,response: {(uid,exists)->() in
 //                    let myName = [myUsername:true] as [String:Bool]
-                    print(uid)
+                   
                     ref.child("Users").child(uid).child("friends").child(myUsername).removeValue()
                 })
             return true
@@ -183,7 +183,7 @@ override func didReceiveMemoryWarning() {
         // center the image
         self.boltImageView.center = self.boltView.center
         
-        print(boltImageView.center)
+        
 
         
         // Hide the original spinner icon
@@ -297,7 +297,7 @@ override func didReceiveMemoryWarning() {
 
         FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
             self.kaputCount = Int(kaputCount)
-            print(self.kaputCount)
+            
             self.kaputCounter.setTitle(String(self.kaputCount),forState: UIControlState.Normal)
             
             if self.kaputCount == 1 {

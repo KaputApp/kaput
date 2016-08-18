@@ -109,7 +109,7 @@ struct FirebaseDataService {
                     batLevel = snapshot.value! as! Int
                     response(batLevel : batLevel)
              })
-            } else { print("COULDNT FETCH BATLEVEL - USERDOENSTEXIST")}
+            } else { }
          })
         
         
@@ -121,7 +121,7 @@ struct FirebaseDataService {
         var uid = String()
         var exists = Bool()
         ref.child(users).queryOrderedByChild("name").queryEqualToValue(name).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
-          print("snap = \(snapshot)")
+         
             if snapshot.hasChildren(){
                 for child in snapshot.children {
                     uid = child.key!
@@ -208,7 +208,7 @@ struct FirebaseDataService {
         pictureRequest.startWithCompletionHandler({
             (connection, result, error: NSError!) -> Void in
             if error == nil {
-                print("\(result)")
+                
                 let dictionary = result as? NSDictionary
                 let data = dictionary?.objectForKey("data")
                 let urlPic = (data?.objectForKey("url"))! as! String
@@ -289,7 +289,7 @@ struct FirebaseDataService {
 
     // update my username in friends list
      let users = ResourcePath.Users.description
-       print( ref.child(users).queryOrderedByChild("friends/\(oldUsername)").queryEqualToValue(true).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+       ref.child(users).queryOrderedByChild("friends/\(oldUsername)").queryEqualToValue(true).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
         
         for child in snapshot.children {
             let inputsOutputs = [newUsername:true] as [String:Bool]
@@ -298,7 +298,7 @@ struct FirebaseDataService {
             
         }
         
-        }))
+        })
     }
     
     static func sendMessageToName(name:String){

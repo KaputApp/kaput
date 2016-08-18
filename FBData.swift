@@ -2,7 +2,7 @@
 //  FBData.swift
 //  
 //
-//  Created by Jeremy OUANOUNOU on 10/06/2016.
+//  Created by OPE50 Team on 10/06/2016.
 //
 //
 

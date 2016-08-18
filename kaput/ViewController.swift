@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  kaput
 //
-//  Created by Noémie Rebibo on 26/05/2016.
+//  Created by OPE50 Team on 26/05/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
 //
 

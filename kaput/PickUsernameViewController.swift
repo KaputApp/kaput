@@ -2,7 +2,7 @@
 //  PickUsernameViewController.swift
 //  
 //
-//  Created by Jeremy OUANOUNOU on 04/08/2016.
+//  Created by OPE50 Team on 04/08/2016.
 //
 //
 

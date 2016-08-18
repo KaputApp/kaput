@@ -2,7 +2,7 @@
 //  ProfileViewController.swift
 //  kaput
 //
-//  Created by Jeremy OUANOUNOU on 15/07/2016.
+//  Created by OPE50 Team on 15/07/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
 //
 
@@ -144,7 +144,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
         ref.child("Users").child(userID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             let kaputSentView = snapshot.value!["kaputSent"] as! Int
             self.kaputSent.text = String(kaputSentView)
-            print(kaputSentView)
+           
             }
             )
         
@@ -192,7 +192,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
         self.backButton.transform = CGAffineTransformIdentity
         let angle = CGFloat(M_PI)*scrollView.contentOffset.y/60
         self.backButton.transform = CGAffineTransformRotate(self.backButton.transform, angle)
-        print(angle)
+       
 
         }
         
