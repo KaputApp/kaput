@@ -22,11 +22,17 @@ class AddFriendViewController: UIViewController {
 
         
     let name = friendNameField.text!
+            
     FirebaseDataService.getUidWithUsername(name,response: {(uid,exists)->() in
         
         if exists && name != ""{
         let inputsOutputs = [name:true] as [String:Bool]
+            let myName = [myUsername:true] as [String:Bool]
         ref.child("Users").child(userID).child("friends").updateChildValues(inputsOutputs)
+        
+            FirebaseDataService.sendFriendRequestToName(name)
+            
+        ref.child("Users").child(uid).child("friends").updateChildValues(myName)
         self.addFriendButton.titleLabel?.text = "\(name) WAS ADDED"
         self.addFriendButton.backgroundColor = KaputStyle.fullGreen
         

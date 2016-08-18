@@ -57,6 +57,10 @@ class PickUsernameViewController: UIViewController {
             self.saveChangeButton.animate()
 
         }
+           else if username.rangeOfCharacterFromSet(letters.invertedSet) != nil {
+                Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.usernameField)
+                error = true
+            }
 
         if !error{
         

@@ -101,6 +101,7 @@ override func didReceiveMemoryWarning() {
     }
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)  as! MGSwipeTableCell
         if hasFriend {
             cell.rightButtons = [MGSwipeButton(title: "", icon: KaputStyle.imageOfTrashCan,backgroundColor: KaputStyle.lowRed,padding:30,callback: {
@@ -108,7 +109,11 @@ override func didReceiveMemoryWarning() {
 
             let name = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
             FirebaseDataService.removeFriend(name!)
-            
+                FirebaseDataService.getUidWithUsername(name!,response: {(uid,exists)->() in
+//                    let myName = [myUsername:true] as [String:Bool]
+                    print(uid)
+                    ref.child("Users").child(uid).child("friends").child(myUsername).removeValue()
+                })
             return true
        
         })]

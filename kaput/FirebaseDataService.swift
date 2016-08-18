@@ -45,6 +45,7 @@ struct FirebaseDataService {
     
     static func removeFriend( friend: String){
         ref.child("Users").child(userID).child("friends").child(friend).removeValue()
+        
     }
 
     static func getFriendList(uid: String, response: (friendList : NSDictionary) -> ()) {
@@ -308,10 +309,67 @@ struct FirebaseDataService {
     })
     }
     
-    static func sendMessage(instanceID: String,uid: String){
-      
-        
+    static func sendFriendRequestToName(name: String){
+        getUidWithUsername(name,response: {(uid,exists)->() in
+            getInstanceIDwithuid(uid,response: { (instanceID) -> () in
+                sendFriendrequest(instanceID,uid: uid)
+            })
+        })
+    }
     
+    
+    static func sendFriendrequest(instanceID: String,uid: String){
+        
+        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            getSingleKaputList(uid,response: { (kaputCount) -> () in
+                
+                let myName = snapshot.value?["name"] as? String
+                let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
+                let postParams: [String : AnyObject] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has added you!", "title": "You have a new Kaput Friend","badge" : "\(kaputCount)"]]
+                
+                
+                
+                let request = NSMutableURLRequest(URL: url!)
+                request.HTTPMethod = "POST"
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue("key=AIzaSyAxHVl_jj4oyZrLw0aozMyk3b_msOvApSQ", forHTTPHeaderField: "Authorization")
+                
+                do
+                {
+                    request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions())
+                    print("My paramaters: \(postParams)")
+                }
+                catch
+                {
+                    print("Caught an error: \(error)")
+                }
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+                    
+                    if let realResponse = response as? NSHTTPURLResponse
+                    {
+                        if realResponse.statusCode != 200
+                        {
+                            print("Not a 200 response")
+                        }
+                    }
+                    
+                    if let postString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String
+                    {
+                        print("POST: \(postString)")
+                    }
+                }
+                
+                task.resume()
+            })
+        })
+        
+    }
+
+    
+    
+    static func sendMessage(instanceID: String,uid: String){
+
        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
         getSingleKaputList(uid,response: { (kaputCount) -> () in
             
