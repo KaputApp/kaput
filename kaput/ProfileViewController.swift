@@ -18,8 +18,6 @@ import FirebaseInstanceID
 
 
 
-
-
 class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIScrollViewDelegate {
  
     
@@ -43,34 +41,31 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
   
         }
     
+    
+    
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
 
 
-    
     @IBAction func inviteFriend(sender: AnyObject) {
-        
+
         
         if reachable == true {
             
 
-            
-            
             let optionMenu = UIAlertController(title: nil, message: "INVITE FRIENDS", preferredStyle: .ActionSheet)
             
-            // 2
             let smsAction = UIAlertAction(title: "SMS", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
-              //  UIApplication.sharedApplication().openURL(NSURL(string: "sms:")!)
+             
                 let messageVC = MFMessageComposeViewController()
                 
                 messageVC.body = "Hey, I have \(batteryLevel)% of battery, what about you?"
                 messageVC.messageComposeDelegate = self
          
-                
-                
+
                 self.presentViewController(messageVC, animated: true, completion: nil)
                 
             })
@@ -168,13 +163,11 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
            
             }
             )
-        
 
         
         super.viewDidLoad()
         
 
-        
         boltImageView.image = KaputStyle.imageOfBolt
         scrollView.delegate = self
 
@@ -228,13 +221,12 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
 
         }
     }
-    
 
     
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult){
         
         switch (result) {
-            
+        
         case MessageComposeResultCancelled:
             break
             

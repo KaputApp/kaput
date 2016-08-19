@@ -209,9 +209,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    
+
     // setup alert
     func errorAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
@@ -245,11 +243,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             Errors.clearErrors(emailField)
         default: break
         }
-        
-        
+ 
     }
-    
-    
-
-
 }

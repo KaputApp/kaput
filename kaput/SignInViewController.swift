@@ -167,8 +167,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             
         }
 
-        
-        
         if !error {
         
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0,80,80)) as UIActivityIndicatorView
@@ -200,9 +198,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         passwordField.delegate = self
         
         view.backgroundColor = Colors.init().bgColor
-        
-
-
         // Do any additional setup after loading the view.
     }
 

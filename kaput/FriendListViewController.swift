@@ -41,9 +41,7 @@ override func viewDidLoad() {
     FirebaseDataService.getAvatarFromFirebase({(image) in
         myAvatar = image
     })
-    
-    
-    
+
     ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
 
     FirebaseDataService.getFriendList(userID,response: { (friendList) -> () in
@@ -53,15 +51,11 @@ override func viewDidLoad() {
         self.friendShown = [Bool](count: self.data.count, repeatedValue: false)
         
         self.friendsTableView.reloadData()
-    
+
 
     })
-    
-    
+
     FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
-        
-        
-        
         self.kaputCount = Int(kaputCount)
         UIApplication.sharedApplication().applicationIconBadgeNumber = self.kaputCount
 
@@ -158,10 +152,6 @@ override func didReceiveMemoryWarning() {
             }
             friendShown[indexPath.row] = true
         }
-            
-        
-
-
     }
     
     // BOLT VIEW
