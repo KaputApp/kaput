@@ -39,11 +39,12 @@ class AddFriendViewController: UIViewController {
         delay(1.5) {
         self.addFriendButton.titleLabel?.text = "HERE WE GO!"
         self.addFriendButton.backgroundColor = Colors.init().primaryColor
+            self.friendNameField.text = nil
         }
         
     } else {
         
-        Errors.errorMessage("YOU SURE ?",field: self.friendNameField)
+        Errors.errorMessage("DOESN'T EXIST",field: self.friendNameField)
         self.addFriendButton.animation = "shake"
         self.addFriendButton.animate()  
         

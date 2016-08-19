@@ -13,6 +13,7 @@ import Photos
 import Firebase
 import FirebaseAuth
 import FirebaseStorage
+import FBSDKLoginKit
 //FIXME: enlever Firebase FirebaseAuth et FirebaseStorage d'ici. Model View Controller
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate  {
@@ -38,6 +39,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet var pickAvatarButton: UIButton!
     @IBAction func pickAvatar(sender: UIButton) {
+        var typePic = 0 as Int
         
         if reachable == true {
         
@@ -61,7 +63,21 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             self.presentViewController(picker, animated: true, completion:nil)
 
         })
-        
+            
+            let fbAction = UIAlertAction(title: "Facebook Picture", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in
+               typePic = 0
+ 
+                FirebaseDataService.getAvatarFromFB({(image) in
+                    FirebaseDataService.storeAvatarInFirebase(image)
+                    let imageData = UIImageJPEGRepresentation(image, 0.8)
+                    let compressedImageFB = UIImage(data : imageData!)
+                    self.pickAvatarButton.setBackgroundImage(compressedImageFB, forState: UIControlState.Normal)
+                    myAvatar = compressedImageFB!
+                })
+                
+                
+            })
         //
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in
@@ -72,6 +88,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
         optionMenu.addAction(cameraAction)
         optionMenu.addAction(libraryAction)
+        optionMenu.addAction(fbAction)
         optionMenu.addAction(cancelAction)
         
 
@@ -118,7 +135,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             FirebaseDataService.storeAvatarInFirebase(compressedImage!)
             myAvatar  = compressedImage!
         
+        
                     self.pickAvatarButton.setBackgroundImage(myAvatar, forState: UIControlState.Normal)
+        
     }
     
     

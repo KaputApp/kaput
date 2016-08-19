@@ -20,7 +20,7 @@ import FirebaseInstanceID
 
 
 
-class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFMessageComposeViewControllerDelegate, UIScrollViewDelegate {
+class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIScrollViewDelegate {
  
     
 
@@ -31,11 +31,30 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
     @IBOutlet var kaputSent: SpringLabel!
     @IBOutlet var myBatteryLevel: UILabel!
 
+    @IBAction func sendFeedback(sender: AnyObject) {
+        
+
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["jeremouans@gmail.com"])
+            mail.setSubject("Kaput Feedback")
+            
+            presentViewController(mail, animated: true, completion: nil)
+  
+        }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+
+
     
     @IBAction func inviteFriend(sender: AnyObject) {
         
         
         if reachable == true {
+            
 
             
             
@@ -115,9 +134,11 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
     
         let optionMenu = UIAlertController(title: nil, message: "Are you sure ?", preferredStyle: .ActionSheet)
         
-        let cameraAction = UIAlertAction(title: "Log Out", style: .Default, handler: {
+        let logOutAction = UIAlertAction(title: "Log Out", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             try! FIRAuth.auth()!.signOut()
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut()
             self.performSegueWithIdentifier("logoutSegue", sender: self)
 
         })
@@ -127,7 +148,7 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
             
         })
 
-        optionMenu.addAction(cameraAction)
+        optionMenu.addAction(logOutAction)
         optionMenu.addAction(cancelAction)
         
         
