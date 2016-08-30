@@ -2,7 +2,7 @@
 //  KaputStyleFactory.swift
 //  
 //
-//  Created by Jeremy OUANOUNOU on 27/05/2016.
+//  Created by OPE50 Team on 27/05/2016.
 //
 //
 

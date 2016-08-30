@@ -2,7 +2,7 @@
 //  EditProfileViewController.swift
 //  
 //
-//  Created by Jeremy OUANOUNOU on 22/07/2016.
+//  Created by OPE50 Team on 22/07/2016.
 //
 //
 
@@ -13,6 +13,7 @@ import Photos
 import Firebase
 import FirebaseAuth
 import FirebaseStorage
+import FBSDKLoginKit
 //FIXME: enlever Firebase FirebaseAuth et FirebaseStorage d'ici. Model View Controller
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate  {
@@ -38,6 +39,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet var pickAvatarButton: UIButton!
     @IBAction func pickAvatar(sender: UIButton) {
+        var typePic = 0 as Int
         
         if reachable == true {
         
@@ -50,7 +52,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
         
         // 2
-        let cameraAction = UIAlertAction(title: "Camera Roll", style: .Default, handler: {
+        let cameraAction = UIAlertAction(title: "Camera", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             picker.sourceType = UIImagePickerControllerSourceType.Camera
             self.presentViewController(picker, animated: true, completion:nil)
@@ -61,7 +63,21 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             self.presentViewController(picker, animated: true, completion:nil)
 
         })
-        
+            
+            let fbAction = UIAlertAction(title: "Facebook Profile Picture", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in
+               typePic = 0
+ 
+                FirebaseDataService.getAvatarFromFB({(image) in
+                    FirebaseDataService.storeAvatarInFirebase(image)
+                    let imageData = UIImageJPEGRepresentation(image, 0.8)
+                    let compressedImageFB = UIImage(data : imageData!)
+                    self.pickAvatarButton.setBackgroundImage(compressedImageFB, forState: UIControlState.Normal)
+                    myAvatar = compressedImageFB!
+                })
+                
+                
+            })
         //
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in
@@ -72,6 +88,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
         optionMenu.addAction(cameraAction)
         optionMenu.addAction(libraryAction)
+        optionMenu.addAction(fbAction)
         optionMenu.addAction(cancelAction)
         
 
@@ -118,7 +135,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             FirebaseDataService.storeAvatarInFirebase(compressedImage!)
             myAvatar  = compressedImage!
         
+        
                     self.pickAvatarButton.setBackgroundImage(myAvatar, forState: UIControlState.Normal)
+        
     }
     
     
@@ -154,9 +173,16 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         var error = false
         
-        
+            FirebaseDataService.getUidWithUsername(username!,response: {(uid,exists)->() in
+
+     
         if username == "" {
             Errors.errorMessage("REQUIRED",field: self.usernameField)
+            error = true
+            
+        }
+        else if username?.rangeOfCharacterFromSet(letters.invertedSet) != nil {
+            Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.usernameField)
             error = true
             
         }
@@ -164,6 +190,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             Errors.errorMessage("4 CHAR MIN",field: self.usernameField)
             error = true
         }
+        else if exists && username != ""{
+            Errors.errorMessage("ALREADY TAKEN",field: self.usernameField)
+            error = true}
         
         if !error{
             print("you can change")
@@ -178,20 +207,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 self.saveChangesButton.titleLabel?.text = "SAVE CHANGES"
                 self.saveChangesButton.backgroundColor = Colors.init().primaryColor
             }
-            
-
-            
-            
-            
-        }
-        
-        } else {
+                }
+            })
+        }else {
             notification.notificationLabelBackgroundColor = KaputStyle.lowRed
             notification.displayNotificationWithMessage("DUDE! GET A CONNECTION!", forDuration: 3.0)
             
         }
     }
-    
+        
     
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -211,22 +235,33 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        
         view.backgroundColor = Colors.init().bgColor
-        self.pickAvatarButton.contentMode = .ScaleAspectFill
+        self.pickAvatarButton.imageView?.contentMode = .ScaleAspectFill
         self.pickAvatarButton.layer.cornerRadius = self.pickAvatarButton.frame.size.width / 2;
         self.pickAvatarButton.layer.borderWidth = 5;
         self.pickAvatarButton.clipsToBounds = true
         
         self.pickAvatarButton.layer.borderColor = UIColor.whiteColor().CGColor;
         self.usernameField.delegate = self      
-        self.pickAvatarButton.setBackgroundImage(myAvatar, forState: UIControlState.Normal)
 
         
+        let blueCover : UIView = UIView(frame: self.view.frame);
+        blueCover.backgroundColor = KaputStyle.chargingBlue
+        blueCover.layer.opacity = 0.80;
         
+        let image = myAvatar.alpha(0.2)
+        
+        self.pickAvatarButton.setBackgroundImage(image, forState: UIControlState.Normal)
+
         
     
     }
-
+    
+    
+    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

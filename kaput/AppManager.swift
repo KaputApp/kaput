@@ -2,8 +2,7 @@
 //  AppManager.swift
 //  ReachOut
 //
-//  Created by FTS-MAC-017 on 07/01/16.
-//  Copyright © 2016 Fingent Technology Solutions. All rights reserved.
+//  Created by OPE50 Team on 07/01/16.
 //
 
 import UIKit

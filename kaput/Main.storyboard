@@ -502,7 +502,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Ckr-dv-9SW" customClass="TPKeyboardAvoidingScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Ckr-dv-9SW" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMZ-Ge-UiT" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
@@ -618,11 +618,11 @@
                                     <segue destination="ydw-Xu-nsu" kind="custom" identifier="downToFriendList" customClass="SegueFromDown" customModule="kaput" customModuleProvider="target" id="gPn-Xk-fUh"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neq-RV-9mj">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neq-RV-9mj">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMk-cw-xkw" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="464" width="560" height="71"/>
+                                        <rect key="frame" x="20" y="451" width="560" height="71"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="71" id="iUe-K9-xT6"/>
                                         </constraints>
@@ -681,20 +681,20 @@
                                             <action selector="LogOut:" destination="TKK-0J-CQX" eventType="touchUpInside" id="A8v-R5-1B1"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Zi-3c-geP">
-                                        <rect key="frame" x="308" y="289" width="44" height="54"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Zi-3c-geP">
+                                        <rect key="frame" x="303" y="289" width="31" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="VFW-a0-Emy"/>
-                                            <constraint firstAttribute="height" constant="54" id="f4a-8a-cym"/>
+                                            <constraint firstAttribute="width" constant="42" id="VFW-a0-Emy"/>
+                                            <constraint firstAttribute="height" constant="41" id="f4a-8a-cym"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkP-fQ-EPb" customClass="kaputSecondaryButton" customModule="kaput" customModuleProvider="target">
-                                        <rect key="frame" x="305" y="383" width="275" height="71"/>
+                                        <rect key="frame" x="305" y="370" width="275" height="71"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="71" id="3La-Dr-W94"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
-                                        <state key="normal" title="SEND TO ALL">
+                                        <state key="normal" title="FEEDBACK">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -704,9 +704,12 @@
                                                 <real key="value" value="0.40000000000000002"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="sendFeedback:" destination="TKK-0J-CQX" eventType="touchUpInside" id="vKj-Q9-lZb"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="faW-78-OUv" customClass="numberOfNotifications" customModule="kaput" customModuleProvider="target">
-                                        <rect key="frame" x="207" y="291" width="93" height="62"/>
+                                        <rect key="frame" x="208" y="278" width="93" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="39%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3f-Lr-b1q">
                                                 <rect key="frame" x="-1" y="7" width="77" height="38"/>
@@ -721,20 +724,8 @@
                                             <constraint firstAttribute="width" constant="93" id="gj7-Qe-Diy"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6p-nl-UXV" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
-                                        <rect key="frame" x="342" y="294" width="201" height="43"/>
-                                        <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="40"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeC-8w-BJ2" customClass="kaputButton" customModule="kaput" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="383" width="275" height="71"/>
+                                        <rect key="frame" x="20" y="370" width="275" height="71"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="71" id="gZq-wN-ycW"/>
                                         </constraints>
@@ -750,8 +741,20 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6p-nl-UXV" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
+                                        <rect key="frame" x="341" y="288" width="20" height="43"/>
+                                        <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="40"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KAPUTS SENT" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIi-6Z-KgO">
-                                        <rect key="frame" x="372" y="290" width="55" height="46"/>
+                                        <rect key="frame" x="366" y="283.5" width="55" height="46"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="3Q0-Xw-53x"/>
                                             <constraint firstAttribute="width" constant="55" id="X88-LY-vzq"/>
@@ -764,6 +767,7 @@
                                 <constraints>
                                     <constraint firstItem="4Zi-3c-geP" firstAttribute="leading" secondItem="faW-78-OUv" secondAttribute="trailing" constant="8" symbolic="YES" id="08e-Pb-HSI"/>
                                     <constraint firstAttribute="trailing" secondItem="J6p-nl-UXV" secondAttribute="trailing" constant="14" id="23B-5z-RAc"/>
+                                    <constraint firstItem="jIi-6Z-KgO" firstAttribute="leading" secondItem="J6p-nl-UXV" secondAttribute="trailing" constant="5" id="2LQ-ga-aUu"/>
                                     <constraint firstItem="jIi-6Z-KgO" firstAttribute="leading" secondItem="4Zi-3c-geP" secondAttribute="trailing" constant="20" id="4lI-t9-ZGX"/>
                                     <constraint firstAttribute="bottom" secondItem="YMk-cw-xkw" secondAttribute="bottom" constant="100" id="61r-Xx-Gl3"/>
                                     <constraint firstItem="J6p-nl-UXV" firstAttribute="leading" secondItem="4Zi-3c-geP" secondAttribute="trailing" constant="-10" id="7sR-mh-s9X"/>
@@ -789,6 +793,8 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="23B-5z-RAc"/>
+                                        <exclude reference="aiW-3v-kDf"/>
+                                        <exclude reference="4lI-t9-ZGX"/>
                                         <exclude reference="kfc-mA-miU"/>
                                     </mask>
                                 </variation>
@@ -969,7 +975,7 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SENDER IS X%" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="rZ1-tm-gXD">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="loading..." textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="rZ1-tm-gXD">
                                                     <rect key="frame" x="121" y="19" width="295" height="85"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="70"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1090,7 +1096,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-bf-bvi">
                                         <rect key="frame" x="234" y="53" width="132" height="132"/>
-                                        <color key="backgroundColor" red="0.0" green="0.3817860450493078" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.20784313725490194" green="0.52941176470588236" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="132" id="azL-6l-C4J"/>
                                             <constraint firstAttribute="height" constant="132" id="uQh-qE-aON"/>
@@ -1307,9 +1313,9 @@ PICK YOUR USERNAME</string>
         <image name="LaunchScreenImage" width="89" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3Z2-sQ-5eE"/>
-        <segue reference="SUI-Oa-RVs"/>
         <segue reference="bOw-6v-Zoa"/>
-        <segue reference="udf-zv-zZ2"/>
+        <segue reference="4zB-dw-8Kx"/>
+        <segue reference="gPn-Xk-fUh"/>
+        <segue reference="XYH-wB-Qeb"/>
     </inferredMetricsTieBreakers>
 </document>

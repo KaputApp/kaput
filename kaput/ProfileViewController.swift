@@ -2,7 +2,7 @@
 //  ProfileViewController.swift
 //  kaput
 //
-//  Created by Jeremy OUANOUNOU on 15/07/2016.
+//  Created by OPE50 Team on 15/07/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
 //
 
@@ -14,17 +14,11 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import FBSDKShareKit
 import MessageUI
+import FirebaseInstanceID
 
-extension  FBSDKAppInviteDialogDelegate{
-    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
-        //TODO
-    }
-    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
-        //TODO
-    }
-}
 
-class ProfileViewController: UIViewController, MFMessageComposeViewControllerDelegate, UIScrollViewDelegate {
+
+class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIScrollViewDelegate {
  
     
 
@@ -35,30 +29,55 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
     @IBOutlet var kaputSent: SpringLabel!
     @IBOutlet var myBatteryLevel: UILabel!
 
-    
-    @IBAction func inviteFriend(sender: AnyObject) {
-        if reachable == true {
+    @IBAction func sendFeedback(sender: AnyObject) {
+        
 
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["jeremouans@gmail.com"])
+            mail.setSubject("Kaput Feedback")
             
+            presentViewController(mail, animated: true, completion: nil)
+  
+        }
+    
+    
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+
+
+    @IBAction func inviteFriend(sender: AnyObject) {
+
+        
+        if reachable == true {
             
+
             let optionMenu = UIAlertController(title: nil, message: "INVITE FRIENDS", preferredStyle: .ActionSheet)
             
-            // 2
             let smsAction = UIAlertAction(title: "SMS", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
-              //  UIApplication.sharedApplication().openURL(NSURL(string: "sms:")!)
+             
                 let messageVC = MFMessageComposeViewController()
                 
                 messageVC.body = "Hey, I have \(batteryLevel)% of battery, what about you?"
                 messageVC.messageComposeDelegate = self
          
-                
-                
+
                 self.presentViewController(messageVC, animated: true, completion: nil)
                 
             })
             let whatsappAction = UIAlertAction(title: "WHATSAPP", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
+                
+                var urlString = "Hey, I have \(batteryLevel)% of battery, what about you?"
+                var urlStringEncoded = urlString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+                var url  = NSURL(string: "whatsapp://send?text=\(urlStringEncoded!)")
+                if UIApplication.sharedApplication().canOpenURL(url!) {
+                    UIApplication.sharedApplication().openURL(url!)
+                }
 
                 
             })
@@ -66,6 +85,13 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
             let facebookAction = UIAlertAction(title: "FACEBOOK", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
                 
+                let content: FBSDKAppInviteContent = FBSDKAppInviteContent()
+                content.appLinkURL = NSURL(string: "https://fb.me/1243777468988577")!
+                //optionally set previewImageURL
+                content.appInvitePreviewImageURL = NSURL(string: "https://lh4.googleusercontent.com/4mKKCWymaRzOW6TNwipzXWokqcVpmDTMtJ3tUSaCCIffVkmceJy5Qk5Usd246ePoiSC9sMhmXug2wO4=w1280-h701-rw")
+                // Present the dialog. Assumes self is a view controller
+                // which implements the protocol `FBSDKAppInviteDialogDelegate`.
+                FBSDKAppInviteDialog.showFromViewController(self, withContent: content, delegate: self)
             })
             
             //
@@ -90,13 +116,24 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
     
 
     }
+    
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        //TODO
+    }
+    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
+        //TODO
+    }
+
+    
     @IBAction func LogOut(sender: AnyObject) {
     
         let optionMenu = UIAlertController(title: nil, message: "Are you sure ?", preferredStyle: .ActionSheet)
         
-        let cameraAction = UIAlertAction(title: "Log Out", style: .Default, handler: {
+        let logOutAction = UIAlertAction(title: "Log Out", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             try! FIRAuth.auth()!.signOut()
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut()
             self.performSegueWithIdentifier("logoutSegue", sender: self)
 
         })
@@ -106,7 +143,7 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
             
         })
 
-        optionMenu.addAction(cameraAction)
+        optionMenu.addAction(logOutAction)
         optionMenu.addAction(cancelAction)
         
         
@@ -118,11 +155,19 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
     @IBOutlet var avatarImageView: UIImageView!
 
     override func viewDidLoad() {
+
         
+        ref.child("Users").child(userID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            let kaputSentView = snapshot.value!["kaputSent"] as! Int
+            self.kaputSent.text = String(kaputSentView)
+           
+            }
+            )
+
         
         super.viewDidLoad()
         
-        
+
         boltImageView.image = KaputStyle.imageOfBolt
         scrollView.delegate = self
 
@@ -137,7 +182,7 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
         
         self.myBatteryLevel.text = String(batteryLevel) + " %"
         
-        self.kaputSent.text = "3"
+        //self.kaputSent.text = "3"
 
         batLenght = CGFloat(batteryLevel)
     }
@@ -161,7 +206,7 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
         self.backButton.transform = CGAffineTransformIdentity
         let angle = CGFloat(M_PI)*scrollView.contentOffset.y/60
         self.backButton.transform = CGAffineTransformRotate(self.backButton.transform, angle)
-        print(angle)
+       
 
         }
         
@@ -176,11 +221,12 @@ class ProfileViewController: UIViewController, MFMessageComposeViewControllerDel
 
         }
     }
+
     
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult){
         
         switch (result) {
-            
+        
         case MessageComposeResultCancelled:
             break
             

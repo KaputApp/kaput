@@ -2,8 +2,7 @@
 //  AppReference.swift
 //  NetworkConnectivitySample
 //
-//  Created by Alvin George on 4/1/16.
-//  Copyright © 2016 Alvin George. All rights reserved.
+//  Created by OPE50 Team on 4/1/16.
 //
 
 

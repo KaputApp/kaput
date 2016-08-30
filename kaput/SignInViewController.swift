@@ -2,7 +2,7 @@
 //  SignInViewController.swift
 //  kaput
 //
-//  Created by Jeremy OUANOUNOU on 01/06/2016.
+//  Created by OPE50 Team on 01/06/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ import FBSDKLoginKit
 
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
-    
+
 
     @IBAction func loginFB(sender: AnyObject) {
         
@@ -47,7 +47,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                                 } else {
                                     //Si non, créer l'user et on passe l'étape
                                     self.performSegueWithIdentifier("pickUsername", sender: self)
-                                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "")
+                                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "", kaputSent: 0)
                                     FirebaseDataService.getAvatarFromFB({(image) in
                                         FirebaseDataService.storeAvatarInFirebase(image)
                                     })
@@ -156,15 +156,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         if password == "" {
             Errors.errorMessage("REQUIRED",field: self.passwordField)
             error = true
+        } else if password!.rangeOfCharacterFromSet(letters.invertedSet) != nil {
+            Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.passwordField)
+            error = true
+            }
             
-        }else if password?.characters.count<4{
+        else if password?.characters.count<4{
             Errors.errorMessage("4 CHAR MIN",field: self.passwordField)
             error = true
             
         }
 
-        
-        
         if !error {
         
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0,80,80)) as UIActivityIndicatorView
@@ -196,9 +198,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         passwordField.delegate = self
         
         view.backgroundColor = Colors.init().bgColor
-        
-
-
         // Do any additional setup after loading the view.
     }
 

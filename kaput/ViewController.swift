@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  kaput
 //
-//  Created by Noémie Rebibo on 26/05/2016.
+//  Created by OPE50 Team on 26/05/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
 //
 
@@ -53,7 +53,7 @@ class ViewController: UIappViewController {
                             } else {
                         //Si non, créer l'user et on passe l'étape
                             self.performSegueWithIdentifier("pickUsernameSegue", sender: self)
-                                FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "")
+                                FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "", kaputSent: 0)
                                 FirebaseDataService.getAvatarFromFB({(image) in
                                 FirebaseDataService.storeAvatarInFirebase(image)
                                 })
@@ -84,8 +84,12 @@ class ViewController: UIappViewController {
     override func viewDidLoad()
     
     {
-        
         // setting the height of the bar with a constraint.
+        print("INITIALISATION")
+        print(myAvatar)
+        print(myUsername)
+        print("END INIT")
+
         
         batLevel.init()
         

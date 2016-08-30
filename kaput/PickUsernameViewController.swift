@@ -2,7 +2,7 @@
 //  PickUsernameViewController.swift
 //  
 //
-//  Created by Jeremy OUANOUNOU on 04/08/2016.
+//  Created by OPE50 Team on 04/08/2016.
 //
 //
 
@@ -24,11 +24,10 @@ class PickUsernameViewController: UIViewController {
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
         self.avatarImageView.layer.borderWidth = 5;
         self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor;
-
-
-    
     
     }
+    
+    
     @IBAction func saveChanges(sender: AnyObject) {
     
     Errors.clearErrors(usernameField)
@@ -38,18 +37,29 @@ class PickUsernameViewController: UIViewController {
         
         var error = false
         
+        ref.child("Users").queryOrderedByChild("name").queryEqualToValue(username).observeEventType(.Value, withBlock: { snapshot in
+            if snapshot.exists() == true {
+                
+                Errors.errorMessage("ALREADY TAKEN",field: self.usernameField)
+                
+            } else
+        
         if username == "" {
             Errors.errorMessage("REQUIRED",field: self.usernameField)
             error = true
             self.saveChangeButton.animate()
             
         }
-        else if username.characters.count<5 {
-            Errors.errorMessage("5 CHAR MIN",field: self.usernameField)
+        else if username.characters.count<4 {
+            Errors.errorMessage("4 CHAR MIN",field: self.usernameField)
             error = true
             self.saveChangeButton.animate()
 
         }
+           else if username.rangeOfCharacterFromSet(letters.invertedSet) != nil {
+                Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.usernameField)
+                error = true
+            }
 
         if !error{
         
@@ -57,8 +67,13 @@ class PickUsernameViewController: UIViewController {
             self.performSegueWithIdentifier("toFriendList", sender: self)
 
             
-        }
-        
+            }
+            }, withCancelBlock: { error in
+                
+                print(error.localizedDescription)
+                
+            })
+
     }
 
     override func didReceiveMemoryWarning() {

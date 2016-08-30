@@ -54,6 +54,7 @@
 		3F72E3201D05CE1B00B44336 /* numberOfNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72E31F1D05CE1B00B44336 /* numberOfNotifications.swift */; };
 		3F7A12251CF888AD00AAD538 /* Futura_condensed_bold_oblique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */; };
 		3F7A12271CF88CB800AAD538 /* logoKaput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A12261CF88CB800AAD538 /* logoKaput.swift */; };
+		3F8B234C1D687D4B005F4F36 /* imgExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B234B1D687D4B005F4F36 /* imgExt.swift */; };
 		3FB496D11D0C8E17007AF1C8 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB496D01D0C8E17007AF1C8 /* AddFriendViewController.swift */; };
 		3FB496D51D0CF69E007AF1C8 /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB496D41D0CF69E007AF1C8 /* FirebaseDataService.swift */; };
 		3FB8552F1D5B626C008E0B35 /* AvatarYellow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8552B1D5B626C008E0B35 /* AvatarYellow.jpg */; };
@@ -73,6 +74,7 @@
 		3FFAE4A31D10AA26008DE0C6 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3FFE32DC1D3952FB00DCDD6A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE32DB1D3952FB00DCDD6A /* ProfileViewController.swift */; };
 		3FFE32DE1D3AF42200DCDD6A /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */; };
+		6ADBCE494ACEE86E8453C6B3 /* Pods_kaput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D62B447D448707E254E3076 /* Pods_kaput.framework */; };
 		89139D921CF762D000DF4941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D911CF762D000DF4941 /* AppDelegate.swift */; };
 		89139D941CF762D000DF4941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89139D931CF762D000DF4941 /* ViewController.swift */; };
 		89139D991CF762D000DF4941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89139D981CF762D000DF4941 /* Assets.xcassets */; };
@@ -87,7 +89,6 @@
 		89DD5F8E1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD5F8D1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift */; };
 		89DD5F901D5B978A008EC160 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DD5F8F1D5B978A008EC160 /* MessageUI.framework */; };
 		89EF7A401D55675500B47EE7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EF7A3F1D55675500B47EE7 /* Reachability.swift */; };
-		FE664D8CE5108933DE70A38B /* Pods_kaput.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226A110D534EC2171831491E /* Pods_kaput.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,8 +106,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13227CED5999F92D40B709A0 /* Pods-kaput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig"; sourceTree = "<group>"; };
-		226A110D534EC2171831491E /* Pods_kaput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D62B447D448707E254E3076 /* Pods_kaput.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaput.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F121BF51D50902100D657F9 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		3F121C151D52473D00D657F9 /* downButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = downButton.swift; sourceTree = "<group>"; };
 		3F1429EE1D5E05A800B0D0C5 /* littleBat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = littleBat.swift; sourceTree = "<group>"; };
@@ -159,6 +159,7 @@
 		3F72E31F1D05CE1B00B44336 /* numberOfNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numberOfNotifications.swift; sourceTree = "<group>"; };
 		3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Futura_condensed_bold_oblique.ttf; sourceTree = "<group>"; };
 		3F7A12261CF88CB800AAD538 /* logoKaput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logoKaput.swift; sourceTree = "<group>"; };
+		3F8B234B1D687D4B005F4F36 /* imgExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imgExt.swift; sourceTree = "<group>"; };
 		3FB496D01D0C8E17007AF1C8 /* AddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		3FB496D41D0CF69E007AF1C8 /* FirebaseDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
 		3FB8552B1D5B626C008E0B35 /* AvatarYellow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AvatarYellow.jpg; sourceTree = "<group>"; };
@@ -177,7 +178,7 @@
 		3FEDBCAD1CFF5C0900A6C6C1 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		3FFE32DB1D3952FB00DCDD6A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaddingLabel.swift; path = ../PaddingLabel.swift; sourceTree = "<group>"; };
-		792F0847DFEAE4EEA673C71D /* Pods-kaput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig"; sourceTree = "<group>"; };
+		6CFD5AE49921F1BBC6AF4349 /* Pods-kaput.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.debug.xcconfig"; sourceTree = "<group>"; };
 		89139D8E1CF762D000DF4941 /* kaput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaput.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89139D911CF762D000DF4941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89139D931CF762D000DF4941 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +196,7 @@
 		89DD5F8D1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotificationUtils.swift; sourceTree = "<group>"; };
 		89DD5F8F1D5B978A008EC160 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		89EF7A3F1D55675500B47EE7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		D44EA5A8929A8CD5595A9A0A /* Pods-kaput.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaput.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaput/Pods-kaput.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89DD5F901D5B978A008EC160 /* MessageUI.framework in Frameworks */,
-				FE664D8CE5108933DE70A38B /* Pods_kaput.framework in Frameworks */,
+				6ADBCE494ACEE86E8453C6B3 /* Pods_kaput.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +218,7 @@
 				89DD5F8F1D5B978A008EC160 /* MessageUI.framework */,
 				3F593F6F1D09B4750059745D /* TPKeyboardAvoiding */,
 				3F593F331D09A02A0059745D /* Spring */,
-				226A110D534EC2171831491E /* Pods_kaput.framework */,
+				0D62B447D448707E254E3076 /* Pods_kaput.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				3F121C151D52473D00D657F9 /* downButton.swift */,
+				3F8B234B1D687D4B005F4F36 /* imgExt.swift */,
 				3F121BF51D50902100D657F9 /* Errors.swift */,
 				3FFE32DD1D3AF42200DCDD6A /* PaddingLabel.swift */,
 				3F7A12261CF88CB800AAD538 /* logoKaput.swift */,
@@ -318,7 +321,7 @@
 				89139D8F1CF762D000DF4941 /* Products */,
 				89139DA71CF7636000DF4941 /* GoogleService-Info.plist */,
 				1866139DC5AABD367B436585 /* Frameworks */,
-				B0F8BFF0FE1A60F1D0067845 /* Pods */,
+				F676917298F71EDF5EC5ADEF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -377,11 +380,11 @@
 			name = Reachability;
 			sourceTree = "<group>";
 		};
-		B0F8BFF0FE1A60F1D0067845 /* Pods */ = {
+		F676917298F71EDF5EC5ADEF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				13227CED5999F92D40B709A0 /* Pods-kaput.debug.xcconfig */,
-				792F0847DFEAE4EEA673C71D /* Pods-kaput.release.xcconfig */,
+				6CFD5AE49921F1BBC6AF4349 /* Pods-kaput.debug.xcconfig */,
+				D44EA5A8929A8CD5595A9A0A /* Pods-kaput.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -393,13 +396,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89139DA01CF762D000DF4941 /* Build configuration list for PBXNativeTarget "kaput" */;
 			buildPhases = (
-				C4FAA7912BFBF7C941D1499E /* 📦 Check Pods Manifest.lock */,
+				29E0349DBCB2CC6698BBE2B2 /* 📦 Check Pods Manifest.lock */,
 				89139D8A1CF762D000DF4941 /* Sources */,
 				89139D8B1CF762D000DF4941 /* Frameworks */,
 				89139D8C1CF762D000DF4941 /* Resources */,
 				3FFAE4A41D10AA27008DE0C6 /* Embed Frameworks */,
-				B8DDE5138075313263EBF6B2 /* 📦 Embed Pods Frameworks */,
-				02F9CA744F922B9CE09F3197 /* 📦 Copy Pods Resources */,
+				442E3595F28B1C0A05862346 /* 📦 Embed Pods Frameworks */,
+				7F34F0451237B7978F88D9C4 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -476,22 +479,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02F9CA744F922B9CE09F3197 /* 📦 Copy Pods Resources */ = {
+		29E0349DBCB2CC6698BBE2B2 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaput/Pods-kaput-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B8DDE5138075313263EBF6B2 /* 📦 Embed Pods Frameworks */ = {
+		442E3595F28B1C0A05862346 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -506,19 +509,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaput/Pods-kaput-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C4FAA7912BFBF7C941D1499E /* 📦 Check Pods Manifest.lock */ = {
+		7F34F0451237B7978F88D9C4 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaput/Pods-kaput-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -559,6 +562,7 @@
 				3FFE32DC1D3952FB00DCDD6A /* ProfileViewController.swift in Sources */,
 				3F593F0C1D0603A50059745D /* addButtonView.swift in Sources */,
 				3F593F7F1D09EE420059745D /* BigNotifView.swift in Sources */,
+				3F8B234C1D687D4B005F4F36 /* imgExt.swift in Sources */,
 				3F593F571D09A02A0059745D /* DesignableImageView.swift in Sources */,
 				3F593F541D09A02A0059745D /* AutoTextView.swift in Sources */,
 				89139D941CF762D000DF4941 /* ViewController.swift in Sources */,
@@ -698,7 +702,7 @@
 		};
 		89139DA11CF762D000DF4941 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13227CED5999F92D40B709A0 /* Pods-kaput.debug.xcconfig */;
+			baseConfigurationReference = 6CFD5AE49921F1BBC6AF4349 /* Pods-kaput.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -716,7 +720,7 @@
 		};
 		89139DA21CF762D000DF4941 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 792F0847DFEAE4EEA673C71D /* Pods-kaput.release.xcconfig */;
+			baseConfigurationReference = D44EA5A8929A8CD5595A9A0A /* Pods-kaput.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;

@@ -2,7 +2,7 @@
 //  FriendListViewController.swift
 //  kaput
 //
-//  Created by Jeremy OUANOUNOU on 09/06/2016.
+//  Created by OPE50 Team on 09/06/2016.
 //  Copyright © 2016 OPE50. All rights reserved.
 //
 
@@ -30,6 +30,11 @@ class FriendListViewController: UIappViewController, UITableViewDelegate, UITabl
 override func viewDidLoad() {
     super.viewDidLoad()
     
+    print("INITIALISATION")
+    print(myAvatar)
+    print(myUsername)
+    print("END INIT")
+    
     //charge les differents éléments
 
     
@@ -37,14 +42,11 @@ override func viewDidLoad() {
         myUsername = name
     })
     
-    
-    
+
     FirebaseDataService.getAvatarFromFirebase({(image) in
         myAvatar = image
     })
-    
-    
-    
+
     ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
 
     FirebaseDataService.getFriendList(userID,response: { (friendList) -> () in
@@ -54,15 +56,11 @@ override func viewDidLoad() {
         self.friendShown = [Bool](count: self.data.count, repeatedValue: false)
         
         self.friendsTableView.reloadData()
-    
+
 
     })
-    
-    
+
     FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
-        
-        
-        
         self.kaputCount = Int(kaputCount)
         UIApplication.sharedApplication().applicationIconBadgeNumber = self.kaputCount
 
@@ -102,6 +100,7 @@ override func didReceiveMemoryWarning() {
     }
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)  as! MGSwipeTableCell
         if hasFriend {
             cell.rightButtons = [MGSwipeButton(title: "", icon: KaputStyle.imageOfTrashCan,backgroundColor: KaputStyle.lowRed,padding:30,callback: {
@@ -109,7 +108,11 @@ override func didReceiveMemoryWarning() {
 
             let name = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
             FirebaseDataService.removeFriend(name!)
-            
+                FirebaseDataService.getUidWithUsername(name!,response: {(uid,exists)->() in
+//                    let myName = [myUsername:true] as [String:Bool]
+                   
+                    ref.child("Users").child(uid).child("friends").child(myUsername).removeValue()
+                })
             return true
        
         })]
@@ -154,10 +157,6 @@ override func didReceiveMemoryWarning() {
             }
             friendShown[indexPath.row] = true
         }
-            
-        
-
-
     }
     
     // BOLT VIEW
@@ -179,7 +178,7 @@ override func didReceiveMemoryWarning() {
         // center the image
         self.boltImageView.center = self.boltView.center
         
-        print(boltImageView.center)
+        
 
         
         // Hide the original spinner icon
@@ -258,9 +257,7 @@ override func didReceiveMemoryWarning() {
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         
         if reachable {
-        
-        
-        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+               ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             let myName = snapshot.value?["name"] as? String
            let inputsOutputs = [
                 "levelBattery" : String(batLevel.init().levelBat),
@@ -270,10 +267,11 @@ override func didReceiveMemoryWarning() {
                 "sent_to" :  String(name!)
             ]
         
+                
         FirebaseDataService.getUidWithUsername(name!,response: {(uid,exists)->() in
             
        ref.child("Users").child(uid).child("kaput").childByAutoId().setValue(inputsOutputs as [NSObject : AnyObject])
-
+            
             })
 
       })
@@ -294,7 +292,7 @@ override func didReceiveMemoryWarning() {
 
         FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
             self.kaputCount = Int(kaputCount)
-            print(self.kaputCount)
+            
             self.kaputCounter.setTitle(String(self.kaputCount),forState: UIControlState.Normal)
             
             if self.kaputCount == 1 {
@@ -305,7 +303,15 @@ override func didReceiveMemoryWarning() {
         })
         
         FirebaseDataService.sendMessageToName(name!)
-
+//            kaputSent = kaputSent + 1
+//            ref.child("Users").child(userID).child("kaputSent").setValue(kaputSent)
+            
+            ref.child("Users").child(userID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                let kaputSentOld = snapshot.value!["kaputSent"] as! Int
+                let kaputSentNew = kaputSentOld + 1
+            
+            ref.child("Users").child(userID).child("kaputSent").setValue(kaputSentNew)
+          })  
     }
     else {
             notification.notificationLabelBackgroundColor = KaputStyle.lowRed
