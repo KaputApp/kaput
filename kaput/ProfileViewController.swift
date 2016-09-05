@@ -72,9 +72,9 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
             let whatsappAction = UIAlertAction(title: "WHATSAPP", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
                 
-                var urlString = "Hey, I have \(batteryLevel)% of battery, what about you?"
-                var urlStringEncoded = urlString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
-                var url  = NSURL(string: "whatsapp://send?text=\(urlStringEncoded!)")
+                let urlString = "Hey, I have \(batteryLevel)% of battery, what about you?"
+                let urlStringEncoded = urlString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+                let url  = NSURL(string: "whatsapp://send?text=\(urlStringEncoded!)")
                 if UIApplication.sharedApplication().canOpenURL(url!) {
                     UIApplication.sharedApplication().openURL(url!)
                 }
@@ -134,6 +134,8 @@ class ProfileViewController: UIViewController, FBSDKAppInviteDialogDelegate, MFM
             try! FIRAuth.auth()!.signOut()
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
+            
+          
             self.performSegueWithIdentifier("logoutSegue", sender: self)
 
         })

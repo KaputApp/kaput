@@ -23,9 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        
-      
-        
 		AppManager.sharedInstance.initRechabilityMonitor()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -45,7 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         FIRApp.configure()
-    //    FIRDatabase.database().persistenceEnabled = true
+        FIRDatabase.database().persistenceEnabled = true
+        
+        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
 
 
     if ((FIRAuth.auth()!.currentUser) != nil){
@@ -148,6 +148,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        connectToFcm()
 
         FBSDKAppEvents.activateApp()
+
+    }
+    
+    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        
+        ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
+        completionHandler(.NewData)
+        print("batlevelupdated in background")
 
     }
     

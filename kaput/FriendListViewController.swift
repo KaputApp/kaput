@@ -15,6 +15,7 @@ import MGSwipeTableCell
 var myUsername = String()
 var myAvatar = UIImage()
 
+
 class FriendListViewController: UIappViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var friendsTableView: UITableView!
@@ -37,6 +38,10 @@ override func viewDidLoad() {
     
     //charge les differents éléments
 
+    print(userID)
+    print(ref)
+    
+    
     
     FirebaseDataService.getName({(name) in
         myUsername = name

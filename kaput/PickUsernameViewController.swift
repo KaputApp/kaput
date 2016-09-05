@@ -7,9 +7,40 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+import Firebase
+import FirebaseAuth
 
 class PickUsernameViewController: UIViewController {
 
+    @IBAction func logOut(sender: AnyObject) {
+        
+        let optionMenu = UIAlertController(title: nil, message: "Are you sure ?", preferredStyle: .ActionSheet)
+        
+        let logOutAction = UIAlertAction(title: "Log Out", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            try! FIRAuth.auth()!.signOut()
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut()
+            
+            
+            self.performSegueWithIdentifier("logoutSegue", sender: self)
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+        })
+        
+        optionMenu.addAction(logOutAction)
+        optionMenu.addAction(cancelAction)
+        
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+        
+    
+    }
     @IBOutlet var usernameField: kaputField!
     
     @IBOutlet var almostLabel: SpringLabel!
@@ -19,11 +50,22 @@ class PickUsernameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = Colors.init().bgColor
         
+        FirebaseDataService.getAvatarFromFirebase({(image) in
+            myAvatar = image
+            self.avatarImageView.image = myAvatar
+            
+
+        })
+        
+        self.avatarImageView.clipsToBounds = true
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2;
         self.avatarImageView.layer.borderWidth = 5;
         self.avatarImageView.layer.borderColor = UIColor.whiteColor().CGColor;
+        
+        view.backgroundColor = Colors.init().bgColor
+        
+       
     
     }
     

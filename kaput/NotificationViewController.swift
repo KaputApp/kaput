@@ -92,6 +92,8 @@ class NotificationViewController: UIViewController {
         notifView.animation = "swing"
         notifView.animate()
         FirebaseDataService.sendMessageToName(self.senderText)
+        
+        print(self.senderText)
 
         
     }
@@ -128,14 +130,18 @@ class NotificationViewController: UIViewController {
             }
         
 
-            ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).queryLimitedToFirst(1).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
-            
-                let keyDict = snapshot.value as! [String : AnyObject]
+            ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
                 
+                print(snapshot)
+                
+                
+                    
+                let keyDict = snapshot.value as! [String : AnyObject]
                 let key = keyDict.keys.first!
-               
-                ref.child("Users").child(self.userID!).child("kaput").child(key).updateChildValues(["read":true])
-              
+            ref.child("Users").child(self.userID!).child("kaput").child(key).updateChildValues(["read":true])
+                
+                
+                
                 UIApplication.sharedApplication().applicationIconBadgeNumber = self.kaputCounter
 
                 for child in snapshot.children{
@@ -197,7 +203,22 @@ class NotificationViewController: UIViewController {
         
     }
 
+    @IBAction func dismissAll(sender: AnyObject) {
+        
+          ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            
+            let keyDict = snapshot.value as! [String : AnyObject]
+            for key in keyDict.keys {
+            ref.child("Users").child(self.userID!).child("kaput").child(key).updateChildValues(["read":true])
 
+            }
+          
+            self.performSegueWithIdentifier("unWindtoFriendList", sender: self)
+
+          
+          })
+        
+    }
    
     func refreshView() {
 

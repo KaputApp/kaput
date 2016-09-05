@@ -23,7 +23,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         if reachable == true {
             
             let email = FIRAuth.auth()?.currentUser?.email
-            var error = false
             
                 let finalemail = email?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 FIRAuth.auth()?.sendPasswordResetWithEmail(email!, completion: nil)
@@ -39,7 +38,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet var pickAvatarButton: UIButton!
     @IBAction func pickAvatar(sender: UIButton) {
-        var typePic = 0 as Int
         
         if reachable == true {
         
@@ -66,7 +64,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             
             let fbAction = UIAlertAction(title: "Facebook Profile Picture", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
-               typePic = 0
  
                 FirebaseDataService.getAvatarFromFB({(image) in
                     FirebaseDataService.storeAvatarInFirebase(image)
@@ -237,6 +234,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         
         
+        
         view.backgroundColor = Colors.init().bgColor
         self.pickAvatarButton.imageView?.contentMode = .ScaleAspectFill
         self.pickAvatarButton.layer.cornerRadius = self.pickAvatarButton.frame.size.width / 2;
@@ -246,10 +244,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.pickAvatarButton.layer.borderColor = UIColor.whiteColor().CGColor;
         self.usernameField.delegate = self      
 
-        
-        let blueCover : UIView = UIView(frame: self.view.frame);
-        blueCover.backgroundColor = KaputStyle.chargingBlue
-        blueCover.layer.opacity = 0.80;
         
         let image = myAvatar.alpha(0.2)
         

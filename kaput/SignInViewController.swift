@@ -175,9 +175,18 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             FIRAuth.auth()?.signInWithEmail(email!, password: password!){(user,error) in
                 spinner.stopAnimating()
                 if error != nil {
-                    self.errorAlert("Opps!", message:"Wrong username or password")
+                    self.errorAlert("Opps!", message:"Wrong username or password \(error)")
                 }else{
                     self.view.endEditing(true)
+
+                    userID = String(FIRAuth.auth()!.currentUser!.uid)
+                    FirebaseDataService.getName({(name) in
+                        myUsername = name
+                    })
+            
+                    FirebaseDataService.getAvatarFromFirebase({(image) in
+                        myAvatar = image
+                    })
 
                 
                     self.performSegueWithIdentifier("FriendList", sender: self)

@@ -56,6 +56,9 @@ class ViewController: UIappViewController {
                                 FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "", kaputSent: 0)
                                 FirebaseDataService.getAvatarFromFB({(image) in
                                 FirebaseDataService.storeAvatarInFirebase(image)
+                                let imageData = UIImageJPEGRepresentation(image, 0.8)
+                                let compressedImageFB = UIImage(data : imageData!)
+                                myAvatar = compressedImageFB!
                                 })
                                 
                             }

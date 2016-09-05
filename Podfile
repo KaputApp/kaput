@@ -13,6 +13,8 @@ pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 pod 'Bolts'
 pod 'MGSwipeTableCell'
+pod 'Firebase/Crash'
+
 
 end
 

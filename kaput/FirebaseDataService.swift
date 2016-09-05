@@ -77,6 +77,9 @@ struct FirebaseDataService {
     
     static func createUserData(uid: String, bat: String, username: String, kaputSent: Int) {
     let user = ResourcePath.User(uid: uid).description
+       
+        myUsername = username
+        myAvatar = UIImage(named:"AvatarBlue.jpg")!
         
     ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"", "kaputSent": 0 ,"instanceID": FIRInstanceID.instanceID().token()!])
         
@@ -201,7 +204,6 @@ struct FirebaseDataService {
         let storage = FIRStorage.storage()
         let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
         let avatar = storageRef.child("Image/\(userID)/avatar.jpg")
-        var image = UIImage()
         let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture", parameters: params, HTTPMethod: "GET")
         
         pictureRequest.startWithCompletionHandler({
