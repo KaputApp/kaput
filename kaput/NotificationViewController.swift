@@ -206,11 +206,12 @@ class NotificationViewController: UIViewController {
     @IBAction func dismissAll(sender: AnyObject) {
         
           ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
-            
+            if snapshot.exists() {
             let keyDict = snapshot.value as! [String : AnyObject]
             for key in keyDict.keys {
             ref.child("Users").child(self.userID!).child("kaput").child(key).updateChildValues(["read":true])
-
+                }
+            
             }
           
             self.performSegueWithIdentifier("unWindtoFriendList", sender: self)
