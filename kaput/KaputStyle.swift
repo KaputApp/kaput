@@ -12,11 +12,11 @@
 
 import UIKit
 
-public class KaputStyle : NSObject {
+open class KaputStyle : NSObject {
 
     //// Cache
 
-    private struct Cache {
+    fileprivate struct Cache {
         static let lowRed: UIColor = UIColor(red: 0.986, green: 0.101, blue: 0.309, alpha: 1.000)
         static let chargingBlue: UIColor = UIColor(red: 0.165, green: 0.433, blue: 0.984, alpha: 1.000)
         static let kaputBlack: UIColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
@@ -37,21 +37,21 @@ public class KaputStyle : NSObject {
 
     //// Colors
 
-    public class var lowRed: UIColor { return Cache.lowRed }
-    public class var chargingBlue: UIColor { return Cache.chargingBlue }
-    public class var kaputBlack: UIColor { return Cache.kaputBlack }
-    public class var shadowColor: UIColor { return Cache.shadowColor }
-    public class var fullGreen: UIColor { return Cache.fullGreen }
-    public class var bloodyOrange: UIColor { return Cache.bloodyOrange }
-    public class var midYellow: UIColor { return Cache.midYellow }
+    open class var lowRed: UIColor { return Cache.lowRed }
+    open class var chargingBlue: UIColor { return Cache.chargingBlue }
+    open class var kaputBlack: UIColor { return Cache.kaputBlack }
+    open class var shadowColor: UIColor { return Cache.shadowColor }
+    open class var fullGreen: UIColor { return Cache.fullGreen }
+    open class var bloodyOrange: UIColor { return Cache.bloodyOrange }
+    open class var midYellow: UIColor { return Cache.midYellow }
 
     //// Shadows
 
-    public class var shadow: NSShadow { return Cache.shadow }
+    open class var shadow: NSShadow { return Cache.shadow }
 
     //// Drawing Methods
 
-    public class func drawLogoKaput() {
+    open class func drawLogoKaput() {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -61,29 +61,29 @@ public class KaputStyle : NSObject {
 
         //// Screens
         //// Home-Screen-Red
-        CGContextSaveGState(context)
-        CGContextSetShadowWithColor(context, KaputStyle.shadow.shadowOffset, KaputStyle.shadow.shadowBlurRadius, (KaputStyle.shadow.shadowColor as! UIColor).CGColor)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.setShadow(offset: KaputStyle.shadow.shadowOffset, blur: KaputStyle.shadow.shadowBlurRadius, color: (KaputStyle.shadow.shadowColor as! UIColor).cgColor)
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
 
         //// LOGO
         //// path-1 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 86.05, 48.65)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 86.05, y: 48.65)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
         //// path- Drawing
         let pathPath = UIBezierPath()
-        pathPath.moveToPoint(CGPoint(x: 10.75, y: 88.35))
-        pathPath.addLineToPoint(CGPoint(x: 165.09, y: 80.26))
-        pathPath.addLineToPoint(CGPoint(x: 161.35, y: 8.95))
-        pathPath.addLineToPoint(CGPoint(x: 7.01, y: 17.04))
-        pathPath.addLineToPoint(CGPoint(x: 10.75, y: 88.35))
-        pathPath.closePath()
+        pathPath.move(to: CGPoint(x: 10.75, y: 88.35))
+        pathPath.addLine(to: CGPoint(x: 165.09, y: 80.26))
+        pathPath.addLine(to: CGPoint(x: 161.35, y: 8.95))
+        pathPath.addLine(to: CGPoint(x: 7.01, y: 17.04))
+        pathPath.addLine(to: CGPoint(x: 10.75, y: 88.35))
+        pathPath.close()
         KaputStyle.kaputBlack.setFill()
         pathPath.fill()
         strokeColor.setStroke()
@@ -92,116 +92,116 @@ public class KaputStyle : NSObject {
 
 
         //// path-3 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 32.5, 51.3)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 32.5, y: 51.3)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
         //// path- 2 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 32.5, 51.3)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 32.5, y: 51.3)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let path2Path = UIBezierPath(rect: CGRect(x: -12.2, y: -24.7, width: 24.4, height: 49.4))
         KaputStyle.lowRed.setFill()
         path2Path.fill()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
         //// KAPUT Drawing
         let kAPUTPath = UIBezierPath()
-        kAPUTPath.moveToPoint(CGPoint(x: 48.97, y: 69.85))
-        kAPUTPath.addLineToPoint(CGPoint(x: 41.23, y: 70.26))
-        kAPUTPath.addLineToPoint(CGPoint(x: 36.16, y: 50.2))
-        kAPUTPath.addLineToPoint(CGPoint(x: 36.05, y: 50.2))
-        kAPUTPath.addLineToPoint(CGPoint(x: 33.9, y: 70.64))
-        kAPUTPath.addLineToPoint(CGPoint(x: 26.03, y: 71.06))
-        kAPUTPath.addLineToPoint(CGPoint(x: 30.23, y: 30.92))
-        kAPUTPath.addLineToPoint(CGPoint(x: 38.09, y: 30.51))
-        kAPUTPath.addLineToPoint(CGPoint(x: 36.23, y: 48.44))
-        kAPUTPath.addLineToPoint(CGPoint(x: 36.33, y: 48.44))
-        kAPUTPath.addLineToPoint(CGPoint(x: 44.74, y: 30.16))
-        kAPUTPath.addLineToPoint(CGPoint(x: 52.77, y: 29.74))
-        kAPUTPath.addLineToPoint(CGPoint(x: 43.49, y: 48.65))
-        kAPUTPath.addLineToPoint(CGPoint(x: 49.02, y: 68.06))
-        kAPUTPath.addLineToPoint(CGPoint(x: 61.85, y: 29.26))
-        kAPUTPath.addLineToPoint(CGPoint(x: 70.14, y: 28.83))
-        kAPUTPath.addLineToPoint(CGPoint(x: 75.5, y: 68.46))
-        kAPUTPath.addLineToPoint(CGPoint(x: 67.11, y: 68.9))
-        kAPUTPath.addLineToPoint(CGPoint(x: 66.33, y: 62.22))
-        kAPUTPath.addLineToPoint(CGPoint(x: 58.36, y: 62.64))
-        kAPUTPath.addLineToPoint(CGPoint(x: 56.23, y: 69.47))
-        kAPUTPath.addLineToPoint(CGPoint(x: 48.97, y: 69.85))
-        kAPUTPath.closePath()
-        kAPUTPath.moveToPoint(CGPoint(x: 65.85, y: 56))
-        kAPUTPath.addLineToPoint(CGPoint(x: 60.3, y: 56.29))
-        kAPUTPath.addLineToPoint(CGPoint(x: 63.13, y: 45.5))
-        kAPUTPath.addLineToPoint(CGPoint(x: 64.61, y: 39.39))
-        kAPUTPath.addLineToPoint(CGPoint(x: 64.71, y: 39.38))
-        kAPUTPath.addLineToPoint(CGPoint(x: 64.97, y: 45.4))
-        kAPUTPath.addLineToPoint(CGPoint(x: 65.85, y: 56))
-        kAPUTPath.closePath()
-        kAPUTPath.moveToPoint(CGPoint(x: 84.21, y: 68.01))
-        kAPUTPath.addLineToPoint(CGPoint(x: 85.94, y: 51.45))
-        kAPUTPath.addLineToPoint(CGPoint(x: 87.69, y: 51.47))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 96.84, y: 47.86), controlPoint1: CGPoint(x: 91.38, y: 51.27), controlPoint2: CGPoint(x: 94.43, y: 50.07))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 101.01, y: 39.01), controlPoint1: CGPoint(x: 99.25, y: 45.65), controlPoint2: CGPoint(x: 100.64, y: 42.7))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 101.13, y: 36.25), controlPoint1: CGPoint(x: 101.13, y: 38.02), controlPoint2: CGPoint(x: 101.17, y: 37.1))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 99.72, y: 31.48), controlPoint1: CGPoint(x: 101.03, y: 34.28), controlPoint2: CGPoint(x: 100.56, y: 32.69))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 96.61, y: 28.89), controlPoint1: CGPoint(x: 98.88, y: 30.28), controlPoint2: CGPoint(x: 97.84, y: 29.41))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 92.83, y: 27.93), controlPoint1: CGPoint(x: 95.39, y: 28.38), controlPoint2: CGPoint(x: 94.13, y: 28.05))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 88.72, y: 27.85), controlPoint1: CGPoint(x: 91.54, y: 27.8), controlPoint2: CGPoint(x: 90.17, y: 27.78))
-        kAPUTPath.addLineToPoint(CGPoint(x: 80.54, y: 28.28))
-        kAPUTPath.addLineToPoint(CGPoint(x: 76.35, y: 68.42))
-        kAPUTPath.addLineToPoint(CGPoint(x: 84.21, y: 68.01))
-        kAPUTPath.closePath()
-        kAPUTPath.moveToPoint(CGPoint(x: 87.75, y: 34.42))
-        kAPUTPath.addLineToPoint(CGPoint(x: 89.22, y: 34.34))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 92.18, y: 35.19), controlPoint1: CGPoint(x: 90.56, y: 34.27), controlPoint2: CGPoint(x: 91.55, y: 34.55))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 93.22, y: 37.89), controlPoint1: CGPoint(x: 92.81, y: 35.83), controlPoint2: CGPoint(x: 93.16, y: 36.73))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 93.14, y: 39.32), controlPoint1: CGPoint(x: 93.25, y: 38.34), controlPoint2: CGPoint(x: 93.22, y: 38.82))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 91.29, y: 43.52), controlPoint1: CGPoint(x: 92.96, y: 41.24), controlPoint2: CGPoint(x: 92.34, y: 42.64))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 86.61, y: 45.01), controlPoint1: CGPoint(x: 90.25, y: 44.4), controlPoint2: CGPoint(x: 88.68, y: 44.9))
-        kAPUTPath.addLineToPoint(CGPoint(x: 87.75, y: 34.42))
-        kAPUTPath.closePath()
-        kAPUTPath.moveToPoint(CGPoint(x: 103.72, y: 27.07))
-        kAPUTPath.addLineToPoint(CGPoint(x: 100.62, y: 56.88))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 100.54, y: 59.37), controlPoint1: CGPoint(x: 100.53, y: 57.76), controlPoint2: CGPoint(x: 100.5, y: 58.59))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 103.51, y: 65.54), controlPoint1: CGPoint(x: 100.69, y: 62.18), controlPoint2: CGPoint(x: 101.68, y: 64.24))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 111.17, y: 67.23), controlPoint1: CGPoint(x: 105.35, y: 66.84), controlPoint2: CGPoint(x: 107.9, y: 67.4))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 117.74, y: 65.77), controlPoint1: CGPoint(x: 113.85, y: 67.09), controlPoint2: CGPoint(x: 116.04, y: 66.6))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 121.63, y: 62.74), controlPoint1: CGPoint(x: 119.44, y: 64.94), controlPoint2: CGPoint(x: 120.74, y: 63.93))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 123.48, y: 59.09), controlPoint1: CGPoint(x: 122.52, y: 61.54), controlPoint2: CGPoint(x: 123.14, y: 60.33))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 124.2, y: 55.11), controlPoint1: CGPoint(x: 123.82, y: 57.86), controlPoint2: CGPoint(x: 124.06, y: 56.53))
-        kAPUTPath.addLineToPoint(CGPoint(x: 127.27, y: 25.83))
-        kAPUTPath.addLineToPoint(CGPoint(x: 119.4, y: 26.24))
-        kAPUTPath.addLineToPoint(CGPoint(x: 116.51, y: 53.93))
-        kAPUTPath.addLineToPoint(CGPoint(x: 116.52, y: 54.03))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 116.14, y: 56.43), controlPoint1: CGPoint(x: 116.39, y: 55.03), controlPoint2: CGPoint(x: 116.27, y: 55.83))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 115.49, y: 58.16), controlPoint1: CGPoint(x: 116.01, y: 57.04), controlPoint2: CGPoint(x: 115.79, y: 57.62))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 114.18, y: 59.47), controlPoint1: CGPoint(x: 115.18, y: 58.71), controlPoint2: CGPoint(x: 114.74, y: 59.14))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 112.01, y: 60.04), controlPoint1: CGPoint(x: 113.61, y: 59.8), controlPoint2: CGPoint(x: 112.89, y: 59.99))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 109.45, y: 59.22), controlPoint1: CGPoint(x: 110.82, y: 60.1), controlPoint2: CGPoint(x: 109.96, y: 59.83))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 108.6, y: 56.62), controlPoint1: CGPoint(x: 108.95, y: 58.61), controlPoint2: CGPoint(x: 108.66, y: 57.74))
-        kAPUTPath.addCurveToPoint(CGPoint(x: 108.8, y: 53.32), controlPoint1: CGPoint(x: 108.57, y: 55.91), controlPoint2: CGPoint(x: 108.63, y: 54.81))
-        kAPUTPath.addLineToPoint(CGPoint(x: 108.87, y: 52.63))
-        kAPUTPath.addLineToPoint(CGPoint(x: 111.59, y: 26.65))
-        kAPUTPath.addLineToPoint(CGPoint(x: 103.72, y: 27.07))
-        kAPUTPath.closePath()
-        kAPUTPath.moveToPoint(CGPoint(x: 128.32, y: 25.78))
-        kAPUTPath.addLineToPoint(CGPoint(x: 127.55, y: 33.23))
-        kAPUTPath.addLineToPoint(CGPoint(x: 133.73, y: 32.91))
-        kAPUTPath.addLineToPoint(CGPoint(x: 130.3, y: 65.59))
-        kAPUTPath.addLineToPoint(CGPoint(x: 138.17, y: 65.18))
-        kAPUTPath.addLineToPoint(CGPoint(x: 141.59, y: 32.49))
-        kAPUTPath.addLineToPoint(CGPoint(x: 147.82, y: 32.17))
-        kAPUTPath.addLineToPoint(CGPoint(x: 148.6, y: 24.71))
-        kAPUTPath.addLineToPoint(CGPoint(x: 128.32, y: 25.78))
-        kAPUTPath.closePath()
+        kAPUTPath.move(to: CGPoint(x: 48.97, y: 69.85))
+        kAPUTPath.addLine(to: CGPoint(x: 41.23, y: 70.26))
+        kAPUTPath.addLine(to: CGPoint(x: 36.16, y: 50.2))
+        kAPUTPath.addLine(to: CGPoint(x: 36.05, y: 50.2))
+        kAPUTPath.addLine(to: CGPoint(x: 33.9, y: 70.64))
+        kAPUTPath.addLine(to: CGPoint(x: 26.03, y: 71.06))
+        kAPUTPath.addLine(to: CGPoint(x: 30.23, y: 30.92))
+        kAPUTPath.addLine(to: CGPoint(x: 38.09, y: 30.51))
+        kAPUTPath.addLine(to: CGPoint(x: 36.23, y: 48.44))
+        kAPUTPath.addLine(to: CGPoint(x: 36.33, y: 48.44))
+        kAPUTPath.addLine(to: CGPoint(x: 44.74, y: 30.16))
+        kAPUTPath.addLine(to: CGPoint(x: 52.77, y: 29.74))
+        kAPUTPath.addLine(to: CGPoint(x: 43.49, y: 48.65))
+        kAPUTPath.addLine(to: CGPoint(x: 49.02, y: 68.06))
+        kAPUTPath.addLine(to: CGPoint(x: 61.85, y: 29.26))
+        kAPUTPath.addLine(to: CGPoint(x: 70.14, y: 28.83))
+        kAPUTPath.addLine(to: CGPoint(x: 75.5, y: 68.46))
+        kAPUTPath.addLine(to: CGPoint(x: 67.11, y: 68.9))
+        kAPUTPath.addLine(to: CGPoint(x: 66.33, y: 62.22))
+        kAPUTPath.addLine(to: CGPoint(x: 58.36, y: 62.64))
+        kAPUTPath.addLine(to: CGPoint(x: 56.23, y: 69.47))
+        kAPUTPath.addLine(to: CGPoint(x: 48.97, y: 69.85))
+        kAPUTPath.close()
+        kAPUTPath.move(to: CGPoint(x: 65.85, y: 56))
+        kAPUTPath.addLine(to: CGPoint(x: 60.3, y: 56.29))
+        kAPUTPath.addLine(to: CGPoint(x: 63.13, y: 45.5))
+        kAPUTPath.addLine(to: CGPoint(x: 64.61, y: 39.39))
+        kAPUTPath.addLine(to: CGPoint(x: 64.71, y: 39.38))
+        kAPUTPath.addLine(to: CGPoint(x: 64.97, y: 45.4))
+        kAPUTPath.addLine(to: CGPoint(x: 65.85, y: 56))
+        kAPUTPath.close()
+        kAPUTPath.move(to: CGPoint(x: 84.21, y: 68.01))
+        kAPUTPath.addLine(to: CGPoint(x: 85.94, y: 51.45))
+        kAPUTPath.addLine(to: CGPoint(x: 87.69, y: 51.47))
+        kAPUTPath.addCurve(to: CGPoint(x: 96.84, y: 47.86), controlPoint1: CGPoint(x: 91.38, y: 51.27), controlPoint2: CGPoint(x: 94.43, y: 50.07))
+        kAPUTPath.addCurve(to: CGPoint(x: 101.01, y: 39.01), controlPoint1: CGPoint(x: 99.25, y: 45.65), controlPoint2: CGPoint(x: 100.64, y: 42.7))
+        kAPUTPath.addCurve(to: CGPoint(x: 101.13, y: 36.25), controlPoint1: CGPoint(x: 101.13, y: 38.02), controlPoint2: CGPoint(x: 101.17, y: 37.1))
+        kAPUTPath.addCurve(to: CGPoint(x: 99.72, y: 31.48), controlPoint1: CGPoint(x: 101.03, y: 34.28), controlPoint2: CGPoint(x: 100.56, y: 32.69))
+        kAPUTPath.addCurve(to: CGPoint(x: 96.61, y: 28.89), controlPoint1: CGPoint(x: 98.88, y: 30.28), controlPoint2: CGPoint(x: 97.84, y: 29.41))
+        kAPUTPath.addCurve(to: CGPoint(x: 92.83, y: 27.93), controlPoint1: CGPoint(x: 95.39, y: 28.38), controlPoint2: CGPoint(x: 94.13, y: 28.05))
+        kAPUTPath.addCurve(to: CGPoint(x: 88.72, y: 27.85), controlPoint1: CGPoint(x: 91.54, y: 27.8), controlPoint2: CGPoint(x: 90.17, y: 27.78))
+        kAPUTPath.addLine(to: CGPoint(x: 80.54, y: 28.28))
+        kAPUTPath.addLine(to: CGPoint(x: 76.35, y: 68.42))
+        kAPUTPath.addLine(to: CGPoint(x: 84.21, y: 68.01))
+        kAPUTPath.close()
+        kAPUTPath.move(to: CGPoint(x: 87.75, y: 34.42))
+        kAPUTPath.addLine(to: CGPoint(x: 89.22, y: 34.34))
+        kAPUTPath.addCurve(to: CGPoint(x: 92.18, y: 35.19), controlPoint1: CGPoint(x: 90.56, y: 34.27), controlPoint2: CGPoint(x: 91.55, y: 34.55))
+        kAPUTPath.addCurve(to: CGPoint(x: 93.22, y: 37.89), controlPoint1: CGPoint(x: 92.81, y: 35.83), controlPoint2: CGPoint(x: 93.16, y: 36.73))
+        kAPUTPath.addCurve(to: CGPoint(x: 93.14, y: 39.32), controlPoint1: CGPoint(x: 93.25, y: 38.34), controlPoint2: CGPoint(x: 93.22, y: 38.82))
+        kAPUTPath.addCurve(to: CGPoint(x: 91.29, y: 43.52), controlPoint1: CGPoint(x: 92.96, y: 41.24), controlPoint2: CGPoint(x: 92.34, y: 42.64))
+        kAPUTPath.addCurve(to: CGPoint(x: 86.61, y: 45.01), controlPoint1: CGPoint(x: 90.25, y: 44.4), controlPoint2: CGPoint(x: 88.68, y: 44.9))
+        kAPUTPath.addLine(to: CGPoint(x: 87.75, y: 34.42))
+        kAPUTPath.close()
+        kAPUTPath.move(to: CGPoint(x: 103.72, y: 27.07))
+        kAPUTPath.addLine(to: CGPoint(x: 100.62, y: 56.88))
+        kAPUTPath.addCurve(to: CGPoint(x: 100.54, y: 59.37), controlPoint1: CGPoint(x: 100.53, y: 57.76), controlPoint2: CGPoint(x: 100.5, y: 58.59))
+        kAPUTPath.addCurve(to: CGPoint(x: 103.51, y: 65.54), controlPoint1: CGPoint(x: 100.69, y: 62.18), controlPoint2: CGPoint(x: 101.68, y: 64.24))
+        kAPUTPath.addCurve(to: CGPoint(x: 111.17, y: 67.23), controlPoint1: CGPoint(x: 105.35, y: 66.84), controlPoint2: CGPoint(x: 107.9, y: 67.4))
+        kAPUTPath.addCurve(to: CGPoint(x: 117.74, y: 65.77), controlPoint1: CGPoint(x: 113.85, y: 67.09), controlPoint2: CGPoint(x: 116.04, y: 66.6))
+        kAPUTPath.addCurve(to: CGPoint(x: 121.63, y: 62.74), controlPoint1: CGPoint(x: 119.44, y: 64.94), controlPoint2: CGPoint(x: 120.74, y: 63.93))
+        kAPUTPath.addCurve(to: CGPoint(x: 123.48, y: 59.09), controlPoint1: CGPoint(x: 122.52, y: 61.54), controlPoint2: CGPoint(x: 123.14, y: 60.33))
+        kAPUTPath.addCurve(to: CGPoint(x: 124.2, y: 55.11), controlPoint1: CGPoint(x: 123.82, y: 57.86), controlPoint2: CGPoint(x: 124.06, y: 56.53))
+        kAPUTPath.addLine(to: CGPoint(x: 127.27, y: 25.83))
+        kAPUTPath.addLine(to: CGPoint(x: 119.4, y: 26.24))
+        kAPUTPath.addLine(to: CGPoint(x: 116.51, y: 53.93))
+        kAPUTPath.addLine(to: CGPoint(x: 116.52, y: 54.03))
+        kAPUTPath.addCurve(to: CGPoint(x: 116.14, y: 56.43), controlPoint1: CGPoint(x: 116.39, y: 55.03), controlPoint2: CGPoint(x: 116.27, y: 55.83))
+        kAPUTPath.addCurve(to: CGPoint(x: 115.49, y: 58.16), controlPoint1: CGPoint(x: 116.01, y: 57.04), controlPoint2: CGPoint(x: 115.79, y: 57.62))
+        kAPUTPath.addCurve(to: CGPoint(x: 114.18, y: 59.47), controlPoint1: CGPoint(x: 115.18, y: 58.71), controlPoint2: CGPoint(x: 114.74, y: 59.14))
+        kAPUTPath.addCurve(to: CGPoint(x: 112.01, y: 60.04), controlPoint1: CGPoint(x: 113.61, y: 59.8), controlPoint2: CGPoint(x: 112.89, y: 59.99))
+        kAPUTPath.addCurve(to: CGPoint(x: 109.45, y: 59.22), controlPoint1: CGPoint(x: 110.82, y: 60.1), controlPoint2: CGPoint(x: 109.96, y: 59.83))
+        kAPUTPath.addCurve(to: CGPoint(x: 108.6, y: 56.62), controlPoint1: CGPoint(x: 108.95, y: 58.61), controlPoint2: CGPoint(x: 108.66, y: 57.74))
+        kAPUTPath.addCurve(to: CGPoint(x: 108.8, y: 53.32), controlPoint1: CGPoint(x: 108.57, y: 55.91), controlPoint2: CGPoint(x: 108.63, y: 54.81))
+        kAPUTPath.addLine(to: CGPoint(x: 108.87, y: 52.63))
+        kAPUTPath.addLine(to: CGPoint(x: 111.59, y: 26.65))
+        kAPUTPath.addLine(to: CGPoint(x: 103.72, y: 27.07))
+        kAPUTPath.close()
+        kAPUTPath.move(to: CGPoint(x: 128.32, y: 25.78))
+        kAPUTPath.addLine(to: CGPoint(x: 127.55, y: 33.23))
+        kAPUTPath.addLine(to: CGPoint(x: 133.73, y: 32.91))
+        kAPUTPath.addLine(to: CGPoint(x: 130.3, y: 65.59))
+        kAPUTPath.addLine(to: CGPoint(x: 138.17, y: 65.18))
+        kAPUTPath.addLine(to: CGPoint(x: 141.59, y: 32.49))
+        kAPUTPath.addLine(to: CGPoint(x: 147.82, y: 32.17))
+        kAPUTPath.addLine(to: CGPoint(x: 148.6, y: 24.71))
+        kAPUTPath.addLine(to: CGPoint(x: 128.32, y: 25.78))
+        kAPUTPath.close()
         kAPUTPath.miterLimit = 4;
 
         kAPUTPath.usesEvenOddFillRule = true;
@@ -211,24 +211,24 @@ public class KaputStyle : NSObject {
 
 
         //// Rectangle-59 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 167.35, 44.45)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 167.35, y: 44.45)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let rectangle59Path = UIBezierPath(rect: CGRect(x: -5.03, y: -12.3, width: 10.05, height: 24.6))
         fillColor4.setFill()
         rectangle59Path.fill()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
     }
 
-    public class func drawCheckSignCanvas() {
+    open class func drawCheckSignCanvas() {
         //// Color Declarations
         let strokeColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         let fillColor4 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
@@ -247,14 +247,14 @@ public class KaputStyle : NSObject {
 
         //// Check Drawing
         let checkPath = UIBezierPath()
-        checkPath.moveToPoint(CGPoint(x: 14.96, y: 20.85))
-        checkPath.addLineToPoint(CGPoint(x: 13, y: 22.8))
-        checkPath.addLineToPoint(CGPoint(x: 18.23, y: 28))
-        checkPath.addLineToPoint(CGPoint(x: 30, y: 16.95))
-        checkPath.addLineToPoint(CGPoint(x: 28.04, y: 15))
-        checkPath.addLineToPoint(CGPoint(x: 18.23, y: 24.1))
-        checkPath.addLineToPoint(CGPoint(x: 14.96, y: 20.85))
-        checkPath.closePath()
+        checkPath.move(to: CGPoint(x: 14.96, y: 20.85))
+        checkPath.addLine(to: CGPoint(x: 13, y: 22.8))
+        checkPath.addLine(to: CGPoint(x: 18.23, y: 28))
+        checkPath.addLine(to: CGPoint(x: 30, y: 16.95))
+        checkPath.addLine(to: CGPoint(x: 28.04, y: 15))
+        checkPath.addLine(to: CGPoint(x: 18.23, y: 24.1))
+        checkPath.addLine(to: CGPoint(x: 14.96, y: 20.85))
+        checkPath.close()
         checkPath.miterLimit = 4;
 
         checkPath.usesEvenOddFillRule = true;
@@ -263,20 +263,20 @@ public class KaputStyle : NSObject {
         checkPath.fill()
     }
 
-    public class func drawBackArrow() {
+    open class func drawBackArrow() {
         //// Color Declarations
         let fillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
 
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(CGPoint(x: 14.79, y: 29.49))
-        bezierPath.addLineToPoint(CGPoint(x: 0.05, y: 15))
-        bezierPath.addLineToPoint(CGPoint(x: 14.79, y: 0.51))
-        bezierPath.addLineToPoint(CGPoint(x: 16.79, y: 2.49))
-        bezierPath.addLineToPoint(CGPoint(x: 4.06, y: 15))
-        bezierPath.addLineToPoint(CGPoint(x: 16.79, y: 27.51))
-        bezierPath.addLineToPoint(CGPoint(x: 14.79, y: 29.49))
-        bezierPath.closePath()
+        bezierPath.move(to: CGPoint(x: 14.79, y: 29.49))
+        bezierPath.addLine(to: CGPoint(x: 0.05, y: 15))
+        bezierPath.addLine(to: CGPoint(x: 14.79, y: 0.51))
+        bezierPath.addLine(to: CGPoint(x: 16.79, y: 2.49))
+        bezierPath.addLine(to: CGPoint(x: 4.06, y: 15))
+        bezierPath.addLine(to: CGPoint(x: 16.79, y: 27.51))
+        bezierPath.addLine(to: CGPoint(x: 14.79, y: 29.49))
+        bezierPath.close()
         bezierPath.usesEvenOddFillRule = true;
 
         fillColor.setFill()
@@ -289,7 +289,7 @@ public class KaputStyle : NSObject {
         rectanglePath.fill()
     }
 
-    public class func drawNumberOfNotifications(notifColor notifColor: UIColor = UIColor(red: 1.000, green: 0.216, blue: 0.380, alpha: 1.000)) {
+    open class func drawNumberOfNotifications(notifColor: UIColor = UIColor(red: 1.000, green: 0.216, blue: 0.380, alpha: 1.000)) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -299,72 +299,72 @@ public class KaputStyle : NSObject {
         let fillColor2 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
 
         //// Group 8
-        CGContextSaveGState(context)
-        CGContextSetShadowWithColor(context, KaputStyle.shadow.shadowOffset, KaputStyle.shadow.shadowBlurRadius, (KaputStyle.shadow.shadowColor as! UIColor).CGColor)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.setShadow(offset: KaputStyle.shadow.shadowOffset, blur: KaputStyle.shadow.shadowBlurRadius, color: (KaputStyle.shadow.shadowColor as! UIColor).cgColor)
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
 
         //// Group
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip
         let clipPath = UIBezierPath(rect: CGRect(x: -36.38, y: -22.4, width: 72.75, height: 44.8))
-                var clipTransformation = CGAffineTransformIdentity
-        clipTransformation = CGAffineTransformTranslate(clipTransformation, 37.55, 24.45)
-        clipTransformation = CGAffineTransformRotate(clipTransformation, -3 * CGFloat(M_PI) / 180)
+                var clipTransformation = CGAffineTransform.identity
+        clipTransformation = clipTransformation.translatedBy(x: 37.55, y: 24.45)
+        clipTransformation = clipTransformation.rotated(by: -3 * CGFloat(M_PI) / 180)
 
-        clipPath.applyTransform(clipTransformation)
+        clipPath.apply(clipTransformation)
         clipPath.addClip()
 
 
         //// Rectangle Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 37.55, 24.45)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 37.55, y: 24.45)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let rectanglePath = UIBezierPath(rect: CGRect(x: -36.38, y: -22.4, width: 72.75, height: 44.8))
         strokeColor2.setStroke()
         rectanglePath.lineWidth = 10
         rectanglePath.stroke()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
         //// Group 2
         //// Rectangle 3 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 37.51, 24.17)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 37.51, y: 24.17)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let rectangle3Path = UIBezierPath(rect: CGRect(x: -33.56, y: -18.95, width: 67.12, height: 37.91))
         fillColor2.setFill()
         rectangle3Path.fill()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
         //// Group 3
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 3
         let clip3Path = UIBezierPath(rect: CGRect(x: -36.38, y: -22.4, width: 72.75, height: 44.8))
-                var clip3Transformation = CGAffineTransformIdentity
-        clip3Transformation = CGAffineTransformTranslate(clip3Transformation, 37.55, 24.45)
-        clip3Transformation = CGAffineTransformRotate(clip3Transformation, -3 * CGFloat(M_PI) / 180)
+                var clip3Transformation = CGAffineTransform.identity
+        clip3Transformation = clip3Transformation.translatedBy(x: 37.55, y: 24.45)
+        clip3Transformation = clip3Transformation.rotated(by: -3 * CGFloat(M_PI) / 180)
 
-        clip3Path.applyTransform(clip3Transformation)
+        clip3Path.apply(clip3Transformation)
         clip3Path.addClip()
 
 
         //// Group 4
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 2
         let clip2Path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 76, height: 49))
@@ -372,45 +372,45 @@ public class KaputStyle : NSObject {
 
 
         //// Rectangle 4 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 37.55, 24.45)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 37.55, y: 24.45)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let rectangle4Path = UIBezierPath(rect: CGRect(x: -36.38, y: -22.4, width: 72.75, height: 44.8))
         strokeColor2.setStroke()
         rectangle4Path.lineWidth = 10
         rectangle4Path.stroke()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
 
 
         //// Group 5
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 6
         let clip6Path = UIBezierPath(rect: CGRect(x: -7.65, y: -16.48, width: 15.3, height: 32.95))
-                var clip6Transformation = CGAffineTransformIdentity
-        clip6Transformation = CGAffineTransformTranslate(clip6Transformation, 15.1, 25.4)
-        clip6Transformation = CGAffineTransformRotate(clip6Transformation, -3 * CGFloat(M_PI) / 180)
+                var clip6Transformation = CGAffineTransform.identity
+        clip6Transformation = clip6Transformation.translatedBy(x: 15.1, y: 25.4)
+        clip6Transformation = clip6Transformation.rotated(by: -3 * CGFloat(M_PI) / 180)
 
-        clip6Path.applyTransform(clip6Transformation)
+        clip6Path.apply(clip6Transformation)
         clip6Path.addClip()
 
 
         //// Group 6
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 5
         let clip5Path = UIBezierPath(rect: CGRect(x: 6, y: 8, width: 18, height: 35))
@@ -418,60 +418,60 @@ public class KaputStyle : NSObject {
 
 
         //// Rectangle 8 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 15.1, 25.4)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 15.1, y: 25.4)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let rectangle8Path = UIBezierPath(rect: CGRect(x: -12.65, y: -21.48, width: 25.3, height: 42.95))
         notifColor.setFill()
         rectangle8Path.fill()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
         //// Group 7
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 7
         let clip7Path = UIBezierPath(rect: CGRect(x: -3.15, y: -7.7, width: 6.3, height: 15.4))
-                var clip7Transformation = CGAffineTransformIdentity
-        clip7Transformation = CGAffineTransformTranslate(clip7Transformation, 75.7, 23.15)
-        clip7Transformation = CGAffineTransformRotate(clip7Transformation, -3 * CGFloat(M_PI) / 180)
+                var clip7Transformation = CGAffineTransform.identity
+        clip7Transformation = clip7Transformation.translatedBy(x: 75.7, y: 23.15)
+        clip7Transformation = clip7Transformation.rotated(by: -3 * CGFloat(M_PI) / 180)
 
-        clip7Path.applyTransform(clip7Transformation)
+        clip7Path.apply(clip7Transformation)
         clip7Path.addClip()
 
 
         //// Rectangle 12 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 75.7, 23.15)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 75.7, y: 23.15)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let rectangle12Path = UIBezierPath(rect: CGRect(x: -8.15, y: -12.7, width: 16.3, height: 25.4))
         fillColor.setFill()
         rectangle12Path.fill()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
     }
 
-    public class func drawAddButton() {
+    open class func drawAddButton() {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -482,83 +482,83 @@ public class KaputStyle : NSObject {
         let fillColor5 = UIColor(red: 0.208, green: 0.529, blue: 0.988, alpha: 1.000)
 
         //// Shadow Declarations
-        let shadow2 = NSShadow(color: shadowTint.colorWithAlphaComponent(0.2 * CGColorGetAlpha(shadowTint.CGColor)), offset: CGSize(width: 250.1, height: 10.1), blurRadius: 0)
+        let shadow2 = NSShadow(color: shadowTint.withAlphaComponent(0.2 * shadowTint.cgColor.alpha), offset: CGSize(width: 250.1, height: 10.1), blurRadius: 0)
 
         //// Oval Drawing
-        let ovalPath = UIBezierPath(ovalInRect: CGRect(x: -240, y: 0, width: 80, height: 80))
-        CGContextSaveGState(context)
-        CGContextSetShadowWithColor(context, shadow2.shadowOffset, shadow2.shadowBlurRadius, (shadow2.shadowColor as! UIColor).CGColor)
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: -240, y: 0, width: 80, height: 80))
+        context!.saveGState()
+        context!.setShadow(offset: shadow2.shadowOffset, blur: shadow2.shadowBlurRadius, color: (shadow2.shadowColor as! UIColor).cgColor)
         fillColor.setFill()
         ovalPath.fill()
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
 
         //// Group
         //// Group 2
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip
-        let clipPath = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 80, height: 80))
+        let clipPath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 80, height: 80))
         clipPath.addClip()
 
 
         //// Oval 2 Drawing
-        let oval2Path = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 80, height: 80))
+        let oval2Path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 80, height: 80))
         fillColor5.setFill()
         oval2Path.fill()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
 
 
         //// Group 3
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 3
-        let clip3Path = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 80, height: 80))
+        let clip3Path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 80, height: 80))
         clip3Path.addClip()
 
 
         //// Oval 4 Drawing
-        let oval4Path = UIBezierPath(ovalInRect: CGRect(x: 0, y: 0, width: 80, height: 80))
+        let oval4Path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 80, height: 80))
         strokeColor2.setStroke()
         oval4Path.lineWidth = 10
         oval4Path.stroke()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
         //// Bezier 2 Drawing
         let bezier2Path = UIBezierPath()
-        bezier2Path.moveToPoint(CGPoint(x: 61, y: 36.5))
-        bezier2Path.addLineToPoint(CGPoint(x: 43.5, y: 36.5))
-        bezier2Path.addLineToPoint(CGPoint(x: 43.5, y: 19))
-        bezier2Path.addLineToPoint(CGPoint(x: 36.5, y: 19))
-        bezier2Path.addLineToPoint(CGPoint(x: 36.5, y: 36.5))
-        bezier2Path.addLineToPoint(CGPoint(x: 19, y: 36.5))
-        bezier2Path.addLineToPoint(CGPoint(x: 19, y: 43.5))
-        bezier2Path.addLineToPoint(CGPoint(x: 36.5, y: 43.5))
-        bezier2Path.addLineToPoint(CGPoint(x: 36.5, y: 61))
-        bezier2Path.addLineToPoint(CGPoint(x: 43.5, y: 61))
-        bezier2Path.addLineToPoint(CGPoint(x: 43.5, y: 43.5))
-        bezier2Path.addLineToPoint(CGPoint(x: 61, y: 43.5))
-        bezier2Path.addLineToPoint(CGPoint(x: 61, y: 36.5))
-        bezier2Path.closePath()
+        bezier2Path.move(to: CGPoint(x: 61, y: 36.5))
+        bezier2Path.addLine(to: CGPoint(x: 43.5, y: 36.5))
+        bezier2Path.addLine(to: CGPoint(x: 43.5, y: 19))
+        bezier2Path.addLine(to: CGPoint(x: 36.5, y: 19))
+        bezier2Path.addLine(to: CGPoint(x: 36.5, y: 36.5))
+        bezier2Path.addLine(to: CGPoint(x: 19, y: 36.5))
+        bezier2Path.addLine(to: CGPoint(x: 19, y: 43.5))
+        bezier2Path.addLine(to: CGPoint(x: 36.5, y: 43.5))
+        bezier2Path.addLine(to: CGPoint(x: 36.5, y: 61))
+        bezier2Path.addLine(to: CGPoint(x: 43.5, y: 61))
+        bezier2Path.addLine(to: CGPoint(x: 43.5, y: 43.5))
+        bezier2Path.addLine(to: CGPoint(x: 61, y: 43.5))
+        bezier2Path.addLine(to: CGPoint(x: 61, y: 36.5))
+        bezier2Path.close()
         bezier2Path.usesEvenOddFillRule = true;
 
         fillColor.setFill()
         bezier2Path.fill()
     }
 
-    public class func drawBigNotif(frame frame: CGRect = CGRect(x: 0, y: 0, width: 359, height: 119), notifColor: UIColor = UIColor(red: 1.000, green: 0.216, blue: 0.380, alpha: 1.000), batteryLevelLenght: CGFloat = 30.1) {
+    open class func drawBigNotif(frame: CGRect = CGRect(x: 0, y: 0, width: 359, height: 119), notifColor: UIColor = UIColor(red: 1.000, green: 0.216, blue: 0.380, alpha: 1.000), batteryLevelLenght: CGFloat = 30.1) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -571,28 +571,38 @@ public class KaputStyle : NSObject {
 
 
         //// Group 3
-        CGContextSaveGState(context)
-        CGContextSetShadowWithColor(context, KaputStyle.shadow.shadowOffset, KaputStyle.shadow.shadowBlurRadius, (KaputStyle.shadow.shadowColor as! UIColor).CGColor)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.setShadow(offset: KaputStyle.shadow.shadowOffset, blur: KaputStyle.shadow.shadowBlurRadius, color: (KaputStyle.shadow.shadowColor as! UIColor).cgColor)
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
 
         //// Rectangle 8 Drawing
-        let rectangle8Path = UIBezierPath(rect: CGRect(x: group3.minX + floor(group3.width * 0.96643 + 0.2) + 0.3, y: group3.minY + floor(group3.height * 0.37111 + 0.1) + 0.4, width: floor(group3.width * 1.00000 - 0.1) - floor(group3.width * 0.96643 + 0.2) + 0.3, height: floor(group3.height * 0.65111 - 0.1) - floor(group3.height * 0.37111 + 0.1) + 0.2))
+        
+        let Xvalue = group3.minX + floor(group3.width * 0.96643 + 0.2) + 0.3
+        
+        let Yvalue = group3.minY + floor(group3.height * 0.37111 + 0.1) + 0.4
+        
+        let heightValue = floor(group3.height * 0.65111 - 0.1) - floor(group3.height * 0.37111 + 0.1) + 0.2
+        
+        let WidthValue = floor(group3.width * 1.00000 - 0.1) - floor(group3.width * 0.96643 + 0.2) + 0.3
+        
+        let rectangle8Path = UIBezierPath(rect: CGRect(x: Xvalue , y: Yvalue , width: WidthValue, height: heightValue ))
+        
         fillColor.setFill()
         rectangle8Path.fill()
 
 
         //// Rectangle 2 Drawing
         let rectangle2Path = UIBezierPath(rect: CGRect(x: group3.minX + floor(group3.width * 0.00000 + 0.5), y: group3.minY + floor(group3.height * 0.00000 + 0.5), width: floor(group3.width * 0.96554 + 0.5) - floor(group3.width * 0.00000 + 0.5), height: floor(group3.height * 1.00000 + 0.5) - floor(group3.height * 0.00000 + 0.5)))
-        UIColor.blackColor().setFill()
+        UIColor.black.setFill()
         rectangle2Path.fill()
-        UIColor.whiteColor().setStroke()
+        UIColor.white.setStroke()
         rectangle2Path.lineWidth = 5
         rectangle2Path.stroke()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
         //// Rectangle 6 Drawing
@@ -601,47 +611,47 @@ public class KaputStyle : NSObject {
         rectangle6Path.fill()
     }
 
-    public class func drawDownArrow() {
+    open class func drawDownArrow() {
         //// Color Declarations
         let fillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
 
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(CGPoint(x: 24.09, y: 0))
-        bezierPath.addLineToPoint(CGPoint(x: 13.64, y: 10.45))
-        bezierPath.addLineToPoint(CGPoint(x: 3.18, y: 0))
-        bezierPath.addLineToPoint(CGPoint(x: 0, y: 3.18))
-        bezierPath.addLineToPoint(CGPoint(x: 13.64, y: 16.82))
-        bezierPath.addLineToPoint(CGPoint(x: 27.27, y: 3.18))
-        bezierPath.addLineToPoint(CGPoint(x: 24.09, y: 0))
-        bezierPath.closePath()
+        bezierPath.move(to: CGPoint(x: 24.09, y: 0))
+        bezierPath.addLine(to: CGPoint(x: 13.64, y: 10.45))
+        bezierPath.addLine(to: CGPoint(x: 3.18, y: 0))
+        bezierPath.addLine(to: CGPoint(x: 0, y: 3.18))
+        bezierPath.addLine(to: CGPoint(x: 13.64, y: 16.82))
+        bezierPath.addLine(to: CGPoint(x: 27.27, y: 3.18))
+        bezierPath.addLine(to: CGPoint(x: 24.09, y: 0))
+        bezierPath.close()
         bezierPath.usesEvenOddFillRule = true;
 
         fillColor.setFill()
         bezierPath.fill()
     }
 
-    public class func drawBolt() {
+    open class func drawBolt() {
         //// Color Declarations
         let fillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
 
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(CGPoint(x: 18.18, y: 0))
-        bezierPath.addLineToPoint(CGPoint(x: 0, y: 24.96))
-        bezierPath.addLineToPoint(CGPoint(x: 11.36, y: 24.96))
-        bezierPath.addLineToPoint(CGPoint(x: 4.55, y: 45.38))
-        bezierPath.addLineToPoint(CGPoint(x: 25, y: 18.15))
-        bezierPath.addLineToPoint(CGPoint(x: 13.64, y: 18.15))
-        bezierPath.addLineToPoint(CGPoint(x: 18.18, y: 0))
-        bezierPath.closePath()
+        bezierPath.move(to: CGPoint(x: 18.18, y: 0))
+        bezierPath.addLine(to: CGPoint(x: 0, y: 24.96))
+        bezierPath.addLine(to: CGPoint(x: 11.36, y: 24.96))
+        bezierPath.addLine(to: CGPoint(x: 4.55, y: 45.38))
+        bezierPath.addLine(to: CGPoint(x: 25, y: 18.15))
+        bezierPath.addLine(to: CGPoint(x: 13.64, y: 18.15))
+        bezierPath.addLine(to: CGPoint(x: 18.18, y: 0))
+        bezierPath.close()
         bezierPath.usesEvenOddFillRule = true;
 
         fillColor.setFill()
         bezierPath.fill()
     }
 
-    public class func drawBlockSign() {
+    open class func drawBlockSign() {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -649,98 +659,98 @@ public class KaputStyle : NSObject {
         let fillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
 
         //// Group
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip
         let clipPath = UIBezierPath()
-        clipPath.moveToPoint(CGPoint(x: 4.61, y: 25.82))
-        clipPath.addCurveToPoint(CGPoint(x: 25.82, y: 25.82), controlPoint1: CGPoint(x: 10.46, y: 31.68), controlPoint2: CGPoint(x: 19.96, y: 31.68))
-        clipPath.addCurveToPoint(CGPoint(x: 25.82, y: 4.61), controlPoint1: CGPoint(x: 31.68, y: 19.96), controlPoint2: CGPoint(x: 31.68, y: 10.46))
-        clipPath.addCurveToPoint(CGPoint(x: 4.61, y: 4.61), controlPoint1: CGPoint(x: 19.96, y: -1.25), controlPoint2: CGPoint(x: 10.46, y: -1.25))
-        clipPath.addCurveToPoint(CGPoint(x: 4.61, y: 25.82), controlPoint1: CGPoint(x: -1.25, y: 10.46), controlPoint2: CGPoint(x: -1.25, y: 19.96))
-        clipPath.addLineToPoint(CGPoint(x: 4.61, y: 25.82))
-        clipPath.closePath()
-        clipPath.moveToPoint(CGPoint(x: 7.44, y: 22.99))
-        clipPath.addCurveToPoint(CGPoint(x: 7.44, y: 7.44), controlPoint1: CGPoint(x: 3.14, y: 18.7), controlPoint2: CGPoint(x: 3.14, y: 11.73))
-        clipPath.addCurveToPoint(CGPoint(x: 22.99, y: 7.44), controlPoint1: CGPoint(x: 11.73, y: 3.14), controlPoint2: CGPoint(x: 18.7, y: 3.14))
-        clipPath.addCurveToPoint(CGPoint(x: 22.99, y: 22.99), controlPoint1: CGPoint(x: 27.29, y: 11.73), controlPoint2: CGPoint(x: 27.29, y: 18.7))
-        clipPath.addCurveToPoint(CGPoint(x: 7.44, y: 22.99), controlPoint1: CGPoint(x: 18.7, y: 27.29), controlPoint2: CGPoint(x: 11.73, y: 27.29))
-        clipPath.addLineToPoint(CGPoint(x: 7.44, y: 22.99))
-        clipPath.closePath()
+        clipPath.move(to: CGPoint(x: 4.61, y: 25.82))
+        clipPath.addCurve(to: CGPoint(x: 25.82, y: 25.82), controlPoint1: CGPoint(x: 10.46, y: 31.68), controlPoint2: CGPoint(x: 19.96, y: 31.68))
+        clipPath.addCurve(to: CGPoint(x: 25.82, y: 4.61), controlPoint1: CGPoint(x: 31.68, y: 19.96), controlPoint2: CGPoint(x: 31.68, y: 10.46))
+        clipPath.addCurve(to: CGPoint(x: 4.61, y: 4.61), controlPoint1: CGPoint(x: 19.96, y: -1.25), controlPoint2: CGPoint(x: 10.46, y: -1.25))
+        clipPath.addCurve(to: CGPoint(x: 4.61, y: 25.82), controlPoint1: CGPoint(x: -1.25, y: 10.46), controlPoint2: CGPoint(x: -1.25, y: 19.96))
+        clipPath.addLine(to: CGPoint(x: 4.61, y: 25.82))
+        clipPath.close()
+        clipPath.move(to: CGPoint(x: 7.44, y: 22.99))
+        clipPath.addCurve(to: CGPoint(x: 7.44, y: 7.44), controlPoint1: CGPoint(x: 3.14, y: 18.7), controlPoint2: CGPoint(x: 3.14, y: 11.73))
+        clipPath.addCurve(to: CGPoint(x: 22.99, y: 7.44), controlPoint1: CGPoint(x: 11.73, y: 3.14), controlPoint2: CGPoint(x: 18.7, y: 3.14))
+        clipPath.addCurve(to: CGPoint(x: 22.99, y: 22.99), controlPoint1: CGPoint(x: 27.29, y: 11.73), controlPoint2: CGPoint(x: 27.29, y: 18.7))
+        clipPath.addCurve(to: CGPoint(x: 7.44, y: 22.99), controlPoint1: CGPoint(x: 18.7, y: 27.29), controlPoint2: CGPoint(x: 11.73, y: 27.29))
+        clipPath.addLine(to: CGPoint(x: 7.44, y: 22.99))
+        clipPath.close()
         clipPath.addClip()
 
 
         //// Rectangle Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 15.2, 15.2)
-        CGContextRotateCTM(context, 45 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 15.2, y: 15.2)
+        context!.rotate(by: 45 * CGFloat(M_PI) / 180)
 
         let rectanglePath = UIBezierPath(rect: CGRect(x: -20, y: -20, width: 40, height: 40))
         fillColor.setFill()
         rectanglePath.fill()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
         //// Group 2
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 2
         let clip2Path = UIBezierPath(rect: CGRect(x: -2, y: -12.5, width: 4, height: 25))
-                var clip2Transformation = CGAffineTransformIdentity
-        clip2Transformation = CGAffineTransformTranslate(clip2Transformation, 15.2, 15.2)
-        clip2Transformation = CGAffineTransformRotate(clip2Transformation, 45 * CGFloat(M_PI) / 180)
+                var clip2Transformation = CGAffineTransform.identity
+        clip2Transformation = clip2Transformation.translatedBy(x: 15.2, y: 15.2)
+        clip2Transformation = clip2Transformation.rotated(by: 45 * CGFloat(M_PI) / 180)
 
-        clip2Path.applyTransform(clip2Transformation)
+        clip2Path.apply(clip2Transformation)
         clip2Path.addClip()
 
 
         //// Rectangle 2 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 15.2, 15.2)
-        CGContextRotateCTM(context, 45 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 15.2, y: 15.2)
+        context!.rotate(by: 45 * CGFloat(M_PI) / 180)
 
         let rectangle2Path = UIBezierPath(rect: CGRect(x: -7, y: -17.5, width: 14, height: 35))
         fillColor.setFill()
         rectangle2Path.fill()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
     }
 
-    public class func drawTrashCan() {
+    open class func drawTrashCan() {
         //// Color Declarations
         let fillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
 
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(CGPoint(x: 4, y: 8))
-        bezierPath.addLineToPoint(CGPoint(x: 4, y: 8))
-        bezierPath.addLineToPoint(CGPoint(x: 7, y: 5))
-        bezierPath.addLineToPoint(CGPoint(x: 7, y: 34))
-        bezierPath.addLineToPoint(CGPoint(x: 4, y: 31))
-        bezierPath.addLineToPoint(CGPoint(x: 29, y: 31))
-        bezierPath.addLineToPoint(CGPoint(x: 26, y: 34))
-        bezierPath.addLineToPoint(CGPoint(x: 26, y: 5))
-        bezierPath.addLineToPoint(CGPoint(x: 29, y: 8))
-        bezierPath.addLineToPoint(CGPoint(x: 4, y: 8))
-        bezierPath.closePath()
-        bezierPath.moveToPoint(CGPoint(x: 4, y: 5))
-        bezierPath.addLineToPoint(CGPoint(x: 29, y: 5))
-        bezierPath.addLineToPoint(CGPoint(x: 29, y: 34))
-        bezierPath.addLineToPoint(CGPoint(x: 4, y: 34))
-        bezierPath.addLineToPoint(CGPoint(x: 4, y: 5))
-        bezierPath.addLineToPoint(CGPoint(x: 4, y: 5))
-        bezierPath.closePath()
+        bezierPath.move(to: CGPoint(x: 4, y: 8))
+        bezierPath.addLine(to: CGPoint(x: 4, y: 8))
+        bezierPath.addLine(to: CGPoint(x: 7, y: 5))
+        bezierPath.addLine(to: CGPoint(x: 7, y: 34))
+        bezierPath.addLine(to: CGPoint(x: 4, y: 31))
+        bezierPath.addLine(to: CGPoint(x: 29, y: 31))
+        bezierPath.addLine(to: CGPoint(x: 26, y: 34))
+        bezierPath.addLine(to: CGPoint(x: 26, y: 5))
+        bezierPath.addLine(to: CGPoint(x: 29, y: 8))
+        bezierPath.addLine(to: CGPoint(x: 4, y: 8))
+        bezierPath.close()
+        bezierPath.move(to: CGPoint(x: 4, y: 5))
+        bezierPath.addLine(to: CGPoint(x: 29, y: 5))
+        bezierPath.addLine(to: CGPoint(x: 29, y: 34))
+        bezierPath.addLine(to: CGPoint(x: 4, y: 34))
+        bezierPath.addLine(to: CGPoint(x: 4, y: 5))
+        bezierPath.addLine(to: CGPoint(x: 4, y: 5))
+        bezierPath.close()
         fillColor.setFill()
         bezierPath.fill()
 
@@ -787,7 +797,7 @@ public class KaputStyle : NSObject {
         rectangle7Path.fill()
     }
 
-    public class func drawLaunchViewBolt(notifColor notifColor: UIColor = UIColor(red: 1.000, green: 0.216, blue: 0.380, alpha: 1.000)) {
+    open class func drawLaunchViewBolt(notifColor: UIColor = UIColor(red: 1.000, green: 0.216, blue: 0.380, alpha: 1.000)) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -797,53 +807,53 @@ public class KaputStyle : NSObject {
         let fillColor2 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
 
         //// Group
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip
         let clipPath = UIBezierPath(rect: CGRect(x: -41, y: -25.05, width: 82, height: 50.1))
-                var clipTransformation = CGAffineTransformIdentity
-        clipTransformation = CGAffineTransformTranslate(clipTransformation, 46.25, 33.85)
-        clipTransformation = CGAffineTransformRotate(clipTransformation, -3 * CGFloat(M_PI) / 180)
+                var clipTransformation = CGAffineTransform.identity
+        clipTransformation = clipTransformation.translatedBy(x: 46.25, y: 33.85)
+        clipTransformation = clipTransformation.rotated(by: -3 * CGFloat(M_PI) / 180)
 
-        clipPath.applyTransform(clipTransformation)
+        clipPath.apply(clipTransformation)
         clipPath.addClip()
 
 
         //// Rectangle Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 46.25, 33.85)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 46.25, y: 33.85)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let rectanglePath = UIBezierPath(rect: CGRect(x: -41, y: -25.05, width: 82, height: 50.1))
         strokeColor2.setStroke()
         rectanglePath.lineWidth = 8.02
         rectanglePath.stroke()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
         //// Group 2
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 5
         let clip5Path = UIBezierPath(rect: CGRect(x: -41, y: -25.05, width: 82, height: 50.1))
-                var clip5Transformation = CGAffineTransformIdentity
-        clip5Transformation = CGAffineTransformTranslate(clip5Transformation, 46.25, 33.85)
-        clip5Transformation = CGAffineTransformRotate(clip5Transformation, -3 * CGFloat(M_PI) / 180)
+                var clip5Transformation = CGAffineTransform.identity
+        clip5Transformation = clip5Transformation.translatedBy(x: 46.25, y: 33.85)
+        clip5Transformation = clip5Transformation.rotated(by: -3 * CGFloat(M_PI) / 180)
 
-        clip5Path.applyTransform(clip5Transformation)
+        clip5Path.apply(clip5Transformation)
         clip5Path.addClip()
 
 
         //// Group 3
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 2
         let clip2Path = UIBezierPath(rect: CGRect(x: 4, y: 6, width: 85, height: 56))
@@ -851,38 +861,38 @@ public class KaputStyle : NSObject {
 
 
         //// Rectangle 3 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 46.25, 33.85)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 46.25, y: 33.85)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let rectangle3Path = UIBezierPath(rect: CGRect(x: -41, y: -25.05, width: 82, height: 50.1))
         fillColor2.setFill()
         rectangle3Path.fill()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
         //// Group 4
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 4
         let clip4Path = UIBezierPath(rect: CGRect(x: -41, y: -25.05, width: 82, height: 50.1))
-                var clip4Transformation = CGAffineTransformIdentity
-        clip4Transformation = CGAffineTransformTranslate(clip4Transformation, 46.25, 33.85)
-        clip4Transformation = CGAffineTransformRotate(clip4Transformation, -3 * CGFloat(M_PI) / 180)
+                var clip4Transformation = CGAffineTransform.identity
+        clip4Transformation = clip4Transformation.translatedBy(x: 46.25, y: 33.85)
+        clip4Transformation = clip4Transformation.rotated(by: -3 * CGFloat(M_PI) / 180)
 
-        clip4Path.applyTransform(clip4Transformation)
+        clip4Path.apply(clip4Transformation)
         clip4Path.addClip()
 
 
         //// Group 5
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 3
         let clip3Path = UIBezierPath(rect: CGRect(x: 4, y: 6, width: 85, height: 56))
@@ -890,47 +900,47 @@ public class KaputStyle : NSObject {
 
 
         //// Rectangle 5 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 46.25, 33.85)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 46.25, y: 33.85)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let rectangle5Path = UIBezierPath(rect: CGRect(x: -41, y: -25.05, width: 82, height: 50.1))
         strokeColor2.setStroke()
         rectangle5Path.lineWidth = 8.02
         rectangle5Path.stroke()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
         //// Group 6
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 7
         let clip7Path = UIBezierPath(rect: CGRect(x: -8.43, y: -17.32, width: 16.85, height: 34.65))
-                var clip7Transformation = CGAffineTransformIdentity
-        clip7Transformation = CGAffineTransformTranslate(clip7Transformation, 21.6, 35.05)
-        clip7Transformation = CGAffineTransformRotate(clip7Transformation, -3 * CGFloat(M_PI) / 180)
+                var clip7Transformation = CGAffineTransform.identity
+        clip7Transformation = clip7Transformation.translatedBy(x: 21.6, y: 35.05)
+        clip7Transformation = clip7Transformation.rotated(by: -3 * CGFloat(M_PI) / 180)
 
-        clip7Path.applyTransform(clip7Transformation)
+        clip7Path.apply(clip7Transformation)
         clip7Path.addClip()
 
 
         //// Group 7
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 6
         let clip6Path = UIBezierPath(rect: CGRect(x: 12, y: 17, width: 19, height: 36))
@@ -938,69 +948,69 @@ public class KaputStyle : NSObject {
 
 
         //// Rectangle 9 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 21.6, 35.05)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 21.6, y: 35.05)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let rectangle9Path = UIBezierPath(rect: CGRect(x: -13.43, y: -22.33, width: 26.85, height: 44.65))
         notifColor.setFill()
         rectangle9Path.fill()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
         //// Group 8
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 8
         let clip8Path = UIBezierPath(rect: CGRect(x: -3.48, y: -8.62, width: 6.95, height: 17.25))
-                var clip8Transformation = CGAffineTransformIdentity
-        clip8Transformation = CGAffineTransformTranslate(clip8Transformation, 88.6, 32.3)
-        clip8Transformation = CGAffineTransformRotate(clip8Transformation, -3 * CGFloat(M_PI) / 180)
+                var clip8Transformation = CGAffineTransform.identity
+        clip8Transformation = clip8Transformation.translatedBy(x: 88.6, y: 32.3)
+        clip8Transformation = clip8Transformation.rotated(by: -3 * CGFloat(M_PI) / 180)
 
-        clip8Path.applyTransform(clip8Transformation)
+        clip8Path.apply(clip8Transformation)
         clip8Path.addClip()
 
 
         //// Rectangle 12 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 88.6, 32.3)
-        CGContextRotateCTM(context, -3 * CGFloat(M_PI) / 180)
+        context!.saveGState()
+        context!.translateBy(x: 88.6, y: 32.3)
+        context!.rotate(by: -3 * CGFloat(M_PI) / 180)
 
         let rectangle12Path = UIBezierPath(rect: CGRect(x: -8.47, y: -13.62, width: 16.95, height: 27.25))
         fillColor.setFill()
         rectangle12Path.fill()
 
-        CGContextRestoreGState(context)
+        context!.restoreGState()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
 
 
         //// Group 9
-        CGContextSaveGState(context)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
         //// Clip Clip 9
         let clip9Path = UIBezierPath()
-        clip9Path.moveToPoint(CGPoint(x: 51.95, y: 18.21))
-        clip9Path.addLineToPoint(CGPoint(x: 39.31, y: 35.88))
-        clip9Path.addLineToPoint(CGPoint(x: 47.21, y: 35.88))
-        clip9Path.addLineToPoint(CGPoint(x: 42.47, y: 50.34))
-        clip9Path.addLineToPoint(CGPoint(x: 56.69, y: 31.07))
-        clip9Path.addLineToPoint(CGPoint(x: 48.79, y: 31.07))
-        clip9Path.addLineToPoint(CGPoint(x: 51.95, y: 18.21))
-        clip9Path.closePath()
+        clip9Path.move(to: CGPoint(x: 51.95, y: 18.21))
+        clip9Path.addLine(to: CGPoint(x: 39.31, y: 35.88))
+        clip9Path.addLine(to: CGPoint(x: 47.21, y: 35.88))
+        clip9Path.addLine(to: CGPoint(x: 42.47, y: 50.34))
+        clip9Path.addLine(to: CGPoint(x: 56.69, y: 31.07))
+        clip9Path.addLine(to: CGPoint(x: 48.79, y: 31.07))
+        clip9Path.addLine(to: CGPoint(x: 51.95, y: 18.21))
+        clip9Path.close()
         clip9Path.usesEvenOddFillRule = true;
 
         clip9Path.addClip()
@@ -1012,11 +1022,11 @@ public class KaputStyle : NSObject {
         rectangle14Path.fill()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
     }
 
-    public class func drawLittleBat(batteryLevelLenght batteryLevelLenght: CGFloat = 30.1) {
+    open class func drawLittleBat(batteryLevelLenght: CGFloat = 30.1) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -1026,16 +1036,16 @@ public class KaputStyle : NSObject {
         let fillColor3 = UIColor(red: 1.000, green: 0.216, blue: 0.380, alpha: 1.000)
 
         //// Group
-        CGContextSaveGState(context)
-        CGContextSetShadowWithColor(context, KaputStyle.shadow.shadowOffset, KaputStyle.shadow.shadowBlurRadius, (KaputStyle.shadow.shadowColor as! UIColor).CGColor)
-        CGContextBeginTransparencyLayer(context, nil)
+        context!.saveGState()
+        context!.setShadow(offset: KaputStyle.shadow.shadowOffset, blur: KaputStyle.shadow.shadowBlurRadius, color: (KaputStyle.shadow.shadowColor as! UIColor).cgColor)
+        context!.beginTransparencyLayer(auxiliaryInfo: nil)
 
 
         //// Rectangle 3 Drawing
         let rectangle3Path = UIBezierPath(rect: CGRect(x: 9, y: 6.5, width: 85.5, height: 49))
         fillColor2.setFill()
         rectangle3Path.fill()
-        UIColor.whiteColor().setStroke()
+        UIColor.white.setStroke()
         rectangle3Path.lineWidth = 5
         rectangle3Path.stroke()
 
@@ -1052,13 +1062,13 @@ public class KaputStyle : NSObject {
         rectangle8Path.fill()
 
 
-        CGContextEndTransparencyLayer(context)
-        CGContextRestoreGState(context)
+        context!.endTransparencyLayer()
+        context!.restoreGState()
     }
 
     //// Generated Images
 
-    public class var imageOfAddButton: UIImage {
+    open class var imageOfAddButton: UIImage {
         if Cache.imageOfAddButton != nil {
             return Cache.imageOfAddButton!
         }
@@ -1072,7 +1082,7 @@ public class KaputStyle : NSObject {
         return Cache.imageOfAddButton!
     }
 
-    public class var imageOfDownArrow: UIImage {
+    open class var imageOfDownArrow: UIImage {
         if Cache.imageOfDownArrow != nil {
             return Cache.imageOfDownArrow!
         }
@@ -1086,7 +1096,7 @@ public class KaputStyle : NSObject {
         return Cache.imageOfDownArrow!
     }
 
-    public class var imageOfBolt: UIImage {
+    open class var imageOfBolt: UIImage {
         if Cache.imageOfBolt != nil {
             return Cache.imageOfBolt!
         }
@@ -1100,7 +1110,7 @@ public class KaputStyle : NSObject {
         return Cache.imageOfBolt!
     }
 
-    public class var imageOfTrashCan: UIImage {
+    open class var imageOfTrashCan: UIImage {
         if Cache.imageOfTrashCan != nil {
             return Cache.imageOfTrashCan!
         }
@@ -1121,7 +1131,7 @@ public class KaputStyle : NSObject {
         set {
             Cache.addButtonTargets = newValue
             for target: AnyObject in newValue {
-                target.performSelector(NSSelectorFromString("setImage:"), withObject: KaputStyle.imageOfAddButton)
+                target.perform(NSSelectorFromString("setImage:"), with: KaputStyle.imageOfAddButton)
             }
         }
     }
@@ -1131,7 +1141,7 @@ public class KaputStyle : NSObject {
         set {
             Cache.downArrowTargets = newValue
             for target: AnyObject in newValue {
-                target.performSelector(NSSelectorFromString("setImage:"), withObject: KaputStyle.imageOfDownArrow)
+                target.perform(NSSelectorFromString("setImage:"), with: KaputStyle.imageOfDownArrow)
             }
         }
     }
@@ -1141,7 +1151,7 @@ public class KaputStyle : NSObject {
         set {
             Cache.boltTargets = newValue
             for target: AnyObject in newValue {
-                target.performSelector(NSSelectorFromString("setImage:"), withObject: KaputStyle.imageOfBolt)
+                target.perform(NSSelectorFromString("setImage:"), with: KaputStyle.imageOfBolt)
             }
         }
     }
@@ -1151,7 +1161,7 @@ public class KaputStyle : NSObject {
         set {
             Cache.trashCanTargets = newValue
             for target: AnyObject in newValue {
-                target.performSelector(NSSelectorFromString("setImage:"), withObject: KaputStyle.imageOfTrashCan)
+                target.perform(NSSelectorFromString("setImage:"), with: KaputStyle.imageOfTrashCan)
             }
         }
     }

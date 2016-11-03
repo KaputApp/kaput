@@ -14,7 +14,7 @@ class AddFriendViewController: UIViewController {
     @IBOutlet var yourUsername: UILabel!
     @IBOutlet var friendNameField: kaputField!
     @IBOutlet var addFriendButton: kaputPrimaryButton!
-    @IBAction func addFriend(sender: AnyObject) {
+    @IBAction func addFriend(_ sender: AnyObject) {
     
         if reachable == true {
         
@@ -28,7 +28,7 @@ class AddFriendViewController: UIViewController {
         if exists && name != ""{
         let inputsOutputs = [name:true] as [String:Bool]
             let myName = [myUsername:true] as [String:Bool]
-        ref.child("Users").child(userID).child("friends").updateChildValues(inputsOutputs)
+        ref.child("Users").child(userID!).child("friends").updateChildValues(inputsOutputs)
         
             FirebaseDataService.sendFriendRequestToName(name)
             
@@ -36,7 +36,7 @@ class AddFriendViewController: UIViewController {
         self.addFriendButton.titleLabel?.text = "\(name) WAS ADDED"
         self.addFriendButton.backgroundColor = KaputStyle.fullGreen
         
-        delay(1.5) {
+        delay(delay: 1.5) {
         self.addFriendButton.titleLabel?.text = "HERE WE GO!"
         self.addFriendButton.backgroundColor = Colors.init().primaryColor
             self.friendNameField.text = nil
@@ -70,8 +70,8 @@ class AddFriendViewController: UIViewController {
     }
     
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-            super.touchesBegan(touches, withEvent:event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            super.touchesBegan(touches, with:event)
         view.endEditing(true)
     }
     /*

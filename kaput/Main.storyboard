@@ -1,59 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Futura_condensed_bold_oblique.ttf">
+        <array key="Futura_condensed_bold_oblique.ttf">
             <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-            <string>Futura-CondensedBoldOblique</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--WelcomeScreen-->
@@ -65,20 +22,20 @@
                         <viewControllerLayoutGuide type="bottom" id="4TL-dd-GyK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RER-DK-mAD">
-                                <rect key="frame" x="0.0" y="600" width="600" height="10"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <frame key="frameInset" minY="600" width="600" height="10"/>
+                                <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="268" id="8PA-0v-lrR"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CHARGING YOUR PHONE. AWESOME IDEA." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-zd-6Pe" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="60" y="314" width="480" height="23"/>
+                                <frame key="frameInset" minX="60" minY="314" width="480" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="22"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideRight"/>
@@ -88,9 +45,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-p9-4WT" customClass="logoKaput" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="210" y="20" width="180" height="128"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYS-p9-4WT" customClass="logoKaput" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="210" minY="20" width="180" height="128"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="UBM-b7-qhL"/>
                                     <constraint firstAttribute="width" constant="180" id="cQ5-WW-5Rb"/>
@@ -101,9 +58,9 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="8%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGp-1d-HjY" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="219" y="207" width="162" height="127"/>
+                                <frame key="frameInset" minX="219" minY="207" width="162" height="127"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="120"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideLeft"/>
@@ -113,14 +70,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-Pn-lzf" customClass="kaputSecondaryButton" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="305" y="499" width="275" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-Pn-lzf" customClass="kaputSecondaryButton" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="305" minY="499" width="275" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="KMQ-eZ-yxw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                 <state key="normal" title="SIGN UP">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
@@ -133,14 +90,14 @@
                                     <segue destination="B0k-56-6Dj" kind="custom" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="pKd-Qt-TsX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-8o-mMF" customClass="kaputButton" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="499" width="275" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-8o-mMF" customClass="kaputButton" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="20" minY="499" width="275" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="39t-8x-3dO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                 <state key="normal" title="LOG IN">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
@@ -153,14 +110,14 @@
                                     <segue destination="5KF-Fe-tG4" kind="custom" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="Cqv-ec-fAe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfO-EZ-jaf" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="418" width="560" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfO-EZ-jaf" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="20" minY="418" width="560" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="RvP-hq-wuH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                 <state key="normal" title="LOG IN WITH FACEBOOK">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
@@ -172,7 +129,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BYS-p9-4WT" firstAttribute="top" secondItem="gTv-Dn-egg" secondAttribute="bottom" constant="20" id="6zJ-sG-Md1"/>
                             <constraint firstItem="CNe-zd-6Pe" firstAttribute="top" secondItem="BGp-1d-HjY" secondAttribute="baseline" constant="10" id="8IV-mw-7dt"/>
@@ -199,7 +156,6 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="buttonFacebook" destination="sfO-EZ-jaf" id="eRh-JS-c12"/>
                         <outlet property="buttonLogIn" destination="UBC-8o-mMF" id="Yxz-9R-OeJ"/>
@@ -225,51 +181,50 @@
                         <viewControllerLayoutGuide type="bottom" id="RzM-ft-zOi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nWU-fe-Eaf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Qhb-rJ-wsZ" customClass="TPKeyboardScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Qhb-rJ-wsZ" customClass="TPKeyboardScrollView">
+                                <frame key="frameInset" width="600" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hht-gN-6Mk" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="20" width="30" height="30"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="CrZ-9U-CV8"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WzC-FS-vcj" customClass="kaputField" customModule="kaput" customModuleProvider="target">
                                         <rect key="frame" x="20" y="188" width="560" height="28"/>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="go" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Hx-9D-gc8" customClass="kaputField" customModule="kaput" customModuleProvider="target">
                                         <rect key="frame" x="20" y="92" width="560" height="28"/>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="go"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M0h-wU-27D" customClass="kaputField" customModule="kaput" customModuleProvider="target">
                                         <rect key="frame" x="20" y="140" width="560" height="28"/>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="go"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
@@ -280,7 +235,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                         <state key="normal" title="HERE WE GO">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="signUpButton:" destination="B0k-56-6Dj" eventType="touchUpInside" id="cnr-K9-D4d"/>
@@ -293,7 +248,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                         <state key="normal" title="DO IT WITH FACEBOOK">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="loginFB:" destination="B0k-56-6Dj" eventType="touchUpInside" id="xC6-sL-kfc"/>
@@ -306,7 +261,7 @@
                                             <constraint firstAttribute="width" constant="113" id="sUj-DQ-YgL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -343,7 +298,7 @@
                                 </variation>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.21568627450980393" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.21568627450980393" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Qhb-rJ-wsZ" firstAttribute="bottom" secondItem="RzM-ft-zOi" secondAttribute="top" id="4OO-YA-qU0"/>
                             <constraint firstItem="Qhb-rJ-wsZ" firstAttribute="top" secondItem="dOo-m1-qft" secondAttribute="bottom" id="AkY-Pk-731"/>
@@ -372,38 +327,38 @@
                         <viewControllerLayoutGuide type="bottom" id="DBg-Nq-Ocw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1Fi-iy-vsU">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LOG IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="107" translatesAutoresizingMaskIntoConstraints="NO" id="KSf-6C-Hzl">
-                                <rect key="frame" x="230" y="16" width="141" height="43"/>
+                                <frame key="frameInset" minX="230" minY="16" width="141" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="ua7-V2-g59"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVD-XQ-lo0" customClass="kaputField" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="126" width="560" height="28"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <frame key="frameInset" minX="20" minY="126" width="560" height="28"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="go" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3J-qu-0tH" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="273" width="560" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3J-qu-0tH" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="20" minY="273" width="560" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="Vby-tV-SNN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                 <state key="normal" title="DO IT WITH FACEBOOK">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="loginFB:" destination="5KF-Fe-tG4" eventType="touchUpInside" id="WZ3-bT-gBX"/>
@@ -411,48 +366,49 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="EMAIL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kd0-sP-YCe" customClass="kaputField" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="73" width="560" height="28"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <frame key="frameInset" minX="20" minY="73" width="560" height="28"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="go"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzI-e6-fL4" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="20" width="34" height="30"/>
+                                <frame key="frameInset" minX="20" minY="20" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="custom" customClass="SegueFromRight" customModule="kaput" customModuleProvider="target" id="1id-Qr-VbS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="400-uj-QFD" customClass="kaputButton" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="164" width="560" height="71"/>
+                                <frame key="frameInset" minX="20" minY="164" width="560" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="G1J-G1-asN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                 <state key="normal" title="HERE WE GO">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="logInButton:" destination="5KF-Fe-tG4" eventType="touchUpInside" id="d0y-51-tsJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6e-3Y-oZV">
-                                <rect key="frame" x="235" y="240" width="130" height="30"/>
+                                <frame key="frameInset" minX="235" minY="240" width="130" height="30"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="17"/>
                                 <state key="normal" title="FORGOT PASSWORD">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="resetPassword:" destination="5KF-Fe-tG4" eventType="touchUpInside" id="w1j-Ph-BrD"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.21568627450980393" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.21568627450980393" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="400-uj-QFD" firstAttribute="leading" secondItem="1Fi-iy-vsU" secondAttribute="leadingMargin" id="0Xq-BN-YgU"/>
                             <constraint firstItem="kd0-sP-YCe" firstAttribute="centerX" secondItem="1Fi-iy-vsU" secondAttribute="centerX" id="46R-XC-xsN"/>
@@ -476,7 +432,7 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -500,11 +456,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Dzs-DX-al3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8s3-Y4-VCV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Ckr-dv-9SW" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Ckr-dv-9SW" customClass="TPKeyboardAvoidingScrollView">
+                                <frame key="frameInset" width="600" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMZ-Ge-UiT" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
                                         <rect key="frame" x="20" y="140" width="560" height="71"/>
@@ -513,7 +469,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                         <state key="normal" title="HERE WE GO!">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="addFriend:" destination="DHS-xq-Ngq" eventType="touchUpInside" id="tvn-ez-wq9"/>
@@ -522,7 +478,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="YOUR USERNAME IS ILLANOU85 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zK-BY-QlP">
                                         <rect key="frame" x="197" y="231" width="207" height="18"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ADD FRIENDS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oq-An-i6V">
@@ -531,11 +487,10 @@
                                             <constraint firstAttribute="width" constant="160" id="KGK-Mq-m3y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bct-Em-j0S" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="20" width="34" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="eg8-Zq-Bc6"/>
                                             <constraint firstAttribute="width" constant="34" id="yxj-Ow-xci"/>
@@ -546,13 +501,13 @@
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="Abs-7T-HWv" customClass="kaputField" customModule="kaput" customModuleProvider="target">
                                         <rect key="frame" x="20" y="92" width="560" height="28"/>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
@@ -575,7 +530,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98431372549999996" green="0.1019607843" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.98431372549999996" green="0.1019607843" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ckr-dv-9SW" secondAttribute="trailing" id="5cd-zZ-281"/>
                             <constraint firstItem="Ckr-dv-9SW" firstAttribute="bottom" secondItem="Dzs-DX-al3" secondAttribute="top" id="EGt-UT-3fe"/>
@@ -602,25 +557,25 @@
                         <viewControllerLayoutGuide type="bottom" id="kLi-7D-GTC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pYr-Gm-qrD">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBv-Sn-KoG" customClass="downButton" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="286" y="566" width="28" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBv-Sn-KoG" customClass="downButton" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="286" minY="566" width="28" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="58W-w2-g26"/>
                                     <constraint firstAttribute="height" constant="24" id="wTa-lH-XIm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="ydw-Xu-nsu" kind="custom" identifier="downToFriendList" customClass="SegueFromDown" customModule="kaput" customModuleProvider="target" id="gPn-Xk-fUh"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neq-RV-9mj">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neq-RV-9mj">
+                                <frame key="frameInset" minY="20" width="600" height="580"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMk-cw-xkw" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
                                         <rect key="frame" x="20" y="451" width="560" height="71"/>
@@ -629,7 +584,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                         <state key="normal" title="INVITE FRIENDS">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
@@ -641,18 +596,17 @@
                                             <action selector="inviteFriend:" destination="TKK-0J-CQX" eventType="touchUpInside" id="dGE-0c-HZh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5a-KV-eS1" customClass="labelButton" customModule="kaput" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="20" width="41" height="22"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5a-KV-eS1" customClass="labelButton" customModule="kaput" customModuleProvider="target">
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
                                         <state key="normal" title="EDIT">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="xxA-AP-5JK" kind="presentation" animates="NO" modalTransitionStyle="crossDissolve" id="fOE-mo-gZT"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1zw-VC-K2x">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1zw-VC-K2x">
                                         <rect key="frame" x="234" y="53" width="132" height="132"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="132" id="9bj-K6-xnA"/>
@@ -662,7 +616,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="JEREMY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVH-ZA-CCi" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
                                         <rect key="frame" x="213" y="205" width="175" height="64"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="60"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideLeft"/>
@@ -676,7 +630,7 @@
                                         <rect key="frame" x="518" y="20" width="62" height="34"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
                                         <state key="normal" title="LOGOUT">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="LogOut:" destination="TKK-0J-CQX" eventType="touchUpInside" id="A8v-R5-1B1"/>
@@ -696,7 +650,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                         <state key="normal" title="FEEDBACK">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
@@ -713,13 +667,14 @@
                                         <rect key="frame" x="208" y="278" width="93" height="62"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="39%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3f-Lr-b1q">
-                                                <rect key="frame" x="-1" y="7" width="77" height="38"/>
+                                                <frame key="frameInset" minX="-1" minY="7" width="77" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="62" id="KYL-tG-v2z"/>
                                             <constraint firstAttribute="width" constant="93" id="gj7-Qe-Diy"/>
@@ -732,7 +687,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                         <state key="normal" title="HELP">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
@@ -745,7 +700,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6p-nl-UXV" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
                                         <rect key="frame" x="341" y="288" width="20" height="43"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="40"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
@@ -761,7 +716,7 @@
                                             <constraint firstAttribute="width" constant="55" id="X88-LY-vzq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -801,7 +756,7 @@
                                 </variation>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.21568627450980393" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.21568627450980393" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Neq-RV-9mj" secondAttribute="trailing" constant="-20" id="1gr-Dj-ORJ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="YMk-cw-xkw" secondAttribute="leading" id="6Wf-ag-FIJ"/>
@@ -843,36 +798,36 @@
                         <viewControllerLayoutGuide type="bottom" id="ATQ-Tf-dyA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ChL-9v-QY4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gl2-dJ-Wi6">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gl2-dJ-Wi6">
+                                <frame key="frameInset" width="600" height="600"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="friendCell" focusStyle="custom" textLabel="nEq-eb-xo4" rowHeight="91" style="IBUITableViewCellStyleDefault" id="Ri2-Z6-9PL" customClass="MGSwipeTableCell">
                                         <rect key="frame" x="0.0" y="28" width="600" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ri2-Z6-9PL" id="Le3-Uh-vML">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="91"/>
+                                            <frame key="frameInset" width="600" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nEq-eb-xo4">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="91"/>
+                                                    <frame key="frameInset" minX="15" width="570" height="91"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="40"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRT-c2-da4" customClass="addButtonView" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="478" y="485" width="92" height="90"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRT-c2-da4" customClass="addButtonView" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="478" minY="485" width="92" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="KTZ-3z-55f"/>
                                     <constraint firstAttribute="height" constant="90" id="j3B-pY-fby"/>
@@ -880,7 +835,7 @@
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="35"/>
                                 <inset key="contentEdgeInsets" minX="-19" minY="-7" maxX="0.0" maxY="0.0"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideLeft"/>
@@ -893,8 +848,8 @@
                                     <segue destination="DHS-xq-Ngq" kind="custom" customClass="SegueFromLeft" customModule="kaput" customModuleProvider="target" id="7fJ-kP-1xF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDg-lZ-T0C" customClass="numberOfNotifications" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="30" y="499" width="92" height="61"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDg-lZ-T0C" customClass="numberOfNotifications" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="30" minY="499" width="92" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="I5a-9L-Xdy"/>
                                     <constraint firstAttribute="width" constant="92" id="Oz5-0S-UOV"/>
@@ -902,7 +857,7 @@
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="35"/>
                                 <inset key="contentEdgeInsets" minX="-19" minY="-7" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="2">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
@@ -917,7 +872,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ATQ-Tf-dyA" firstAttribute="top" secondItem="XDg-lZ-T0C" secondAttribute="bottom" constant="40" id="1vh-5h-3FJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NRT-c2-da4" secondAttribute="trailing" constant="10" id="6Wz-We-ANJ"/>
@@ -958,32 +913,32 @@
                         <viewControllerLayoutGuide type="bottom" id="DfX-aB-aHD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rzi-tZ-WLo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0MP-q8-nC3">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0MP-q8-nC3">
+                                <frame key="frameInset" width="600" height="600"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9Wc-ra-SIA">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <frame key="frameInset"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3NS-sg-7LB" customClass="BigNotifView" customModule="kaput" customModuleProvider="target">
-                                            <rect key="frame" x="79" y="236" width="521" height="128"/>
+                                            <frame key="frameInset" minX="79" minY="236" width="521" height="128"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3 MN AGO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJA-8h-U8b" customClass="PaddingLabel" customModule="kaput" customModuleProvider="target">
-                                                    <rect key="frame" x="162" y="54" width="117" height="21"/>
+                                                    <frame key="frameInset" minX="162" minY="54" width="117" height="21"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="loading..." textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="rZ1-tm-gXD">
-                                                    <rect key="frame" x="121" y="19" width="295" height="85"/>
+                                                    <frame key="frameInset" minX="121" minY="19" width="295" height="85"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="70"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="BFM-bI-AZs"/>
@@ -1011,15 +966,15 @@
                                                 <outletCollection property="gestureRecognizers" destination="gc0-IJ-eUf" appends="YES" id="r64-Yb-u6P"/>
                                             </connections>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37L-qr-eNf">
-                                            <rect key="frame" x="255" y="540" width="90" height="40"/>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37L-qr-eNf">
+                                            <frame key="frameInset" minX="255" minY="540" width="90" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="90" id="VdW-HK-dtu"/>
                                                 <constraint firstAttribute="height" constant="40" id="ceY-GO-vbJ"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="15"/>
                                             <state key="normal" title="DISMISS ALL">
-                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="dismissAll:" destination="7P8-DW-v5D" eventType="touchUpInside" id="fDk-Py-p2w"/>
@@ -1042,9 +997,9 @@
                                 </connections>
                             </visualEffectView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwB-kU-Zsr" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="220" y="30" width="160" height="106"/>
+                                <frame key="frameInset" minX="220" minY="30" width="160" height="106"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="100"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
@@ -1052,7 +1007,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="0MP-q8-nC3" secondAttribute="trailing" id="Gf8-zZ-iae"/>
                             <constraint firstAttribute="bottomMargin" secondItem="0MP-q8-nC3" secondAttribute="bottom" id="JUG-H4-QQy"/>
@@ -1105,15 +1060,15 @@
                         <viewControllerLayoutGuide type="bottom" id="wKS-mw-3p3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="o3c-dS-4mv">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOy-W8-lZ6" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOy-W8-lZ6" customClass="TPKeyboardAvoidingScrollView">
+                                <frame key="frameInset" width="600" height="600"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-bf-bvi">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-bf-bvi">
                                         <rect key="frame" x="234" y="53" width="132" height="132"/>
-                                        <color key="backgroundColor" red="0.20784313725490194" green="0.52941176470588236" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.20784313725490194" green="0.52941176470588236" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="132" id="azL-6l-C4J"/>
                                             <constraint firstAttribute="height" constant="132" id="uQh-qE-aON"/>
@@ -1121,14 +1076,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="110"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="-15" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="+">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="pickAvatar:" destination="xxA-AP-5JK" eventType="touchUpInside" id="nSR-QV-lAk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMI-bv-0vM" customClass="BackButtonView" customModule="kaput" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="20" width="30" height="30"/>
                                         <connections>
                                             <segue destination="TKK-0J-CQX" kind="presentation" animates="NO" modalTransitionStyle="crossDissolve" id="4zB-dw-8Kx"/>
                                         </connections>
@@ -1137,7 +1091,7 @@
                                         <rect key="frame" x="427" y="20" width="153" height="34"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
                                         <state key="normal" title="CHANGE PASSWORD">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="changePassword:" destination="xxA-AP-5JK" eventType="touchUpInside" id="160-mv-yCq"/>
@@ -1150,7 +1104,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                         <state key="normal" title="SAVE CHANGES">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
@@ -1163,13 +1117,13 @@
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="2mN-3q-kFR" customClass="kaputField" customModule="kaput" customModuleProvider="target">
                                         <rect key="frame" x="20" y="215" width="560" height="28"/>
-                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
@@ -1185,7 +1139,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.2156862745" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.2156862745" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xOy-W8-lZ6" firstAttribute="leading" secondItem="o3c-dS-4mv" secondAttribute="leading" id="1kq-Sd-kmL"/>
                             <constraint firstItem="xOy-W8-lZ6" firstAttribute="centerX" secondItem="o3c-dS-4mv" secondAttribute="centerX" id="6yD-2T-Z0c"/>
@@ -1221,27 +1175,27 @@
                         <viewControllerLayoutGuide type="bottom" id="V9K-Vn-qdc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mef-3t-Ec7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0N3-5D-qnl" customClass="labelButton" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="513" y="20" width="67" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0N3-5D-qnl" customClass="labelButton" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="513" minY="20" width="67" height="34"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="20"/>
                                 <state key="normal" title="LOG OUT">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="logOut:" destination="VDP-45-lCm" eventType="touchUpInside" id="4Rr-2L-X35"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkO-58-Ff7" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="325" width="560" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkO-58-Ff7" customClass="kaputPrimaryButton" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="20" minY="325" width="560" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="IBm-Bl-c3l"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="30"/>
                                 <state key="normal" title="SAVE CHANGES">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="zoomIn"/>
@@ -1252,34 +1206,34 @@
                                     <action selector="saveChanges:" destination="VDP-45-lCm" eventType="touchUpInside" id="W0J-y4-l3i"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AvatarGreen.jpg" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWU-EN-DaY">
-                                <rect key="frame" x="234" y="53" width="132" height="132"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="AvatarGreen.jpg" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWU-EN-DaY">
+                                <frame key="frameInset" minX="234" minY="53" width="132" height="132"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="132" id="6CM-1x-WUt"/>
                                     <constraint firstAttribute="height" constant="132" id="etU-nx-0sp"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="mxf-EY-KKe" customClass="kaputField" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="20" y="277" width="560" height="28"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="USERNAME" textAlignment="natural" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="mxf-EY-KKe" customClass="kaputField" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="20" minY="277" width="560" height="28"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rkp-2Y-Hcy" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
-                                <rect key="frame" x="176" y="206" width="249" height="51"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rkp-2Y-Hcy" customClass="SpringLabel" customModule="kaput" customModuleProvider="target">
+                                <frame key="frameInset" minX="176" minY="206" width="249" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="249" id="JZe-Fv-VfN"/>
                                 </constraints>
                                 <string key="text">ALMOST THERE, JEREMY !
 PICK YOUR USERNAME</string>
                                 <fontDescription key="fontDescription" name="Futura-CondensedBoldOblique" family="Futura-Condensed" pointSize="24"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideRight"/>
@@ -1290,7 +1244,7 @@ PICK YOUR USERNAME</string>
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.2156862745" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.2156862745" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="SkO-58-Ff7" secondAttribute="trailing" id="1al-Ve-yZw"/>
                             <constraint firstAttribute="leadingMargin" secondItem="0N3-5D-qnl" secondAttribute="leading" id="2iu-4l-t0W"/>

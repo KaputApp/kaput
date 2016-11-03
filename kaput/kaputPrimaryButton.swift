@@ -15,12 +15,12 @@ class kaputPrimaryButton: SpringButton {
         super.init(coder: aDecoder)!
 
     self.layer.borderWidth = 5;
-    self.layer.borderColor = UIColor.whiteColor().CGColor;
-    self.layer.shadowColor = KaputStyle.shadowColor.CGColor;
-    self.layer.shadowOffset = CGSizeMake(10, 10);
+    self.layer.borderColor = UIColor.white.cgColor;
+    self.layer.shadowColor = KaputStyle.shadowColor.cgColor;
+    self.layer.shadowOffset = CGSize(width: 10, height: 10);
     self.layer.shadowRadius = 0
     self.layer.shadowOpacity = 1;
-    self.layer.backgroundColor = Colors.init().primaryColor.CGColor
+    self.layer.backgroundColor = Colors.init().primaryColor.cgColor
     
     }
     
@@ -29,9 +29,9 @@ class kaputPrimaryButton: SpringButton {
         
         if var titleFrame : CGRect = titleLabel?.frame{
             titleFrame.size = self.bounds.size
-            titleFrame.origin = CGPointZero
+            titleFrame.origin = CGPoint.zero
             self.titleLabel!.frame = titleFrame
-            self.titleLabel!.textAlignment = .Center
+            self.titleLabel!.textAlignment = .center
         }
     }
     

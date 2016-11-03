@@ -10,11 +10,11 @@ import Foundation
   var delegate:AppManagerDelegate? = nil
 
 class AppManager: NSObject{
-    public   var delegate:AppManagerDelegate? = nil
-  private var _useClosures:Bool = false
-  private var reachability: Reachability?
-  private var _isReachability:Bool = false
-  private var _reachabiltyNetworkType :String?
+    open   var delegate:AppManagerDelegate? = nil
+  fileprivate var _useClosures:Bool = false
+  fileprivate var reachability: Reachability?
+  fileprivate var _isReachability:Bool = false
+  fileprivate var _reachabiltyNetworkType :String?
 
   var isReachability:Bool {
     get {return _isReachability}
@@ -39,26 +39,28 @@ class AppManager: NSObject{
   // Reachability Methods--------------------------------------------------------------------------------//
   func initRechabilityMonitor() {
     print("initialize rechability...")
+    let reachability: Reachability
+
     do {
-      let reachability = try Reachability.reachabilityForInternetConnection()
+      reachability = try Reachability.init()!
       self.reachability = reachability
     } catch ReachabilityError.FailedToCreateWithAddress(let address) {
       print("Unable to create\nReachability with address:\n\(address)")
       return
     } catch {}
     if (_useClosures) {
-      reachability?.whenReachable = { reachability in
+      reachability.whenReachable = { reachability in
         self.notifyReachability(reachability)
       }
-      reachability?.whenUnreachable = { reachability in
+      reachability.whenUnreachable = { reachability in
         self.notifyReachability(reachability)
       }
     } else {
-      self.notifyReachability(reachability!)
+      self.notifyReachability(reachability)
     }
 
     do {
-      try reachability?.startNotifier()
+      try reachability.startNotifier()
     } catch {
       print("unable to start notifier")
       return
@@ -67,13 +69,13 @@ class AppManager: NSObject{
 
   }
 
-  private func notifyReachability(reachability:Reachability) {
-    if reachability.isReachable() {
+  fileprivate func notifyReachability(_ reachability:Reachability) {
+    if reachability.isReachable {
       self._isReachability = true
         
 
       //Determine Network Type
-      if reachability.isReachableViaWiFi() {
+        if reachability.isReachableViaWiFi {
         print("Reachable WIFI")
         self._reachabiltyNetworkType = CONNECTION_NETWORK_TYPE.WIFI_NETWORK.rawValue
       } else {
@@ -85,11 +87,11 @@ class AppManager: NSObject{
       self._reachabiltyNetworkType = CONNECTION_NETWORK_TYPE.OTHER.rawValue
     }
 
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: ReachabilityChangedNotification, object: reachability)
-  }
-  func reachabilityChanged(note: NSNotification) {
+     NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
+    }
+  func reachabilityChanged(_ note: Notification) {
     let reachability = note.object as! Reachability
-    dispatch_async(dispatch_get_main_queue()) {
+    DispatchQueue.main.async {
       self.delegate?.reachabilityStatusChangeHandler(reachability)
 
     }
@@ -97,7 +99,9 @@ class AppManager: NSObject{
   deinit {
     reachability?.stopNotifier()
     if (!_useClosures) {
-      NSNotificationCenter.defaultCenter().removeObserver(self, name: ReachabilityChangedNotification, object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: ReachabilityChangedNotification,
+                                                  object: reachability)
     }
   }
 }

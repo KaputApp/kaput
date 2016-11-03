@@ -52,31 +52,31 @@ override func viewDidLoad() {
         myAvatar = image
     })
 
-    ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
+    ref.child("Users").child(userID!).updateChildValues(["batteryLevel": batteryLevel])
 
-    FirebaseDataService.getFriendList(userID,response: { (friendList) -> () in
+    FirebaseDataService.getFriendList(userID!,response: { (friendList) -> () in
         
         self.data =  friendList.allKeys  as! NSMutableArray
         
-        self.friendShown = [Bool](count: self.data.count, repeatedValue: false)
+        self.friendShown = [Bool](repeating: false, count: self.data.count)
         
         self.friendsTableView.reloadData()
 
 
     })
 
-    FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
+    FirebaseDataService.getKaputList(userID!,response: { (kaputCount) -> () in
         self.kaputCount = Int(kaputCount)
-        UIApplication.sharedApplication().applicationIconBadgeNumber = self.kaputCount
+        UIApplication.shared.applicationIconBadgeNumber = self.kaputCount
 
         if self.kaputCount != 0 {
-            self.kaputCounter.hidden = false
+            self.kaputCounter.isHidden = false
             self.kaputCounter.animation = "slideRight"
             self.kaputCounter.animate()
         } else {
-            self.kaputCounter.hidden = true
+            self.kaputCounter.isHidden = true
         }
-            self.kaputCounter.setTitle(String(self.kaputCount),forState: UIControlState.Normal)
+            self.kaputCounter.setTitle(String(self.kaputCount),for: UIControlState())
         })
     
         self.setBoltView()
@@ -94,24 +94,24 @@ override func didReceiveMemoryWarning() {
 }
     
     
-     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return data.count
     }
     
-     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)  as! MGSwipeTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)  as! MGSwipeTableCell
         if hasFriend {
             cell.rightButtons = [MGSwipeButton(title: "", icon: KaputStyle.imageOfTrashCan,backgroundColor: KaputStyle.lowRed,padding:30,callback: {
             (sender: MGSwipeTableCell!) -> Bool in
 
-            let name = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
+            let name = tableView.cellForRow(at: indexPath)?.textLabel?.text
             FirebaseDataService.removeFriend(name!)
                 FirebaseDataService.getUidWithUsername(name!,response: {(uid,exists)->() in
 //                    let myName = [myUsername:true] as [String:Bool]
@@ -122,14 +122,13 @@ override func didReceiveMemoryWarning() {
        
         })]
         } else {
-            cell.rightButtons = nil
-        }
-        cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
+            cell.rightButtons = []        }
+        cell.rightSwipeSettings.transition = MGSwipeTransition.drag
         
         cell.backgroundColor = Colors.init().bgColor
 
 
-        cell.textLabel?.text = data[indexPath.row] as! String
+        cell.textLabel?.text = data[(indexPath as NSIndexPath).row] as! String
         
         let username = cell.textLabel!.text
         
@@ -149,18 +148,18 @@ override func didReceiveMemoryWarning() {
 
     //ANIMATION CELL UP
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
-        if self.friendShown[indexPath.row] == false
+        if self.friendShown[(indexPath as NSIndexPath).row] == false
         {
-            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, UIScreen.mainScreen().bounds.height - 40*CGFloat(indexPath.row - 1), 0)
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, UIScreen.main.bounds.height - 40*CGFloat((indexPath as NSIndexPath).row - 1), 0)
             cell.layer.transform = rotationTransform
             
-            SpringAnimation.spring(1.5)
+            SpringAnimation.spring(duration: 1.5)
             {
             cell.layer.transform = CATransform3DIdentity
             }
-            friendShown[indexPath.row] = true
+            friendShown[(indexPath as NSIndexPath).row] = true
         }
     }
     
@@ -171,7 +170,7 @@ override func didReceiveMemoryWarning() {
         
         self.refreshControl = UIRefreshControl()
         self.friendsTableView.addSubview(self.refreshControl)
-        self.refreshControl?.addTarget(self, action: #selector(FriendListViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(FriendListViewController.refresh), for: UIControlEvents.valueChanged)
        
         self.boltView = UIView(frame: self.refreshControl!.bounds)
         self.boltImageView = UIImageView(image: KaputStyle.imageOfBolt)
@@ -187,7 +186,7 @@ override func didReceiveMemoryWarning() {
 
         
         // Hide the original spinner icon
-        self.refreshControl!.tintColor = UIColor.clearColor()
+        self.refreshControl!.tintColor = UIColor.clear
         
         // Add the loading and colors views to our refresh control
         self.refreshControl!.addSubview(self.boltView)
@@ -196,12 +195,12 @@ override func didReceiveMemoryWarning() {
     
     func refresh(){
 
-        performSegueWithIdentifier("profileSegue", sender: self)
+        performSegue(withIdentifier: "profileSegue", sender: self)
         self.refreshControl!.endRefreshing()
 
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
      
         // Get the current size of the refresh controller
         var refreshBounds = self.refreshControl!.bounds;
@@ -218,7 +217,7 @@ override func didReceiveMemoryWarning() {
     
         //scale to 100% at the beggining
         if pullDistance < 100 {
-            self.boltImageView.transform = CGAffineTransformIdentity
+            self.boltImageView.transform = CGAffineTransform.identity
             self.boltImageView.frame.origin.y = boltY
             self.boltImageView.center = self.boltView.center
             self.boltImageView.bounds.size.height = pullDistance/100*45
@@ -231,7 +230,7 @@ override func didReceiveMemoryWarning() {
             
             let angle = CGFloat(M_PI_2)*pullDistance/2000
             
-            self.boltImageView.transform = CGAffineTransformRotate(self.boltImageView.transform, angle)
+            self.boltImageView.transform = self.boltImageView.transform.rotated(by: angle)
 
         }
         
@@ -241,64 +240,68 @@ override func didReceiveMemoryWarning() {
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if !hasFriend {
             
-        self.performSegueWithIdentifier("toAddView", sender: self)
+        self.performSegue(withIdentifier: "toAddView", sender: self)
             
         }
         else {
         
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
 
         let indexPath = tableView.indexPathForSelectedRow!
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
+        tableView.deselectRow(at: indexPath, animated: true)
+        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
         let name = currentCell.textLabel!.text
-        let date = NSDate()
-        let dateFormatter = NSDateFormatter()
+        let date = Date()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         
         if reachable {
-               ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
-            let myName = snapshot.value?["name"] as? String
+               ref.child("Users").child(userID!).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+                if let snapshotValue = snapshot.value as? NSDictionary, let myName = snapshotValue["name"] as? String {
+                    
+                
            let inputsOutputs = [
                 "levelBattery" : String(batLevel.init().levelBat),
                 "read" : false,
-                "sent_by" : String(myName!),
-                "sent_date" : dateFormatter.stringFromDate(date),
+                "sent_by" : String(myName),
+                "sent_date" : dateFormatter.string(from: date),
                 "sent_to" :  String(name!)
-            ]
+            ] as Dictionary<String, Any>
         
-                
+               
         FirebaseDataService.getUidWithUsername(name!,response: {(uid,exists)->() in
             
-       ref.child("Users").child(uid).child("kaput").childByAutoId().setValue(inputsOutputs as [NSObject : AnyObject])
+       ref.child("Users").child(uid).child("kaput").childByAutoId().setValue(inputsOutputs)
             
             })
-
+                } else {
+                    
+                }
       })
 
         let boltImageAnimationView = SpringImageView(image: KaputStyle.imageOfBolt)
 
         currentCell.textLabel!.alpha = 0
         currentCell.backgroundView = boltImageAnimationView
-        currentCell.backgroundView?.contentMode = .Center
+        currentCell.backgroundView?.contentMode = .center
         boltImageAnimationView.animation = "slideLeft"
         boltImageAnimationView.animateTo()
         let triggerTime = (Int64(NSEC_PER_SEC) * 1)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
         currentCell.textLabel!.alpha = 1
         currentCell.backgroundView = nil
       
         })
 
-        FirebaseDataService.getKaputList(userID,response: { (kaputCount) -> () in
+        FirebaseDataService.getKaputList(userID!,response: { (kaputCount) -> () in
             self.kaputCount = Int(kaputCount)
             
-            self.kaputCounter.setTitle(String(self.kaputCount),forState: UIControlState.Normal)
+            self.kaputCounter.setTitle(String(self.kaputCount),for: UIControlState())
             
             if self.kaputCount == 1 {
                 self.kaputCounter.animation = "slideRight"
@@ -311,12 +314,17 @@ override func didReceiveMemoryWarning() {
 //            kaputSent = kaputSent + 1
 //            ref.child("Users").child(userID).child("kaputSent").setValue(kaputSent)
             
-            ref.child("Users").child(userID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-                let kaputSentOld = snapshot.value!["kaputSent"] as! Int
+            ref.child("Users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+               
+                if let snapshotValue = snapshot.value as? NSDictionary, let kaputSentOld = snapshotValue["kaputSent"] as? Int {
+                
                 let kaputSentNew = kaputSentOld + 1
             
-            ref.child("Users").child(userID).child("kaputSent").setValue(kaputSentNew)
-          })  
+            ref.child("Users").child(userID!).child("kaputSent").setValue(kaputSentNew)
+                } else {
+                    
+                }
+          })
     }
     else {
             notification.notificationLabelBackgroundColor = KaputStyle.lowRed

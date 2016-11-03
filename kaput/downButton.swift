@@ -11,7 +11,7 @@ import UIKit
 
 class downButton: SpringButton {
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         KaputStyle.drawDownArrow()
         
     }

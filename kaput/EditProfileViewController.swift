@@ -14,21 +14,32 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 import FBSDKLoginKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 //FIXME: enlever Firebase FirebaseAuth et FirebaseStorage d'ici. Model View Controller
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate  {
 
-    @IBAction func changePassword(sender: AnyObject) {
+    @IBAction func changePassword(_ sender: AnyObject) {
         
         if reachable == true {
             
             let email = FIRAuth.auth()?.currentUser?.email
             
-                let finalemail = email?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                FIRAuth.auth()?.sendPasswordResetWithEmail(email!, completion: nil)
-                let  alert = UIAlertController(title: "Password reset!", message: "An email containing information on how to reset your password has been sent to  \(finalemail!)", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                let finalemail = email?.trimmingCharacters(in: CharacterSet.whitespaces)
+                FIRAuth.auth()?.sendPasswordReset(withEmail: email!, completion: nil)
+                let  alert = UIAlertController(title: "Password reset!", message: "An email containing information on how to reset your password has been sent to  \(finalemail!)", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             
         } else {
             notification.notificationLabelBackgroundColor = KaputStyle.lowRed
@@ -37,7 +48,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBOutlet var pickAvatarButton: UIButton!
-    @IBAction func pickAvatar(sender: UIButton) {
+    @IBAction func pickAvatar(_ sender: UIButton) {
         
         if reachable == true {
         
@@ -47,36 +58,36 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         picker.allowsEditing = true
 
         
-        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
         
         // 2
-        let cameraAction = UIAlertAction(title: "Camera", style: .Default, handler: {
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            picker.sourceType = UIImagePickerControllerSourceType.Camera
-            self.presentViewController(picker, animated: true, completion:nil)
+            picker.sourceType = UIImagePickerControllerSourceType.camera
+            self.present(picker, animated: true, completion:nil)
         })
-        let libraryAction = UIAlertAction(title: "Photo Library", style: .Default, handler: {
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            self.presentViewController(picker, animated: true, completion:nil)
+            picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            self.present(picker, animated: true, completion:nil)
 
         })
             
-            let fbAction = UIAlertAction(title: "Facebook Profile Picture", style: .Default, handler: {
+            let fbAction = UIAlertAction(title: "Facebook Profile Picture", style: .default, handler: {
                 (alert: UIAlertAction!) -> Void in
  
                 FirebaseDataService.getAvatarFromFB({(image) in
                     FirebaseDataService.storeAvatarInFirebase(image)
                     let imageData = UIImageJPEGRepresentation(image, 0.8)
                     let compressedImageFB = UIImage(data : imageData!)
-                    self.pickAvatarButton.setBackgroundImage(compressedImageFB, forState: UIControlState.Normal)
+                    self.pickAvatarButton.setBackgroundImage(compressedImageFB, for: UIControlState())
                     myAvatar = compressedImageFB!
                 })
                 
                 
             })
         //
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
             (alert: UIAlertAction!) -> Void in
 
         })
@@ -89,7 +100,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         optionMenu.addAction(cancelAction)
         
 
-        self.presentViewController(optionMenu, animated: true, completion: nil)
+        self.present(optionMenu, animated: true, completion: nil)
 
         } else {
             notification.notificationLabelBackgroundColor = KaputStyle.lowRed
@@ -97,9 +108,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    func imagePickerController(picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        picker.dismissViewControllerAnimated(true, completion:nil)
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion:nil)
         
 
         // if it's a photo from the library, not an image from the camera
@@ -133,7 +144,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             myAvatar  = compressedImage!
         
         
-                    self.pickAvatarButton.setBackgroundImage(myAvatar, forState: UIControlState.Normal)
+                    self.pickAvatarButton.setBackgroundImage(myAvatar, for: UIControlState())
         
     }
     
@@ -141,16 +152,16 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
 
 
-    func uploadSuccess(metadata: FIRStorageMetadata, storagePath: String) {
+    func uploadSuccess(_ metadata: FIRStorageMetadata, storagePath: String) {
         print("Upload Succeeded!")
 //        self.urlTextView.text = metadata.downloadURL()!.absoluteString
-        NSUserDefaults.standardUserDefaults().setObject(storagePath, forKey: "storagePath")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set(storagePath, forKey: "storagePath")
+        UserDefaults.standard.synchronize()
 //        self.downloadPicButton.enabled = true
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion:nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion:nil)
     }
         
 
@@ -160,7 +171,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var saveChangesButton: kaputPrimaryButton!
 
     
-    @IBAction func saveChangeButton(sender: AnyObject) {
+    @IBAction func saveChangeButton(_ sender: AnyObject) {
         
         if reachable == true {
         
@@ -178,7 +189,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             error = true
             
         }
-        else if username?.rangeOfCharacterFromSet(letters.invertedSet) != nil {
+        else if username?.rangeOfCharacter(from: letters.inverted) != nil {
             Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.usernameField)
             error = true
             
@@ -200,7 +211,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             self.saveChangesButton.titleLabel?.text = "NAME CHANGED"
             self.saveChangesButton.backgroundColor = KaputStyle.fullGreen
             
-            delay(1.5) {
+            delay(delay: 1.5) {
                 self.saveChangesButton.titleLabel?.text = "SAVE CHANGES"
                 self.saveChangesButton.backgroundColor = Colors.init().primaryColor
             }
@@ -215,7 +226,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
     
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         
         switch textField {
         case usernameField:
@@ -236,18 +247,18 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         
         view.backgroundColor = Colors.init().bgColor
-        self.pickAvatarButton.imageView?.contentMode = .ScaleAspectFill
+        self.pickAvatarButton.imageView?.contentMode = .scaleAspectFill
         self.pickAvatarButton.layer.cornerRadius = self.pickAvatarButton.frame.size.width / 2;
         self.pickAvatarButton.layer.borderWidth = 5;
         self.pickAvatarButton.clipsToBounds = true
         
-        self.pickAvatarButton.layer.borderColor = UIColor.whiteColor().CGColor;
+        self.pickAvatarButton.layer.borderColor = UIColor.white.cgColor;
         self.usernameField.delegate = self      
 
         
         let image = myAvatar.alpha(0.2)
         
-        self.pickAvatarButton.setBackgroundImage(image, forState: UIControlState.Normal)
+        self.pickAvatarButton.setBackgroundImage(image, for: UIControlState())
 
         
     

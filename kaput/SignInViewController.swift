@@ -11,43 +11,54 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FBSDKLoginKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
 
 
-    @IBAction func loginFB(sender: AnyObject) {
+    @IBAction func loginFB(_ sender: AnyObject) {
         
         if reachable == true {
             
             let facebookLogin = FBSDKLoginManager()
 
-            facebookLogin.logInWithReadPermissions(["public_profile", "email","user_friends"], fromViewController: self, handler: {
+            facebookLogin.logIn(withReadPermissions: ["public_profile", "email","user_friends"], from: self, handler: {
                 (facebookResult, facebookError) -> Void in
                 if facebookError != nil {
                     print("Facebook login failed. Error \(facebookError)")
-                } else if facebookResult.isCancelled {
+                } else if (facebookResult?.isCancelled)! {
                     print("Facebook login was cancelled.")
                 } else {
                     
-                    let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                     
-                    FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+                    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                         if error != nil {
                             print("Login failed. \(error)")
                         } else {
                             print("Logged in!")
                             
                             // on verifie si l'arbo dédiée a mon user existe déja
-                            ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+                            ref.child("Users").child(userID!).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
                                 //Si oui, on passe l'étape
                                 if snapshot.hasChildren(){
-                                    self.performSegueWithIdentifier("FriendList", sender: self)
+                                    self.performSegue(withIdentifier: "FriendList", sender: self)
                                     userID = String(FIRAuth.auth()!.currentUser!.uid)
                                 } else {
                                     //Si non, créer l'user et on passe l'étape
-                                    self.performSegueWithIdentifier("pickUsername", sender: self)
-                                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "", kaputSent: 0)
+                                    self.performSegue(withIdentifier: "pickUsername", sender: self)
+                                    FirebaseDataService.createUserData(userID!, bat: String(batteryLevel), username: "", kaputSent: 0)
                                     FirebaseDataService.getAvatarFromFB({(image) in
                                         FirebaseDataService.storeAvatarInFirebase(image)
                                     })
@@ -69,7 +80,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
     }
     @IBOutlet weak var emailField: kaputField!
-    @IBAction func resetPassword(sender: AnyObject) {
+    @IBAction func resetPassword(_ sender: AnyObject) {
         
         if reachable == true {
         
@@ -94,11 +105,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
         if !error {
         
-            let finalemail = email?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            FIRAuth.auth()?.sendPasswordResetWithEmail(email!, completion: nil)
-            let  alert = UIAlertController(title: "Password reset!", message: "An email containing information on how to reset your password has been sent to  \(finalemail!)", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let finalemail = email?.trimmingCharacters(in: CharacterSet.whitespaces)
+            FIRAuth.auth()?.sendPasswordReset(withEmail: email!, completion: nil)
+            let  alert = UIAlertController(title: "Password reset!", message: "An email containing information on how to reset your password has been sent to  \(finalemail!)", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         } else {
             notification.notificationLabelBackgroundColor = KaputStyle.lowRed
@@ -108,25 +119,25 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var passwordField: kaputField!
     
-    func errorAlert(title: String, message: String) {
+    func errorAlert(_ title: String, message: String) {
         weak var emailField: kaputField!
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
-    func sccuessAlert(title: String, message:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+    func sccuessAlert(_ title: String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
         
     }
     
    
     
-    @IBAction func logInButton(sender: AnyObject) {
+    @IBAction func logInButton(_ sender: AnyObject) {
         
         if reachable == true {
         
@@ -137,8 +148,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
         var email = self.emailField.text
         var password = self.passwordField.text
-        email = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-        password = password!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        email = email!.trimmingCharacters(in: CharacterSet.whitespaces)
+        password = password!.trimmingCharacters(in: CharacterSet.whitespaces)
      
         var error = false
         
@@ -156,7 +167,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         if password == "" {
             Errors.errorMessage("REQUIRED",field: self.passwordField)
             error = true
-        } else if password!.rangeOfCharacterFromSet(letters.invertedSet) != nil {
+        } else if password!.rangeOfCharacter(from: letters.inverted) != nil {
             Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.passwordField)
             error = true
             }
@@ -169,10 +180,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
         if !error {
         
-            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0,80,80)) as UIActivityIndicatorView
+            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0,y: 0,width: 80,height: 80)) as UIActivityIndicatorView
             self.view.addSubview(spinner)
             spinner.startAnimating()
-            FIRAuth.auth()?.signInWithEmail(email!, password: password!){(user,error) in
+            FIRAuth.auth()?.signIn(withEmail: email!, password: password!){(user,error) in
                 spinner.stopAnimating()
                 if error != nil {
                     self.errorAlert("Opps!", message:"Wrong username or password \(error)")
@@ -189,7 +200,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     })
 
                 
-                    self.performSegueWithIdentifier("FriendList", sender: self)
+                    self.performSegue(withIdentifier: "FriendList", sender: self)
                     
                 }
             }
@@ -216,7 +227,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
 
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         
         switch textField {
                case passwordField:

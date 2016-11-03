@@ -21,30 +21,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
 		AppManager.sharedInstance.initRechabilityMonitor()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("friendListView")
-        let vc2 = storyboard.instantiateViewControllerWithIdentifier("usernameViewController")
+        let vc = storyboard.instantiateViewController(withIdentifier: "friendListView")
+        let vc2 = storyboard.instantiateViewController(withIdentifier: "usernameViewController")
         // Register for remote notifications
         if #available(iOS 8.0, *) {
             let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
             application.registerForRemoteNotifications()
         } else {
             // Fallback
-            let types: UIRemoteNotificationType = [.Alert, .Badge, .Sound]
-            application.registerForRemoteNotificationTypes(types)
+            let types: UIRemoteNotificationType = [.alert, .badge, .sound]
+            application.registerForRemoteNotifications(matching: types)
         }
         
         
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true
         
-        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
 
 
@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = vc
 
 
-        ref.child("Users").child(userID).child("name").observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        ref.child("Users").child(userID!).child("name").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             if (snapshot.value as? String == ""){
                self.window?.rootViewController = vc2
             }else{
@@ -66,45 +66,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
         // Add observer for InstanceID token refresh callback.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
-                                                         name: kFIRInstanceIDTokenRefreshNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotificaiton),
+                                                         name: NSNotification.Name.firInstanceIDTokenRefresh, object: nil)
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     //custom
-    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
-        if notificationSettings.types != .None {
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types != UIUserNotificationType() {
             application.registerForRemoteNotifications()
         }
     }
     
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
     
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenChars = (deviceToken as NSData).bytes.bindMemory(to: CChar.self, capacity: deviceToken.count)
         var tokenString = ""
         
-        for i in 0..<deviceToken.length {
+        for i in 0..<deviceToken.count {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
         
         //Tricky line
-        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Sandbox)
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.sandbox)
 
         
     }
     
     
     // [START receive_message]
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
-                     fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // [END receive_message]
     
     // [START refresh_token]
-    func tokenRefreshNotificaiton(notification: NSNotification) {
+    func tokenRefreshNotificaiton(_ notification: Notification) {
 
         
         // Connect to FCM since connection may have failed when attempted before having a token.
@@ -130,7 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // [START connect_to_fcm]
     func connectToFcm() {
 
-        FIRMessaging.messaging().connectWithCompletion { (error) in
+        FIRMessaging.messaging().connect { (error) in
             if (error != nil) {
                 print("Unable to connect with FCM. \(error)")
             } else {
@@ -143,7 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     // [END connect_to_fcm]
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         
        connectToFcm()
 
@@ -151,10 +151,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
     
-    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        ref.child("Users").child(userID).updateChildValues(["batteryLevel": batteryLevel])
-        completionHandler(.NewData)
+        ref.child("Users").child(userID!).updateChildValues(["batteryLevel": batteryLevel])
+        completionHandler(.newData)
         print("batlevelupdated in background")
 
     }

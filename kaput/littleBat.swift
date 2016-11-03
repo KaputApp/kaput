@@ -13,7 +13,7 @@ var batLenght = CGFloat()
 class littleBat: SpringView {
     
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         let lenght = CGFloat(batLenght)/100 * (self.bounds.width)
         
         KaputStyle.drawLittleBat(batteryLevelLenght: lenght)

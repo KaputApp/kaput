@@ -21,39 +21,39 @@ class ViewController: UIappViewController {
     
 //declarations of outlets
     
-    @IBAction func facebookLogin(sender: AnyObject) {
+    @IBAction func facebookLogin(_ sender: AnyObject) {
         
         if reachable == true {
         
         let facebookLogin = FBSDKLoginManager()
 
         
-        facebookLogin.logInWithReadPermissions(["public_profile", "email","user_friends"], fromViewController: self, handler: {
+        facebookLogin.logIn(withReadPermissions: ["public_profile", "email","user_friends"], from: self, handler: {
             (facebookResult, facebookError) -> Void in
             if facebookError != nil {
                 print("Facebook login failed. Error \(facebookError)")
-            } else if facebookResult.isCancelled {
+            } else if (facebookResult?.isCancelled)! {
                 print("Facebook login was cancelled.")
             } else {
                 
-            let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 
-            FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                     if error != nil {
                     print("Login failed. \(error)")
                     } else {
                     print("Logged in!")
 
                         // on verifie si l'arbo dédiée a mon user existe déja
-                        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+                        ref.child("Users").child(userID!).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
                         //Si oui, on passe l'étape
                             if snapshot.hasChildren(){
-                        self.performSegueWithIdentifier("facebookLoginSegue", sender: self)
+                        self.performSegue(withIdentifier: "facebookLoginSegue", sender: self)
                         userID = String(FIRAuth.auth()!.currentUser!.uid)
                             } else {
                         //Si non, créer l'user et on passe l'étape
-                            self.performSegueWithIdentifier("pickUsernameSegue", sender: self)
-                                FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "", kaputSent: 0)
+                            self.performSegue(withIdentifier: "pickUsernameSegue", sender: self)
+                                FirebaseDataService.createUserData(userID!, bat: String(batteryLevel), username: "", kaputSent: 0)
                                 FirebaseDataService.getAvatarFromFB({(image) in
                                 FirebaseDataService.storeAvatarInFirebase(image)
                                 let imageData = UIImageJPEGRepresentation(image, 0.8)
@@ -98,17 +98,17 @@ class ViewController: UIappViewController {
         
         self.labelTag.text =  Colors.init().label
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.batteryLevelDidChange(_:)), name:UIDeviceBatteryLevelDidChangeNotification, object: nil)
-          NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.batteryStateDidChange(_:)), name:UIDeviceBatteryStateDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.batteryLevelDidChange(_:)), name:NSNotification.Name.UIDeviceBatteryLevelDidChange, object: nil)
+          NotificationCenter.default.addObserver(self, selector: #selector(self.batteryStateDidChange(_:)), name:NSNotification.Name.UIDeviceBatteryStateDidChange, object: nil)
 
-        chargingBarView.frame.origin.y = UIScreen.mainScreen().bounds.height
+        chargingBarView.frame.origin.y = UIScreen.main.bounds.height
         chargingBarView.backgroundColor = Colors.init().bgColor
-        let batteryLevelHeight = CGFloat(UIDevice.currentDevice().batteryLevel)*UIScreen.mainScreen().bounds.height
+        let batteryLevelHeight = CGFloat(UIDevice.current.batteryLevel)*UIScreen.main.bounds.height
        
         
         chargingBarHeight.constant=batteryLevelHeight
         
-        UIView.animateWithDuration(2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+        UIView.animate(withDuration: 2, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
         
         self.chargingBarView.needsUpdateConstraints()
         self.chargingBarView.layoutIfNeeded()
@@ -131,13 +131,13 @@ class ViewController: UIappViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func batteryStateDidChange(notification: NSNotification){
+    func batteryStateDidChange(_ notification: Notification){
        // batLevel.init()
       //  Colors.init()
       //  viewDidLoad()
     }
 
-    func batteryLevelDidChange(notification: NSNotification){
+    func batteryLevelDidChange(_ notification: Notification){
         batLevel.init()
         Colors.init()
         viewDidLoad()

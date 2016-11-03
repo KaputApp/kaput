@@ -13,7 +13,7 @@ import UIKit
 
 class logoKaput: SpringView {
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         KaputStyle.drawLogoKaput()
         
     }

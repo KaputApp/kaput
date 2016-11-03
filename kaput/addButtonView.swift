@@ -12,7 +12,7 @@ import UIKit
 
 class addButtonView: SpringButton {
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         KaputStyle.drawAddButton()
         
     }
@@ -21,9 +21,9 @@ class addButtonView: SpringButton {
         if var titleFrame : CGRect = titleLabel?.frame{
             
             titleFrame.size = self.bounds.size
-            titleFrame.origin = CGPointZero
+            titleFrame.origin = CGPoint.zero
             self.titleLabel!.frame = titleFrame
-            self.titleLabel!.textAlignment = .Center
+            self.titleLabel!.textAlignment = .center
         }
     }
     

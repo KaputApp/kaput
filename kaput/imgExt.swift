@@ -11,22 +11,22 @@ import UIKit
 
 extension UIImage{
     
-    func alpha(value:CGFloat)->UIImage
+    func alpha(_ value:CGFloat)->UIImage
     {
         UIGraphicsBeginImageContextWithOptions(self.size, false, 0.0)
         
         let ctx = UIGraphicsGetCurrentContext();
         let area = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height);
         
-        CGContextScaleCTM(ctx, 1, -1);
-        CGContextTranslateCTM(ctx, 0, -area.size.height);
-        CGContextSetBlendMode(ctx, CGBlendMode.Multiply);
-        CGContextSetAlpha(ctx, value);
-        CGContextDrawImage(ctx, area, self.CGImage);
+        ctx!.scaleBy(x: 1, y: -1);
+        ctx!.translateBy(x: 0, y: -area.size.height);
+        ctx!.setBlendMode(CGBlendMode.multiply);
+        ctx!.setAlpha(value);
+        ctx!.draw(self.cgImage!, in: area);
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        return newImage;
+        return newImage!;
     }
 }

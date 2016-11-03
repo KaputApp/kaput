@@ -15,59 +15,60 @@ import FirebaseStorage
 import FBSDKLoginKit
 
 
-let letters = NSCharacterSet.alphanumericCharacterSet()
+let letters = CharacterSet.alphanumerics
 
 var kaputSent = Int()
 
 var hasFriend = Bool()
 struct FirebaseDataService {
     
-    private enum ResourcePath: CustomStringConvertible {
-        case Users
-        case User(uid: String)
-        case Friends(uid: String)
-        case Kaputs(uid: String)
-        case Kaput(uid: String, kaputId: String)
-        case Blocked(uid: Int)
+    fileprivate enum ResourcePath: CustomStringConvertible {
+        case users
+        case user(uid: String)
+        case friends(uid: String)
+        case kaputs(uid: String)
+        case kaput(uid: String, kaputId: String)
+        case blocked(uid: Int)
        
         var description: String {
             switch self {
-            case .Users: return "Users"
-            case .User(let uid): return "Users/\(uid)"
-            case .Friends(let uid): return "Users/\(uid)/friends"
-            case .Kaputs(let uid): return "Users/\(uid)/kaput"
-            case .Kaput(let uid, let kaputId): return "Users/\(uid)/kaput/\(kaputId)"
-            case .Blocked(let uid): return "Users/\(uid)/blocked"
+            case .users: return "Users"
+            case .user(let uid): return "Users/\(uid)"
+            case .friends(let uid): return "Users/\(uid)/friends"
+            case .kaputs(let uid): return "Users/\(uid)/kaput"
+            case .kaput(let uid, let kaputId): return "Users/\(uid)/kaput/\(kaputId)"
+            case .blocked(let uid): return "Users/\(uid)/blocked"
             }
         }
     }
  
     
-    static func removeFriend( friend: String){
-        ref.child("Users").child(userID).child("friends").child(friend).removeValue()
+    static func removeFriend( _ friend: String){
+        ref.child("Users").child(userID!).child("friends").child(friend).removeValue()
         
     }
 
-    static func getFriendList(uid: String, response: (friendList : NSDictionary) -> ()) {
+    static func getFriendList(_ uid: String, response: @escaping (_ friendList : NSDictionary) -> ()) {
     
         
-        let friendsURL = ResourcePath.Friends(uid: uid).description
+        let friendsURL = ResourcePath.friends(uid: uid).description
     
         
-        ref.child(friendsURL).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        ref.child(friendsURL).observe(FIRDataEventType.value, with: { (snapshot) in
            
             if snapshot.hasChildren(){
-            let friendList = snapshot.value! as! NSDictionary
-            response(friendList: friendList)
+           if let friendList = snapshot.value! as? NSDictionary {
+            response(friendList)
                 hasFriend  = true
+            }else {}
             }
             else {
                 hasFriend  = false
 
-            let friendList = ["ADD FRIENDS !":true]
-            response(friendList: friendList)
-}
+            let friendList = ["ADD FRIENDS !":true] as NSDictionary
+            response(friendList)
 
+}
             
         })
         
@@ -75,8 +76,8 @@ struct FirebaseDataService {
     }
     
     
-    static func createUserData(uid: String, bat: String, username: String, kaputSent: Int) {
-    let user = ResourcePath.User(uid: uid).description
+    static func createUserData(_ uid: String, bat: String, username: String, kaputSent: Int) {
+    let user = ResourcePath.user(uid: uid).description
        
         myUsername = username
         myAvatar = UIImage(named:"AvatarBlue.jpg")!
@@ -89,28 +90,30 @@ struct FirebaseDataService {
         
     }
     
-    static func userExists(uid: String, response: (userExists : Bool) -> ()) {
-        let user = ResourcePath.User(uid: uid).description
+    static func userExists(_ uid: String, response: @escaping (_ userExists : Bool) -> ()) {
+        let user = ResourcePath.user(uid: uid).description
         
-        ref.child(user).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        ref.child(user).observe(FIRDataEventType.value, with: { (snapshot) in
       
                 let userExists = snapshot.exists()
-                response(userExists : userExists)
+                response(userExists)
                 
             
 })
 }
 
-    static func getBatLevelWithName(name: String, response: (batLevel : Int) -> ()) {
+    static func getBatLevelWithName(_ name: String, response: @escaping (_ batLevel : Int) -> ()) {
         
         getUidWithUsername(name,response: {(uid,exists)->() in
             if exists {
 
-        let user = ResourcePath.User(uid: uid).description
+        let user = ResourcePath.user(uid: uid).description
         var batLevel = Int()
-        ref.child(user).child("batteryLevel").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-                    batLevel = snapshot.value! as! Int
-                    response(batLevel : batLevel)
+        ref.child(user).child("batteryLevel").observe(FIRDataEventType.value, with: { (snapshot) in
+                    
+            if let snapshotValue = snapshot.value as? Int {
+            batLevel = snapshotValue
+                response(batLevel)}else{}
              })
             } else { }
          })
@@ -118,22 +121,22 @@ struct FirebaseDataService {
         
     }
     
-    static func getUidWithUsername(name: String, response: (uid : String, exists:Bool) -> ()){
+    static func getUidWithUsername(_ name: String, response: @escaping (_ uid : String, _ exists:Bool) -> ()){
     
-        let users = ResourcePath.Users.description
+        let users = ResourcePath.users.description
         var uid = String()
         var exists = Bool()
-        ref.child(users).queryOrderedByChild("name").queryEqualToValue(name).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        ref.child(users).queryOrdered(byChild: "name").queryEqual(toValue: name).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
          
             if snapshot.hasChildren(){
                 for child in snapshot.children {
-                    uid = child.key!
+                    uid = (child as AnyObject).key!
                     exists = true
                 }
             } else {
                     exists = false
                 }
-            response(uid: uid,exists: exists)
+            response(uid,exists)
         }){ (error) in
             print(error.localizedDescription)
             
@@ -144,35 +147,40 @@ struct FirebaseDataService {
         
     }
     
-    static func getName(response : (name : String) -> ()){
-        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
-            response(name:(snapshot.value?["name"] as? String)!)
+    static func getName(_ response : @escaping (_ name : String) -> ()){
+        ref.child("Users").child(userID!).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+
+            if let snapshotValue = snapshot.value as? NSDictionary {
+                response((snapshotValue["name"] as? String)!)}else{
+            }
         })
     }
    
-    static func getInstanceIDwithuid(uid: String, response: (instanceID : String) -> ()){
-        let user = ResourcePath.User(uid: uid).description
+    static func getInstanceIDwithuid(_ uid: String, response: @escaping (_ instanceID : String) -> ()){
+        let user = ResourcePath.user(uid: uid).description
         var instanceID = String()
-        ref.child(user).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
-        instanceID = snapshot.value!["instanceID"] as! String
+        ref.child(user).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            
+         if let snapshotValue = snapshot.value as? NSDictionary {
+        instanceID = snapshotValue["instanceID"] as! String
 
-            response(instanceID: instanceID)
+            response(instanceID)}else{}
         }){ (error) in
             print(error.localizedDescription)
     }
     }
     
-    static func getAvatarFromFirebase(response: (image : UIImage) -> ()){
+    static func getAvatarFromFirebase(_ response: @escaping (_ image : UIImage) -> ()){
         
         let storage = FIRStorage.storage()
-        let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
-        let avatar = storageRef.child("Image/\(userID)/avatar.jpg")
+        let storageRef = storage.reference(forURL: "gs://project-3561187186486872408.appspot.com/")
+        let avatar = storageRef.child("Image/\(userID!)/avatar.jpg")
         
-        avatar.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+        avatar.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
             if (error != nil) {
                 print(error)
             } else {
-                response(image: UIImage(data: data!)!)
+                response(UIImage(data: data!)!)
             }
         }
     
@@ -180,15 +188,15 @@ struct FirebaseDataService {
     
 
     
-    static func storeAvatarInFirebase(image: UIImage){
+    static func storeAvatarInFirebase(_ image: UIImage){
     
     let storageRef = FIRStorage.storage().reference()
-    let imagePath = "Image" + "/\(userID)" + "/avatar.jpg"
+    let imagePath = "Image" + "/\(userID!)" + "/avatar.jpg"
     let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
     let imageData = UIImageJPEGRepresentation(image, 0.8)
 
-        storageRef.child(imagePath).putData(imageData!, metadata: metadata) { (metadata, error) in
+        storageRef.child(imagePath).put(imageData!, metadata: metadata) { (metadata, error) in
                 if let error = error {
                     print("Error uploading: \(error)")
                     return
@@ -198,30 +206,32 @@ struct FirebaseDataService {
     }
     
     
-    static func getAvatarFromFB(response: (image : UIImage) -> ()){
+    static func getAvatarFromFB(_ response: @escaping (_ image : UIImage) -> ()){
         
-        let params: [NSObject : AnyObject] = ["redirect": false, "height": 800, "width": 800, "type": "large"]
+        let params: [AnyHashable: Any] = ["redirect": false, "height": 800, "width": 800, "type": "large"]
         let storage = FIRStorage.storage()
-        let storageRef = storage.referenceForURL("gs://project-3561187186486872408.appspot.com/")
-        let avatar = storageRef.child("Image/\(userID)/avatar.jpg")
-        let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture", parameters: params, HTTPMethod: "GET")
+        let storageRef = storage.reference(forURL: "gs://project-3561187186486872408.appspot.com/")
+        let avatar = storageRef.child("Image/\(userID!)/avatar.jpg")
+        let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture", parameters: params, httpMethod: "GET")
         
-        pictureRequest.startWithCompletionHandler({
-            (connection, result, error: NSError!) -> Void in
-            if error == nil {
-                
-                let dictionary = result as? NSDictionary
-                let data = dictionary?.objectForKey("data")
-                let urlPic = (data?.objectForKey("url"))! as! String
-                print(urlPic)
-              
-            response(image: imageFromURL(urlPic)) 
-                
-            }else{
-                print("\(error)")
-            }
-            
-        })
+        
+//   DECOMENTER et fixer
+//        pictureRequest?.start(completionHandler: {
+//            (connection, result, error: NSError!) -> Void in
+//            if error == nil {
+//                
+//                let dictionary = result as? NSDictionary
+//                let data = dictionary?.object(forKey: "data")
+//                let urlPic = (data?.object(forKey: "url"))! as! String
+//                print(urlPic)
+//              
+//            response(image: imageFromURL(urlPic)) 
+//                
+//            }else{
+//                print("\(error)")
+//            }
+//            
+//        })
         
 
         
@@ -236,19 +246,19 @@ struct FirebaseDataService {
         
     }
     
-    static func getKaputList(uid: String, response: (kaputCount : UInt) -> ()) {
+    static func getKaputList(_ uid: String, response: @escaping (_ kaputCount : UInt) -> ()) {
         
-            let kaputs = ResourcePath.Kaputs(uid: uid).description
+            let kaputs = ResourcePath.kaputs(uid: uid).description
             
-            ref.child(kaputs).queryOrderedByChild("read").queryEqualToValue(false).observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            ref.child(kaputs).queryOrdered(byChild: "read").queryEqual(toValue: false).observe(FIRDataEventType.value, with: { (snapshot) in
                 if snapshot.hasChildren(){
                     let kaputCount = snapshot.childrenCount
-                    response(kaputCount : kaputCount)
+                    response(kaputCount)
                     
                 }else{
                     let kaputCount = UInt(0)
 
-                    response(kaputCount : kaputCount)
+                    response(kaputCount)
                     
                 }
                 
@@ -259,19 +269,19 @@ struct FirebaseDataService {
     }
     
     
-    static func getSingleKaputList(uid: String, response: (kaputCount : UInt) -> ()) {
+    static func getSingleKaputList(_ uid: String, response: @escaping (_ kaputCount : UInt) -> ()) {
         
-        let kaputs = ResourcePath.Kaputs(uid: uid).description
+        let kaputs = ResourcePath.kaputs(uid: uid).description
         
-        ref.child(kaputs).queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        ref.child(kaputs).queryOrdered(byChild: "read").queryEqual(toValue: false).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             if snapshot.hasChildren(){
                 let kaputCount = snapshot.childrenCount
                 
-                response(kaputCount : kaputCount)
+                response(kaputCount)
                 
             }else{
                 let kaputCount = UInt(0)
-                response(kaputCount : kaputCount)
+                response(kaputCount)
                 
             }
             
@@ -282,27 +292,27 @@ struct FirebaseDataService {
     }
 
     
-    static func updateUsername(oldUsername: String, newUsername:String){
+    static func updateUsername(_ oldUsername: String, newUsername:String){
         
     // update my username
-        let user = ResourcePath.User(uid: userID).description
+        let user = ResourcePath.user(uid: userID!).description
        ref.child(user).updateChildValues(["name": newUsername])
 
     // update my username in friends list
-     let users = ResourcePath.Users.description
-       ref.child(users).queryOrderedByChild("friends/\(oldUsername)").queryEqualToValue(true).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+     let users = ResourcePath.users.description
+       ref.child(users).queryOrdered(byChild: "friends/\(oldUsername)").queryEqual(toValue: true).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
         
         for child in snapshot.children {
             let inputsOutputs = [newUsername:true] as [String:Bool]
-            ref.child("Users").child(child.key!).child("friends").updateChildValues(inputsOutputs)
-            ref.child("Users").child(child.key!).child("friends").child(oldUsername).removeValue()
+            ref.child("Users").child((child as AnyObject).key!).child("friends").updateChildValues(inputsOutputs)
+            ref.child("Users").child((child as AnyObject).key!).child("friends").child(oldUsername).removeValue()
             
         }
         
         })
     }
     
-    static func sendMessageToName(name:String){
+    static func sendMessageToName(_ name:String){
     getUidWithUsername(name,response: {(uid,exists)->() in
     getInstanceIDwithuid(uid,response: { (instanceID) -> () in
         sendMessage(instanceID,uid: uid)
@@ -310,7 +320,7 @@ struct FirebaseDataService {
     })
     }
     
-    static func sendFriendRequestToName(name: String){
+    static func sendFriendRequestToName(_ name: String){
         getUidWithUsername(name,response: {(uid,exists)->() in
             getInstanceIDwithuid(uid,response: { (instanceID) -> () in
                 sendFriendrequest(instanceID,uid: uid)
@@ -319,35 +329,37 @@ struct FirebaseDataService {
     }
     
     
-    static func sendFriendrequest(instanceID: String,uid: String){
+    static func sendFriendrequest(_ instanceID: String,uid: String){
         
-        ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        ref.child("Users").child(userID!).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             getSingleKaputList(uid,response: { (kaputCount) -> () in
+                if let snapshotValue = snapshot.value as? NSDictionary {
+
+                let myName = snapshotValue["name"] as? String
+                let url = URL(string: "https://fcm.googleapis.com/fcm/send")
+                let postParams: [String : Any] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has added you!", "title": "You have a new Kaput Friend","badge" : "\(kaputCount)"]]
                 
-                let myName = snapshot.value?["name"] as? String
-                let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-                let postParams: [String : AnyObject] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has added you!", "title": "You have a new Kaput Friend","badge" : "\(kaputCount)"]]
                 
                 
-                
-                let request = NSMutableURLRequest(URL: url!)
-                request.HTTPMethod = "POST"
+                let request = NSMutableURLRequest(url: url!)
+                request.httpMethod = "POST"
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 request.setValue("key=AIzaSyAxHVl_jj4oyZrLw0aozMyk3b_msOvApSQ", forHTTPHeaderField: "Authorization")
                 
                 do
                 {
-                    request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions())
+                    request.httpBody = try JSONSerialization.data(withJSONObject: postParams, options: JSONSerialization.WritingOptions())
                     print("My paramaters: \(postParams)")
                 }
                 catch
                 {
                     print("Caught an error: \(error)")
                 }
-                
-                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
                     
-                    if let realResponse = response as? NSHTTPURLResponse
+                
+                let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
+                    
+                    if let realResponse = response as? HTTPURLResponse
                     {
                         if realResponse.statusCode != 200
                         {
@@ -355,39 +367,38 @@ struct FirebaseDataService {
                         }
                     }
                     
-                    if let postString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String
+                    if let postString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
                     {
                         print("POST: \(postString)")
                     }
-                }
-                
+                })
                 task.resume()
-            })
+                } })
         })
         
     }
 
     
     
-    static func sendMessage(instanceID: String,uid: String){
+    static func sendMessage(_ instanceID: String,uid: String){
 
-       ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+       ref.child("Users").child(userID!).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
         getSingleKaputList(uid,response: { (kaputCount) -> () in
-            
-           let myName = snapshot.value?["name"] as? String
-            let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-         let postParams: [String : AnyObject] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has \(batteryLevel)% of battery", "title": "You have a new Kaput","badge" : "\(kaputCount)"]]
+             if let snapshotValue = snapshot.value as? NSDictionary {
+           let myName = snapshotValue["name"] as? String
+            let url = URL(string: "https://fcm.googleapis.com/fcm/send")
+         let postParams: [String : Any] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has \(batteryLevel)% of battery", "title": "You have a new Kaput","badge" : "\(kaputCount)"]]
         
         
             
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
+        let request = NSMutableURLRequest(url: url!)
+        request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("key=AIzaSyAxHVl_jj4oyZrLw0aozMyk3b_msOvApSQ", forHTTPHeaderField: "Authorization")
             
         do
         {
-            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions())
+            request.httpBody = try JSONSerialization.data(withJSONObject: postParams, options: JSONSerialization.WritingOptions())
             print("My paramaters: \(postParams)")
         }
         catch
@@ -395,9 +406,9 @@ struct FirebaseDataService {
             print("Caught an error: \(error)")
         }
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
             
-            if let realResponse = response as? NSHTTPURLResponse
+            if let realResponse = response as? HTTPURLResponse
             {
                 if realResponse.statusCode != 200
                 {
@@ -405,14 +416,14 @@ struct FirebaseDataService {
                 }
             }
             
-            if let postString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String
+            if let postString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
             {
                 print("POST: \(postString)")
             }
-        }
+        }) 
         
         task.resume()
-        })
+            }   })
       })
         
     }

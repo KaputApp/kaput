@@ -11,6 +11,17 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 import FBSDKLoginKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 let ref = FIRDatabase.database().reference()
 var userID = String(FIRAuth.auth()!.currentUser!.uid)
@@ -37,24 +48,24 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: kaputField!
     @IBOutlet weak var emailField: kaputField!
     
-    @IBAction func loginFB(sender: AnyObject) {
+    @IBAction func loginFB(_ sender: AnyObject) {
         if reachable == true {
             let facebookLogin = FBSDKLoginManager()
-            facebookLogin.logInWithReadPermissions(["public_profile", "email","user_friends"], fromViewController: self, handler: {
+            facebookLogin.logIn(withReadPermissions: ["public_profile", "email","user_friends"], from: self, handler: {
                 (facebookResult, facebookError) -> Void in
                 if facebookError != nil {
                     print("Facebook login failed. Error \(facebookError)")
-                } else if facebookResult.isCancelled {
+                } else if (facebookResult?.isCancelled)! {
                     print("Facebook login was cancelled.")
                 } else {
-                    let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
-                    FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                         if error != nil {
                             print("Login failed. \(error)")
                         } else {
                             print("Logged in!")
                             // on verifie si l'arbo dédiée a mon user existe déja
-                            ref.child("Users").child(userID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+                            ref.child("Users").child(userID!).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
                                 //Si oui, on passe l'étape
                                 if snapshot.hasChildren(){
                                     
@@ -62,13 +73,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                                         myUsername = name
                                     })
                                     
-                                    self.performSegueWithIdentifier("toFriendList", sender: self)
+                                    self.performSegue(withIdentifier: "toFriendList", sender: self)
                                     userID = String(FIRAuth.auth()!.currentUser!.uid)
                                     
                                 } else {
                                     //Si non, créer l'user et on passe l'étape
-                                    self.performSegueWithIdentifier("pickUsernameSegue", sender: self)
-                                    FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: "", kaputSent: 0)
+                                    self.performSegue(withIdentifier: "pickUsernameSegue", sender: self)
+                                    FirebaseDataService.createUserData(userID!, bat: String(batteryLevel), username: "", kaputSent: 0)
                                     FirebaseDataService.getAvatarFromFB({(image) in
                                         FirebaseDataService.storeAvatarInFirebase(image)
                                         myAvatar = image
@@ -92,7 +103,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet var signUpButton: kaputButton!
-    @IBAction func signUpButton(sender: AnyObject) {
+    @IBAction func signUpButton(_ sender: AnyObject) {
         
         if reachable == true {
        
@@ -109,7 +120,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let password = self.passwordField.text
         
         
-        ref.child("Users").queryOrderedByChild("name").queryEqualToValue(username).observeEventType(.Value, withBlock: { snapshot in
+        ref.child("Users").queryOrdered(byChild: "name").queryEqual(toValue: username).observe(.value, with: { snapshot in
             if snapshot.exists() == true {
                 
                 Errors.errorMessage("ALREADY TAKEN",field: self.usernameField)
@@ -128,7 +139,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     Errors.errorMessage("4 CHAR MIN",field: self.usernameField)
                     error = true
                 }
-                else if username?.rangeOfCharacterFromSet(letters.invertedSet) != nil {
+                else if username?.rangeOfCharacter(from: letters.inverted) != nil {
                     Errors.errorMessage("ONLY ALPHA NUMERIC",field: self.usernameField)
                     error = true
                 }
@@ -158,11 +169,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     // set spinner
                     
                     self.signUpButton.titleLabel?.text = ""
-                    let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(self.view.frame.size.width/2-40,self.signUpButton.frame.origin.y,80,80))as UIActivityIndicatorView
+                    let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: self.view.frame.size.width/2-40,y: self.signUpButton.frame.origin.y,width: 80,height: 80))as UIActivityIndicatorView
                     self.view.addSubview(spinner)
                     spinner.startAnimating()
                     
-                    FIRAuth.auth()?.createUserWithEmail(email!, password: password!){(user,error) in
+                    FIRAuth.auth()?.createUser(withEmail: email!, password: password!){(user,error) in
                         spinner.stopAnimating()
                         if let error = error{
                             self.errorAlert("Opps!", message:"\(error.localizedDescription)")
@@ -171,8 +182,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                             userID = String(FIRAuth.auth()!.currentUser!.uid)
                            
                             
-                            FirebaseDataService.createUserData(userID, bat: String(batteryLevel), username: username!, kaputSent: 0)
-                            self.performSegueWithIdentifier("toFriendList", sender: self)
+                            FirebaseDataService.createUserData(userID!, bat: String(batteryLevel), username: username!, kaputSent: 0)
+                            self.performSegue(withIdentifier: "toFriendList", sender: self)
                 
                         }
                         
@@ -180,7 +191,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
                 }}
             
-            }, withCancelBlock: { error in
+            }, withCancel: { error in
                 
                 print(error.localizedDescription)
                 
@@ -196,7 +207,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     
     
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toFriendList" {
             print("prepareforsegue is called")            
         }
@@ -221,26 +232,26 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
 
     // setup alert
-    func errorAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+    func errorAlert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     
     //inutile
-    func sccuessAlert(title: String, message:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+    func sccuessAlert(_ title: String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
         
     }
     
     
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
        
         switch textField {
         case usernameField:

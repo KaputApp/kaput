@@ -12,7 +12,7 @@ import UIKit
 
 class numberOfNotifications: SpringButton {
 
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         KaputStyle.drawNumberOfNotifications()
         
     }
@@ -24,7 +24,7 @@ class numberOfNotifications: SpringButton {
             titleFrame.size = self.bounds.size
             titleFrame.origin = CGPoint(x: -10, y: -3)
             self.titleLabel!.frame = titleFrame
-            self.titleLabel!.textAlignment = .Center
+            self.titleLabel!.textAlignment = .center
         }
     }
     

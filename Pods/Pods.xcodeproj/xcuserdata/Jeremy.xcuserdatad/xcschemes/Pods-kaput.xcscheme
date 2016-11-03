@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA9D9EB6B36B9C33A442667F60FD09FC"
+               BlueprintIdentifier = "245507632056BCA1184F5CC2C456D9CF"
                BuildableName = "Pods_kaput.framework"
                BlueprintName = "Pods-kaput"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AA9D9EB6B36B9C33A442667F60FD09FC"
+            BlueprintIdentifier = "245507632056BCA1184F5CC2C456D9CF"
             BuildableName = "Pods_kaput.framework"
             BlueprintName = "Pods-kaput"
             ReferencedContainer = "container:Pods.xcodeproj">

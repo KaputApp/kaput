@@ -18,8 +18,8 @@ class UIappViewController: UIViewController,AppManagerDelegate {
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
-	func reachabilityStatusChangeHandler(reachability: Reachability) {
-     		if reachability.isReachable() {
+	func reachabilityStatusChangeHandler(_ reachability: Reachability) {
+     		if reachability.isReachable {
 			
                 notification.dismissNotification()
                 reachable = true

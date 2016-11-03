@@ -4,9 +4,9 @@
 //
 
 import Foundation
-@objc protocol AppManagerDelegate:NSObjectProtocol {
+protocol AppManagerDelegate:NSObjectProtocol {
 
-	func reachabilityStatusChangeHandler(reachability:Reachability)
+	func reachabilityStatusChangeHandler(_ reachability:Reachability)
 }
 
 

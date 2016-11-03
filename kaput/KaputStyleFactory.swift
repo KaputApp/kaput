@@ -17,101 +17,101 @@ var stateBattery = batLevel.init().stateBat
 
 
 
-public class SegueFromLeft: UIStoryboardSegue
+open class SegueFromLeft: UIStoryboardSegue
 {
-    override public func perform() {
-        let toViewController = destinationViewController
-        let fromViewController = sourceViewController
+    override open func perform() {
+        let toViewController = destination
+        let fromViewController = source
         
         let containerView = fromViewController.view.superview
-        let screenBounds = UIScreen.mainScreen().bounds
+        let screenBounds = UIScreen.main.bounds
         
         let finalToFrame = screenBounds
-        let finalFromFrame = CGRectOffset(finalToFrame, -screenBounds.size.width, 0)
+        let finalFromFrame = finalToFrame.offsetBy(dx: -screenBounds.size.width, dy: 0)
         
-        toViewController.view.frame = CGRectOffset(finalToFrame, screenBounds.size.width, 0)
+        toViewController.view.frame = finalToFrame.offsetBy(dx: screenBounds.size.width, dy: 0)
         containerView?.addSubview(toViewController.view)
         
-        UIView.animateWithDuration(0.25, animations: {
+        UIView.animate(withDuration: 0.25, animations: {
             toViewController.view.frame = finalToFrame
             fromViewController.view.frame = finalFromFrame
             }, completion: { finished in
-                let fromVC = self.sourceViewController
-                let toVC = self.destinationViewController
-                fromVC.presentViewController(toVC, animated: false, completion: nil)
+                let fromVC = self.source
+                let toVC = self.destination
+                fromVC.present(toVC, animated: false, completion: nil)
         })
     }
 }
 
-public class SegueFromRight: UIStoryboardSegue
+open class SegueFromRight: UIStoryboardSegue
 {
-    override public func perform() {
-        let toViewController = destinationViewController
-        let fromViewController = sourceViewController
+    override open func perform() {
+        let toViewController = destination
+        let fromViewController = source
         
         let containerView = fromViewController.view.superview
-        let screenBounds = UIScreen.mainScreen().bounds
+        let screenBounds = UIScreen.main.bounds
         
         let finalToFrame = screenBounds
-        let finalFromFrame = CGRectOffset(finalToFrame, screenBounds.size.width, 0)
+        let finalFromFrame = finalToFrame.offsetBy(dx: screenBounds.size.width, dy: 0)
         
-        toViewController.view.frame = CGRectOffset(finalToFrame, -screenBounds.size.width, 0)
+        toViewController.view.frame = finalToFrame.offsetBy(dx: -screenBounds.size.width, dy: 0)
         containerView?.addSubview(toViewController.view)
         
-        UIView.animateWithDuration(0.25, animations: {
+        UIView.animate(withDuration: 0.25, animations: {
             toViewController.view.frame = finalToFrame
             fromViewController.view.frame = finalFromFrame
             }, completion: { finished in
-                let fromVC = self.sourceViewController
-                let toVC = self.destinationViewController
-                fromVC.presentViewController(toVC, animated: false, completion: nil)
+                let fromVC = self.source
+                let toVC = self.destination
+                fromVC.present(toVC, animated: false, completion: nil)
         })
     }
 }
 
 
-public class SegueFromUp: UIStoryboardSegue
+open class SegueFromUp: UIStoryboardSegue
 {
-    override public func perform() {
-        let toViewController = destinationViewController
-        let fromViewController = sourceViewController
+    override open func perform() {
+        let toViewController = destination
+        let fromViewController = source
         
         let containerView = fromViewController.view.superview
-        let screenBounds = UIScreen.mainScreen().bounds
+        let screenBounds = UIScreen.main.bounds
         
         let finalToFrame = screenBounds
-        let finalFromFrame = CGRectOffset(finalToFrame, 0, screenBounds.size.height)
+        let finalFromFrame = finalToFrame.offsetBy(dx: 0, dy: screenBounds.size.height)
         
-        toViewController.view.frame = CGRectOffset(finalToFrame,0, -screenBounds.size.height)
+        toViewController.view.frame = finalToFrame.offsetBy(dx: 0, dy: -screenBounds.size.height)
         containerView?.addSubview(toViewController.view)
         
-        UIView.animateWithDuration(0.5, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             toViewController.view.frame = finalToFrame
             fromViewController.view.frame = finalFromFrame
             }, completion: { finished in
-                let fromVC = self.sourceViewController
-                let toVC = self.destinationViewController
-                fromVC.presentViewController(toVC, animated: false, completion: nil)
+                let fromVC = self.source
+                let toVC = self.destination
+                fromVC.present(toVC, animated: false, completion: nil)
         })
     }
 }
 
-public class SegueFromDown: UIStoryboardSegue
+open class SegueFromDown: UIStoryboardSegue
 {
-    override public func perform() {
-        let toViewController = destinationViewController
-        let fromViewController = sourceViewController
+    override open func perform() {
+        let toViewController = destination
+        let fromViewController = source
         
         let containerView = fromViewController.view.superview
-        let screenBounds = UIScreen.mainScreen().bounds
+        let screenBounds = UIScreen.main.bounds
         
         let finalToFrame = screenBounds
-        let finalFromFrame = CGRectOffset(finalToFrame, 0, -screenBounds.size.height)
+        let finalFromFrame = finalToFrame.offsetBy(dx: 0, dy: -screenBounds.size.height)
         
-        toViewController.view.frame = CGRectOffset(finalToFrame,0, screenBounds.size.height)
+        toViewController.view.frame = finalToFrame.offsetBy(dx: 0, dy: screenBounds.size.height)
         containerView?.addSubview(toViewController.view)
         
-        UIView.animateWithDuration(0.5, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             toViewController.view.frame = finalToFrame
             fromViewController.view.frame = finalFromFrame
             }, completion: { finished in
@@ -126,15 +126,15 @@ class batLevel{
     var levelBat:Int
     var stateBat:UIDeviceBatteryState
     init() {
-        UIDevice.currentDevice().batteryMonitoringEnabled = true
-        self.levelBat = Int(abs(UIDevice.currentDevice().batteryLevel)*100)
-        self.stateBat = UIDevice.currentDevice().batteryState
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        self.levelBat = Int(abs(UIDevice.current.batteryLevel)*100)
+        self.stateBat = UIDevice.current.batteryState
         
     }
 }
 
 
-public func ColorsForBat(bat: Int) -> UIColor {
+public func ColorsForBat(_ bat: Int) -> UIColor {
     
     var color = UIColor()
     
@@ -160,7 +160,7 @@ public func ColorsForBat(bat: Int) -> UIColor {
 }
 
 
-public class Colors {
+open class Colors {
     
     
     var primaryColor: UIColor!
@@ -174,7 +174,7 @@ public class Colors {
         
         switch batLevel.init().stateBat {
     
-    case UIDeviceBatteryState.Unknown:
+    case UIDeviceBatteryState.unknown:
         
         switch batLevel.init().levelBat {
         case 0...5:
@@ -215,7 +215,7 @@ public class Colors {
             
         }
 
-        case UIDeviceBatteryState.Unplugged:
+        case UIDeviceBatteryState.unplugged:
             switch batLevel.init().levelBat {
                 case 0...5:
                 self.bgColor = KaputStyle.kaputBlack
@@ -254,7 +254,7 @@ public class Colors {
 
 
             }
-        case UIDeviceBatteryState.Charging:
+        case UIDeviceBatteryState.charging:
             self.bgColor = KaputStyle.chargingBlue
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.fullGreen
@@ -262,7 +262,7 @@ public class Colors {
 
             
 
-        case UIDeviceBatteryState.Full:
+        case UIDeviceBatteryState.full:
             self.bgColor = KaputStyle.fullGreen
             self.primaryColor = KaputStyle.lowRed
             self.secondaryColor = KaputStyle.chargingBlue

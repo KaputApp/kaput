@@ -15,13 +15,13 @@ import UIKit
         @IBInspectable var leftInset: CGFloat = 3
         @IBInspectable var rightInset: CGFloat = 3
         
-        override func drawTextInRect(rect: CGRect) {
+        override func drawText(in rect: CGRect) {
             let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-            super.drawTextInRect(UIEdgeInsetsInsetRect(rect, insets))
+            super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
         }
         
-        override func intrinsicContentSize() -> CGSize {
-            var intrinsicSuperViewContentSize = super.intrinsicContentSize()
+        override var intrinsicContentSize : CGSize {
+            var intrinsicSuperViewContentSize = super.intrinsicContentSize
             intrinsicSuperViewContentSize.height += topInset + bottomInset
             intrinsicSuperViewContentSize.width += leftInset + rightInset
             return intrinsicSuperViewContentSize

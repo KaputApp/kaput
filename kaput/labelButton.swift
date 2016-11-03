@@ -15,9 +15,9 @@ class labelButton: UIButton {
         
         if var titleFrame : CGRect = titleLabel?.frame{
             titleFrame.size = self.bounds.size
-            titleFrame.origin = CGPointZero
+            titleFrame.origin = CGPoint.zero
             self.titleLabel!.frame = titleFrame
-            self.titleLabel!.textAlignment = .Center
+            self.titleLabel!.textAlignment = .center
         }
     }
     

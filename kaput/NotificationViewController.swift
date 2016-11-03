@@ -37,34 +37,34 @@ class NotificationViewController: UIViewController {
     @IBOutlet var PanRecognizer: UIPanGestureRecognizer!
     
     @IBOutlet var notifTapRecognizer: UITapGestureRecognizer!
-    @IBAction func HangGesture(sender: AnyObject) {
+    @IBAction func HangGesture(_ sender: AnyObject) {
     
     let myView = notifView
-    let location = sender.locationInView(view)
-    let boxLocation = sender.locationInView(notifView)
+    let location = sender.location(in: view)
+    let boxLocation = sender.location(in: notifView)
         
-    if sender.state == UIGestureRecognizerState.Began {
+    if sender.state == UIGestureRecognizerState.began {
         if snapBehavior != nil
         {
                 animator.removeBehavior(snapBehavior)
         }
             
-            let centerOffset = UIOffsetMake(boxLocation.x - CGRectGetMidX(myView.bounds), boxLocation.y - CGRectGetMidY(myView.bounds));
-            attachmentBehavior = UIAttachmentBehavior(item: myView, offsetFromCenter: centerOffset, attachedToAnchor: location)
+            let centerOffset = UIOffsetMake(boxLocation.x - (myView?.bounds.midX)!, boxLocation.y - (myView?.bounds.midY)!);
+            attachmentBehavior = UIAttachmentBehavior(item: myView!, offsetFromCenter: centerOffset, attachedToAnchor: location)
             attachmentBehavior.frequency = 0
             
             animator.addBehavior(attachmentBehavior)
         }
-        else if sender.state == UIGestureRecognizerState.Changed {
+        else if sender.state == UIGestureRecognizerState.changed {
             attachmentBehavior.anchorPoint = location
         }
-        else if sender.state == UIGestureRecognizerState.Ended {
+        else if sender.state == UIGestureRecognizerState.ended {
             animator.removeBehavior(attachmentBehavior)
             
-            snapBehavior = UISnapBehavior(item: myView, snapToPoint: view.center)
+            snapBehavior = UISnapBehavior(item: myView!, snapTo: view.center)
             animator.addBehavior(snapBehavior)
             
-            let translation = sender.translationInView(view)
+            let translation = sender.translation(in: view)
 
         
         
@@ -73,12 +73,12 @@ class NotificationViewController: UIViewController {
             animator.removeAllBehaviors()
                 
             let gravity = UIGravityBehavior(items: [notifView])
-            gravity.gravityDirection = CGVectorMake(10, 0)
+            gravity.gravityDirection = CGVector(dx: 10, dy: 0)
             animator.addBehavior(gravity)
             
             self.numberLeft.alpha = 0
 
-            delay(0.3) {
+            delay(delay: 0.3) {
                 self.refreshView()
             }
             
@@ -87,7 +87,7 @@ class NotificationViewController: UIViewController {
         }
     }
     
-    @IBAction func shake(sender: AnyObject) {
+    @IBAction func shake(_ sender: AnyObject) {
       
         notifView.animation = "swing"
         notifView.animate()
@@ -114,9 +114,9 @@ class NotificationViewController: UIViewController {
      func loadDatafromFirebase(){
             
            
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             
-            ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            ref.child("Users").child(userID!).child("kaput").queryOrdered(byChild: "read").queryEqual(toValue: false).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
                 
                 self.kaputCounter = Int(snapshot.childrenCount)
 
@@ -130,7 +130,7 @@ class NotificationViewController: UIViewController {
             }
         
 
-            ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            ref.child("Users").child(userID!).child("kaput").queryOrdered(byChild: "read").queryEqual(toValue: false).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
                 
                 print(snapshot)
                 
@@ -142,33 +142,37 @@ class NotificationViewController: UIViewController {
                 
                 
                 
-                UIApplication.sharedApplication().applicationIconBadgeNumber = self.kaputCounter
+                UIApplication.shared.applicationIconBadgeNumber = self.kaputCounter
 
                 for child in snapshot.children{
                     
             
-                self.senderText =  child.value?["sent_by"] as! String
-                let timeText = child.value?["sent_date"] as? String
-                let levelBat = child.value?["levelBattery"] as? String
+                    self.senderText = (child as? NSDictionary)?["sent_by"] as! String
+                if  let timeText = (child as? NSDictionary)?["sent_date"] as? String
+                , let levelBat = (child as? NSDictionary)?["levelBattery"] as? String {
+                
+                
                 
                     
-                    let dateFormatter = NSDateFormatter()
+                    let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
-                    let sentDate = dateFormatter.dateFromString(timeText!)
+                    let sentDate = dateFormatter.date(from: timeText)
                     print("dateText \(sentDate!)")
                     
-                let interval = NSDate().timeIntervalSinceDate(sentDate!)
-                    
-                let dateComponentsFormatter = NSDateComponentsFormatter()
-                    dateComponentsFormatter.unitsStyle = NSDateComponentsFormatterUnitsStyle.Short
-                let intervalAgo = dateComponentsFormatter.stringFromTimeInterval(interval)
-                let timeAgo = "\(intervalAgo!.uppercaseString) AGO"
-                self.senderLabel.text = "\(self.senderText) IS \(levelBat!)%"
+                let interval = Date().timeIntervalSince(sentDate!)
+                let dateComponentsFormatter = DateComponentsFormatter()
+                    dateComponentsFormatter.unitsStyle = DateComponentsFormatter.UnitsStyle.short
+                let intervalAgo = dateComponentsFormatter.string(from: interval)
+                let timeAgo = "\(intervalAgo!.uppercased()) AGO"
+                self.senderLabel.text = "\(self.senderText) IS \(levelBat)%"
                 self.timeLabel.backgroundColor = KaputStyle.chargingBlue
                 self.timeLabel.text = timeAgo
-                notifLenght = Int(levelBat!)!
+                notifLenght = Int(levelBat)!
                 print("this is \(notifLenght)")
                 self.notifView.setNeedsDisplay()
+           
+              }else{
+                    }
                 }
             }) { (error) in
     print(error.localizedDescription)
@@ -182,11 +186,11 @@ class NotificationViewController: UIViewController {
     }
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
        
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
 
     notifView.animation = "zoomIn"
@@ -203,9 +207,9 @@ class NotificationViewController: UIViewController {
         
     }
 
-    @IBAction func dismissAll(sender: AnyObject) {
+    @IBAction func dismissAll(_ sender: AnyObject) {
         
-          ref.child("Users").child(userID!).child("kaput").queryOrderedByChild("read").queryEqualToValue(false).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+          ref.child("Users").child(userID!).child("kaput").queryOrdered(byChild: "read").queryEqual(toValue: false).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             if snapshot.exists() {
             let keyDict = snapshot.value as! [String : AnyObject]
             for key in keyDict.keys {
@@ -214,7 +218,7 @@ class NotificationViewController: UIViewController {
             
             }
           
-            self.performSegueWithIdentifier("unWindtoFriendList", sender: self)
+            self.performSegue(withIdentifier: "unWindtoFriendList", sender: self)
 
           
           })
@@ -225,13 +229,13 @@ class NotificationViewController: UIViewController {
 
         if kaputCounter == 1 {
             
-        self.performSegueWithIdentifier("unWindtoFriendList", sender: self)
+        self.performSegue(withIdentifier: "unWindtoFriendList", sender: self)
         } else {
         
         self.numberLeft.text = String(self.kaputCounter)
             
         animator.removeAllBehaviors()
-        snapBehavior = UISnapBehavior(item: notifView, snapToPoint: view.center)
+        snapBehavior = UISnapBehavior(item: notifView, snapTo: view.center)
         attachmentBehavior.anchorPoint = view.center
         notifView.center = view.center
         viewDidAppear(true)

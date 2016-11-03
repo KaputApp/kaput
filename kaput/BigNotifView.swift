@@ -12,7 +12,7 @@ var notifLenght = Int()
 class BigNotifView: SpringView {
     
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         let lenght = CGFloat(notifLenght)/100 * (self.bounds.width-26)
         
         var notifColor = KaputStyle.lowRed

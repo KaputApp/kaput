@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Users: NSObject {
+open class Users: NSObject {
 
    //var myUsername = String()
     
