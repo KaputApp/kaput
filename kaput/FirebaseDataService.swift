@@ -387,7 +387,7 @@ struct FirebaseDataService {
              if let snapshotValue = snapshot.value as? NSDictionary {
            let myName = snapshotValue["name"] as? String
             let url = URL(string: "https://fcm.googleapis.com/fcm/send")
-         let postParams: [String : Any] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has \(batteryLevel)% of battery", "title": "You have a new Kaput","badge" : "\(kaputCount)"]]
+         let postParams: Dictionary<String, Any> = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has \(batteryLevel)% of battery", "title": "You have a new Kaput","badge" : "\(kaputCount)"]]
         
         
             

@@ -265,12 +265,12 @@ override func didReceiveMemoryWarning() {
                 if let snapshotValue = snapshot.value as? NSDictionary, let myName = snapshotValue["name"] as? String {
                     
                 
-           let inputsOutputs = [
-                "levelBattery" : String(batLevel.init().levelBat),
+                    let inputsOutputs : Dictionary<String, Any> = [
+                "levelBattery" : String(batLevel.init().levelBat) as! NSString,
                 "read" : false,
-                "sent_by" : String(myName),
-                "sent_date" : dateFormatter.string(from: date),
-                "sent_to" :  String(name!)
+                "sent_by" : String(myName)as! NSString,
+                "sent_date" : dateFormatter.string(from: date) as! NSString,
+                "sent_to" :  String(name!) as! NSString
             ] as Dictionary<String, Any>
         
                

@@ -147,8 +147,8 @@ class NotificationViewController: UIViewController {
                 for child in snapshot.children{
                     
             
-                    self.senderText = (child as? NSDictionary)?["sent_by"] as! String
-                if  let timeText = (child as? NSDictionary)?["sent_date"] as? String
+                    self.senderText = (child as? NSDictionary)?["sent_by"] as? String ?? ""
+                if  let timeText = (child as? NSDictionary)?["sent_date"] as? String 
                 , let levelBat = (child as? NSDictionary)?["levelBattery"] as? String {
                 
                 
