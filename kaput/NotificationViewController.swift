@@ -137,26 +137,31 @@ class NotificationViewController: UIViewController {
                 
                     
                 let keyDict = snapshot.value as! [String : AnyObject]
+                
                 let key = keyDict.keys.first!
             ref.child("Users").child(self.userID!).child("kaput").child(key).updateChildValues(["read":true])
                 
                 
-                
                 UIApplication.shared.applicationIconBadgeNumber = self.kaputCounter
 
-                for child in snapshot.children{
-                    
+              
             
-                    self.senderText = (child as? NSDictionary)?["sent_by"] as? String ?? ""
-                if  let timeText = (child as? NSDictionary)?["sent_date"] as? String 
-                , let levelBat = (child as? NSDictionary)?["levelBattery"] as? String {
+            
+                if let snapdict =  snapshot.value as? [String:AnyObject]{
+                    for child in snapdict{
                 
+               
+                    
+                self.senderText = (child.value["sent_by"] as? String)!
+                let timeText = child.value["sent_date"] as? String
+                let levelBat = child.value["levelBattery"] as? String
                 
+            
                 
                     
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
-                    let sentDate = dateFormatter.date(from: timeText)
+                    let sentDate = dateFormatter.date(from: timeText!)
                     print("dateText \(sentDate!)")
                     
                 let interval = Date().timeIntervalSince(sentDate!)
@@ -164,14 +169,14 @@ class NotificationViewController: UIViewController {
                     dateComponentsFormatter.unitsStyle = DateComponentsFormatter.UnitsStyle.short
                 let intervalAgo = dateComponentsFormatter.string(from: interval)
                 let timeAgo = "\(intervalAgo!.uppercased()) AGO"
-                self.senderLabel.text = "\(self.senderText) IS \(levelBat)%"
+                self.senderLabel.text = "\(self.senderText) IS \(levelBat!)%"
                 self.timeLabel.backgroundColor = KaputStyle.chargingBlue
                 self.timeLabel.text = timeAgo
-                notifLenght = Int(levelBat)!
+                notifLenght = Int(levelBat!)!
                 print("this is \(notifLenght)")
                 self.notifView.setNeedsDisplay()
            
-              }else{
+                        
                     }
                 }
             }) { (error) in

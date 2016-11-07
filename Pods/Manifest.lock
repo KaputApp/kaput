@@ -83,6 +83,7 @@ PODS:
 
 DEPENDENCIES:
   - Bolts
+  - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
   - Firebase
@@ -113,4 +114,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 3dc25b56357c12b9f800598d1c4eb5c109f2bf84
+
+COCOAPODS: 1.1.1
