@@ -320,6 +320,14 @@ struct FirebaseDataService {
     })
     }
     
+    static func sendSilentToName(_ name:String){
+        getUidWithUsername(name,response: {(uid,exists)->() in
+            getInstanceIDwithuid(uid,response: { (instanceID) -> () in
+                sendSilent(instanceID,uid: uid)
+            })
+        })
+    }
+    
     static func sendFriendRequestToName(_ name: String){
         getUidWithUsername(name,response: {(uid,exists)->() in
             getInstanceIDwithuid(uid,response: { (instanceID) -> () in
@@ -337,7 +345,7 @@ struct FirebaseDataService {
 
                 let myName = snapshotValue["name"] as? String
                 let url = URL(string: "https://fcm.googleapis.com/fcm/send")
-                let postParams: [String : Any] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has added you!", "title": "You have a new Kaput Friend","badge" : "\(kaputCount)"]]
+                let postParams: [String : Any] = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) added you as a friend !", "title": "You have a new Kaput Friend","badge" : "\(kaputCount)"]]
                 
                 
                 
@@ -389,7 +397,6 @@ struct FirebaseDataService {
             let url = URL(string: "https://fcm.googleapis.com/fcm/send")
          let postParams: Dictionary<String, Any> = ["to": instanceID,"priority":"high","content_available" : true, "notification": ["body": "\(myName!) has \(batteryLevel)% of battery", "title": "You have a new Kaput","badge" : "\(kaputCount)"]]
         
-        
             
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "POST"
@@ -428,6 +435,52 @@ struct FirebaseDataService {
         
     }
     
+    static func sendSilent(_ instanceID: String,uid: String){
+        
+        ref.child("Users").child(userID!).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+                if let snapshotValue = snapshot.value as? NSDictionary {
+                    let myName = snapshotValue["name"] as? String
+                    let url = URL(string: "https://fcm.googleapis.com/fcm/send")
+                    let postParams: Dictionary<String, Any> = ["to": instanceID, "priority" : "high","content_available" : true,"notification": [
+                        "sound": ""]
+                        ]
+                    
+                    let request = NSMutableURLRequest(url: url!)
+                    request.httpMethod = "POST"
+                    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.setValue("key=AIzaSyAxHVl_jj4oyZrLw0aozMyk3b_msOvApSQ", forHTTPHeaderField: "Authorization")
+                    
+                    do
+                    {
+                        request.httpBody = try JSONSerialization.data(withJSONObject: postParams, options: JSONSerialization.WritingOptions())
+                        print("My paramaters: \(postParams)")
+                    }
+                    catch
+                    {
+                        print("Caught an error: \(error)")
+                    }
+                    
+                    let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
+                        
+                        if let realResponse = response as? HTTPURLResponse
+                        {
+                            if realResponse.statusCode != 200
+                            {
+                                print("Not a 200 response")
+                            }
+                        }
+                        
+                        if let postString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as? String
+                        {
+                            print("POST: \(postString)")
+                        }
+                    }) 
+                    
+                    task.resume()
+                }   })
+        
+        
+    }
     
     
 }

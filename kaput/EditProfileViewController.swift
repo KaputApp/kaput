@@ -241,7 +241,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     
     override func viewDidLoad() {
-        
+             print("here is ok 0")
         super.viewDidLoad()
         
         
@@ -255,13 +255,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.pickAvatarButton.layer.borderColor = UIColor.white.cgColor;
         self.usernameField.delegate = self      
 
-        
-        let image = myAvatar.alpha(0.2)
-        
+        print("here is ok 1")
+        let image = myAvatar?.alpha(0.2)
+        print("here is ok 2")
         self.pickAvatarButton.setBackgroundImage(image, for: UIControlState())
-
         
-    
+        
+         print("here is ok 3")
     }
     
     

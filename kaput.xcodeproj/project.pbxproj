@@ -25,6 +25,7 @@
 		3F72E3201D05CE1B00B44336 /* numberOfNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72E31F1D05CE1B00B44336 /* numberOfNotifications.swift */; };
 		3F7A12251CF888AD00AAD538 /* Futura_condensed_bold_oblique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */; };
 		3F7A12271CF88CB800AAD538 /* logoKaput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A12261CF88CB800AAD538 /* logoKaput.swift */; };
+		3F837C471E169F1500459BB8 /* friendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F837C461E169F1500459BB8 /* friendCell.swift */; };
 		3F8B234C1D687D4B005F4F36 /* imgExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8B234B1D687D4B005F4F36 /* imgExt.swift */; };
 		3FB496D11D0C8E17007AF1C8 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB496D01D0C8E17007AF1C8 /* AddFriendViewController.swift */; };
 		3FB496D51D0CF69E007AF1C8 /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB496D41D0CF69E007AF1C8 /* FirebaseDataService.swift */; };
@@ -34,6 +35,7 @@
 		3FB855321D5B626C008E0B35 /* AvatarBlue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8552E1D5B626C008E0B35 /* AvatarBlue.jpg */; };
 		3FB855341D5B99CA008E0B35 /* labelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB855331D5B99CA008E0B35 /* labelButton.swift */; };
 		3FD1633B1CF8515200862C77 /* KaputStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD1633A1CF8515200862C77 /* KaputStyle.swift */; };
+		3FE6879E1E794703000D22B3 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6879D1E794703000D22B3 /* HelpViewController.swift */; };
 		3FEA3D4C1DBE6E98008A629F /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA3D2E1DBE6E98008A629F /* AsyncButton.swift */; };
 		3FEA3D4D1DBE6E98008A629F /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA3D2F1DBE6E98008A629F /* AsyncImageView.swift */; };
 		3FEA3D4E1DBE6E98008A629F /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA3D301DBE6E98008A629F /* AutoTextView.swift */; };
@@ -128,6 +130,7 @@
 		3F72E31F1D05CE1B00B44336 /* numberOfNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = numberOfNotifications.swift; sourceTree = "<group>"; };
 		3F7A12241CF8888C00AAD538 /* Futura_condensed_bold_oblique.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Futura_condensed_bold_oblique.ttf; sourceTree = "<group>"; };
 		3F7A12261CF88CB800AAD538 /* logoKaput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logoKaput.swift; sourceTree = "<group>"; };
+		3F837C461E169F1500459BB8 /* friendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendCell.swift; sourceTree = "<group>"; };
 		3F8B234B1D687D4B005F4F36 /* imgExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imgExt.swift; sourceTree = "<group>"; };
 		3FAF16331DBFEA1100056AC5 /* kaput.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kaput.entitlements; sourceTree = "<group>"; };
 		3FB496D01D0C8E17007AF1C8 /* AddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 		3FB8552E1D5B626C008E0B35 /* AvatarBlue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AvatarBlue.jpg; sourceTree = "<group>"; };
 		3FB855331D5B99CA008E0B35 /* labelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = labelButton.swift; sourceTree = "<group>"; };
 		3FD1633A1CF8515200862C77 /* KaputStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaputStyle.swift; sourceTree = "<group>"; };
+		3FE6879D1E794703000D22B3 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		3FEA3D2E1DBE6E98008A629F /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		3FEA3D2F1DBE6E98008A629F /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		3FEA3D301DBE6E98008A629F /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 				3FEDBC9F1CFEDFB700A6C6C1 /* kaputButton.swift */,
 				3FB855331D5B99CA008E0B35 /* labelButton.swift */,
 				3FEDBCA71CFF21FA00A6C6C1 /* kaputPrimaryButton.swift */,
+				3F837C461E169F1500459BB8 /* friendCell.swift */,
 				3FEDBCA91CFF253C00A6C6C1 /* kaputSecondaryButton.swift */,
 				3FEDBCA11CFEE24000A6C6C1 /* kaputField.swift */,
 				3F516F321D555C9B0041B760 /* Users.swift */,
@@ -303,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				3F4633D21D5384F000FFBEDD /* PickUsernameViewController.swift */,
+				3FE6879D1E794703000D22B3 /* HelpViewController.swift */,
 				3F4525631D42CA870033ED97 /* EditProfileViewController.swift */,
 				3FFE32DB1D3952FB00DCDD6A /* ProfileViewController.swift */,
 				3FB496D01D0C8E17007AF1C8 /* AddFriendViewController.swift */,
@@ -553,6 +559,7 @@
 				3F121C161D52473D00D657F9 /* downButton.swift in Sources */,
 				3F1429EF1D5E05A800B0D0C5 /* littleBat.swift in Sources */,
 				3FB496D51D0CF69E007AF1C8 /* FirebaseDataService.swift in Sources */,
+				3F837C471E169F1500459BB8 /* friendCell.swift in Sources */,
 				3FEA3D671DBE6E98008A629F /* TransitionZoom.swift in Sources */,
 				89DD5F8E1D5A301D008EC160 /* CWStatusBarNotificationUtils.swift in Sources */,
 				3F593F791D09B4750059745D /* TPKeyboardAvoidingScrollView.m in Sources */,
@@ -616,6 +623,7 @@
 				3FEA3D4E1DBE6E98008A629F /* AutoTextView.swift in Sources */,
 				3F593F7A1D09B4750059745D /* TPKeyboardAvoidingTableView.m in Sources */,
 				3FEA3D4D1DBE6E98008A629F /* AsyncImageView.swift in Sources */,
+				3FE6879E1E794703000D22B3 /* HelpViewController.swift in Sources */,
 				3FEA3D561DBE6E98008A629F /* DesignableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

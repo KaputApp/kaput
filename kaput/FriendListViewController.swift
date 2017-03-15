@@ -13,7 +13,7 @@ import FirebaseDatabase
 import MGSwipeTableCell
 
 var myUsername = String()
-var myAvatar = UIImage()
+var myAvatar : UIImage?
 
 
 class FriendListViewController: UIappViewController, UITableViewDelegate, UITableViewDataSource{
@@ -106,12 +106,12 @@ override func didReceiveMemoryWarning() {
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)  as! MGSwipeTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)  as! friendCell
         if hasFriend {
             cell.rightButtons = [MGSwipeButton(title: "", icon: KaputStyle.imageOfTrashCan,backgroundColor: KaputStyle.lowRed,padding:30,callback: {
             (sender: MGSwipeTableCell!) -> Bool in
 
-            let name = tableView.cellForRow(at: indexPath)?.textLabel?.text
+            let name = cell.friendsName?.text
             FirebaseDataService.removeFriend(name!)
                 FirebaseDataService.getUidWithUsername(name!,response: {(uid,exists)->() in
 //                    let myName = [myUsername:true] as [String:Bool]
@@ -127,21 +127,28 @@ override func didReceiveMemoryWarning() {
         
         cell.backgroundColor = Colors.init().bgColor
 
-
-        cell.textLabel?.text = data[(indexPath as NSIndexPath).row] as! String
+        cell.friendsName.text = data[(indexPath as NSIndexPath).row] as! String
         
-        let username = cell.textLabel!.text
+        
+        let username = cell.friendsName!.text
         
         
         if hasFriend {
         FirebaseDataService.getBatLevelWithName(username!) { (batLevel) in
             
             cell.backgroundColor = ColorsForBat(batLevel)
+            cell.friendsBat.text = String(batLevel)+"%"
+            if reachable == true {
+            FirebaseDataService.sendSilentToName(username!)
+            }
+        }
+        }else{
+                cell.friendsBat.alpha = 0
             
         }
-        }
         
-        
+        print("silent sent to \(username!)")
+
         return cell
     }
     
@@ -254,8 +261,8 @@ override func didReceiveMemoryWarning() {
 
         let indexPath = tableView.indexPathForSelectedRow!
         tableView.deselectRow(at: indexPath, animated: true)
-        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
-        let name = currentCell.textLabel!.text
+        let currentCell = tableView.cellForRow(at: indexPath)! as! friendCell
+        let name = currentCell.friendsName!.text
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
@@ -286,14 +293,19 @@ override func didReceiveMemoryWarning() {
 
         let boltImageAnimationView = SpringImageView(image: KaputStyle.imageOfBolt)
 
-        currentCell.textLabel!.alpha = 0
+        currentCell.friendsName!.alpha = 0
+        currentCell.friendsBat!.alpha = 0
+
         currentCell.backgroundView = boltImageAnimationView
         currentCell.backgroundView?.contentMode = .center
         boltImageAnimationView.animation = "slideLeft"
         boltImageAnimationView.animateTo()
         let triggerTime = (Int64(NSEC_PER_SEC) * 1)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
-        currentCell.textLabel!.alpha = 1
+        currentCell.friendsName!.alpha = 1
+        currentCell.friendsBat!.alpha = 1
+
+            
         currentCell.backgroundView = nil
       
         })

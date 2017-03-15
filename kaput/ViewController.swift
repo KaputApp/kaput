@@ -100,16 +100,16 @@ class ViewController: UIappViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.batteryLevelDidChange(_:)), name:NSNotification.Name.UIDeviceBatteryLevelDidChange, object: nil)
           NotificationCenter.default.addObserver(self, selector: #selector(self.batteryStateDidChange(_:)), name:NSNotification.Name.UIDeviceBatteryStateDidChange, object: nil)
-
+        chargingBarView.frame.origin.y = UIScreen.main.bounds.height
         chargingBarView.backgroundColor = Colors.init().bgColor
         let batteryLevelHeight = CGFloat(UIDevice.current.batteryLevel)*UIScreen.main.bounds.height
-
-        chargingBarHeight.constant=batteryLevelHeight
-        chargingBarView.frame.origin.y = UIScreen.main.bounds.height
-        print(chargingBarView.frame.origin.y)
-
-        UIView.animate(withDuration: 2, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
         
+        chargingBarHeight.constant=batteryLevelHeight
+        
+        print(chargingBarView.frame)
+
+        
+        UIView.animate(withDuration: 2, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
         self.chargingBarView.needsUpdateConstraints()
         self.chargingBarView.layoutIfNeeded()
             

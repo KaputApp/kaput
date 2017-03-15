@@ -111,10 +111,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         // Print full message.
-        
+        print("Bien reçu chef")
         FIRMessaging.messaging().appDidReceiveMessage(userInfo)
-    
+        ref.child("Users").child(userID!).updateChildValues(["batteryLevel": Int(abs(UIDevice.current.batteryLevel)*100)])
+        print(userID!)
+        print("Bat mise à jour au niveau \(String(Int(abs(UIDevice.current.batteryLevel)*100)))")
 
+        
     }
     // [END receive_message]
     
@@ -151,13 +154,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
     
-    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
-        ref.child("Users").child(userID!).updateChildValues(["batteryLevel": batteryLevel])
-        completionHandler(.newData)
-        print("batlevelupdated in background")
-
-    }
     
     // [START disconnect_from_fcm]
 //    func applicationDidEnterBackground(application: UIApplication) {
