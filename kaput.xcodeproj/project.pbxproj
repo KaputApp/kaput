@@ -434,8 +434,9 @@
 				TargetAttributes = {
 					89139D8D1CF762D000DF4941 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = ZS2K7XBWJW;
+						DevelopmentTeam = 6TSFD975LR;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -744,10 +745,11 @@
 				CODE_SIGN_ENTITLEMENTS = kaput/kaput.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6TSFD975LR;
 				INFOPLIST_FILE = kaput/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kaput.ope50;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaput.odsu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -764,6 +766,7 @@
 				CODE_SIGN_ENTITLEMENTS = kaput/kaput.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6TSFD975LR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts\"",
@@ -787,7 +790,7 @@
 				INFOPLIST_FILE = kaput/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kaput.ope50;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaput.odsu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;

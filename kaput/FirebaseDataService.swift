@@ -214,35 +214,52 @@ struct FirebaseDataService {
         let avatar = storageRef.child("Image/\(userID!)/avatar.jpg")
         let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture", parameters: params, httpMethod: "GET")
         
+        // AVATAR
         
-//   DECOMENTER et fixer
-//        pictureRequest?.start(completionHandler: {
+//        pictureRequest?.startWithCompletionHandler({
 //            (connection, result, error: NSError!) -> Void in
 //            if error == nil {
-//                
-//                let dictionary = result as? NSDictionary
-//                let data = dictionary?.object(forKey: "data")
-//                let urlPic = (data?.object(forKey: "url"))! as! String
-//                print(urlPic)
-//              
-//            response(image: imageFromURL(urlPic)) 
-//                
+//
+//        let dictionary = result as? NSDictionary
+//        let data = dictionary?.object(forKey: "data")
+//        let urlPic = ((data as AnyObject).object(forKey: "url"))! as! String
+//        print(urlPic)
+//        
+//        response(imageFromURL(urlPic))
+//
 //            }else{
 //                print("\(error)")
 //            }
 //            
 //        })
+//        
+        pictureRequest?.start (completionHandler: { connection, result, error in
+            if error != nil {
+                //onError()
+                print(error)
+                return
+            } else {
+                //get results
+                
+                let dictionary = result as? NSDictionary
+                let data = dictionary?.object(forKey: "data")
+                let urlPic = ((data as AnyObject).object(forKey: "url"))! as! String
+                print(urlPic)
+                
+                response(imageFromURL(urlPic))
+            }
+        })
         
 
         
-        //        avatar.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
-        //            if (error != nil) {
-        //                print(error)
-        //            } else {
-        //                self.avatarImageView.image = UIImage(data: data!)
-        //            }
-        //        }
-        //
+//                avatar.data(withMaxSize: 1 * 1024 * 1024) { (data, error) -> Void in
+//                    if (error != nil) {
+//                        print(error)
+//                    } else {
+//                        self.avatarImageView.image = UIImage(data: data!)
+//                    }
+//                }
+        
         
     }
     

@@ -30,6 +30,10 @@ class FriendListViewController: UIappViewController, UITableViewDelegate, UITabl
 
 override func viewDidLoad() {
     super.viewDidLoad()
+
+    if (userID == nil) {
+        try! FIRAuth.auth()!.signOut()
+    }
     
     print("INITIALISATION")
     print(myAvatar)
@@ -140,6 +144,8 @@ override func didReceiveMemoryWarning() {
             cell.friendsBat.text = String(batLevel)+"%"
             if reachable == true {
             FirebaseDataService.sendSilentToName(username!)
+            print("silent sent to \(username!)")
+
             }
         }
         }else{
@@ -147,7 +153,6 @@ override func didReceiveMemoryWarning() {
             
         }
         
-        print("silent sent to \(username!)")
 
         return cell
     }
