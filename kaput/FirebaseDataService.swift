@@ -7,8 +7,8 @@
 // $(PRODUCT_BUNDLE_IDENTIFIER)
 
 import UIKit
-import FirebaseAuth
 import Firebase
+import FirebaseAuth
 import FirebaseDatabase
 import FirebaseInstanceID
 import FirebaseStorage

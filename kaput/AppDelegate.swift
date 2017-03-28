@@ -50,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     if ((FIRAuth.auth()!.currentUser) != nil){
     userID = String(FIRAuth.auth()!.currentUser!.uid)
+    
+        print("au moment de l'appdelegate, userID est \(userID)")
+        print("instanceID")
+        print(FIRInstanceID.instanceID().token())
         
         self.window?.rootViewController = vc
 
@@ -96,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         //Tricky line
-        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.sandbox)
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.prod)
 
         
     }

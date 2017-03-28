@@ -11,6 +11,8 @@ import FirebaseAuth
 import Firebase
 import FirebaseDatabase
 import MGSwipeTableCell
+import FBSDKLoginKit
+
 
 var myUsername = String()
 var myAvatar : UIImage?
@@ -31,9 +33,7 @@ class FriendListViewController: UIappViewController, UITableViewDelegate, UITabl
 override func viewDidLoad() {
     super.viewDidLoad()
 
-    if (userID == nil) {
-        try! FIRAuth.auth()!.signOut()
-    }
+   
     
     print("INITIALISATION")
     print(myAvatar)
@@ -49,6 +49,13 @@ override func viewDidLoad() {
     
     FirebaseDataService.getName({(name) in
         myUsername = name
+//        if (myUsername == "") {
+//            try! FIRAuth.auth()!.signOut()
+//            let loginManager = FBSDKLoginManager()
+//            loginManager.logOut()
+//            
+//        }
+
     })
     
 
