@@ -26,7 +26,10 @@ class ViewController: UIappViewController {
         if reachable == true {
         
         let facebookLogin = FBSDKLoginManager()
+            facebookLogin.loginBehavior = FBSDKLoginBehavior.web
 
+
+    
         
         facebookLogin.logIn(withReadPermissions: ["public_profile", "email","user_friends"], from: self, handler: {
             (facebookResult, facebookError) -> Void in
@@ -48,9 +51,13 @@ class ViewController: UIappViewController {
                         ref.child("Users").child(userID!).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
                         //Si oui, on passe l'étape
                             if snapshot.hasChildren(){
+                                print("l'userID existe deja")
                         self.performSegue(withIdentifier: "facebookLoginSegue", sender: self)
                         userID = String(FIRAuth.auth()!.currentUser!.uid)
                             } else {
+                                
+                                print("l'userID n'existe deja")
+
                         //Si non, créer l'user et on passe l'étape
                             self.performSegue(withIdentifier: "pickUsernameSegue", sender: self)
                                 FirebaseDataService.createUserData(userID!, bat: String(batteryLevel), username: "", kaputSent: 0)
@@ -76,6 +83,20 @@ class ViewController: UIappViewController {
     
     }
     
+    
+//    //TEMP
+//    
+//    func buttonAction(sender: UIButton!) {
+//        var btnsendtag: UIButton = sender
+//        if btnsendtag.tag == 1 {
+//
+//            let alert = UIAlertController(title: "Alert", message: "uid = , username = \(myUsername)", preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//            
+//        }
+//        }
+    
 @IBOutlet var buttonFacebook: SpringButton!
 @IBOutlet var buttonLogIn: SpringButton!
 @IBOutlet var buttonSignUp: SpringButton!
@@ -93,6 +114,17 @@ class ViewController: UIappViewController {
         print(myUsername)
         print("END INIT")
 
+//        // TEMP
+//        
+//        let btn: UIButton = UIButton(frame: CGRect(x: 100, y: 400, width: 100, height: 50))
+//        btn.backgroundColor = UIColor.green
+//        btn.setTitle("Click Me", for: .normal)
+//        btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+//        btn.tag = 1
+//        self.view.addSubview(btn)
+//        
+//        
+        
         
         batLevel.init()
         

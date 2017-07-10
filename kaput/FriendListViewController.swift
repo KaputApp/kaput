@@ -29,15 +29,39 @@ class FriendListViewController: UIappViewController, UITableViewDelegate, UITabl
     var boltView : UIView!
     var boltImageView : UIImageView!
 
+    
+//    
+//    //TEMP
+//    
+//    func buttonAction(sender: UIButton!) {
+//        var btnsendtag: UIButton = sender
+//        if btnsendtag.tag == 1 {
+//            
+//            let alert = UIAlertController(title: "Alert", message: "uid = \(userID) , username = \(myUsername)", preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//            
+//        }
+//    }
+    
 
 override func viewDidLoad() {
     super.viewDidLoad()
 
+    
+//    // TEMP button
+//    
+//    let btn: UIButton = UIButton(frame: CGRect(x: 100, y: 400, width: 100, height: 50))
+//    btn.backgroundColor = UIColor.green
+//    btn.setTitle("Click Me", for: .normal)
+//    btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+//    btn.tag = 1
+//    self.view.addSubview(btn)
+
+    
    
     
     print("INITIALISATION")
-    print(myAvatar)
-    print(myUsername)
     print("END INIT")
     
     //charge les differents éléments
@@ -56,7 +80,7 @@ override func viewDidLoad() {
 //            
 //        }
 
-    })
+    })  
     
 
     FirebaseDataService.getAvatarFromFirebase({(image) in

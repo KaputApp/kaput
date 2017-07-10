@@ -46,17 +46,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
+//        try! FIRAuth.auth()!.signOut()
+//        let loginManager = FBSDKLoginManager()
+//        loginManager.logOut()
+//                    
 
-
+        
+        
     if ((FIRAuth.auth()!.currentUser) != nil){
     userID = String(FIRAuth.auth()!.currentUser!.uid)
     
         print("au moment de l'appdelegate, userID est \(userID)")
         print("instanceID")
         print(FIRInstanceID.instanceID().token())
-        
+        //FirebaseDataService.updateData(userID!)
         self.window?.rootViewController = vc
 
+        
 
         ref.child("Users").child(userID!).child("name").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             if (snapshot.value as? String == ""){
@@ -100,7 +106,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         //Tricky line
-        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.prod)
+   // FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.prod)
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.unknown)
+
 
         
     }
@@ -115,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         // Print full message.
-        print("Bien reçu chef")
+        print("Bien reçu la notif")
         FIRMessaging.messaging().appDidReceiveMessage(userInfo)
         ref.child("Users").child(userID!).updateChildValues(["batteryLevel": Int(abs(UIDevice.current.batteryLevel)*100)])
         print(userID!)

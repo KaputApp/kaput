@@ -78,17 +78,31 @@ struct FirebaseDataService {
     
     static func createUserData(_ uid: String, bat: String, username: String, kaputSent: Int) {
     let user = ResourcePath.user(uid: uid).description
-       
+        print(user)
+        print("myUsername")
         myUsername = username
+        print("myUsername ok")
+
         myAvatar = UIImage(named:"AvatarBlue.jpg")!
         
-    ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"", "kaputSent": 0 ,"instanceID": FIRInstanceID.instanceID().token()!])
+        print("my avatar ok")
+    ref.child(user).setValue(["userID": uid, "batteryLevel": bat, "isOnLine": "true", "name":username, "kaput" :"", "friends":"", "kaputSent": 0 ,"instanceID":FIRInstanceID.instanceID().token()])
         
             storeAvatarInFirebase(UIImage(named:"AvatarBlue.jpg")!)
        
         
         
     }
+    
+    
+    static func updateData(_ uid: String) {
+        let user = ResourcePath.user(uid: uid).description
+        
+        ref.child(user).updateChildValues(["instanceID": FIRInstanceID.instanceID().token()!])
+        
+        
+    }
+    
     
     static func userExists(_ uid: String, response: @escaping (_ userExists : Bool) -> ()) {
         let user = ResourcePath.user(uid: uid).description
@@ -148,9 +162,11 @@ struct FirebaseDataService {
     }
     
     static func getName(_ response : @escaping (_ name : String) -> ()){
+        
         ref.child("Users").child(userID!).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
 
             if let snapshotValue = snapshot.value as? NSDictionary {
+                print(snapshotValue)
                 response((snapshotValue["name"] as? String)!)}else{
             }
         })
@@ -418,7 +434,7 @@ struct FirebaseDataService {
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("key=AIzaSyAxHVl_jj4oyZrLw0aozMyk3b_msOvApSQ", forHTTPHeaderField: "Authorization")
+        request.setValue("key=AAAALFMYhl8:APA91bHN7vmISWwLdAamsjUMRxHD7AEkMB4PqfVdgFNcHXtpPnN0JzJBJHYfhJCyz9sShbC8sxQzkFmqeX42VIO5GPenB_kSalINS4yaiTZlHIQ2l60DOgeEX5_qjsvT1iWj0hYkMShn", forHTTPHeaderField: "Authorization")
             
         do
         {
@@ -465,7 +481,7 @@ struct FirebaseDataService {
                     let request = NSMutableURLRequest(url: url!)
                     request.httpMethod = "POST"
                     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                    request.setValue("key=AIzaSyAxHVl_jj4oyZrLw0aozMyk3b_msOvApSQ", forHTTPHeaderField: "Authorization")
+                    request.setValue("key=AAAALFMYhl8:APA91bHN7vmISWwLdAamsjUMRxHD7AEkMB4PqfVdgFNcHXtpPnN0JzJBJHYfhJCyz9sShbC8sxQzkFmqeX42VIO5GPenB_kSalINS4yaiTZlHIQ2l60DOgeEX5_qjsvT1iWj0hYkMShn", forHTTPHeaderField: "Authorization")
                     
                     do
                     {
